@@ -10,7 +10,7 @@ public class Test : NetworkBehaviour, IAfterSpawned
     {
         if (!Runner.IsPlayer) return;
         base.FixedUpdateNetwork();
-
+        print(Runner.LocalPlayer + " " + name);
         hp -= Time.fixedDeltaTime;
     }
 
@@ -20,4 +20,6 @@ public class Test : NetworkBehaviour, IAfterSpawned
         print("adasd");
         hp = 100;
     }
+
+
 }

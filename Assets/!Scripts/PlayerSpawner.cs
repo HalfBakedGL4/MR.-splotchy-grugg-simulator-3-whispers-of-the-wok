@@ -7,11 +7,17 @@ public class PlayerSpawner : SimulationBehaviour, IPlayerJoined
 
     public void PlayerJoined(PlayerRef player)
     {
-        print(player == Runner.LocalPlayer);
-        if (player == Runner.LocalPlayer)
-        {
-            Runner.Spawn(PlayerPrefab, new Vector3(0, 1, 0), Quaternion.identity);
-        }
+        print("player joined");
+
+        if (!Runner.IsServer) return;
+
+        NetworkObject obj = Runner.Spawn(PlayerPrefab, new Vector3(0, 1, 0), Quaternion.identity, player);
+        obj.name = player.ToString();
+
+        //if (player == Runner.LocalPlayer)
+        //{
+        //    Runner.Spawn(PlayerPrefab, new Vector3(0, 1, 0), Quaternion.identity);
+        //}
     }
 
 }
