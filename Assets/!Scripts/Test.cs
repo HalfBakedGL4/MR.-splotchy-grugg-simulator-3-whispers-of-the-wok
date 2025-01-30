@@ -10,14 +10,13 @@ public class Test : NetworkBehaviour, IAfterSpawned
     {
         if (!Runner.IsPlayer) return;
         base.FixedUpdateNetwork();
-        print(Runner.LocalPlayer + " " + name);
         hp -= Time.fixedDeltaTime;
     }
 
     public void AfterSpawned()
     {
         if (!Runner.IsPlayer) return;
-        print("adasd");
+        print(Runner.LocalPlayer + " " + name);
         hp = 100;
     }
 
