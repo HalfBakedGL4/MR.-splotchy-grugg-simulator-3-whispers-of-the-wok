@@ -357,10 +357,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1258871764566527509, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
-      propertyPath: m_PlanePrefab
-      value: 
-      objectReference: {fileID: 3855171346914079041, guid: 1981b3c7072fe8f4db011f59a3d18678, type: 3}
     - target: {fileID: 6852824657293691943, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -405,45 +401,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Player
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7022938681217834073, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7587488022083453592, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 333044997}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
---- !u!1 &333044995 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7587488022083453592, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
-  m_PrefabInstance: {fileID: 333044994}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &333044996 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1258871764566527509, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
-  m_PrefabInstance: {fileID: 333044994}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 333044995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &333044997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 333044995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7756998368e3fe749941f18aa1445ec9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  planeManager: {fileID: 333044996}
-  classifications: 256
 --- !u!1 &1120560093
 GameObject:
   m_ObjectHideFlags: 0
