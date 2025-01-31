@@ -945,7 +945,7 @@ MonoBehaviour:
   m_NearInteractionCaster: {fileID: 4392061875025244089}
   m_NearCasterSortingStrategy: 1
   m_SortNearTargetsAfterTargetFilter: 0
-  m_EnableFarCasting: 1
+  m_EnableFarCasting: 0
   m_FarInteractionCaster: {fileID: 5695010870250450403}
   m_FarAttachMode: 1
   m_EnableUIInteraction: 1
@@ -1455,7 +1455,7 @@ MonoBehaviour:
   m_NearInteractionCaster: {fileID: 287530629901664940}
   m_NearCasterSortingStrategy: 1
   m_SortNearTargetsAfterTargetFilter: 0
-  m_EnableFarCasting: 1
+  m_EnableFarCasting: 0
   m_FarInteractionCaster: {fileID: 8072280817469686006}
   m_FarAttachMode: 1
   m_EnableUIInteraction: 1

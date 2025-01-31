@@ -507,7 +507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planeManager: {fileID: 333044995}
-  classifications: 256
+  targetClassification: 4
   spawnObject: {fileID: 4326387533491593377, guid: 298c79398a088c345be6bfd70409ff33, type: 3}
 --- !u!4 &1953618874
 Transform:
