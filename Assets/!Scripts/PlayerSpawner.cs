@@ -8,6 +8,7 @@ public class PlayerSpawner : MonoBehaviour, INetworkRunnerCallbacks
 {
     public GameObject PlayerPrefab;
     NetworkRunner runner;
+    private Dictionary<PlayerRef, NetworkObject> _spawnedUsers = new Dictionary<PlayerRef, NetworkObject>();
 
     private void Awake()
     {
@@ -24,6 +25,8 @@ public class PlayerSpawner : MonoBehaviour, INetworkRunnerCallbacks
         print(PlayerPrefab == null);
 
         NetworkObject obj = runner.Spawn(PlayerPrefab, new Vector3(0, 1, 0), Quaternion.identity, player);
+        _spawnedUsers.Add(player, obj);
+
         obj.name = player.ToString();
         print(obj.name);
     }
@@ -34,9 +37,17 @@ public class PlayerSpawner : MonoBehaviour, INetworkRunnerCallbacks
         SpawnPlayer(player);
     }
 
+    public void OnPlayerLeft(NetworkRunner runner, PlayerRef player)
+    {
+        if (_spawnedUsers.TryGetValue(player, out NetworkObject obj))
+        {
+            runner.Despawn(obj);
+            _spawnedUsers.Remove(player);
+        }
+    }
+
     public void OnObjectExitAOI(NetworkRunner runner, NetworkObject obj, PlayerRef player) { }
     public void OnObjectEnterAOI(NetworkRunner runner, NetworkObject obj, PlayerRef player) { }
-    public void OnPlayerLeft(NetworkRunner runner, PlayerRef player) { }
     public void OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason) { }
     public void OnDisconnectedFromServer(NetworkRunner runner, NetDisconnectReason reason) { }
     public void OnConnectRequest(NetworkRunner runner, NetworkRunnerCallbackArgs.ConnectRequest request, byte[] token) { }
