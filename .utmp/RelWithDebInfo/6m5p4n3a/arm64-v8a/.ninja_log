@@ -1,0 +1,19 @@
+# ninja log v5
+40	2941	7599342515573543	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	6f2234a90432fb
+105	3092	7599342517339101	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	1e42256659747f5a
+0	2977	7599342515482314	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	a3d43c741c0e33e4
+32	2985	7599342515911859	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	cf354307adc6d4d2
+92	3363	7599342520074641	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	a2fb33e8fd6bdcd2
+16	3296	7599342519365609	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	b8104971cca47bb
+25	3483	7599342521355727	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	225f7f2def2c3e4b
+9	3596	7599342522483929	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	9dfa5fca690dde1e
+3597	3711	7599342523684425	C:/Users/oyvin/Documents/GitHub/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/6m5p4n3a/obj/arm64-v8a/libgame.so	7751e5956eca979a
+61	3042	7599349110226285	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	a2fb33e8fd6bdcd2
+87	3102	7599349111088190	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	6f2234a90432fb
+44	3185	7599349112040213	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	a3d43c741c0e33e4
+52	3210	7599349111944442	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	cf354307adc6d4d2
+101	3312	7599349113276068	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	1e42256659747f5a
+33	3330	7599349113464203	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	b8104971cca47bb
+68	3902	7599349119173079	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	225f7f2def2c3e4b
+17	3945	7599349119611756	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	9dfa5fca690dde1e
+3945	4178	7599349122032929	C:/Users/oyvin/Documents/GitHub/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/6m5p4n3a/obj/arm64-v8a/libgame.so	7751e5956eca979a

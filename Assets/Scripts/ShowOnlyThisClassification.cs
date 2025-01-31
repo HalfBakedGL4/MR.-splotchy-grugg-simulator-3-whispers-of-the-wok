@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;
+
+public class ShowOnlyThisClassification : MonoBehaviour
+{
+    [SerializeField] private ARPlaneManager planeManager;
+    [SerializeField] private PlaneClassifications classifications;
+    
+    private void OnEnable()
+    {
+        planeManager.planesChanged += SetupPlane;
+    }
+    private void OnDisable()
+    {
+        planeManager.planesChanged -= SetupPlane;
+    }
+
+    private void SetupPlane(ARPlanesChangedEventArgs obj)
+    {
+        List<ARPlane> newPlane = obj.added;
+        foreach (var item in newPlane)
+        {
+            if (item.classifications == classifications)
+            {
+                
+            }
+            else
+            {
+                Renderer itemrenderer = item.GetComponent<Renderer>();
+                Destroy(itemrenderer);
+            }
+        }
+    }
+
+    
+}
+
