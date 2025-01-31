@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
-public class ShowOnlyThisClassification : MonoBehaviour
+public class S_ShowOnlyThisClassification : MonoBehaviour
 {
     [SerializeField] private ARPlaneManager planeManager;
     [SerializeField] private PlaneClassifications classifications;
