@@ -24,7 +24,9 @@ public class PlayerSpawner : MonoBehaviour, INetworkRunnerCallbacks
     {
         print(PlayerPrefab == null);
 
-        NetworkObject obj = runner.Spawn(PlayerPrefab, new Vector3(0, 1, 0), Quaternion.identity, player);
+        NetworkObject obj = null;
+
+        obj = runner.Spawn(PlayerPrefab, new Vector3(0, 1, 0), Quaternion.identity, player);
         _spawnedUsers.Add(player, obj);
 
         obj.name = player.ToString();
