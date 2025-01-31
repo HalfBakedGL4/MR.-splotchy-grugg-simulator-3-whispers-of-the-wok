@@ -23,7 +23,10 @@ public class PlayerSpawner : MonoBehaviour, INetworkRunnerCallbacks
     {
         print(PlayerPrefab == null);
 
-        NetworkObject obj = runner.Spawn(PlayerPrefab, new Vector3(0, 1, 0), Quaternion.identity, player);
+        NetworkObject obj = null;
+
+        obj = runner.Spawn(PlayerPrefab, new Vector3(0, 1, 0), Quaternion.identity, player);
+
         obj.name = player.ToString();
         print(obj.name);
     }
