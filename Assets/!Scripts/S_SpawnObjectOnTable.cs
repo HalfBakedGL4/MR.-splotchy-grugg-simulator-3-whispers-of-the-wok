@@ -19,6 +19,7 @@ public class S_SpawnObjectOnTable : MonoBehaviour
     }
 
     private void PlaceObjectOnPlane(ARPlanesChangedEventArgs obj)
+    
     {
         List<ARPlane> newPlane = obj.added;
         foreach (var item in newPlane)

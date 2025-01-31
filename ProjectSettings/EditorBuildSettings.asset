@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/ThrowAndPassThrough.unity
-    guid: eccca53ade5d0db4dbfd173ba03b8d26
+    path: Assets/Scenes/ObjectPlacement.unity
+    guid: 54b54eb80997d144ebbe93f0a18095a9
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: dc02a0b0feff2ee499040153a5e52e23, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
