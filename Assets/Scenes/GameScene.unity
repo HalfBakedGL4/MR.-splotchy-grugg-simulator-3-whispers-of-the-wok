@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prototype Runner
       objectReference: {fileID: 0}
+    - target: {fileID: 772271146220862191, guid: c3c5889aef860f047ba34393bc5d3b95, type: 3}
+      propertyPath: PlayerPrefab
+      value: 
+      objectReference: {fileID: 7587488022083453592, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
     - target: {fileID: 5619847185980448748, guid: c3c5889aef860f047ba34393bc5d3b95, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
