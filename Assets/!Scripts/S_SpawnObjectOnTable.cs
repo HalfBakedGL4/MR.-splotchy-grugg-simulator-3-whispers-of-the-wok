@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -8,8 +9,10 @@ public class S_SpawnObjectOnTable : MonoBehaviour
 {
     [SerializeField] private ARPlaneManager planeManager;
     [SerializeField] private PlaneClassifications classifications;
-    
     [SerializeField] private GameObject spawnObject;
+    [SerializeField] private TMP_Text debugText;
+    
+    private float basketSize = 0.5f;
     private void OnEnable()
     {
         planeManager.planesChanged += PlaceObjectOnPlane;
@@ -27,7 +30,33 @@ public class S_SpawnObjectOnTable : MonoBehaviour
         {
             if (item.classifications == classifications)
             {
-                Instantiate(spawnObject, item.transform.position, Quaternion.identity);
+                // Finds number of rows and columns to create a grid to place items
+                var rows = item.size.x / basketSize;
+                var cols = item.size.y / basketSize;
+                
+                rows = Mathf.FloorToInt(rows);
+                cols = Mathf.FloorToInt(cols);
+                
+                var rowSize = item.size.x / rows;
+                var colSize = item.size.y / cols;
+                
+                debugText.text += item.name + ": " + item.size + " Rows: " + rows + " Cols: " + cols + "\n";
+                
+                for (int i = 0; i < rows; i++) {
+                    for (int j = 0; j < cols; j++) {
+                        // Offset to place items in middle of grid square
+                        var offsetVector = new Vector3(rowSize * (i+0.5f), 0, colSize * (j+0.5f)) - new Vector3(item.extents.x, 0, item.extents.y);
+                        // Spawn Object
+                        var objectInstance = Instantiate(spawnObject, item.transform.position, Quaternion.identity);
+                        // Make Object Child of ARPlane to place it through localTransform
+                        objectInstance.transform.parent = item.transform;
+                        // Where to spawn object in world Space
+                        var spawnPos = item.center + offsetVector;
+                        spawnPos.y = 0;
+                        objectInstance.transform.localPosition = spawnPos;
+                        debugText.text += objectInstance.name + ": " + objectInstance.transform.localPosition + "\n";
+                    }
+                }
             }
         }
     }
