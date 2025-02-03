@@ -3253,6 +3253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planeManager: {fileID: 1258871764566527509}
   classifications: 256
+  portalMaterial: {fileID: 2100000, guid: 1325af1fbb502f64c9a7aea1998659f8, type: 2}
 --- !u!1 &7594413810460777531
 GameObject:
   m_ObjectHideFlags: 0
