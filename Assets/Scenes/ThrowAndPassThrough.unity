@@ -401,6 +401,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8645083081162208722, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
+      propertyPath: cubePrefab
+      value: 
+      objectReference: {fileID: 7024177230717534220, guid: d23eaa05de994474585d805406e4f9c6, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
