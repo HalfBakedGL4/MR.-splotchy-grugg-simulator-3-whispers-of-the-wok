@@ -4493,7 +4493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1138a88edb72f3e4ca7c0cbb108b3eb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubePrefab: {fileID: 5033939911542046961, guid: deb10d5645a5fab4a89d4b68b86d467c, type: 3}
+  cubePrefab: {fileID: 6887932550299811162, guid: 53729fdcb1c72874f825b46df0800d5f, type: 3}
   startSpeed: 2
   inputAction:
     m_UseReference: 1
