@@ -855,9 +855,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 364a4feca090d2d4b9bcd6137e2d5a58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Head: {fileID: 1375218183138328832}
-  RightHand: {fileID: 7936691784507497187}
-  LeftHand: {fileID: 1796315055618462041}
+  Head: {fileID: 2046449438064952369}
+  RightHand: {fileID: 2957712038607595313}
+  LeftHand: {fileID: 7981498420316941414}
   runner: {fileID: 0}
 --- !u!114 &2957236895613078498
 MonoBehaviour:
