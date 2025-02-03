@@ -9,7 +9,7 @@ public class S_NetworkPlayer : NetworkBehaviour
     public const int EXECUTION_ORDER = 100;
     [SerializeField] S_LocalPlayer ConnectedPlayer;
 
-    [SerializeField] Transform Head, RightHand, LeftHand;
+    [SerializeField] S_NetworkPart Head, RightHand, LeftHand;
 
     public bool IsLocalNetworkRig => Object.HasInputAuthority;
 
@@ -34,18 +34,18 @@ public class S_NetworkPlayer : NetworkBehaviour
 
     public override void Render()
     {
-        if (!IsLocalNetworkRig) return;
+        if (!IsLocalNetworkRig || ConnectedPlayer == null) return;
 
-        transform.position = ConnectedPlayer.rig.Body.position;
-        transform.rotation = ConnectedPlayer.rig.Body.rotation;
+        transform.position = ConnectedPlayer.transform.position;
+        transform.rotation = ConnectedPlayer.transform.rotation;
 
-        Head.transform.localPosition = ConnectedPlayer.rig.Head.localPosition;
-        Head.transform.localRotation = ConnectedPlayer.rig.Head.localRotation;
+        Head.transform.position = ConnectedPlayer.Head.transform.position;
+        Head.transform.rotation = ConnectedPlayer.Head.transform.rotation;
 
-        RightHand.transform.localPosition = ConnectedPlayer.rig.RightHand.localPosition;
-        RightHand.transform.localRotation = ConnectedPlayer.rig.RightHand.localRotation;
+        RightHand.transform.position = ConnectedPlayer.RightHand.transform.position;
+        RightHand.transform.rotation = ConnectedPlayer.RightHand.transform.rotation;
 
-        LeftHand.transform.localPosition = ConnectedPlayer.rig.LeftHand.localPosition;
-        LeftHand.transform.localRotation = ConnectedPlayer.rig.LeftHand.localRotation;
+        LeftHand.transform.position = ConnectedPlayer.LeftHand.transform.position;
+        LeftHand.transform.rotation = ConnectedPlayer.LeftHand.transform.rotation;
     }
 }

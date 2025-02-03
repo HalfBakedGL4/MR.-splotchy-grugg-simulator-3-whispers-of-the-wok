@@ -2,13 +2,12 @@ using UnityEngine;
 
 public struct Rig
 {
-    public Transform Body, Head, RightHand, LeftHand;
+    public S_HardwarePart Body, Head, RightHand, LeftHand;
 
-    public void SetRig(Transform body, Transform head, Transform rightHand, Transform leftHand)
+    public void SetRig(S_LocalPlayer player)
     {
-        Body = body;
-        Head = head;
-        RightHand = rightHand;
-        LeftHand = leftHand;
+        Head = player.Head;
+        RightHand = player.RightHand;
+        LeftHand = player.LeftHand;
     }
 }

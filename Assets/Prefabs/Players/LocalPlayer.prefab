@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6057527103106916129}
   - component: {fileID: 5190508278528339428}
   - component: {fileID: 3485909113103284964}
+  - component: {fileID: 2046449438064952369}
   m_Layer: 0
   m_Name: Head
   m_TagString: MainCamera
@@ -274,6 +275,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UseCustomMaterial: 0
   m_CustomMaterial: {fileID: 0}
+--- !u!114 &2046449438064952369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517355175604575722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abae257eed912654d87086b60a085888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &551790755284736704
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,6 +300,7 @@ GameObject:
   - component: {fileID: 2659325430426519167}
   - component: {fileID: 4179025975882425032}
   - component: {fileID: 6157693452931809021}
+  - component: {fileID: 7981498420316941414}
   m_Layer: 0
   m_Name: Left Controller
   m_TagString: Untagged
@@ -452,6 +466,18 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+--- !u!114 &7981498420316941414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551790755284736704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abae257eed912654d87086b60a085888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1887774094921101166
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,6 +675,7 @@ GameObject:
   - component: {fileID: 1258871764566527509}
   - component: {fileID: 7022938681217834073}
   - component: {fileID: 6426994986786268624}
+  - component: {fileID: 2957236895613078498}
   m_Layer: 2
   m_Name: LocalPlayer
   m_TagString: Untagged
@@ -831,6 +858,19 @@ MonoBehaviour:
   Head: {fileID: 1375218183138328832}
   RightHand: {fileID: 7936691784507497187}
   LeftHand: {fileID: 1796315055618462041}
+  runner: {fileID: 0}
+--- !u!114 &2957236895613078498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7587488022083453592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abae257eed912654d87086b60a085888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7730354564877882689
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,6 +1092,7 @@ GameObject:
   - component: {fileID: 1002811548296652680}
   - component: {fileID: 7501176459329082257}
   - component: {fileID: 8645083081162208722}
+  - component: {fileID: 2957712038607595313}
   m_Layer: 0
   m_Name: Right Controller
   m_TagString: Untagged
@@ -1243,6 +1284,18 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+--- !u!114 &2957712038607595313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9074968542040919525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abae257eed912654d87086b60a085888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &158226557957589517
 PrefabInstance:
   m_ObjectHideFlags: 0
