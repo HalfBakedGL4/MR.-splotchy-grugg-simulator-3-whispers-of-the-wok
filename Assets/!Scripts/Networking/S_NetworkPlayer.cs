@@ -20,14 +20,13 @@ public class S_NetworkPlayer : NetworkBehaviour
 
         if (!IsLocalNetworkRig) return;
 
-        name = "my NetworkPlayer";
-
         connectedPlayer = transform.parent.gameObject.GetComponentInChildren<S_LocalPlayer>();
-        Debug.Log(connectedPlayer);
 
-        //Head.GetComponent<MeshRenderer>().enabled = false;
-        //RightHand.GetComponent<MeshRenderer>().enabled = false;
-        //LeftHand.GetComponent<MeshRenderer>().enabled = false;
+        name = Runner.LocalPlayer.ToString() + "'s network player";
+
+        head.GetComponent<MeshRenderer>().enabled = false;
+        rightHand.GetComponent<MeshRenderer>().enabled = false;
+        leftHand.GetComponent<MeshRenderer>().enabled = false;
 
         if (connectedPlayer == null)
             Debug.LogError("No LocalPlayer in scene");

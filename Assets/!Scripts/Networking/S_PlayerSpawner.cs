@@ -11,14 +11,14 @@ public class S_PlayerSpawner : MonoBehaviour, INetworkRunnerCallbacks
     NetworkRunner runner;
     private Dictionary<PlayerRef, NetworkObject> _spawnedUsers = new Dictionary<PlayerRef, NetworkObject>();
 
-    private void Awake()
-    {
-        runner = FindFirstObjectByType<NetworkRunner>();
-    }
-
     private void Start()
     {
+        runner = FindFirstObjectByType<NetworkRunner>();
         runner.AddCallbacks(this);
+    }
+    private void OnDestroy()
+    {
+        runner.RemoveCallbacks(this);
     }
 
     public void SpawnPlayer(PlayerRef player)
@@ -56,7 +56,7 @@ public class S_PlayerSpawner : MonoBehaviour, INetworkRunnerCallbacks
     public void OnUserSimulationMessage(NetworkRunner runner, SimulationMessagePtr message) { }
     public void OnReliableDataReceived(NetworkRunner runner, PlayerRef player, ReliableKey key, ArraySegment<byte> data) { }
     public void OnReliableDataProgress(NetworkRunner runner, PlayerRef player, ReliableKey key, float progress) { }
-    public void OnInput(NetworkRunner runner, NetworkInput input) { }
+    public void OnInput(NetworkRunner runner, NetworkInput input) {}
     public void OnInputMissing(NetworkRunner runner, PlayerRef player, NetworkInput input) { }
     public void OnConnectedToServer(NetworkRunner runner) { }
     public void OnSessionListUpdated(NetworkRunner runner, List<SessionInfo> sessionList) { }

@@ -1,9 +1,8 @@
-using UnityEngine;
 using Fusion;
 using Fusion.Sockets;
+using System;
 using System.Collections.Generic;
-using UnityEngine.Windows;
-using static Unity.Collections.Unicode;
+using UnityEngine;
 
 public enum RigPart
 {
@@ -13,7 +12,7 @@ public enum RigPart
     RightController,
     Undefined
 }
-
+[Serializable]
 public struct RigInput : INetworkInput
 {
     public Vector3 playAreaPosition;
@@ -28,36 +27,52 @@ public struct RigInput : INetworkInput
 
 public class S_LocalPlayer : MonoBehaviour, INetworkRunnerCallbacks
 {
+    [SerializeField] RigInput input;
     public S_HardwarePart head, rightHand, leftHand;
 
-    [SerializeField] NetworkRunner runner;
+    [SerializeField]NetworkRunner runner;
+
+    private void OnDestroy()
+    {
+        runner.RemoveCallbacks(this);
+        Debug.Log("disconnect");
+    }
 
     private void Start()
     {
-        transform.position = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5));
+        runner = FindFirstObjectByType<NetworkRunner>();
         runner.AddCallbacks(this);
+        Debug.Log("connect");
+
+        transform.position = new Vector3(UnityEngine.Random.Range(-5, 5), 0, UnityEngine.Random.Range(-5, 5));
     }
 
     private void Update()
     {
+        if (runner == null) return;
         name = runner.LocalPlayer.ToString();
     }
 
-    public void OnInput(NetworkRunner runner, NetworkInput input)
+    public void InpitTest(NetworkRunner runner, NetworkInput netInput)
+    {
+        Debug.Log("local");
+    }
+
+    public void OnInput(NetworkRunner runner, NetworkInput netInput)
     {
         Debug.Log("Input");
-        RigInput rigInput = new RigInput();
-        rigInput.playAreaPosition = transform.position;
-        rigInput.playAreaRotation = transform.rotation;
 
-        rigInput.leftHandPosition = leftHand.transform.position;
-        rigInput.leftHandRotation = leftHand.transform.rotation;
-        rigInput.rightHandPosition = rightHand.transform.position;
-        rigInput.rightHandRotation = rightHand.transform.rotation;
-        rigInput.headPosition = head.transform.position;
-        rigInput.headRotation = head.transform.rotation;
+        this.input.playAreaPosition = transform.position;
+        this.input.playAreaRotation = transform.rotation;
 
-        input.Set(rigInput);
+        this.input.leftHandPosition = leftHand.transform.position;
+        this.input.leftHandRotation = leftHand.transform.rotation;
+        this.input.rightHandPosition = rightHand.transform.position;
+        this.input.rightHandRotation = rightHand.transform.rotation;
+        this.input.headPosition = head.transform.position;
+        this.input.headRotation = head.transform.rotation;
+
+        netInput.Set(input);
     }
     public void OnObjectExitAOI(NetworkRunner runner, NetworkObject obj, PlayerRef player)
     {
@@ -80,7 +95,7 @@ public class S_LocalPlayer : MonoBehaviour, INetworkRunnerCallbacks
     }
 
     public void OnDisconnectedFromServer(NetworkRunner runner, NetDisconnectReason reason)
-    {   
+    {
     }
 
     public void OnConnectRequest(NetworkRunner runner, NetworkRunnerCallbackArgs.ConnectRequest request, byte[] token)

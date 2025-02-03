@@ -302,6 +302,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7022938681217834073, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
+      propertyPath: classifications
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 7587488022083453592, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
       propertyPath: m_Name
       value: LocalPlayer
@@ -539,7 +543,7 @@ PrefabInstance:
       objectReference: {fileID: 6814099746120680431, guid: 65ccb97baac1fbc499ddab9b6370e532, type: 3}
     - target: {fileID: 5163430590970740581, guid: c3c5889aef860f047ba34393bc5d3b95, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5163430590970740581, guid: c3c5889aef860f047ba34393bc5d3b95, type: 3}
       propertyPath: OnInput.m_PersistentCalls.m_Calls.Array.size
@@ -559,7 +563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5163430590970740581, guid: c3c5889aef860f047ba34393bc5d3b95, type: 3}
       propertyPath: OnInput.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnInput
+      value: InpitTest
       objectReference: {fileID: 0}
     - target: {fileID: 5163430590970740581, guid: c3c5889aef860f047ba34393bc5d3b95, type: 3}
       propertyPath: OnInput.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
