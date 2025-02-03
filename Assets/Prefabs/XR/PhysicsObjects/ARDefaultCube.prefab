@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7675386586284745699}
   - component: {fileID: 7670857498861925033}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: ARDefaultCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5033939911542046961}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.317, z: 0.34899998}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.31411, y: 0.31411, z: 0.31411}
   m_ConstrainProportionsScale: 0
   m_Children: []
