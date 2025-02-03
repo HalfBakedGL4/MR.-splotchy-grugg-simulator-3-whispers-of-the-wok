@@ -7,9 +7,9 @@ using UnityEngine;
 public class S_NetworkPlayer : NetworkBehaviour
 {
     public const int EXECUTION_ORDER = 100;
-    [SerializeField] S_LocalPlayer ConnectedPlayer;
+    [SerializeField] S_LocalPlayer connectedPlayer;
 
-    [SerializeField] S_NetworkPart Head, RightHand, LeftHand;
+    [SerializeField] S_NetworkPart head, rightHand, leftHand;
 
     public bool IsLocalNetworkRig => Object.HasInputAuthority;
 
@@ -21,31 +21,31 @@ public class S_NetworkPlayer : NetworkBehaviour
 
         name = "my NetworkPlayer";
 
-        ConnectedPlayer = FindAnyObjectByType<S_LocalPlayer>();
-        Debug.Log(ConnectedPlayer);
+        connectedPlayer = FindAnyObjectByType<S_LocalPlayer>();
+        Debug.Log(connectedPlayer);
 
         //Head.GetComponent<MeshRenderer>().enabled = false;
         //RightHand.GetComponent<MeshRenderer>().enabled = false;
         //LeftHand.GetComponent<MeshRenderer>().enabled = false;
 
-        if (ConnectedPlayer == null)
+        if (connectedPlayer == null)
             Debug.LogError("No LocalPlayer in scene");
     }
 
     public override void Render()
     {
-        if (!IsLocalNetworkRig || ConnectedPlayer == null) return;
+        if (!IsLocalNetworkRig || connectedPlayer == null) return;
 
-        transform.position = ConnectedPlayer.transform.position;
-        transform.rotation = ConnectedPlayer.transform.rotation;
+        transform.position = connectedPlayer.transform.position;
+        transform.rotation = connectedPlayer.transform.rotation;
 
-        Head.transform.position = ConnectedPlayer.Head.transform.position;
-        Head.transform.rotation = ConnectedPlayer.Head.transform.rotation;
+        head.transform.position = connectedPlayer.head.transform.position;
+        head.transform.rotation = connectedPlayer.head.transform.rotation;
 
-        RightHand.transform.position = ConnectedPlayer.RightHand.transform.position;
-        RightHand.transform.rotation = ConnectedPlayer.RightHand.transform.rotation;
+        rightHand.transform.position = connectedPlayer.rightHand.transform.position;
+        rightHand.transform.rotation = connectedPlayer.rightHand.transform.rotation;
 
-        LeftHand.transform.position = ConnectedPlayer.LeftHand.transform.position;
-        LeftHand.transform.rotation = ConnectedPlayer.LeftHand.transform.rotation;
+        leftHand.transform.position = connectedPlayer.leftHand.transform.position;
+        leftHand.transform.rotation = connectedPlayer.leftHand.transform.rotation;
     }
 }

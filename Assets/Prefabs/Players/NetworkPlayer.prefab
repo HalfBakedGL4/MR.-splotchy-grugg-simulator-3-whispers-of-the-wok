@@ -426,9 +426,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2549110146937887080}
+  - component: {fileID: 2032407206206816740}
   - component: {fileID: 2378062939145885251}
   - component: {fileID: 7773054547496217731}
-  - component: {fileID: 2032407206206816740}
   m_Layer: 0
   m_Name: NetworkPlayer
   m_TagString: Untagged
@@ -454,6 +454,23 @@ Transform:
   - {fileID: 6450896892371885189}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2032407206206816740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6814099746120680431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateAuthorityChangeErrorCorrectionDelta: 0.15
+  SyncScale: 0
+  SyncParent: 0
+  _autoAOIOverride: 1
+  DisableSharedModeInterpolation: 0
 --- !u!114 &2378062939145885251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,8 +504,8 @@ MonoBehaviour:
   Flags: 262145
   NestedObjects: []
   NetworkedBehaviours:
-  - {fileID: 2378062939145885251}
   - {fileID: 2032407206206816740}
+  - {fileID: 2378062939145885251}
   - {fileID: 4496766872537076139}
   - {fileID: 5275340177487402289}
   - {fileID: 8296043327502053650}
@@ -496,20 +513,3 @@ MonoBehaviour:
   - {fileID: 4191546162730553249}
   - {fileID: 1596293576192287076}
   ForceRemoteRenderTimeframe: 0
---- !u!114 &2032407206206816740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6814099746120680431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _stateAuthorityChangeErrorCorrectionDelta: 0.15
-  SyncScale: 0
-  SyncParent: 0
-  _autoAOIOverride: 1
-  DisableSharedModeInterpolation: 0

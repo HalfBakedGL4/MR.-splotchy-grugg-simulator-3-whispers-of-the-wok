@@ -6,8 +6,8 @@ public struct Rig
 
     public void SetRig(S_LocalPlayer player)
     {
-        Head = player.Head;
-        RightHand = player.RightHand;
-        LeftHand = player.LeftHand;
+        Head = player.head;
+        RightHand = player.rightHand;
+        LeftHand = player.leftHand;
     }
 }
