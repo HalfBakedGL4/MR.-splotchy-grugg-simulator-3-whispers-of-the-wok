@@ -49,7 +49,7 @@ MonoBehaviour:
   StartMode: 1
   AutoStartAs: 6
   AutoHideGUI: 1
-  AutoClients: 1
+  AutoClients: 2
   ClientStartDelay: 0.1
   ServerPort: 0
   DefaultRoomName: 
@@ -69,5 +69,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ba5764f4714bd64ab9efab127938e77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnableHotkeys: 0
+  EnableHotkeys: 1
   BaseSkin: {fileID: 11400000, guid: e59b35dfeb4b6f54e9b2791b2a40a510, type: 2}

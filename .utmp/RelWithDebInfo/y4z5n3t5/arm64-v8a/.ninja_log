@@ -1,0 +1,19 @@
+# ninja log v5
+1777	2179	7602238427807251	D:/!UnityGames/!School/GameLab/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/y4z5n3t5/obj/arm64-v8a/libgame.so	97d3020c22d561b
+100	1584	7602238422016605	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	ba2560d47bc6e2a0
+87	1519	7602238421343024	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	b1df5e29e25428e8
+93	1500	7602238421141962	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	9c74680df79dc4e1
+79	1628	7602238422448891	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	2409423f4775e5dd
+96	1527	7602238421413400	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	c30f9e2619a35674
+82	1602	7602238422192533	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	26ae99de003d660d
+90	1711	7602238423268221	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	97076681ac6fd04d
+85	1777	7602238423931742	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	bf42934fdcebee68
+58	862	7602474065074282	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	9c74680df79dc4e1
+47	875	7602474065215020	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	b1df5e29e25428e8
+62	884	7602474065300473	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	c30f9e2619a35674
+66	946	7602474065843355	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	ba2560d47bc6e2a0
+43	947	7602474065918756	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	26ae99de003d660d
+22	965	7602474066119818	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	2409423f4775e5dd
+55	1046	7602474066929102	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	97076681ac6fd04d
+51	1108	7602474067552402	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	bf42934fdcebee68
+1108	2195	7602474078429493	D:/!UnityGames/!School/GameLab/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/y4z5n3t5/obj/arm64-v8a/libgame.so	97d3020c22d561b

@@ -4,9 +4,10 @@ using Fusion.Sockets;
 using System;
 using System.Collections.Generic;
 
-public class PlayerSpawner : MonoBehaviour, INetworkRunnerCallbacks
+public class S_PlayerSpawner : MonoBehaviour, INetworkRunnerCallbacks
 {
-    public GameObject PlayerPrefab;
+    public GameObject networkPlayerPrefab;
+
     NetworkRunner runner;
     private Dictionary<PlayerRef, NetworkObject> _spawnedUsers = new Dictionary<PlayerRef, NetworkObject>();
 
@@ -22,20 +23,18 @@ public class PlayerSpawner : MonoBehaviour, INetworkRunnerCallbacks
 
     public void SpawnPlayer(PlayerRef player)
     {
-        print(PlayerPrefab == null);
+        NetworkObject networkPlayer = runner.Spawn(networkPlayerPrefab, new Vector3(0, 1, 0), Quaternion.identity, inputAuthority: player, (runner, obj) => { });
 
-        NetworkObject obj = null;
-
-        obj = runner.Spawn(PlayerPrefab, new Vector3(0, 1, 0), Quaternion.identity, player);
-        _spawnedUsers.Add(player, obj);
-
-        obj.name = player.ToString();
-        print(obj.name);
+        _spawnedUsers.Add(player, networkPlayer);
     }
 
     public void OnPlayerJoined(NetworkRunner runner, PlayerRef player)
     {
-        print(PlayerPrefab == null);
+        if (!runner.IsServer) return;
+        
+        Debug.Log(player.ToString() + " joined the lobby");
+
+        //if(player == runner.LocalPlayer)
         SpawnPlayer(player);
     }
 

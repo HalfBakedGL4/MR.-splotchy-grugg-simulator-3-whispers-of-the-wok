@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5190508278528339428}
   - component: {fileID: 3485909113103284964}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Head
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +95,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 517355175604575722}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &5069477918611982707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -648,10 +648,9 @@ GameObject:
   - component: {fileID: 2285799816874658147}
   - component: {fileID: 1258871764566527509}
   - component: {fileID: 7022938681217834073}
-  - component: {fileID: 6841855230294165035}
-  - component: {fileID: 530341485095630348}
+  - component: {fileID: 6426994986786268624}
   m_Layer: 2
-  m_Name: XR Player
+  m_Name: LocalPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -689,7 +688,7 @@ MonoBehaviour:
   m_Camera: {fileID: 5285314230568271878}
   m_OriginBaseGameObject: {fileID: 7587488022083453592}
   m_CameraFloorOffsetObject: {fileID: 3437674994311811508}
-  m_RequestedTrackingOriginMode: 0
+  m_RequestedTrackingOriginMode: 1
   m_CameraYOffset: 1.36144
 --- !u!143 &3093381590869340452
 CharacterController:
@@ -817,7 +816,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planeManager: {fileID: 1258871764566527509}
   classifications: 256
---- !u!114 &6841855230294165035
+--- !u!114 &6426994986786268624
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -826,33 +825,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7587488022083453592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Script: {fileID: 11500000, guid: 364a4feca090d2d4b9bcd6137e2d5a58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SortKey: 3257459705
-  ObjectInterest: 1
-  Flags: 262145
-  NestedObjects: []
-  NetworkedBehaviours:
-  - {fileID: 530341485095630348}
-  ForceRemoteRenderTimeframe: 0
---- !u!114 &530341485095630348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7587488022083453592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _stateAuthorityChangeErrorCorrectionDelta: 0.15
-  SyncScale: 0
-  SyncParent: 0
-  _autoAOIOverride: 1
-  DisableSharedModeInterpolation: 0
+  Head: {fileID: 1375218183138328832}
+  RightHand: {fileID: 7936691784507497187}
+  LeftHand: {fileID: 1796315055618462041}
 --- !u!1 &7730354564877882689
 GameObject:
   m_ObjectHideFlags: 0
