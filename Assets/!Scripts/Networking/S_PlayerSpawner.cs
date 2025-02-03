@@ -11,12 +11,12 @@ public class S_PlayerSpawner : MonoBehaviour, INetworkRunnerCallbacks
     NetworkRunner runner;
     private Dictionary<PlayerRef, NetworkObject> _spawnedUsers = new Dictionary<PlayerRef, NetworkObject>();
 
-    private void Start()
+    private void OnEnable()
     {
         runner = FindFirstObjectByType<NetworkRunner>();
         runner.AddCallbacks(this);
     }
-    private void OnDestroy()
+    private void OnDisable()
     {
         runner.RemoveCallbacks(this);
     }

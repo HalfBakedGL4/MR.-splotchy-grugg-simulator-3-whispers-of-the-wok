@@ -44,7 +44,7 @@ public class S_LocalPlayer : MonoBehaviour, INetworkRunnerCallbacks
         runner.AddCallbacks(this);
         Debug.Log("connect");
 
-        transform.position = new Vector3(UnityEngine.Random.Range(-5, 5), 0, UnityEngine.Random.Range(-5, 5));
+        //transform.position = new Vector3(UnityEngine.Random.Range(-5, 5), 0, UnityEngine.Random.Range(-5, 5));
     }
 
     private void Update()
