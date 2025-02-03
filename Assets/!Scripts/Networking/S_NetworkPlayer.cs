@@ -3,6 +3,7 @@ using System;
 using System.Threading.Tasks;
 using UnityEngine;
 
+[RequireComponent(typeof(NetworkTransform))]
 [DefaultExecutionOrder(S_NetworkPlayer.EXECUTION_ORDER)]
 public class S_NetworkPlayer : NetworkBehaviour
 {
@@ -21,7 +22,7 @@ public class S_NetworkPlayer : NetworkBehaviour
 
         name = "my NetworkPlayer";
 
-        connectedPlayer = FindAnyObjectByType<S_LocalPlayer>();
+        connectedPlayer = transform.parent.gameObject.GetComponentInChildren<S_LocalPlayer>();
         Debug.Log(connectedPlayer);
 
         //Head.GetComponent<MeshRenderer>().enabled = false;
@@ -30,6 +31,25 @@ public class S_NetworkPlayer : NetworkBehaviour
 
         if (connectedPlayer == null)
             Debug.LogError("No LocalPlayer in scene");
+    }
+
+    public override void FixedUpdateNetwork()
+    {
+        base.FixedUpdateNetwork();
+
+        if (GetInput<RigInput>(out var input))
+        {
+            print(input.rightHandPosition);
+
+            transform.position = input.playAreaPosition;
+            transform.rotation = input.playAreaRotation;
+            leftHand.transform.position = input.leftHandPosition;
+            leftHand.transform.rotation = input.leftHandRotation;
+            rightHand.transform.position = input.rightHandPosition;
+            rightHand.transform.rotation = input.rightHandRotation;
+            head.transform.position = input.headPosition;
+            head.transform.rotation = input.headRotation;
+        }
     }
 
     public override void Render()
