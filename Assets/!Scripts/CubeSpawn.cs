@@ -9,10 +9,12 @@ public class CubeSpawn : NetworkBehaviour
     [SerializeField] private InputActionProperty inputAction;
 
     NetworkRunner runner;
-
+    public bool IsLocalNetworkRig => Object.HasInputAuthority;
 
     private void Start()
     {
+        if (!IsLocalNetworkRig) enabled = false;
+
         runner = FindFirstObjectByType<NetworkRunner>();
     }
 
