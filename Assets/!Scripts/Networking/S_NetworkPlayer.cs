@@ -24,10 +24,6 @@ public class S_NetworkPlayer : NetworkBehaviour
 
         name = Runner.LocalPlayer.ToString() + "'s network player";
 
-        head.GetComponent<MeshRenderer>().enabled = false;
-        rightHand.GetComponent<MeshRenderer>().enabled = false;
-        leftHand.GetComponent<MeshRenderer>().enabled = false;
-
         if (connectedPlayer == null)
             Debug.LogError("No LocalPlayer in scene");
     }
