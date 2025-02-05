@@ -24,7 +24,7 @@ public class CubeSpawn : NetworkBehaviour
         }
     }
 
-    [Rpc]
+    [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
     void RPC_CreateCube()
     {
         NetworkObject spawnedCub = runner.Spawn(cubePrefab, transform.position, transform.rotation);

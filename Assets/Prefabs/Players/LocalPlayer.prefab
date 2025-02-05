@@ -15,8 +15,9 @@ GameObject:
   - component: {fileID: 6057527103106916129}
   - component: {fileID: 5190508278528339428}
   - component: {fileID: 3485909113103284964}
+  - component: {fileID: 1502058604825862257}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Head
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -274,6 +275,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UseCustomMaterial: 0
   m_CustomMaterial: {fileID: 0}
+--- !u!114 &1502058604825862257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517355175604575722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abae257eed912654d87086b60a085888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &548054097383738088
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,6 +363,7 @@ GameObject:
   - component: {fileID: 2659325430426519167}
   - component: {fileID: 4179025975882425032}
   - component: {fileID: 6157693452931809021}
+  - component: {fileID: 5567408698258400174}
   m_Layer: 0
   m_Name: Left Controller
   m_TagString: Untagged
@@ -515,6 +529,18 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+--- !u!114 &5567408698258400174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551790755284736704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abae257eed912654d87086b60a085888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &561247486168246112
 GameObject:
   m_ObjectHideFlags: 0
@@ -3086,8 +3112,9 @@ GameObject:
   - component: {fileID: 2285799816874658147}
   - component: {fileID: 1258871764566527509}
   - component: {fileID: 7022938681217834073}
+  - component: {fileID: 2953895003090302910}
   m_Layer: 2
-  m_Name: XR Player
+  m_Name: LocalPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3254,6 +3281,31 @@ MonoBehaviour:
   planeManager: {fileID: 1258871764566527509}
   classifications: 256
   portalMaterial: {fileID: 2100000, guid: 1325af1fbb502f64c9a7aea1998659f8, type: 2}
+--- !u!114 &2953895003090302910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7587488022083453592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 364a4feca090d2d4b9bcd6137e2d5a58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  input:
+    playAreaPosition: {x: 0, y: 0, z: 0}
+    playAreaRotation: {x: 0, y: 0, z: 0, w: 0}
+    leftHandPosition: {x: 0, y: 0, z: 0}
+    leftHandRotation: {x: 0, y: 0, z: 0, w: 0}
+    rightHandPosition: {x: 0, y: 0, z: 0}
+    rightHandRotation: {x: 0, y: 0, z: 0, w: 0}
+    headPosition: {x: 0, y: 0, z: 0}
+    headRotation: {x: 0, y: 0, z: 0, w: 0}
+  head: {fileID: 1502058604825862257}
+  rightHand: {fileID: 1255725529536369397}
+  leftHand: {fileID: 5567408698258400174}
+  runner: {fileID: 0}
 --- !u!1 &7594413810460777531
 GameObject:
   m_ObjectHideFlags: 0
@@ -4316,7 +4368,7 @@ GameObject:
   - component: {fileID: 6696456670641556768}
   - component: {fileID: 1002811548296652680}
   - component: {fileID: 7501176459329082257}
-  - component: {fileID: 8645083081162208722}
+  - component: {fileID: 1255725529536369397}
   m_Layer: 0
   m_Name: Right Controller
   m_TagString: Untagged
@@ -4482,7 +4534,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
---- !u!114 &8645083081162208722
+--- !u!114 &1255725529536369397
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4491,23 +4543,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 9074968542040919525}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1138a88edb72f3e4ca7c0cbb108b3eb4, type: 3}
+  m_Script: {fileID: 11500000, guid: abae257eed912654d87086b60a085888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubePrefab: {fileID: 6887932550299811162, guid: 53729fdcb1c72874f825b46df0800d5f, type: 3}
-  startSpeed: 2
-  inputAction:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Input
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 3980d2eb-2fdb-4341-9e45-6d21c3b7a2ad
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1001 &2417138459116021895
 PrefabInstance:
   m_ObjectHideFlags: 0

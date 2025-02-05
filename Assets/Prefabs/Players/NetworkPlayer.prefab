@@ -153,6 +153,7 @@ GameObject:
   - component: {fileID: 1257556895975684741}
   - component: {fileID: 1448704584431392609}
   - component: {fileID: 6278931248062293259}
+  - component: {fileID: 3059158474537223059}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -278,6 +279,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e73a5d10f006a434e8becb00fb8952c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3059158474537223059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6175898283057861491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1138a88edb72f3e4ca7c0cbb108b3eb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubePrefab: {fileID: 6887932550299811162, guid: 53729fdcb1c72874f825b46df0800d5f, type: 3}
+  startSpeed: 2
+  inputAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Input
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 3980d2eb-2fdb-4341-9e45-6d21c3b7a2ad
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1 &6275414587528930596
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,6 +537,7 @@ MonoBehaviour:
   - {fileID: 5275340177487402289}
   - {fileID: 8296043327502053650}
   - {fileID: 6278931248062293259}
+  - {fileID: 3059158474537223059}
   - {fileID: 4191546162730553249}
   - {fileID: 1596293576192287076}
   ForceRemoteRenderTimeframe: 0
