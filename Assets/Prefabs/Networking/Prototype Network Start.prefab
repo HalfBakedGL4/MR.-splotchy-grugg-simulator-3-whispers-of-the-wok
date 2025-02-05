@@ -50,9 +50,9 @@ MonoBehaviour:
   AutoStartAs: 6
   AutoHideGUI: 1
   AutoClients: 2
-  ClientStartDelay: 0.1
+  ClientStartDelay: 1
   ServerPort: 0
-  DefaultRoomName: 
+  DefaultRoomName: NetworkTesting2
   InitialScenePath: 
   _currentStage: 0
   AutoConnectVirtualInstances: 1
