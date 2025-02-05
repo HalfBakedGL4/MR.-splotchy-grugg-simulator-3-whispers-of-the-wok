@@ -29,7 +29,7 @@ public class CubeSpawn : NetworkBehaviour
     [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
     void RPC_CreateCube()
     {
-        NetworkObject spawnedCub = runner.Spawn(cubePrefab, transform.position, transform.rotation);
+        NetworkObject spawnedCub = runner.Spawn(cubePrefab, transform.position, transform.rotation, inputAuthority: runner.LocalPlayer);
         Rigidbody cubeRigidbody = spawnedCub.GetComponent<Rigidbody>();
         cubeRigidbody.linearVelocity = transform.forward * startSpeed;
     }
