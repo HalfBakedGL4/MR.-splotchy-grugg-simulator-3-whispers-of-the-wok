@@ -9,10 +9,12 @@ public class CubeSpawn : NetworkBehaviour
     [SerializeField] private InputActionProperty inputAction;
 
     NetworkRunner runner;
-
+    public bool IsLocalNetworkRig => Object.HasInputAuthority;
 
     private void Start()
     {
+        if (!IsLocalNetworkRig) enabled = false;
+
         runner = FindFirstObjectByType<NetworkRunner>();
     }
 
@@ -24,10 +26,10 @@ public class CubeSpawn : NetworkBehaviour
         }
     }
 
-    [Rpc]
+    [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
     void RPC_CreateCube()
     {
-        NetworkObject spawnedCub = runner.Spawn(cubePrefab, transform.position, transform.rotation);
+        NetworkObject spawnedCub = runner.Spawn(cubePrefab, transform.position, transform.rotation, inputAuthority: runner.LocalPlayer);
         Rigidbody cubeRigidbody = spawnedCub.GetComponent<Rigidbody>();
         cubeRigidbody.linearVelocity = transform.forward * startSpeed;
     }

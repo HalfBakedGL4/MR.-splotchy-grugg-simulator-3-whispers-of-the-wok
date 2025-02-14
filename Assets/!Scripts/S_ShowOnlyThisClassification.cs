@@ -9,6 +9,7 @@ public class S_ShowOnlyThisClassification : MonoBehaviour
 {
     [SerializeField] private ARPlaneManager planeManager;
     [SerializeField] private PlaneClassifications classifications;
+    [SerializeField] private Material portalMaterial;
     
     private void OnEnable()
     {
@@ -27,6 +28,11 @@ public class S_ShowOnlyThisClassification : MonoBehaviour
             if (item.classifications == classifications)
             {
                 
+            }
+
+            else if (item.classifications == PlaneClassifications.WindowFrame)
+            {
+                item.GetComponent<Renderer>().material = portalMaterial;
             }
             else
             {

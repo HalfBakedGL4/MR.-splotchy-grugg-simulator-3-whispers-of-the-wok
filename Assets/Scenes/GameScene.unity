@@ -336,6 +336,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 177044614}
     - target: {fileID: 843779624072344985, guid: 0d65012b6def127459ec08f4ac14a6c3, type: 3}
+      propertyPath: ClientStartDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 843779624072344985, guid: 0d65012b6def127459ec08f4ac14a6c3, type: 3}
       propertyPath: AutoConnectVirtualInstances
       value: 1
       objectReference: {fileID: 0}
@@ -396,6 +400,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2953895003090302910, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 177044614}
     - target: {fileID: 6426994986786268624, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
       propertyPath: runner
       value: 
@@ -447,7 +455,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9074968542040919525, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1628290839}
   m_SourcePrefab: {fileID: 100100000, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
 --- !u!1 &1584744196 stripped
 GameObject:
@@ -466,6 +477,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8edbe7108d8a43ab838cf8b8d9453df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1628290831 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9074968542040919525, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
+  m_PrefabInstance: {fileID: 830527422}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1628290839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628290831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SortKey: 2780132237
+  ObjectInterest: 1
+  Flags: 262145
+  NestedObjects: []
+  NetworkedBehaviours: []
+  ForceRemoteRenderTimeframe: 0
 --- !u!1 &1715527580
 GameObject:
   m_ObjectHideFlags: 0
