@@ -45,7 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recipes:
-  - name: Burger
+  - name: FishBurger
+    ingredients: 0100000002000000
+    canBeCookedIn: 0
+    resultPrefab: {fileID: 7705422996418108416, guid: 5325c53cf6edf054cb2073eb7abe65c0, type: 3}
+  - name: FishBurgerWithOnion
     ingredients: 000000000100000002000000
     canBeCookedIn: 0
     resultPrefab: {fileID: 7705422996418108416, guid: 4aa1ee355ca81e540a9fee45d60daf20, type: 3}

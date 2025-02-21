@@ -52,9 +52,10 @@ public class Cooking : MonoBehaviour
                 break; 
             case CookerState.Cooking:
                 timer += Time.deltaTime;
-                if (timer >= 1)
+                if (timer <= 1)
                 {
                     InteractWithCooker();
+                    state = CookerState.Finished;
                 }
                 break;
             case CookerState.Finished:
@@ -94,21 +95,47 @@ public class Cooking : MonoBehaviour
         // Stop Cooker and empty food items inside
         else if (state == CookerState.Cooking)
         {
-            // Return dish that the player will receive based on ingredients and cooker
-            var dish = GetDish();
+            GameObject dishToSpawn;
+
+            // Undercooked
+            if (timer < goodTime)
+            {
+                dishToSpawn = GetDish();
+                // Negative points because undercooked
+            }
+            // Perfect
+            else if (timer < badTime)
+            {
+                dishToSpawn = GetDish();
+            }
+            // Overcooked
+            else if (timer < worstTime)
+            {
+                dishToSpawn = GetDish();
+                // Negative points because overcooked
+            }
+            // Burnt
+            else
+            {
+                // Cannot be served
+                dishToSpawn = burntSlop;
+            }
+
+            Instantiate(dishToSpawn, exitTransform.position, exitTransform.rotation);
+
         }
     }
 
     private GameObject GetDish()
     {
-        var dish = recipeDatabase.FindMatchingRecipe(foodCooking, cookerType);
+        var dishInfo = recipeDatabase.FindMatchingRecipe(foodCooking, cookerType);
         
-        if (dish != null)
+        if (dishInfo != null)
         {
-            print(dish.name);
-            return dish.resultPrefab;
+            print(dishInfo.name);
+            return dishInfo.resultPrefab;
         }
-        else 
-            return burntSlop;
+        
+        return burntSlop;
     }
 }
