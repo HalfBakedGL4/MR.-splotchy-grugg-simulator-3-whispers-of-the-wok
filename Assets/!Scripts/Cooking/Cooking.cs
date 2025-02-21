@@ -78,8 +78,7 @@ public class Cooking : MonoBehaviour
             //Saving info about the food in cooker
             foodCooking.Add(foodScript.GetFoodType());
             //Changes state to cooking
-            state = CookerState.Cooking;
-            print("Cooking");
+            InteractWithCooker();
         }
     }
 
