@@ -59,14 +59,9 @@ public class S_Cooker : MonoBehaviour
                 break; 
             case CookerState.Cooking:
                 timer += Time.deltaTime;
-                if (timer >= 2)
-                {
-                    InteractWithCooker();
-                    state = CookerState.Finished;
-                }
+                // update the timer UI
                 break;
             case CookerState.Finished:
-                    state = CookerState.Available;
                 break;
         }
     }
@@ -100,7 +95,7 @@ public class S_Cooker : MonoBehaviour
             // Turn off colliders so they can't be picked up while cooking
             foreach (var foodScript in foodScripts)
             {
-                foodScript.TurnOffPhysics();
+                foodScript.TurnOffColliders();
             }
             state = CookerState.Cooking;
         }
@@ -133,7 +128,9 @@ public class S_Cooker : MonoBehaviour
                 dishToSpawn = burntSlop;
             }
 
+            CleanCooker();
             Instantiate(dishToSpawn, dishSocket.transform.position, dishSocket.transform.rotation);
+            state = CookerState.Available;
         }
     }
 
@@ -148,5 +145,17 @@ public class S_Cooker : MonoBehaviour
         }
         
         return burntSlop;
+    }
+
+    private void CleanCooker()
+    {
+        S_Food[] foodList = foodScripts.ToArray();
+        foreach (var foodScript in foodList)
+        {
+            foodScript.TurnOffGrab();
+            foodScript.TurnOnColliders();
+            foodScript.transform.position = new Vector3(0,-10,0);
+            foodScript.TurnOnGrab();
+        }
     }
 }
