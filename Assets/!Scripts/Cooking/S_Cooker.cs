@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public enum CookerType
 {
     Oven,
     Fryer,
 }
-public class Cooking : MonoBehaviour
+public class S_Cooker : MonoBehaviour
 {
     private enum CookerState
     {
@@ -18,7 +19,6 @@ public class Cooking : MonoBehaviour
     
 
     [SerializeField] private CookerType cookerType;
-    [SerializeField] private Transform exitTransform;
     [SerializeField] private GameObject burntSlop;
     
     [Header("Cooking Timers")]
@@ -26,69 +26,82 @@ public class Cooking : MonoBehaviour
     [SerializeField] private float badTime;
     [SerializeField] private float worstTime;
     
+    [Header("Sockets")]
+    [SerializeField] private S_SocketTagInteractor[] foodSocket;
+    [SerializeField] private S_SocketTagInteractor dishSocket;
+
+    
     private CookerState state = CookerState.Available;
 
-    private RecipeDatabase recipeDatabase;
+    private S_RecipeDatabase _RecipeDatabase;
 
     private void Awake()
     {
         // Find the RecipeDatabase in the scene
-        recipeDatabase = FindObjectOfType<RecipeDatabase>();
+        _RecipeDatabase = FindObjectOfType<S_RecipeDatabase>();
 
-        if (recipeDatabase == null)
+        if (_RecipeDatabase == null)
         {
             Debug.LogError("RecipeBook not found in the scene!");
         }
     }
 
     private List<FoodType> foodCooking = new ();
+    private List<S_Food> foodScripts = new ();
+
     private float timer;
+    
     void Update()
     {
         switch (state)
         {
             case CookerState.Available:
-                print("Available");
                 break; 
             case CookerState.Cooking:
                 timer += Time.deltaTime;
-                if (timer <= 1)
+                if (timer >= 2)
                 {
                     InteractWithCooker();
                     state = CookerState.Finished;
                 }
                 break;
             case CookerState.Finished:
-                
                     state = CookerState.Available;
                 break;
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void AddFood(SelectEnterEventArgs args)
     {
-        // Adds food to the Cooker
-        if (other.TryGetComponent(out Food foodScript) && state == CookerState.Available)
-        {
-            //Places food in cooker
-            foodScript.TurnOffPhysics();
-            other.transform.parent = this.transform;
-            other.transform.localPosition = new Vector3(0, 0, 0);
-            
-            //Saving info about the food in cooker
-            foodCooking.Add(foodScript.GetFoodType());
-            //Changes state to cooking
-            InteractWithCooker();
+        // Add food from food list
+        if (args.interactableObject.transform.TryGetComponent(out S_Food food)) {
+            foodCooking.Add(food.GetFoodType());
+            foodScripts.Add(food);
         }
     }
 
+    public void RemoveFood(SelectExitEventArgs args)
+    {
+        // Remove food from food list
+        if (args.interactableObject.transform.TryGetComponent(out S_Food food)){
+            foodCooking.Remove(food.GetFoodType());
+            foodScripts.Remove(food);
+        }
+    }
+    
     public void InteractWithCooker()
     {
+        print("Interacting with Cooker");
         // Activate Cooker and start timer
         if (state == CookerState.Available)
         {
             timer = 0.0f;
 
+            // Turn off colliders so they can't be picked up while cooking
+            foreach (var foodScript in foodScripts)
+            {
+                foodScript.TurnOffPhysics();
+            }
             state = CookerState.Cooking;
         }
         // Stop Cooker and empty food items inside
@@ -120,14 +133,13 @@ public class Cooking : MonoBehaviour
                 dishToSpawn = burntSlop;
             }
 
-            Instantiate(dishToSpawn, exitTransform.position, exitTransform.rotation);
-
+            Instantiate(dishToSpawn, dishSocket.transform.position, dishSocket.transform.rotation);
         }
     }
 
     private GameObject GetDish()
     {
-        var dishInfo = recipeDatabase.FindMatchingRecipe(foodCooking, cookerType);
+        var dishInfo = _RecipeDatabase.FindMatchingRecipe(foodCooking, cookerType);
         
         if (dishInfo != null)
         {

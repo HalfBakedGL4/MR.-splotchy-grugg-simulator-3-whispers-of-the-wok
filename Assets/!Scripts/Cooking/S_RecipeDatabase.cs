@@ -11,7 +11,7 @@ public class Recipe
     public GameObject resultPrefab; // The prefab to spawn
 }
 
-public class RecipeDatabase : MonoBehaviour
+public class S_RecipeDatabase : MonoBehaviour
 {
     [SerializeField] private List<Recipe> recipes = new List<Recipe>();
     

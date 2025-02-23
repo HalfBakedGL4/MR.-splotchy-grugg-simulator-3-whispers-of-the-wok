@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - RecipeBook
+  - Food
+  - Dish
   layers:
   - Default
   - TransparentFX

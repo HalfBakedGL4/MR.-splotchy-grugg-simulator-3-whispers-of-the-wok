@@ -3,23 +3,22 @@ using UnityEngine;
 
 public enum FoodType
 {
+    // All types of food used to create dishes, add more at the BOTTOM if needed
     Onion,
     Fish,
     Bread,
     Potato,
 }
-public class Food : MonoBehaviour
+public class S_Food : MonoBehaviour
 {
     
     [SerializeField] FoodType foodType;
     
     private Collider coll;
-    private Rigidbody rb;
     
     private void Start()
     {
         coll = GetComponent<Collider>();
-        rb = GetComponent<Rigidbody>();
     }
 
     public FoodType GetFoodType()
@@ -29,13 +28,11 @@ public class Food : MonoBehaviour
     public void TurnOffPhysics()
     {
         coll.enabled = false;
-        rb.isKinematic = true;
     }
 
     public void TurnOnPhysics()
     {
         coll.enabled = true;
-        rb.isKinematic = false;
     }
     
 }

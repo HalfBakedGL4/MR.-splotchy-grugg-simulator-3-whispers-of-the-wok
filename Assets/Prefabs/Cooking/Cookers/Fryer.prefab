@@ -288,10 +288,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cookerType: 0
   exitTransform: {fileID: 812073465857645869}
+  burntSlop: {fileID: 5663040723896712990, guid: 6f0af4017dcaf3a41ad77cd1716e79be, type: 3}
   goodTime: 0
   badTime: 0
   worstTime: 0
-  dishes: []
 --- !u!65 &4275068334429839634
 BoxCollider:
   m_ObjectHideFlags: 0
