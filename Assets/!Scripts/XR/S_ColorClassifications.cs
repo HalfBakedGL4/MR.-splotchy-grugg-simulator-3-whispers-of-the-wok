@@ -5,11 +5,13 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
-public class S_ShowOnlyThisClassification : MonoBehaviour
+public class S_ColorClassifications : MonoBehaviour
 {
     [SerializeField] private ARPlaneManager planeManager;
-    [SerializeField] private PlaneClassifications classifications;
+    [SerializeField] private PlaneClassifications showClassifications;
+    [SerializeField] private PlaneClassifications portalClassifications;
     [SerializeField] private Material portalMaterial;
+
     
     private void OnEnable()
     {
@@ -25,20 +27,20 @@ public class S_ShowOnlyThisClassification : MonoBehaviour
         List<ARPlane> newPlane = obj.added;
         foreach (var item in newPlane)
         {
-            if (item.classifications == classifications)
+            if (item.classifications == showClassifications)
             {
                 
             }
-
-            else if (item.classifications == PlaneClassifications.WindowFrame)
+            else if (item.classifications == portalClassifications)
             {
                 item.GetComponent<Renderer>().material = portalMaterial;
             }
             else
             {
-                Renderer itemrenderer = item.GetComponent<Renderer>();
-                Destroy(itemrenderer);
+                Renderer itemRenderer = item.GetComponent<Renderer>();
+                Destroy(itemRenderer);
             }
+            
         }
     }
 
