@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/ThrowAndPassThrough.unity
+    guid: eccca53ade5d0db4dbfd173ba03b8d26
+  - enabled: 1
     path: Assets/Scenes/Portals.unity
     guid: 7d0659c42deeab34890868e436876ae0
   m_configObjects:

@@ -7,7 +7,9 @@ public class FloatingHealthBar : MonoBehaviour
 
     public void UpdateHealthBar(float currentValue, float maxValue) 
     {
-        slider.value = currentValue / maxValue;
+        Debug.Log("RUNNNING HEALTH");
+        slider.maxValue = maxValue;
+        slider.value = currentValue;
     }
 
     void Update() 
