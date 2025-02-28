@@ -8,26 +8,18 @@ using Random = UnityEngine.Random;
 
 public class S_SpawnObjectOnClassification : MonoBehaviour
 {
-    [SerializeField] private ARPlaneManager planeManager;
+    [Header("Link this script to AR Plane Manager")]
     [SerializeField] private PlaneClassifications classifications;
     [SerializeField] private GameObject[] spawnObjects;
     [SerializeField] private TMP_Text debugText;
     
     private float basketSize = 0.5f;
-    private void OnEnable()
-    {
-        planeManager.planesChanged += PlaceObjectOnPlane;
-    }
-    private void OnDisable()
-    {
-        planeManager.planesChanged -= PlaceObjectOnPlane;
-    }
 
-    private void PlaceObjectOnPlane(ARPlanesChangedEventArgs obj)
     
+    // Needs to be referenced in the editor in ARPlaneManager
+    public void PlaceObjectOnPlane(ARTrackablesChangedEventArgs<ARPlane> changes)
     {
-        List<ARPlane> newPlane = obj.added;
-        foreach (var item in newPlane)
+        foreach (var item in changes.added)
         {
             if (item.classifications == classifications)
             {

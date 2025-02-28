@@ -7,10 +7,11 @@ using UnityEngine.XR.ARSubsystems;
 
 public class S_ColorClassifications : MonoBehaviour
 {
-    [SerializeField] private ARPlaneManager planeManager;
+    [Header("Link this script to AR Plane Manager")]
     [SerializeField] private PlaneClassifications showClassifications;
     [SerializeField] private PlaneClassifications portalClassifications;
     [SerializeField] private Material portalMaterial;
+    
     
     // Needs to be referenced in the editor in ARPlaneManager
     public void SetupPlane(ARTrackablesChangedEventArgs<ARPlane> changes)
