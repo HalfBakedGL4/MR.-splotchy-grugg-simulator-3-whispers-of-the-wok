@@ -9,7 +9,6 @@ using Random = UnityEngine.Random;
 public class S_FindPointsOnWalls : MonoBehaviour
 {
     [SerializeField] private float holeSize;
-    [SerializeField] private GameObject debugTool;
     
     private Dictionary<ARPlane, List<Vector3>> wallPoints = new ();
     
@@ -56,6 +55,7 @@ public class S_FindPointsOnWalls : MonoBehaviour
     }
     
     // Returns Tuple containing the wall and point on wall
+    // Couple of line to debug and remove used spots so to not spawn hole on same position
     public (ARPlane, Vector3) GetRandomWallAndPoint()
     {
         // Check if dictionary is empty

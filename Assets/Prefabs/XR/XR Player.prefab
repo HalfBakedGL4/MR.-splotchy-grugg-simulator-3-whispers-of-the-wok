@@ -350,6 +350,7 @@ GameObject:
   - component: {fileID: 2659325430426519167}
   - component: {fileID: 4179025975882425032}
   - component: {fileID: 6157693452931809021}
+  - component: {fileID: 7609908743948436440}
   m_Layer: 0
   m_Name: Left Controller
   m_TagString: Untagged
@@ -516,6 +517,32 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+--- !u!114 &7609908743948436440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551790755284736704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 905844e0274f6c940a062b014024e531, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _findPointsOnWalls: {fileID: 8633672887428833936}
+  hole: {fileID: 5045007525086959853, guid: bdb90254f294c874eab407c389e98ab8, type: 3}
+  inputAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Input
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 6940bb2c-9f45-4e86-91fc-4a63cff696b8
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1 &561247486168246112
 GameObject:
   m_ObjectHideFlags: 0
@@ -3257,6 +3284,7 @@ GameObject:
   - component: {fileID: 2285799816874658147}
   - component: {fileID: 1258871764566527509}
   - component: {fileID: 7022938681217834073}
+  - component: {fileID: 8633672887428833936}
   m_Layer: 2
   m_Name: XR Player
   m_TagString: Untagged
@@ -3407,7 +3435,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <trackablesChanged>k__BackingField:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7022938681217834073}
+        m_TargetAssemblyTypeName: S_ColorClassifications, Assembly-CSharp
+        m_MethodName: SetupPlane
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8633672887428833936}
+        m_TargetAssemblyTypeName: S_FindPointsOnWalls, Assembly-CSharp
+        m_MethodName: FindWallPoints
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_PlanePrefab: {fileID: 3855171346914079041, guid: 1981b3c7072fe8f4db011f59a3d18678, type: 3}
   m_DetectionMode: -1
 --- !u!114 &7022938681217834073
@@ -3422,9 +3474,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7756998368e3fe749941f18aa1445ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planeManager: {fileID: 1258871764566527509}
-  classifications: 256
+  showClassifications: 256
+  portalClassifications: 0
   portalMaterial: {fileID: 2100000, guid: 1325af1fbb502f64c9a7aea1998659f8, type: 2}
+--- !u!114 &8633672887428833936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7587488022083453592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3411f65f6497e5240a9c631d5984be27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holeSize: 0.5
 --- !u!1 &7594413810460777531
 GameObject:
   m_ObjectHideFlags: 0

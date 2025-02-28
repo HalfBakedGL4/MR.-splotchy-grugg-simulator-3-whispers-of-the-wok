@@ -19,10 +19,18 @@ public class S_PlaceHoleInWall : MonoBehaviour
     {
         if (inputAction.action.WasPressedThisFrame())
         {
-            var wallAndPoint = _findPointsOnWalls.GetRandomWallAndPoint();
-            var instance = Instantiate(hole, wallAndPoint.Item1.transform.position, wallAndPoint.Item1.transform.rotation);
-            instance.transform.SetParent(wallAndPoint.Item1.transform);
-            instance.transform.localPosition += wallAndPoint.Item2;
+            SpawnHoleInWall();
         }
+    }
+
+    private void SpawnHoleInWall()
+    {
+        // Gets Tuple (AR Plane: wall, Vector 3: point)
+        var wallAndPoint = _findPointsOnWalls.GetRandomWallAndPoint();
+        // Instantiates and set position and rotation equal to Wall
+        var instance = Instantiate(hole, wallAndPoint.Item1.transform.position, wallAndPoint.Item1.transform.rotation);
+        // Move hole to Point on Wall
+        instance.transform.SetParent(wallAndPoint.Item1.transform);
+        instance.transform.localPosition += wallAndPoint.Item2;
     }
 }
