@@ -357,6 +357,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1258871764566527509, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
+      propertyPath: <trackablesChanged>k__BackingField.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1258871764566527509, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
+      propertyPath: <trackablesChanged>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1258871764566527509, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
+      propertyPath: <trackablesChanged>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 333044995}
+    - target: {fileID: 1258871764566527509, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
+      propertyPath: <trackablesChanged>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1258871764566527509, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
+      propertyPath: <trackablesChanged>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetupPlane
+      objectReference: {fileID: 0}
+    - target: {fileID: 1258871764566527509, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
+      propertyPath: <trackablesChanged>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: S_ColorClassifications, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1258871764566527509, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
+      propertyPath: <trackablesChanged>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6852824657293691943, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -426,6 +454,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
+--- !u!114 &333044995 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7022938681217834073, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
+  m_PrefabInstance: {fileID: 333044994}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7756998368e3fe749941f18aa1445ec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &445740001
 GameObject:
   m_ObjectHideFlags: 0

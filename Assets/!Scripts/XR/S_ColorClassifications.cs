@@ -11,21 +11,11 @@ public class S_ColorClassifications : MonoBehaviour
     [SerializeField] private PlaneClassifications showClassifications;
     [SerializeField] private PlaneClassifications portalClassifications;
     [SerializeField] private Material portalMaterial;
-
     
-    private void OnEnable()
+    // Needs to be referenced in the editor in ARPlaneManager
+    public void SetupPlane(ARTrackablesChangedEventArgs<ARPlane> changes)
     {
-        planeManager.planesChanged += SetupPlane;
-    }
-    private void OnDisable()
-    {
-        planeManager.planesChanged -= SetupPlane;
-    }
-
-    private void SetupPlane(ARPlanesChangedEventArgs obj)
-    {
-        List<ARPlane> newPlane = obj.added;
-        foreach (var item in newPlane)
+        foreach (var item in changes.added)
         {
             if (item.classifications == showClassifications)
             {
@@ -40,7 +30,6 @@ public class S_ColorClassifications : MonoBehaviour
                 Renderer itemRenderer = item.GetComponent<Renderer>();
                 Destroy(itemRenderer);
             }
-            
         }
     }
 
