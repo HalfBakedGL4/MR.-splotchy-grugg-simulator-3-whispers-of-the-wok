@@ -411,34 +411,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3707842121565508600, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1055717069}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9074968542040919525, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 333044997}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
 --- !u!4 &333044995 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3707842121565508600, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
   m_PrefabInstance: {fileID: 333044994}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &333044996 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9074968542040919525, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
-  m_PrefabInstance: {fileID: 333044994}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &333044997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 333044996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dd017285be422d42bedc6e009a635a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  knife: {fileID: 1055717070}
 --- !u!1001 &1055717068
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -453,7 +432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4806582880924609926, guid: a0a0f719aa31e91488c23741d0761921, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5332183916739327804, guid: a0a0f719aa31e91488c23741d0761921, type: 3}
       propertyPath: m_LocalPosition.x
@@ -503,11 +482,6 @@ PrefabInstance:
 --- !u!4 &1055717069 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5332183916739327804, guid: a0a0f719aa31e91488c23741d0761921, type: 3}
-  m_PrefabInstance: {fileID: 1055717068}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1055717070 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4806582880924609926, guid: a0a0f719aa31e91488c23741d0761921, type: 3}
   m_PrefabInstance: {fileID: 1055717068}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1100484990
@@ -733,7 +707,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5215368972032687755, guid: 14c6ccb7fa6984b4da4a6a19f803be67, type: 3}
       propertyPath: OnDamage.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TakeDamage
+      value: CutInSlices
       objectReference: {fileID: 0}
     - target: {fileID: 5215368972032687755, guid: 14c6ccb7fa6984b4da4a6a19f803be67, type: 3}
       propertyPath: OnAnimation.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -810,13 +784,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 591091654946111661, guid: a0a0f719aa31e91488c23741d0761921, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932486329435157580, guid: a0a0f719aa31e91488c23741d0761921, type: 3}
+      propertyPath: m_Colliders.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932486329435157580, guid: a0a0f719aa31e91488c23741d0761921, type: 3}
+      propertyPath: 'm_Colliders.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1541406887}
+    - target: {fileID: 1932486329435157580, guid: a0a0f719aa31e91488c23741d0761921, type: 3}
+      propertyPath: 'm_Colliders.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1541406886}
     - target: {fileID: 4806582880924609926, guid: a0a0f719aa31e91488c23741d0761921, type: 3}
       propertyPath: m_Name
       value: Kitchen Knife
       objectReference: {fileID: 0}
     - target: {fileID: 4806582880924609926, guid: a0a0f719aa31e91488c23741d0761921, type: 3}
       propertyPath: m_TagString
-      value: Tag
+      value: Knife
       objectReference: {fileID: 0}
     - target: {fileID: 5332183916739327804, guid: a0a0f719aa31e91488c23741d0761921, type: 3}
       propertyPath: m_LocalPosition.x
@@ -858,11 +848,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7284945250887744403, guid: a0a0f719aa31e91488c23741d0761921, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0a0f719aa31e91488c23741d0761921, type: 3}
+--- !u!65 &1541406886 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 7284945250887744403, guid: a0a0f719aa31e91488c23741d0761921, type: 3}
+  m_PrefabInstance: {fileID: 1541406885}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1541406887 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 591091654946111661, guid: a0a0f719aa31e91488c23741d0761921, type: 3}
+  m_PrefabInstance: {fileID: 1541406885}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1618704119
 GameObject:
   m_ObjectHideFlags: 0

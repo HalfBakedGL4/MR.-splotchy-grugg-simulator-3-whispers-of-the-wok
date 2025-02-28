@@ -37,13 +37,16 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damageAmount) 
+    public void CutInSlices(float damageAmount) 
     {
         if (health == 0)
             return;
 
         health -= damageAmount;
-        healthBar.UpdateHealthBar(health, maxHealth);
+
+        if (healthBar != null)
+            healthBar.UpdateHealthBar(health, maxHealth);
+
         //state++;
         //ChangeState(state);
     }
