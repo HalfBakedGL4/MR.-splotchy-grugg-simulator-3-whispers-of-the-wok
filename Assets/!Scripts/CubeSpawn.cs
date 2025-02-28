@@ -1,4 +1,5 @@
 using Fusion;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,6 +23,7 @@ public class CubeSpawn : NetworkBehaviour
     {
         if (inputAction.action.WasPressedThisFrame())
         {
+            Debug.Log("DETECTED: Cube Spawn button click");
             RPC_CreateCube();
         }
     }
@@ -29,9 +31,16 @@ public class CubeSpawn : NetworkBehaviour
     [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
     void RPC_CreateCube()
     {
-        NetworkObject spawnedCub = runner.Spawn(cubePrefab, transform.position, transform.rotation, inputAuthority: runner.LocalPlayer);
-        Rigidbody cubeRigidbody = spawnedCub.GetComponent<Rigidbody>();
-        cubeRigidbody.linearVelocity = transform.forward * startSpeed;
+        try
+        {
+            NetworkObject spawnedCub = runner.Spawn(cubePrefab, transform.position, transform.rotation, inputAuthority: runner.LocalPlayer);
+            Rigidbody cubeRigidbody = spawnedCub.GetComponent<Rigidbody>();
+            cubeRigidbody.linearVelocity = transform.forward * startSpeed;
+            Debug.Log("CUBESPAWN: Cube Spawned");
+        } catch (Exception e)
+        {
+            Debug.LogError("CUBESPAWN:" + e.Message);
+        }
     }
 
 }
