@@ -16,7 +16,10 @@ public class Health : MonoBehaviour
 
     [SerializeField] FloatingHealthBar healthBar;
 
+    // Adding UnityEvents for Damage and Healing
     public UnityEvent OnDamage;
+    public UnityEvent OnHealing;
+
     public UnityEvent OnAnimation;
 
     private void Awake() 
@@ -28,12 +31,17 @@ public class Health : MonoBehaviour
     private void Start() 
     {
         health = maxHealth;
+
+        OnDamage?.Invoke();
+        OnHealing?.Invoke();
     }
 
+
+    /*
     void Update() 
     {
         // Increment Counter
-        /*do 
+        do 
         {
             coolDown += Time.deltaTime;
         } while (coolDown < 2);
@@ -44,7 +52,7 @@ public class Health : MonoBehaviour
             coolDown = 0;
             
         The start of pseudocode to solve the issue of knife collider not
-        fully exiting tomato and damaging more times with actual movement*/
+        fully exiting tomato and damaging more times with actual movement
     }
 
     private void OnTriggerEnter(Collider col) 
@@ -60,20 +68,50 @@ public class Health : MonoBehaviour
         {
             OnDamage?.Invoke(); // ChangeState(state);
         }
-    }
+    }*/
 
-    public void CutInSlices(float damageAmount) // (float damageAmount, int stateIndex) 
+
+    // Function for updating health with damage dealt or health healed
+    private void UpdateHealth(float healthAmount) 
     {
-        if (health == 0)
-            return;
-
-        health -= damageAmount;
+        health += healthAmount;
 
         if (healthBar != null)
             healthBar.UpdateHealthBar(health, maxHealth);
+    }
+
+    private void CheckDeath() 
+    {
+        if (health <= 0) 
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void CutInSlicesFood(float damageAmount) // (float damageAmount, int stateIndex) 
+    {
+        UpdateHealth(-damageAmount);
+        CheckDeath();
 
         //state++;
         //ChangeState(state);
+    }
+
+    public void BreakJointsWall(float damageAmount) 
+    {
+        UpdateHealth(-damageAmount);
+        CheckDeath();
+    }
+
+    public void DamageCustomer(float damageAmount) 
+    {
+        UpdateHealth(-damageAmount);
+        CheckDeath();
+    }
+
+    public void HealingCustomer(float healingAmount) 
+    {
+        UpdateHealth(healingAmount);
     }
 
     private void ChangeState(int stateIndex) 
