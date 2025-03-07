@@ -31,9 +31,6 @@ public class Health : MonoBehaviour
     private void Start() 
     {
         health = maxHealth;
-
-        OnDamage?.Invoke();
-        OnHealing?.Invoke();
     }
 
 
@@ -88,29 +85,18 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void CutInSlicesFood(float damageAmount) // (float damageAmount, int stateIndex) 
+    public void Damage(float damageAmount) 
     {
-        UpdateHealth(-damageAmount);
-        CheckDeath();
+        OnDamage?.Invoke();
 
-        //state++;
-        //ChangeState(state);
-    }
-
-    public void BreakJointsWall(float damageAmount) 
-    {
         UpdateHealth(-damageAmount);
         CheckDeath();
     }
 
-    public void DamageCustomer(float damageAmount) 
+    public void Healing(float healingAmount) 
     {
-        UpdateHealth(-damageAmount);
-        CheckDeath();
-    }
+        OnHealing?.Invoke();
 
-    public void HealingCustomer(float healingAmount) 
-    {
         UpdateHealth(healingAmount);
     }
 
