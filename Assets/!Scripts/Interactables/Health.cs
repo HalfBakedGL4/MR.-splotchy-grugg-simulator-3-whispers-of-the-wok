@@ -54,7 +54,7 @@ public class Health : MonoBehaviour
         {
             Debug.Log("knife trigger");
             OnDamage?.Invoke();
-            OnAnimation?.Invoke();
+            //OnAnimation?.Invoke();
         }
         if (col.tag == "Wall") 
         {
