@@ -413,7 +413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 533bd1b4a4548ed4c998b1655e0a94b4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 533bd1b4a4548ed4c998b1655e0a94b4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -453,6 +453,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 533bd1b4a4548ed4c998b1655e0a94b4, type: 3}
       propertyPath: m_Name
+      value: Tomato
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 533bd1b4a4548ed4c998b1655e0a94b4, type: 3}
+      propertyPath: m_TagString
       value: Tomato
       objectReference: {fileID: 0}
     - target: {fileID: 8632055958874330854, guid: 533bd1b4a4548ed4c998b1655e0a94b4, type: 3}
@@ -609,7 +613,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.4
+  m_Radius: 0.3
   m_Center: {x: 0, y: 0.46, z: 0}
 --- !u!114 &679852650743053060
 MonoBehaviour:
@@ -745,9 +749,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9369b8c84161c2b48bf6365b9438ceda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 3
   maxHealth: 3
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 7952633887036883378}
   OnDamage:
     m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5215368972032687755}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+        m_MethodName: Damage
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnHealing:
+    m_PersistentCalls:
       m_Calls: []
+  OnAnimation:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5215368972032687755}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+        m_MethodName: ChangeState
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

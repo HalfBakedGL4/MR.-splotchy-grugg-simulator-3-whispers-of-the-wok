@@ -87,7 +87,7 @@ public class Health : MonoBehaviour
 
     public void Damage(float damageAmount) 
     {
-        OnDamage?.Invoke();
+        //OnDamage?.Invoke();
 
         UpdateHealth(-damageAmount);
         CheckDeath();
