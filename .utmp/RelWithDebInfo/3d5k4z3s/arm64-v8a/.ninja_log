@@ -1,0 +1,19 @@
+# ninja log v5
+76	1787	7635656291084787	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	7a7815ea7e32090b
+66	1788	7635656291436249	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	4914d3ba4f95204f
+57	1786	7635656291084787	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	964159dec48168f2
+110	1794	7635656291441437	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	5ace93e763a7d00c
+105	1735	7635656290923173	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	fa6280b3fbde453d
+62	1814	7635656292274024	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	d7aba9e32c51a9eb
+72	1872	7635656292781074	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	3e7d4a023647316
+1981	2348	7635656297728063	C:/Users/noasj/Documents/GitHub/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/3d5k4z3s/obj/arm64-v8a/libgame.so	76699a26d6ad9609
+51	1981	7635656293865006	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	d68cc2b4286d279b
+36	1904	7636462643001703	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	7a7815ea7e32090b
+25	1941	7636462643360964	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	964159dec48168f2
+30	1967	7636462643585954	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	fa6280b3fbde453d
+14	1981	7636462643801832	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	4914d3ba4f95204f
+48	2085	7636462644781640	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	5ace93e763a7d00c
+19	2205	7636462646171541	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	d7aba9e32c51a9eb
+42	2287	7636462646926451	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	3e7d4a023647316
+8	2452	7636462648654554	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	d68cc2b4286d279b
+2453	2882	7636462652906535	C:/Users/noasj/Documents/GitHub/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/3d5k4z3s/obj/arm64-v8a/libgame.so	76699a26d6ad9609

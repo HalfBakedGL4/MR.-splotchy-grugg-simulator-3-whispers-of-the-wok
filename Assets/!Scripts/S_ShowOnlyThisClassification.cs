@@ -10,6 +10,7 @@ public class S_ShowOnlyThisClassification : MonoBehaviour
     [SerializeField] private ARPlaneManager planeManager;
     [SerializeField] private PlaneClassifications classifications;
     [SerializeField] private Material portalMaterial;
+    [SerializeField] private Material wallMaterial;
     
     private void OnEnable()
     {
@@ -37,6 +38,7 @@ public class S_ShowOnlyThisClassification : MonoBehaviour
             else
             {
                 Renderer itemrenderer = item.GetComponent<Renderer>();
+
                 Destroy(itemrenderer);
             }
         }
