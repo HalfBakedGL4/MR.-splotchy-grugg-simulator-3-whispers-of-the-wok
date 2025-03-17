@@ -1182,6 +1182,10 @@ PrefabInstance:
       propertyPath: cooker
       value: 
       objectReference: {fileID: 7104565660179429157}
+    - target: {fileID: 5925488958627174871, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
+      propertyPath: objectWithIButtonObject
+      value: 
+      objectReference: {fileID: 2012386090533404722}
     - target: {fileID: 7061671384639600787, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

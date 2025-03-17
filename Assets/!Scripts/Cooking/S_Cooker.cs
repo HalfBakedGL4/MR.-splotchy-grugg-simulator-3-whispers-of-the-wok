@@ -8,7 +8,7 @@ public enum CookerType
     Oven,
     Fryer,
 }
-public class S_Cooker : MonoBehaviour
+public class S_Cooker : MonoBehaviour, IButtonObject
 {
     private enum CookerState
     {
@@ -84,7 +84,7 @@ public class S_Cooker : MonoBehaviour
         }
     }
     
-    public void InteractWithCooker()
+    public void OnButtonPressed()
     {
         print("Interacting with Cooker");
         // Activate Cooker and start timer
