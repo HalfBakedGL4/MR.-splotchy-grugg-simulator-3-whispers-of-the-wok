@@ -16,7 +16,7 @@ public class S_CuttingObjects : MonoBehaviour
     public UnityEvent OnChop;
 
     [Button("chop")]
-    void TryChop()
+    public void TryChop()
     {
         OnChop?.Invoke();
         if (canChop) ChopObject();

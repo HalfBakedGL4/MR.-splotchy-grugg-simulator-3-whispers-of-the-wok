@@ -6,10 +6,11 @@ public class Knife : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if (col.tag == "Tomato") 
+        if (col.tag == "Vegetable") 
         {
             objectWithDamageScript = col.gameObject;
             objectWithDamageScript.GetComponent<Health>().OnDamage?.Invoke();
+            objectWithDamageScript.GetComponent<S_CuttingObjects>().OnChop?.Invoke();
         }
         if (col.tag == "Customer") 
         {
