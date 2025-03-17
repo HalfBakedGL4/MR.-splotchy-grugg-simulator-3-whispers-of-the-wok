@@ -1,0 +1,10 @@
+# ninja log v5
+5	601	7600377202770766	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	1883fbdbcba06e84
+17	616	7600377202811970	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	ba489217998c3fc5
+28	626	7600377202914668	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	5ccd701fef89d26b
+33	628	7600377203033072	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	bb454fd3d55b6e17
+22	639	7600377203140059	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	60c9abb6267d3e4a
+9	678	7600377203404187	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	b3272f9a880b9520
+13	708	7600377203735999	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	ea252324f9c4d615
+0	748	7600377204351431	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	10ab166199e62e50
+748	881	7600377205756666	C:/Users/inger/Documents/Uni/GameLab/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/153j5l5s/obj/arm64-v8a/libgame.so	af351593ea7acfcc
