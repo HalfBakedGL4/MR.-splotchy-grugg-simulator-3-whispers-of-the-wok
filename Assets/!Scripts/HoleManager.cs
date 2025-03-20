@@ -1,27 +1,38 @@
+using System.Drawing;
 using UnityEngine;
 
 public class HoleManager : MonoBehaviour
 {
-    public GameObject parent;
+    private float size = 1;
 
     //Hammer fix wall
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        //On hammer hit
-        if (collision.gameObject.CompareTag("Finish"));
+        if (other.gameObject.CompareTag("Finish"))
         {
             HammerHit();
         }
     }
 
-    void ParentCheck()
-    {
-        
-    }
 
     void HammerHit()
     {
-        Destroy(gameObject);
+        // Shrinks hole by 20% each hit
+        size -= 0.2f;
+        if (transform.parent != null)
+        {
+            transform.parent.localScale = transform.parent.localScale * size;
+        }
+        else 
+        { 
+            transform.localScale = transform.localScale * size; 
+        }
 
+        if(size <= 0.2) { OnFixed(); }
+    }
+
+    void OnFixed()
+    {
+        Destroy(gameObject.transform.parent);
     }
 }

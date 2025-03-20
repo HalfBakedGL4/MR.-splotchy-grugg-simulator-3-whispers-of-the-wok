@@ -37,6 +37,10 @@ public class S_ShowOnlyThisClassification : MonoBehaviour
             }
             else
             {
+                if (item.classifications == PlaneClassifications.WallArt || item.classifications == PlaneClassifications.WallFace || item.classifications == PlaneClassifications.InvisibleWallFace)
+                {
+                    item.gameObject.tag = "Wall";
+                }
                 Renderer itemrenderer = item.GetComponent<Renderer>();
 
                 Destroy(itemrenderer);
