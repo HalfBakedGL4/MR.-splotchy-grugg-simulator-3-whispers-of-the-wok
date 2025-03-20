@@ -10,7 +10,7 @@ public class WallExplosion : MonoBehaviour
 
         foreach (var rb in rb)
         {
-            rb.AddExplosionForce(10, transform.position, 2);
+            rb.AddExplosionForce(200, transform.position, 2);
         }
     }
 
