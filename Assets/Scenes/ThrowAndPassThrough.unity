@@ -495,6 +495,26 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1153701027258707688, guid: 4f12ea1811606d04089c89adcd329aeb, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153701027258707688, guid: 4f12ea1811606d04089c89adcd329aeb, type: 3}
+      propertyPath: m_Size.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153701027258707688, guid: 4f12ea1811606d04089c89adcd329aeb, type: 3}
+      propertyPath: m_Size.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153701027258707688, guid: 4f12ea1811606d04089c89adcd329aeb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1775607377174829603, guid: 4f12ea1811606d04089c89adcd329aeb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2483208852637163579, guid: 4f12ea1811606d04089c89adcd329aeb, type: 3}
       propertyPath: m_Name
       value: fbx_onion (1)
@@ -538,6 +558,14 @@ PrefabInstance:
     - target: {fileID: 2717506824382877645, guid: 4f12ea1811606d04089c89adcd329aeb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -26.545
+      objectReference: {fileID: 0}
+    - target: {fileID: 7967412731766170651, guid: 4f12ea1811606d04089c89adcd329aeb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8971803954677439871, guid: 4f12ea1811606d04089c89adcd329aeb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1163,7 +1191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5332183916739327804, guid: a0a0f719aa31e91488c23741d0761921, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.5
+      value: 1.366
       objectReference: {fileID: 0}
     - target: {fileID: 5332183916739327804, guid: a0a0f719aa31e91488c23741d0761921, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1323,14 +1351,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 249911555206474233, guid: 4f12ea1811606d04089c89adcd329aeb, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 249911555206474233, guid: 4f12ea1811606d04089c89adcd329aeb, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2483208852637163579, guid: 4f12ea1811606d04089c89adcd329aeb, type: 3}
       propertyPath: m_Name
       value: fbx_onion

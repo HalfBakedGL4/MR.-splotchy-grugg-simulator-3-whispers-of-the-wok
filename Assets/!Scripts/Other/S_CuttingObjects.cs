@@ -7,7 +7,7 @@ using UnityEngine.Events;
 
 public class S_CuttingObjects : MonoBehaviour
 {
-    float countDown = 10f;
+    //float countDown = 10f;
     bool canChop = true;
 
     int currentChild;
@@ -19,18 +19,21 @@ public class S_CuttingObjects : MonoBehaviour
     public void TryChop()
     {
         OnChop?.Invoke();
-        if (canChop) ChopObject();
+        //if (canChop) ChopObject();
+        ChopObject();
     }
 
     void Start()
     {
-        currentChild = transform.childCount - 1;
+        Debug.Log(gameObject);
+        currentChild = transform.childCount - 2;
     }
 
     void ChopObject()
     {
+        Debug.Log(transform.childCount);
         Debug.Log(currentChild);
-        StartCoroutine(Timer());
+        //StartCoroutine(Timer());
 
         child = transform.GetChild(currentChild).gameObject;
         child.AddComponent<Rigidbody>();
@@ -44,12 +47,12 @@ public class S_CuttingObjects : MonoBehaviour
         currentChild--;
     }
 
-    IEnumerator Timer()
+    /*IEnumerator Timer()
     {
         canChop = false;
         yield return new WaitForSeconds(countDown);
         canChop = true;
-    }
+    }*/
 
     private void OnDestroy()
     {

@@ -1,4 +1,5 @@
 using Unity.VisualScripting;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -87,7 +88,7 @@ public class Health : MonoBehaviour
 
     public void Damage(float damageAmount) 
     {
-        //OnDamage?.Invoke();
+        OnDamage?.Invoke();
 
         UpdateHealth(-damageAmount);
         CheckDeath();
