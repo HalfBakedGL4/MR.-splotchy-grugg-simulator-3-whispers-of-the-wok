@@ -5,6 +5,11 @@ public class HoleManager : MonoBehaviour
 {
     private float size = 1;
 
+    private void Start()
+    {
+        size = transform.localScale.x;
+    }
+
     //Hammer fix wall
     private void OnTriggerEnter(Collider other)
     {

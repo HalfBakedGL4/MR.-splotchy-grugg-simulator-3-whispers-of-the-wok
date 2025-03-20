@@ -38,24 +38,29 @@ public class HoleSpawner : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapSphere(pos, 1, LayerMask.GetMask("Default"), QueryTriggerInteraction.Collide);
         foreach (var hitCollider in hitColliders)
         {
+            // Parents last found hole
             if (hitCollider.CompareTag("Hole"))
             {
                 parent = hitCollider.transform;
             }
         }
 
+        // Select random hole prefab from list
+        int holeIndex = UnityEngine.Random.Range(0, holePrefabs.Count);
+
+        rot.y = UnityEngine.Random.Range(0, 360);
 
         // Merges all hole under one parent, so all connected holes can be fixed at once.
         if (multiHoleFix && parent != null)
         {
             // Spawns hole and then parent it to keep its original size on spawn.
-            GameObject spawnedCub = Instantiate(holePrefabs[0], pos, rot);
+            GameObject spawnedCub = Instantiate(holePrefabs[holeIndex], pos, rot);
             spawnedCub.transform.parent = parent.transform;
         }
         // Seperate holes not connected.
         else
         {
-            GameObject spawnedCub = Instantiate(holePrefabs[0], pos, rot);
+            GameObject spawnedCub = Instantiate(holePrefabs[holeIndex], pos, rot);
         }
         
         parent = null;
