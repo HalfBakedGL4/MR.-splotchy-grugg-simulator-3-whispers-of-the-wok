@@ -38,7 +38,7 @@ public class S_Cooker : MonoBehaviour, IButtonObject
     private void Awake()
     {
         // Find the RecipeDatabase in the scene
-        _RecipeDatabase = FindObjectOfType<S_RecipeDatabase>();
+        _RecipeDatabase = FindFirstObjectByType<S_RecipeDatabase>();
 
         if (_RecipeDatabase == null)
         {
@@ -86,7 +86,7 @@ public class S_Cooker : MonoBehaviour, IButtonObject
     
     public void OnButtonPressed()
     {
-        print("Interacting with Cooker");
+        print("Interacting with Cooker " + name);
         // Activate Cooker and start timer
         if (state == CookerState.Available)
         {
@@ -103,33 +103,45 @@ public class S_Cooker : MonoBehaviour, IButtonObject
         else if (state == CookerState.Cooking)
         {
             GameObject dishToSpawn;
+            DishStatus dishStatus = DishStatus.UnCooked;
 
             // Undercooked
             if (timer < goodTime)
             {
                 dishToSpawn = GetDish();
+                dishStatus = DishStatus.UnderCooked;
                 // Negative points because undercooked
             }
             // Perfect
             else if (timer < badTime)
             {
                 dishToSpawn = GetDish();
+                dishStatus = DishStatus.Cooked;
+
             }
             // Overcooked
             else if (timer < worstTime)
             {
                 dishToSpawn = GetDish();
                 // Negative points because overcooked
+                dishStatus = DishStatus.OverCooked;
+
             }
             // Burnt
             else
             {
                 // Cannot be served
                 dishToSpawn = burntSlop;
+                dishStatus = DishStatus.Burnt;
             }
 
             CleanCooker();
-            Instantiate(dishToSpawn, dishSocket.transform.position, dishSocket.transform.rotation);
+            var dish = Instantiate(dishToSpawn, dishSocket.transform.position, dishSocket.transform.rotation);
+            if (dish.TryGetComponent(out S_DishStatus dishStatusScript))
+            {
+                dishStatusScript.ChangStatus(dishStatus);
+            }
+            
             state = CookerState.Available;
         }
     }

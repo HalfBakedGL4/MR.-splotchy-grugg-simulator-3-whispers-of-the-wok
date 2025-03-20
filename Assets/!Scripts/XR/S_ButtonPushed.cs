@@ -11,7 +11,14 @@ public class S_ButtonPushed : MonoBehaviour
     {
         GetComponent<XRSimpleInteractable>().selectEntered.AddListener(x => ToggleButton());
 
-        connectedToButton = GetComponent<IButtonObject>();
+        if (objectWithIButtonObject.TryGetComponent(out IButtonObject buttonObject))
+        {
+            connectedToButton = buttonObject;
+        }
+        else
+        {
+            Debug.LogError("Did not find IButtonObject on " + objectWithIButtonObject.name);
+        }
     }
 
     private void ToggleButton()

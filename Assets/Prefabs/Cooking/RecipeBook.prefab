@@ -57,3 +57,7 @@ MonoBehaviour:
     ingredients: 03000000
     canBeCookedIn: 1
     resultPrefab: {fileID: 5663040723896712990, guid: b93ac405de7dc564499bc7525e6d3a45, type: 3}
+  - name: FriedFish
+    ingredients: 01000000
+    canBeCookedIn: 1
+    resultPrefab: {fileID: 7705422996418108416, guid: 57e9e02c4aea5cb4583feeb77fd00cbf, type: 3}

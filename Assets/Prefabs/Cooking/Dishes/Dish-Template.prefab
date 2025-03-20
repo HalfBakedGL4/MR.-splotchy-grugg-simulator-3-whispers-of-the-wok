@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 6404768347975851309}
   - component: {fileID: 2694983218892880904}
   - component: {fileID: 3990303696344069797}
+  - component: {fileID: -5339815476622594317}
   m_Layer: 0
   m_Name: Dish-Template
   m_TagString: Dish
@@ -291,3 +292,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-5339815476622594317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5663040723896712990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00f0d49a515467b46a74af31a532456b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

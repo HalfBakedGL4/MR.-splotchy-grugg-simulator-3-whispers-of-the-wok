@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 8781159082095096334}
   - component: {fileID: 1976843831399203951}
   - component: {fileID: 3798567621948572922}
+  - component: {fileID: -3716129414051038991}
   m_Layer: 0
   m_Name: FishBurger
   m_TagString: Dish
@@ -378,3 +379,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.34823042, y: 0.22579858, z: 0.33597118}
   m_Center: {x: 0.0018005669, y: -0.0018005222, z: -0.0033763945}
+--- !u!114 &-3716129414051038991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7705422996418108416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00f0d49a515467b46a74af31a532456b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
