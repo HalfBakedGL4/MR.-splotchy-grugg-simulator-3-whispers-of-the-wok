@@ -301,6 +301,7 @@ GameObject:
   - component: {fileID: 3575548105529434060}
   - component: {fileID: 1596293576192287076}
   - component: {fileID: 2398985647047311312}
+  - component: {fileID: 8373991526561749805}
   m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
@@ -417,6 +418,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56987b9365a08ae4687cfa3342d4a59a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8373991526561749805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6275414587528930596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd6db474e03a05947acd47b8559fb5ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holePrefabs:
+  - {fileID: 4427969772178598340, guid: 3ea18882433980549a145c0b85a48d4f, type: 3}
+  - {fileID: 8743803021790657939, guid: 0532bc8cf048bfe4d86cbfe657684b0d, type: 3}
+  - {fileID: 3562898645679848131, guid: 669256b87b3fc62488ccc6af40fab9f5, type: 3}
+  - {fileID: 8194431942295444678, guid: 804a74eea11472046ac279d38a10fd57, type: 3}
+  inputAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Input
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 3980d2eb-2fdb-4341-9e45-6d21c3b7a2ad
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  multiHoleFix: 1
 --- !u!1 &6814099746120680431
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,4 +547,5 @@ MonoBehaviour:
   - {fileID: 4191546162730553249}
   - {fileID: 1596293576192287076}
   - {fileID: 2398985647047311312}
+  - {fileID: 8373991526561749805}
   ForceRemoteRenderTimeframe: 0

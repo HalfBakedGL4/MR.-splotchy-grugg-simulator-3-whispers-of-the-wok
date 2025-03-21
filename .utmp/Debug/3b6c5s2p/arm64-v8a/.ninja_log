@@ -1,10 +1,10 @@
 # ninja log v5
-19	876	7642670023245911	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	c59f153cc7fb76bc
-23	881	7642670023296320	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	c2f8da67718d2a8
-5	882	7642670023336686	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	f077ee78f8faedb4
-27	908	7642670023561037	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	121c6149a5b947b9
-8	924	7642670023727741	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	1fed22b7360a0957
-11	950	7642670023998560	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	a8e00ee505728dbf
-15	979	7642670024297110	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	1f8f76faf09c69bf
-0	1020	7642670024734281	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	8d79b6084fb28bd3
-1021	1133	7642670025860559	C:/Users/torje/!School/Semester 4/Gamelab/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/3b6c5s2p/obj/arm64-v8a/libgame.so	a7f44d0e483d0323
+11	886	7642745587245585	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	c59f153cc7fb76bc
+7	899	7642745587395125	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	f077ee78f8faedb4
+22	900	7642745587328626	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	c2f8da67718d2a8
+27	917	7642745587561783	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	121c6149a5b947b9
+18	938	7642745587726580	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	a8e00ee505728dbf
+0	939	7642745587808133	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	1fed22b7360a0957
+14	1010	7642745588354050	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	1f8f76faf09c69bf
+4	1034	7642745588802928	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	8d79b6084fb28bd3
+1035	1165	7642745590117183	C:/Users/torje/!School/Semester 4/Gamelab/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/3b6c5s2p/obj/arm64-v8a/libgame.so	a7f44d0e483d0323

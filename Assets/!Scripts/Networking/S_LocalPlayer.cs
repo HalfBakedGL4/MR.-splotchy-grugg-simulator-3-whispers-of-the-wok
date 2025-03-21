@@ -4,6 +4,12 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum Buttons
+{
+    trigger,
+    grip
+}
 public enum RigPart
 {
     None,
@@ -12,6 +18,7 @@ public enum RigPart
     RightController,
     Undefined
 }
+
 [Serializable]
 public struct RigInput : INetworkInput
 {
@@ -23,6 +30,8 @@ public struct RigInput : INetworkInput
     public Quaternion rightHandRotation;
     public Vector3 headPosition;
     public Quaternion headRotation;
+
+    public Buttons buttons;
 }
 
 public class S_LocalPlayer : MonoBehaviour, INetworkRunnerCallbacks

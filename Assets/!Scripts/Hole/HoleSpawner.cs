@@ -7,7 +7,7 @@ using Fusion;
 
 public class HoleSpawner : NetworkBehaviour
 {
-    [SerializeField] Camera cam; // Only used for raycast, remove later.
+    Camera cam => Camera.main; // Only used for raycast, remove later.
     [SerializeField] List<GameObject> holePrefabs; // Prefabs to instantiate on collision
     [SerializeField] private InputActionProperty inputAction;
 
@@ -24,45 +24,35 @@ public class HoleSpawner : NetworkBehaviour
         if (!IsLocalNetworkRig) enabled = false;
 
         runner = FindFirstObjectByType<NetworkRunner>();
-
-        cam = Camera.main;
     }
 
+    void Update()
+    {
+        if (inputAction.action.WasPressedThisFrame())
+        {
+            Debug.Log("pressed Button");
+            CastRay(out RaycastHit hit);
+            RPC_CreatePortal(hit.point, hit.transform.rotation);
+        }
+    }
+
+    [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
+    void RPC_CreatePortal(Vector3 pos, Quaternion rot)
+    {
+        Debug.Log("Spawn Portal");
+        SpawnHole(pos, rot);
+    }
     // Raycast for testing, removed later when enemies are spawning the holes.
-    private RaycastHit CastRay()
+    private RaycastHit CastRay(out RaycastHit raycast)
     {
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+
+        if (Physics.Raycast(ray, out raycast))
         {
 
-            Quaternion rot = Quaternion.Euler(0, hit.transform.rotation.y, 0);
+            Quaternion rot = Quaternion.Euler(0, raycast.transform.rotation.y, 0);
         }
-        return hit;
-    }
-
-    public void TrySpawn(RigInput input)
-    {
-        if (!input.buttons.IsSet(Input.Trigger)) return;
-
-        // Used for testing, removed later
-        RaycastHit ray = CastRay();
-
-        if (!runner.IsServer)
-        {
-            RPCRequestSpawnHole(ray.point, ray.transform.localRotation, PlayerRef.None);
-        }
-        else
-        {
-            SpawnHole(ray.point, ray.transform.localRotation);
-        }
-    }
-
-    [Rpc(InvokeLocal = false)]
-    void RPCRequestSpawnHole(Vector3 pos, Quaternion rot, [RpcTarget] PlayerRef target)
-    {
-        if (!Runner.IsServer) return;
-        SpawnHole(pos, rot);
+        return raycast;
     }
 
     void SpawnHole(Vector3 pos, Quaternion rot)
@@ -87,7 +77,7 @@ public class HoleSpawner : NetworkBehaviour
         if (multiHoleFix && parent != null)
         {
             // Spawns hole and then parent it to keep its original size on spawn.
-            NetworkObject spawnedHole = runner.Spawn(holePrefabs[holeIndex], pos, rot);
+            NetworkObject spawnedHole = runner.Spawn(holePrefabs[holeIndex], transform.position, transform.rotation);
             spawnedHole.transform.parent = parent.transform;
         }
         // Seperate holes not connected.
