@@ -2,36 +2,69 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Photon;
+using Fusion;
 
-public class HoleSpawner : MonoBehaviour
+public class HoleSpawner : NetworkBehaviour
 {
     [SerializeField] Camera cam; // Only used for raycast, remove later.
     [SerializeField] List<GameObject> holePrefabs; // Prefabs to instantiate on collision
     [SerializeField] private InputActionProperty inputAction;
-    
+
     [Header("Fix multiple holes at once")]
     [SerializeField] bool multiHoleFix;
 
     private Transform parent;
+    NetworkRunner runner;
 
+    public bool IsLocalNetworkRig => Object.HasInputAuthority;
 
-    void Update()
+    private void Start()
     {
-        // Ray for debugging and testing
-        if (inputAction.action.WasPressedThisFrame())
+        if (!IsLocalNetworkRig) enabled = false;
+
+        runner = FindFirstObjectByType<NetworkRunner>();
+
+        cam = Camera.main;
+    }
+
+    // Raycast for testing, removed later when enemies are spawning the holes.
+    private RaycastHit CastRay()
+    {
+        Ray ray = new Ray(cam.transform.position, cam.transform.forward);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
         {
-            Ray ray = new Ray(cam.transform.position, cam.transform.forward);
-            RaycastHit hit;
-            if(Physics.Raycast(ray, out hit))
-            {
-                
-                Quaternion rot = Quaternion.Euler(0,hit.transform.rotation.y,0);
-                SpawnHole(hit.point, hit.transform.rotation);
-                
-            }
+
+            Quaternion rot = Quaternion.Euler(0, hit.transform.rotation.y, 0);
+        }
+        return hit;
+    }
+
+    public void TrySpawn(RigInput input)
+    {
+        if (!input.buttons.IsSet(Input.Trigger)) return;
+
+        // Used for testing, removed later
+        RaycastHit ray = CastRay();
+
+        if (!runner.IsServer)
+        {
+            RPCRequestSpawnHole(ray.point, ray.transform.localRotation, PlayerRef.None);
+        }
+        else
+        {
+            SpawnHole(ray.point, ray.transform.localRotation);
         }
     }
-    
+
+    [Rpc(InvokeLocal = false)]
+    void RPCRequestSpawnHole(Vector3 pos, Quaternion rot, [RpcTarget] PlayerRef target)
+    {
+        if (!Runner.IsServer) return;
+        SpawnHole(pos, rot);
+    }
+
     void SpawnHole(Vector3 pos, Quaternion rot)
     {
         // Checks for holes nearby.
@@ -54,15 +87,15 @@ public class HoleSpawner : MonoBehaviour
         if (multiHoleFix && parent != null)
         {
             // Spawns hole and then parent it to keep its original size on spawn.
-            GameObject spawnedHole = Instantiate(holePrefabs[holeIndex], pos, rot);
+            NetworkObject spawnedHole = runner.Spawn(holePrefabs[holeIndex], pos, rot);
             spawnedHole.transform.parent = parent.transform;
         }
         // Seperate holes not connected.
         else
         {
-            GameObject spawnedHole = Instantiate(holePrefabs[holeIndex], pos, rot);
+            NetworkObject spawnedHole = runner.Spawn(holePrefabs[holeIndex], pos, rot);
         }
-        
+
         parent = null;
     }
 
