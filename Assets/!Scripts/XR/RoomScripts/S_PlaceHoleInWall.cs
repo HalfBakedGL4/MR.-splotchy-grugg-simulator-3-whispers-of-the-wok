@@ -16,11 +16,11 @@ public class S_PlaceHoleInWall : MonoBehaviour
     }
 
     void Update()
-    {/*
+    {
         if (inputAction.action.WasPressedThisFrame())
         {
             SpawnHoleInWall();
-        }*/
+        }
     }
 
     private void SpawnHoleInWall()

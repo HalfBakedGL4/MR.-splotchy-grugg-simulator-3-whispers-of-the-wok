@@ -59,7 +59,7 @@ public class S_Cooker : MonoBehaviour, IButtonObject
                 break; 
             case CookerState.Cooking:
                 timer += Time.deltaTime;
-                // update the timer UI
+                //TODO: update the timer UI
                 break;
             case CookerState.Finished:
                 break;
@@ -97,6 +97,7 @@ public class S_Cooker : MonoBehaviour, IButtonObject
             {
                 foodScript.TurnOffColliders();
             }
+            //TODO: animation that closes the cooker or shows cooker cooking
             state = CookerState.Cooking;
         }
         // Stop Cooker and empty food items inside
@@ -110,7 +111,6 @@ public class S_Cooker : MonoBehaviour, IButtonObject
             {
                 dishToSpawn = GetDish();
                 dishStatus = DishStatus.UnderCooked;
-                // Negative points because undercooked
             }
             // Perfect
             else if (timer < badTime)
@@ -123,7 +123,6 @@ public class S_Cooker : MonoBehaviour, IButtonObject
             else if (timer < worstTime)
             {
                 dishToSpawn = GetDish();
-                // Negative points because overcooked
                 dishStatus = DishStatus.OverCooked;
 
             }
@@ -141,12 +140,13 @@ public class S_Cooker : MonoBehaviour, IButtonObject
             {
                 dishStatusScript.ChangStatus(dishStatus);
             }
+            // TODO: Animation that opens the cooker or show it stops cooking
             
             state = CookerState.Available;
         }
     }
 
-    private GameObject GetDish()
+    private GameObject GetDish() //Looks through the RecipeBook to see if any dish is created from those ingredients
     {
         var dishInfo = _RecipeDatabase.FindMatchingRecipe(foodCooking, cookerType);
         
@@ -159,7 +159,7 @@ public class S_Cooker : MonoBehaviour, IButtonObject
         return burntSlop;
     }
 
-    private void CleanCooker()
+    private void CleanCooker()  // Moves items in cooker under the stage. possible to use object pooling.
     {
         S_Food[] foodList = foodScripts.ToArray();
         foreach (var foodScript in foodList)
