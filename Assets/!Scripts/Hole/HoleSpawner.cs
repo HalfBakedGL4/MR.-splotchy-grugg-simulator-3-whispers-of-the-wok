@@ -31,7 +31,7 @@ public class HoleSpawner : MonoBehaviour
             }
         }
     }
-
+    
     void SpawnHole(Vector3 pos, Quaternion rot)
     {
         // Checks for holes nearby.
@@ -48,19 +48,19 @@ public class HoleSpawner : MonoBehaviour
         // Select random hole prefab from list
         int holeIndex = UnityEngine.Random.Range(0, holePrefabs.Count);
 
-        rot.y = UnityEngine.Random.Range(0, 360);
+        // rot.z = UnityEngine.Random.Range(0, 360);
 
         // Merges all hole under one parent, so all connected holes can be fixed at once.
         if (multiHoleFix && parent != null)
         {
             // Spawns hole and then parent it to keep its original size on spawn.
-            GameObject spawnedCub = Instantiate(holePrefabs[holeIndex], pos, rot);
-            spawnedCub.transform.parent = parent.transform;
+            GameObject spawnedHole = Instantiate(holePrefabs[holeIndex], pos, rot);
+            spawnedHole.transform.parent = parent.transform;
         }
         // Seperate holes not connected.
         else
         {
-            GameObject spawnedCub = Instantiate(holePrefabs[holeIndex], pos, rot);
+            GameObject spawnedHole = Instantiate(holePrefabs[holeIndex], pos, rot);
         }
         
         parent = null;

@@ -23,7 +23,7 @@ public class HoleManager : MonoBehaviour
     void HammerHit()
     {
         // Shrinks hole by 20% each hit
-        size -= 0.2f;
+        size -= 0.4f;
         if (transform.parent != null)
         {
             transform.parent.localScale = transform.parent.localScale * size;
