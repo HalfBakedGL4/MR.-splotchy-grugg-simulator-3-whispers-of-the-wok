@@ -26,9 +26,7 @@ public class S_RuntimeNavmeshBuilder : MonoBehaviour
 
     public void BuildNavmesh()
     {
-        navmeshSurface.BuildNavMesh();
-    }
-        /*Debug.Log("[NavmeshSurface] in BuildNavMesh() ... ");
+        Debug.Log("[NavmeshSurface] in BuildNavMesh() ... ");
         StartCoroutine(BuildNavmeshRoutine());
     }
 
@@ -37,5 +35,5 @@ public class S_RuntimeNavmeshBuilder : MonoBehaviour
         Debug.Log("[NavmeshSurface] in BuildNavmeshRoutine() ...");
         yield return new WaitForEndOfFrame();
         navmeshSurface.BuildNavMesh();
-    }*/
     }
+}
