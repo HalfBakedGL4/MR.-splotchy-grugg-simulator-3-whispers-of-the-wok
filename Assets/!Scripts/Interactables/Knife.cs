@@ -16,10 +16,10 @@ public class Knife : MonoBehaviour
         {
             StartCoroutine(Timer());
 
-            objectWithDamageScript = col.gameObject;
-            objectWithDamageScript.GetComponent<Health>().Damage(1);
-
-            //objectWithDamageScript.GetComponent<S_CuttingObjects>().TryChop();
+            objectWithDamageScript = col.transform.parent.gameObject;
+            
+            if (objectWithDamageScript.TryGetComponent<Health>(out Health health))
+                health.ChopObject(col);
         }
         if (col.tag == "Customer") 
         {

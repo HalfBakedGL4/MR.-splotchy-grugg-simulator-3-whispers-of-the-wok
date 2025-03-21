@@ -25,12 +25,12 @@ public class S_CuttingObjects : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(gameObject);
-        currentChild = transform.childCount - 2;
     }
 
     void ChopObject()
     {
+        OnChop?.Invoke();
+
         Debug.Log(transform.childCount);
         Debug.Log(currentChild);
         //StartCoroutine(Timer());

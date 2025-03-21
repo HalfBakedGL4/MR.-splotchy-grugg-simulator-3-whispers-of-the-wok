@@ -3,7 +3,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Health : MonoBehaviour
 {
     /*[SerializeField] float coolDown; // in seconds
@@ -11,7 +13,7 @@ public class Health : MonoBehaviour
 
     //[SerializeField] int state; List
 
-    [SerializeField] float health, maxHealth = 3f;
+    [SerializeField] float health, maxHealth = 3;
 
     Rigidbody rb;
 
@@ -22,6 +24,10 @@ public class Health : MonoBehaviour
     public UnityEvent OnHealing;
 
     public UnityEvent OnAnimation;
+    public UnityEvent OnChop;
+
+    //int currentChild = 2;
+    GameObject child;
 
     private void Awake() 
     {
@@ -92,6 +98,36 @@ public class Health : MonoBehaviour
 
         UpdateHealth(-damageAmount);
         CheckDeath();
+    }
+
+    public void ChopObject(Collider col)
+    {
+        OnChop?.Invoke();
+
+        Debug.Log(transform.childCount);
+
+        for (int i = 0; i < transform.childCount; i++) 
+        {
+            child = transform.GetChild(i).gameObject;
+            if (child == col.gameObject)
+            {
+                break;
+            }
+        }
+
+        //child = transform.GetChild(transform.childCount-1).gameObject;
+        child.AddComponent<Rigidbody>();
+        child.AddComponent<XRGrabInteractable>();
+        child.transform.parent = null;
+
+
+        /*if (currentChild == 0)
+        {
+            Destroy(gameObject);
+        }
+        currentChild--;*/
+
+        if (transform.childCount == 0) Destroy(gameObject);
     }
 
     public void Healing(float healingAmount) 
