@@ -9,6 +9,7 @@ TagManager:
   - RecipeBook
   - Food
   - Dish
+  - Ticket
   layers:
   - Default
   - TransparentFX

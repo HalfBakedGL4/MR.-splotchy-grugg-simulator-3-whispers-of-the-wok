@@ -14,6 +14,8 @@ public class S_SpawnObjectOnClassification : MonoBehaviour
     [SerializeField] private TMP_Text debugText;
     
     private float basketSize = 0.5f;
+    
+    private bool windowPlaced = false;
 
     
     // Needs to be referenced in the editor in ARPlaneManager
@@ -21,6 +23,7 @@ public class S_SpawnObjectOnClassification : MonoBehaviour
     {
         foreach (var item in changes.added)
         {
+            // Place applications on table across the room
             if (item.classifications == classifications)
             {
                 // Finds number of rows and columns to create a grid to place items
@@ -51,6 +54,13 @@ public class S_SpawnObjectOnClassification : MonoBehaviour
                         //debugText.text += objectInstance.name + ": " + objectInstance.transform.localPosition + "\n";
                     }
                 }
+            }
+
+            if (item.classifications == PlaneClassifications.WallFace && !windowPlaced)
+            {
+                
+                
+                windowPlaced = true;
             }
         }
     }

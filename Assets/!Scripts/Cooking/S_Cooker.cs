@@ -152,7 +152,6 @@ public class S_Cooker : MonoBehaviour, IButtonObject
         
         if (dishInfo != null)
         {
-            print(dishInfo.name);
             return dishInfo.resultPrefab;
         }
         

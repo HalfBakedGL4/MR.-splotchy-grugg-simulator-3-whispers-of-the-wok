@@ -18,6 +18,8 @@ public class S_DishStatus : MonoBehaviour
     private DishStatus currentDishStatus = DishStatus.UnCooked;
 
     private bool isGrugged = false;
+    
+    [SerializeField] private Dish typeOfDish;
 
     public void ChangStatus(DishStatus newStatus)
     {
