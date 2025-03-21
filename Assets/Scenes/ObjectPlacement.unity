@@ -684,7 +684,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planeManager: {fileID: 333044995}
   classifications: 256
-  spawnObject: {fileID: 4326387533491593377, guid: 298c79398a088c345be6bfd70409ff33, type: 3}
+  spawnObjects:
+  - {fileID: 5439066145181431010, guid: 7e4225130453e544cb89d9d619d58bef, type: 3}
+  - {fileID: 2012386090533404722, guid: 19eb3f79a96263743992872919600d57, type: 3}
   debugText: {fileID: 1867264854}
 --- !u!4 &1953618874
 Transform:
