@@ -22,12 +22,14 @@ public class S_DishStatus : MonoBehaviour
     public void ChangStatus(DishStatus newStatus)
     {
         currentDishStatus = newStatus;
+        //TODO: Add visual based on cooked time
         print(name + " change status to " + currentDishStatus);
     }
 
     public void ApplyGrugg()
     {
         isGrugged = true;
+        // TODO: Add visual that grugg is added
         print("Grugg Applied to " + name);
     }
     

@@ -3,14 +3,18 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using Random = UnityEngine.Random;
 
-public class S_FoodDispencer : MonoBehaviour, IButtonObject
+public class S_FoodDispenser : MonoBehaviour, IButtonObject
 {
+    [Header("Food Dispenser")]
     [SerializeField] private S_Food foodToDispense;
     [SerializeField] private Transform spawnPoint;
-    [SerializeField] private Transform hoverPoint;
-
     [SerializeField] private float launchSpeed;
     [SerializeField] private float rotationSpeed;
+    
+    [Header("Hover Item showing food Dispensed")]
+    [SerializeField] private Transform hoverPoint;
+    [SerializeField] private float hoverItemSize = 0.1f;
+    
 
     private GameObject hoverItem;
     
@@ -23,13 +27,14 @@ public class S_FoodDispencer : MonoBehaviour, IButtonObject
         hoverItem.GetComponent<Collider>().enabled = false;
         hoverItem.GetComponent<XRGrabInteractable>().enabled = false;
         hoverItem.GetComponent<S_Food>().enabled = false;
-        hoverItem.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        hoverItem.transform.localScale = new Vector3(hoverItemSize, hoverItemSize, hoverItemSize);
     }
 
     private void Update()
     {
+        var t = Time.deltaTime;
         // Spins the hover Item
-        hoverItem.transform.Rotate(30 * Time.deltaTime,15 * Time.deltaTime,10 * Time.deltaTime);
+        hoverItem.transform.Rotate(30 * t, 15 * t, 10 * t);
     }
     
     public void OnButtonPressed() // When button is pressed spawn and launch the selected food Item
