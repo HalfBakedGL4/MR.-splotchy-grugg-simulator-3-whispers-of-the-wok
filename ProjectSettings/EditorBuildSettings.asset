@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Networking_Noa.unity
+    guid: 59285c59a8e9e8d42be79593375b28ca
+  - enabled: 1
     path: Assets/Scenes/Networking.unity
     guid: e6aef4864d5fdb14688435050447777d
   - enabled: 1

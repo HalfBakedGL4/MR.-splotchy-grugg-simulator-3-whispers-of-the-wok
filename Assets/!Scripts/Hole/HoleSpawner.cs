@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Photon;
+using Fusion;
 
-public class HoleSpawner : MonoBehaviour
+public class HoleSpawner : NetworkBehaviour
 {
     [SerializeField] Camera cam; // Only used for raycast, remove later.
     [SerializeField] List<GameObject> holePrefabs; // Prefabs to instantiate on collision
@@ -13,7 +15,18 @@ public class HoleSpawner : MonoBehaviour
     [SerializeField] bool multiHoleFix;
 
     private Transform parent;
+    NetworkRunner runner;
 
+    public bool IsLocalNetworkRig => Object.HasInputAuthority;
+
+    private void Start()
+    {
+        if(!IsLocalNetworkRig) enabled = false;
+
+        runner = FindFirstObjectByType<NetworkRunner>();
+
+        cam = Camera.main;
+    }
 
     void Update()
     {
@@ -26,12 +39,34 @@ public class HoleSpawner : MonoBehaviour
             {
                 
                 Quaternion rot = Quaternion.Euler(0,hit.transform.rotation.y,0);
-                SpawnHole(hit.point, hit.transform.rotation);
+                // SpawnHole(hit.point, hit.transform.rotation);
                 
             }
         }
     }
+
+    public void TrySpawn(RigInput input, Vector3 pos, Quaternion rot)
+    {
+        if (!runner.IsServer)
+        {
+            RPCRequestSpawnHole(pos, rot, PlayerRef.None);
+        }
+        else
+        {
+            SpawnHole(pos, rot);
+        }
+    }
+
+
+
+    [Rpc(InvokeLocal = false)]
     
+    void RPCRequestSpawnHole(Vector3 pos, Quaternion rot, [RpcTarget] PlayerRef target)
+    {
+        if(!Runner.IsServer) return;
+        SpawnHole(pos, rot);
+    }    
+        
     void SpawnHole(Vector3 pos, Quaternion rot)
     {
         // Checks for holes nearby.
@@ -54,13 +89,13 @@ public class HoleSpawner : MonoBehaviour
         if (multiHoleFix && parent != null)
         {
             // Spawns hole and then parent it to keep its original size on spawn.
-            GameObject spawnedHole = Instantiate(holePrefabs[holeIndex], pos, rot);
+            NetworkObject spawnedHole = runner.Spawn(holePrefabs[holeIndex], pos, rot);
             spawnedHole.transform.parent = parent.transform;
         }
         // Seperate holes not connected.
         else
         {
-            GameObject spawnedHole = Instantiate(holePrefabs[holeIndex], pos, rot);
+            NetworkObject spawnedHole = runner.Spawn(holePrefabs[holeIndex], pos, rot);
         }
         
         parent = null;
