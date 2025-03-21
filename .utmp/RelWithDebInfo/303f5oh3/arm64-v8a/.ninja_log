@@ -1,0 +1,19 @@
+# ninja log v5
+52	1707	7624360267835603	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	bdffb91e9147e9f9
+60	1855	7624360269432976	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	d116a8cbaf17a506
+31	1745	7624360268191746	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	db8dc2807ba1f478
+23	1946	7624360270274361	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	2da1f690d71cf69c
+38	1779	7624360268573370	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	424046b496a385d4
+16	1838	7624360269244226	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	ebc8d8d01382987c
+2281	2573	7624360276602765	C:/Users/fbuen/Documents/GitHub/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/303f5oh3/obj/arm64-v8a/libgame.so	632d79e739ee8378
+45	2127	7624360272117483	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	8f6e3bbc1a2c710d
+9	2281	7624360273618708	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	9504da8d1a841f86
+11	1248	7624391657872420	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	ebc8d8d01382987c
+25	1273	7624391658094011	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	db8dc2807ba1f478
+45	1287	7624391658232217	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	bdffb91e9147e9f9
+38	1311	7624391658511752	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	424046b496a385d4
+53	1475	7624391660120057	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	d116a8cbaf17a506
+18	1559	7624391661051856	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	2da1f690d71cf69c
+31	1801	7624391663491300	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	8f6e3bbc1a2c710d
+4	1925	7624391664761944	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	9504da8d1a841f86
+1926	2049	7624391666045883	C:/Users/fbuen/Documents/GitHub/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/303f5oh3/obj/arm64-v8a/libgame.so	632d79e739ee8378
