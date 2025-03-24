@@ -11,7 +11,6 @@ public enum Dish
     FishBurger,
     Fries,
     FriedFish,
-    Burnt
 }
 
 [System.Serializable]
