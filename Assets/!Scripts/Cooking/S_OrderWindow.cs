@@ -25,12 +25,25 @@ public class S_OrderWindow : MonoBehaviour
 
     
     private Dictionary<S_Ticket, Transform> ticketsDictionary = new Dictionary<S_Ticket, Transform>();
-    private void Start()
+
+    // Costumer will request a Dish
+    public void MakeOrder(Dish dish)
     {
-        AddTicket(orderTypes[0]);
+        var thisOrder = new Order();
+        
+        foreach (Order order in orderTypes) // Goes through list seeking order with the same dish
+        {
+            if (order.nameOfDish == dish)
+            {
+                thisOrder = order;
+            }
+        }
+        
+        AddTicket(thisOrder);
     }
 
-    public void AddTicket(Order order)
+    // Ticket is added
+    private void AddTicket(Order order)
     {
         // Get random transform from List to place item
         var pos = ticketPlacements[Random.Range(0, ticketPlacements.Count - 1)];
