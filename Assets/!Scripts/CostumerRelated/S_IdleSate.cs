@@ -1,16 +1,20 @@
 using UnityEngine;
 
-public class S_IdleSate : MonoBehaviour
+public class S_IdleSate : S_State
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public S_ChaseState chaseState;
+    public bool canSeeThePlayer;
 
-    // Update is called once per frame
-    void Update()
+    public override S_State RunCurrentState() 
     {
-        
+        if (canSeeThePlayer) 
+        {
+            return chaseState;
+        }
+        else 
+        {
+            return this;
+        }
+        return this;
     }
 }

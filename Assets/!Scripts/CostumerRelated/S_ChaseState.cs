@@ -1,16 +1,9 @@
 using UnityEngine;
 
-public class S_ChaseState : MonoBehaviour
+public class S_ChaseState : S_State
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override S_State RunCurrentState() 
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return this;
     }
 }

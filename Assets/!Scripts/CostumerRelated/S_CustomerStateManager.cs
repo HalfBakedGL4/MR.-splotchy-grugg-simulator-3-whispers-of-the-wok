@@ -1,16 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class S_CustomerStateMachine : MonoBehaviour
+public class S_CustomerStateManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    S_State currentState;
+
+    private void Update() 
     {
-        
+        RunStateMachine();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void RunStateMachine() 
     {
-        
+        S_State nextState = currentState?.RunCurrentState();
+
+        if (nextState != null) 
+        {
+            SwitchToTheNextState(nextState);
+        }
+    }
+
+    private void SwitchToTheNextState(S_State nextState) 
+    {
+        currentState = nextState;
     }
 }

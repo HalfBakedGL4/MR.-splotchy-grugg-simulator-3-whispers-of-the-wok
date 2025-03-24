@@ -1,16 +1,17 @@
 using UnityEngine;
 
-public class S_AttackState : MonoBehaviour
+public class S_AttackState : S_State
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public S_AttackState attackState;
+    public bool isInAttackRange;
 
-    // Update is called once per frame
-    void Update()
+    public override S_State RunCurrentState() 
     {
-        
+        if (isInAttackRange) 
+        {
+            return attackState;
+        }
+        else
+        return this;
     }
 }
