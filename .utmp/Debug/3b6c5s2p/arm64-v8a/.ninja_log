@@ -1,10 +1,19 @@
 # ninja log v5
 11	886	7642745587245585	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	c59f153cc7fb76bc
-7	899	7642745587395125	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	f077ee78f8faedb4
-22	900	7642745587328626	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	c2f8da67718d2a8
 27	917	7642745587561783	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	121c6149a5b947b9
-18	938	7642745587726580	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	a8e00ee505728dbf
+7	899	7642745587395125	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	f077ee78f8faedb4
 0	939	7642745587808133	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	1fed22b7360a0957
+22	900	7642745587328626	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	c2f8da67718d2a8
+18	938	7642745587726580	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	a8e00ee505728dbf
 14	1010	7642745588354050	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	1f8f76faf09c69bf
 4	1034	7642745588802928	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	8d79b6084fb28bd3
 1035	1165	7642745590117183	C:/Users/torje/!School/Semester 4/Gamelab/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/3b6c5s2p/obj/arm64-v8a/libgame.so	a7f44d0e483d0323
+55	1702	7645106787214022	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	c59f153cc7fb76bc
+33	1704	7645106787571955	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	c2f8da67718d2a8
+21	1717	7645106787423852	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	f077ee78f8faedb4
+70	1768	7645106788133421	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	121c6149a5b947b9
+27	1815	7645106788612422	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	1fed22b7360a0957
+15	1929	7645106789856042	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	a8e00ee505728dbf
+44	1950	7645106790085547	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	1f8f76faf09c69bf
+8	2027	7645106790850345	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	8d79b6084fb28bd3
+2027	2259	7645106793296839	C:/Users/torje/!School/Semester 4/Gamelab/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/3b6c5s2p/obj/arm64-v8a/libgame.so	a7f44d0e483d0323
