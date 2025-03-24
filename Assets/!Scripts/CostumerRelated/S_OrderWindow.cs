@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,12 +32,11 @@ public class S_OrderWindow : MonoBehaviour
     {
         var thisOrder = new Order();
         
-        foreach (Order order in orderTypes) // Goes through list seeking order with the same dish
+        // Goes through list seeking order with the same dish
+        foreach (var order in orderTypes.Where(order => order.nameOfDish == dish))
         {
-            if (order.nameOfDish == dish)
-            {
-                thisOrder = order;
-            }
+            thisOrder = order;
+            break;
         }
         
         AddTicket(thisOrder);

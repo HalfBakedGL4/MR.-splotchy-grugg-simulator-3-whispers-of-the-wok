@@ -6,7 +6,7 @@ public class S_CostumerOrder : MonoBehaviour
 {
     S_OrderWindow orderWindow;
     
-    [SerializeField] private List<Dish> canOrder = new List<Dish>();
+    [SerializeField] private List<Dish> canOrder = new ();
 
     private Dish _dishOrder;
     private void Start()
@@ -18,10 +18,12 @@ public class S_CostumerOrder : MonoBehaviour
     }
     
     // The costumer would order food when they approach the window
-    public void OrderFood()
+    public Dish OrderFood()
     {
         _dishOrder = canOrder[Random.Range(0, canOrder.Count)];
         
         orderWindow.MakeOrder(_dishOrder);
+        
+        return _dishOrder;
     }
 }

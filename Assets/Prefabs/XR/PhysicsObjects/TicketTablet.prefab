@@ -330,11 +330,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513e654e99d4811489784aef95e55d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Input
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: b7fabac9-a98a-4350-8093-884f66ec48b6
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 2464016903823916871, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   ticketNumberText: {fileID: 4544979672023711842}
   orderImage: {fileID: 8452597880353138873}
   orderIngredients: {fileID: 6805459691297070404}
   orderTools: {fileID: 2080554015901723406}
   orderTutorial: {fileID: 540296009514835558}
+  page1: {fileID: 5940157534431125081}
+  page2: {fileID: 6767069569903709378}
 --- !u!1 &4794476957168840563
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,10 +1390,34 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2605544696694138344}
+        m_TargetAssemblyTypeName: S_Ticket, Assembly-CSharp
+        m_MethodName: TicketHeld
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2605544696694138344}
+        m_TargetAssemblyTypeName: S_Ticket, Assembly-CSharp
+        m_MethodName: TicketReleased
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
