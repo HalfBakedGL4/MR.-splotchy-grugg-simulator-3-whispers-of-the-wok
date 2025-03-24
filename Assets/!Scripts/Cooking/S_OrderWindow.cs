@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 
-[System.Serializable]
+[Serializable]
 public class Order
 {
     public Dish nameOfDish;
@@ -17,13 +18,13 @@ public class Order
 }
 public class S_OrderWindow : MonoBehaviour
 {
-    [SerializeField] private Ticket ticketPrefab;
+    [SerializeField] private S_Ticket ticketPrefab;
     [SerializeField] private List<Transform> ticketPlacements;
-    [Tooltip("All possible dishes for costumers to order, with the images of items ordered")]
+    [Tooltip("All possible dishes for costumers to order, with the descriptive images of items ordered")]
     [SerializeField] private List<Order> orderTypes = new List<Order>();
 
     
-    private Dictionary<Ticket, Transform> ticketsDictionary = new Dictionary<Ticket, Transform>();
+    private Dictionary<S_Ticket, Transform> ticketsDictionary = new Dictionary<S_Ticket, Transform>();
     private void Start()
     {
         AddTicket(orderTypes[0]);
@@ -31,27 +32,31 @@ public class S_OrderWindow : MonoBehaviour
 
     public void AddTicket(Order order)
     {
-        var ticket = Instantiate(ticketPrefab);
-        // Get random transform from List
+        // Get random transform from List to place item
         var pos = ticketPlacements[Random.Range(0, ticketPlacements.Count - 1)];
+        // Instantiate and place ticket on position
+        var ticket = Instantiate(ticketPrefab, pos.position, quaternion.identity);
+        
         // Remove position ticket can appear
         ticketPlacements.Remove(pos);
         // add to Dictionary
         ticketsDictionary[ticket] = pos;
         
-        ticket.transform.position = pos.position;
+        // Rotate Ticket to fit
+        ticket.transform.eulerAngles = pos.eulerAngles;
+        ticket.transform.parent = pos.parent;
         
         ticket.InitTicket(order);
     }
 
-    public void RemoveTicket(Ticket ticket)
+    public void RemoveTicket(S_Ticket sTicket)
     {
         // Find through Dictionary
-        var pos = ticketsDictionary[ticket];
+        var pos = ticketsDictionary[sTicket];
         // Add position back to List
         ticketPlacements.Add(pos);
         // Remove used ticket
-        ticketsDictionary.Remove(ticket);
+        ticketsDictionary.Remove(sTicket);
 
     }
 }

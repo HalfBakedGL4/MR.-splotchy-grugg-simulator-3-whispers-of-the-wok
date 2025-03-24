@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Ticket : MonoBehaviour
+public class S_Ticket : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI ticketNumberText;
     

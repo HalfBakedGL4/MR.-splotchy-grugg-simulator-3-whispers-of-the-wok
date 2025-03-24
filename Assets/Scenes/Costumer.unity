@@ -815,6 +815,7 @@ MonoBehaviour:
   - {fileID: 7370105557495399071, guid: 2450787c836799347878dde7dfdacd7e, type: 3}
   debugText: {fileID: 1358580351}
   orderWindow: {fileID: 2266349842765232060, guid: fff54c2ebb177374a80aacd97af28aaa, type: 3}
+  windowHeight: 1
 --- !u!1001 &4337191760369492302
 PrefabInstance:
   m_ObjectHideFlags: 0
