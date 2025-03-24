@@ -13,6 +13,7 @@ public class S_SpawnObjectOnClassification : MonoBehaviour
     [SerializeField] private GameObject[] spawnObjects;
     [SerializeField] private TMP_Text debugText;
     
+    [SerializeField] private S_OrderWindow orderWindow;
     private float basketSize = 0.5f;
     
     private bool windowPlaced = false;
@@ -58,7 +59,11 @@ public class S_SpawnObjectOnClassification : MonoBehaviour
 
             if (item.classifications == PlaneClassifications.WallFace && !windowPlaced)
             {
+                debugText.text = item.transform.rotation.ToString();
+                debugText.text += "\n";
+                debugText.text += "Rotation (Euler Angles): " + transform.eulerAngles.ToString();
                 
+                var windowInstance = Instantiate(orderWindow, item.transform.position, Quaternion.identity);
                 
                 windowPlaced = true;
             }
