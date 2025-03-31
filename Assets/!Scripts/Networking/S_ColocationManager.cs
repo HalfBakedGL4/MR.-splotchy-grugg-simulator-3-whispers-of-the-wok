@@ -9,7 +9,7 @@ public class ColocationManager : NetworkBehaviour
 {
     [SerializeField] private AlignmentManager alignmentManager;
 
-    [Networked(OnChanged = nameof(OnSharedAnchorUpdated))]
+    [Networked, OnChangedRender(nameof(OnSharedAnchorUpdated))]
     private Guid _sharedAnchorGroupId { get; set; }
 
     public override void Spawned()
@@ -202,9 +202,9 @@ public class ColocationManager : NetworkBehaviour
         }
     }
 
-    private static void OnSharedAnchorUpdated(ChangeDetector<ColocationManager> changed)
+    private void OnSharedAnchorUpdated()
     {
-        changed.Behaviour.LoadAndAlignToAnchor(changed.Behaviour._sharedAnchorGroupId);
+        LoadAndAlignToAnchor(_sharedAnchorGroupId);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

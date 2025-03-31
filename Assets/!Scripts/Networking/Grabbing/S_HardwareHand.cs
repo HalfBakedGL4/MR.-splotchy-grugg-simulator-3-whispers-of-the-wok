@@ -1,4 +1,14 @@
 using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine.XR;
+using System;
+using Fusion;
+
+[Serializable]
+public struct HandState : INetworkStruct
+{
+
+}
 
 public class S_HardwareHand : MonoBehaviour
 {
