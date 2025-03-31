@@ -4,6 +4,7 @@ using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR.Interaction.Toolkit;
 using Random = UnityEngine.Random;
 
 
@@ -28,7 +29,7 @@ public class S_OrderWindow : MonoBehaviour
     private Dictionary<S_Ticket, Transform> ticketsDictionary = new Dictionary<S_Ticket, Transform>();
 
     // Costumer will request a Dish
-    public void MakeOrder(Dish dish)
+    public S_Ticket MakeOrder(Dish dish, S_CostumerOrder costumer)
     {
         var thisOrder = new Order();
         var foundOrder = false;
@@ -43,16 +44,17 @@ public class S_OrderWindow : MonoBehaviour
 
         if (foundOrder)
         {
-            AddTicket(thisOrder);
+            return AddTicket(thisOrder, costumer);
         }
         else
         {
             Debug.LogError("Dish does not exist or is not added to the Order Window");
+            return null;
         }
     }
 
     // Ticket is added
-    private void AddTicket(Order order)
+    private S_Ticket AddTicket(Order order, S_CostumerOrder costumer)
     {
         // Get random transform from List to place item
         var pos = ticketPlacements[Random.Range(0, ticketPlacements.Count - 1)];
@@ -68,9 +70,14 @@ public class S_OrderWindow : MonoBehaviour
         ticket.transform.eulerAngles = pos.eulerAngles;
         ticket.transform.parent = pos.parent;
         
-        ticket.InitTicket(order);
+        // Initiate ticket giving it the corresponding visuals to complete it
+        ticket.InitTicket(order, costumer);
+        
+        // Ticket is returned to the costumer so the costumer know which ticket they own
+        return ticket;
     }
 
+    
     public void RemoveTicket(S_Ticket ticket)
     {
         // Find through Dictionary
@@ -80,5 +87,34 @@ public class S_OrderWindow : MonoBehaviour
         // Remove used ticket
         ticketsDictionary.Remove(ticket);
 
+    }
+
+    public void DeliverOrder(SelectEnterEventArgs args)
+    {
+        GiveOrderToCostumer(args.interactableObject.transform.GetComponent<S_DishStatus>());
+    }
+
+    private void GiveOrderToCostumer(S_DishStatus dish)
+    {
+        var possibleTickets = new List<S_Ticket>();
+        // Compare dish with every ticket
+        foreach (var ticket in ticketsDictionary.Keys)
+        {
+            // Save any ticket that matches the Type of Dish
+            if (ticket.GetOrder().nameOfDish == dish.GetTypeOfDish())
+            {
+                possibleTickets.Add(ticket);
+            }
+        }
+
+        S_Ticket correctTicket;
+        // Check which ticket is the oldest one aka has the lowest ID
+        foreach (var ticket in possibleTickets)
+        {
+            
+        }
+        
+        
+        // Give the order to the costumer through the ticket reference
     }
 }

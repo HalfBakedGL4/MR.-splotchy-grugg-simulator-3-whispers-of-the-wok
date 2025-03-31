@@ -24,11 +24,13 @@ public class S_Ticket : MonoBehaviour
     [SerializeField] private GameObject page2;
     private static int ticketNumber;
     
-    private bool isHeld = false;
-    private bool isLeft = false;
-    private bool swappedPage = false;
+    private bool _isHeld = false;
+    private bool _isLeft = false;
+    private bool _swappedPage = false;
     
-    public void InitTicket(Order order)
+    private Order _currentOrder;
+    private S_CostumerOrder _costumerOrder;
+    public void InitTicket(Order order, S_CostumerOrder costumerOrder)
     {
         //Number the ticket
         ticketNumber++;
@@ -39,34 +41,57 @@ public class S_Ticket : MonoBehaviour
         orderIngredients.sprite = order.orderIngredients;
         orderTools.sprite = order.orderTools;
         orderTutorial.sprite = order.orderTutorial;
+        
+        // Save the order and costumer who ordered so that they can be found via the ticket later
+        _currentOrder = order;
+        _costumerOrder = costumerOrder;
     }
 
     public void TicketHeld(SelectEnterEventArgs args)
     {
         // When player picks up ticket, near far intertactor is interactorObject
         // To see if player has picked up ticket
-        isHeld = args.interactorObject.transform.name == "Near-Far Interactor";
+        _isHeld = args.interactorObject.transform.name == "Near-Far Interactor";
 
         // Checks which hand is holding to make ui only moved by said hand
-        isLeft = args.interactorObject.transform.parent.name == "Left Controller";
+        _isLeft = args.interactorObject.transform.parent.name == "Left Controller";
     }
 
     public void TicketReleased(SelectExitEventArgs args)
     {
         // When ticket is released the ticket is loose again
-        isHeld = false;
+        _isHeld = false;
     }
 
+    public int GetTicketNumber()
+    {
+        return ticketNumber;
+    }
+
+    public (Order, S_CostumerOrder) GetOrderAndCostumer()
+    {
+        return (_currentOrder, _costumerOrder);
+    }
+
+    public Order GetOrder()
+    {
+        return _currentOrder;
+    }
+
+    public S_CostumerOrder GetCostumer()
+    {
+        return _costumerOrder;
+    }
 
     private void Update()
     {
-        var isCorrectHand = ((isLeft && leftInputAction.action.WasPerformedThisFrame()) || 
-                            (!isLeft && rightInputAction.action.WasPerformedThisFrame()));
+        var isCorrectHand = ((_isLeft && leftInputAction.action.WasPerformedThisFrame()) || 
+                            (!_isLeft && rightInputAction.action.WasPerformedThisFrame()));
         print("Is input registered on the correct hand: " + isCorrectHand);
-        if (isHeld && isCorrectHand)
+        if (_isHeld && isCorrectHand)
         {
             SwapPage();
-            swappedPage = true;
+            _swappedPage = true;
         }
     }
 
