@@ -6,6 +6,7 @@ public class S_CostumerOrder : MonoBehaviour
 {
     S_OrderWindow orderWindow;
     
+    [Header("What Dishes the costumer can order")]
     [SerializeField] private List<Dish> canOrder = new ();
 
     private Dish _dishOrder;
@@ -14,7 +15,7 @@ public class S_CostumerOrder : MonoBehaviour
         // Find the window to place ticket
         orderWindow = FindAnyObjectByType<S_OrderWindow>();
 
-        OrderFood();
+        _dishOrder = OrderFood();
     }
     
     // The costumer would order food when they approach the window
