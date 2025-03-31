@@ -9,22 +9,39 @@ public class S_CostumerOrder : MonoBehaviour
     [Header("What Dishes the costumer can order")]
     [SerializeField] private List<Dish> canOrder = new ();
 
-    private Dish _dishOrder;
+    private S_Ticket costumerTicket;
     private void Start()
     {
         // Find the window to place ticket
         orderWindow = FindAnyObjectByType<S_OrderWindow>();
 
-        _dishOrder = OrderFood();
+        // TODO: Remove when implemented target
+        OrderFood();
     }
     
     // The costumer would order food when they approach the window
-    public Dish OrderFood()
+    public void OrderFood()
     {
-        _dishOrder = canOrder[Random.Range(0, canOrder.Count)];
+        var order = canOrder[Random.Range(0, canOrder.Count)];
         
-        orderWindow.MakeOrder(_dishOrder);
-        
-        return _dishOrder;
+        // Ticket is returned to the costumer so the costumer know which ticket they own
+        // And costumer is given to the ticket so the ticket can reference the costumer
+        costumerTicket = orderWindow.MakeOrder(order, this);
     }
+
+    public void ReceiveDish()
+    {
+        // Check if correct Dish
+        
+        // Change anger based on Dish performance
+        
+        // Removes the ticket from the window
+        RemoveTicket();
+    }
+
+    private void RemoveTicket()
+    {
+        orderWindow.RemoveTicket(costumerTicket);
+    }
+    
 }
