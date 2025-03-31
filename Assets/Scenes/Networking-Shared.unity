@@ -399,6 +399,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shared-LocalPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 7225380768329135335, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -927,9 +931,13 @@ PrefabInstance:
       value: Prototype Runner
       objectReference: {fileID: 0}
     - target: {fileID: 772271146220862191, guid: c3c5889aef860f047ba34393bc5d3b95, type: 3}
+      propertyPath: spawnNetworkPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 772271146220862191, guid: c3c5889aef860f047ba34393bc5d3b95, type: 3}
       propertyPath: networkPlayerPrefab
       value: 
-      objectReference: {fileID: 7773054547496217731, guid: 27dd3d8bf0a88f84b82d9ee28749e734, type: 3}
+      objectReference: {fileID: 7061299194469122700, guid: 27dd3d8bf0a88f84b82d9ee28749e734, type: 3}
     - target: {fileID: 5619847185980448748, guid: c3c5889aef860f047ba34393bc5d3b95, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -13,19 +13,10 @@ namespace Networking.Shared
         [SerializeField] Transform rightHand; 
         [SerializeField] Transform head;
 
-        S_LocalPlayer localPlayer;
+        [SerializeField, ReadOnly] S_LocalPlayer localPlayer;
         bool isLocal => Object && Object.HasStateAuthority;
+        public NetworkObject networkBehaviour;
 
-
-
-        public override void Spawned()
-        {
-            base.Spawned();
-
-            if (!isLocal) return;
-
-            localPlayer = transform.parent.GetComponentInChildren<S_LocalPlayer>();
-        }
 
         public override void FixedUpdateNetwork()
         {
@@ -56,6 +47,11 @@ namespace Networking.Shared
 
             head.position = rig.headPosition;
             head.rotation = rig.headRotation;
+        }
+
+        public void SetLocalPlayer(S_LocalPlayer player)
+        {
+            localPlayer = player;
         }
     }
 }
