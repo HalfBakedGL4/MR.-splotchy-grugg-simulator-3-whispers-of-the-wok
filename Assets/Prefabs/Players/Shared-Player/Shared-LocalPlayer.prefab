@@ -112,6 +112,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7587488022083453592, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1429057578938537579}
+    - targetCorrespondingSourceObject: {fileID: 7587488022083453592, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1070089039219476525}
   m_SourcePrefab: {fileID: 100100000, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
 --- !u!4 &1577476649118705446 stripped
 Transform:
@@ -148,6 +151,33 @@ MonoBehaviour:
   leftHand: {fileID: 1577476649118705446}
   rightHand: {fileID: 7146458900424174748}
   head: {fileID: 2169705910601840511}
+--- !u!114 &1070089039219476525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7225380768329135335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10a6bdbd9ff42234a934a994af1b09bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RightTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: S_ItemSpawner, Assembly-CSharp
+        m_MethodName: SpawnItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7818218323416738342 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7022938681217834073, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}

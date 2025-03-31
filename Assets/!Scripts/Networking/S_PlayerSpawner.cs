@@ -12,17 +12,17 @@ public class S_PlayerSpawner : SimulationBehaviour, IPlayerJoined, IPlayerLeft
     [SerializeField] bool spawnNetworkPlayer = true;
 
     [Header("References")]
-    S_NetworkPlayer networkPlayerPrefab;
+    [SerializeField] S_NetworkPlayer networkPlayerPrefab;
     S_LocalPlayer localPlayer;
 
     private Dictionary<PlayerRef, NetworkObject> _spawnedUsers = new Dictionary<PlayerRef, NetworkObject>();
 
-    private async void Start()
+    private void Start()
     {
-        if(networkPlayerPrefab == null)
-        {
-            networkPlayerPrefab = (await Addressable.LoadAsset<GameObject>(Addressable.addressables[0])).GetComponent<S_NetworkPlayer>();
-        }
+        //if(networkPlayerPrefab == null)
+        //{
+        //    networkPlayerPrefab = (await Addressable.LoadAsset<GameObject>(Addressable.addressables[0])).GetComponent<S_NetworkPlayer>();
+        //}
 
         if (localPlayer == null)
         {
@@ -31,12 +31,12 @@ public class S_PlayerSpawner : SimulationBehaviour, IPlayerJoined, IPlayerLeft
     }
 
 #if UNITY_EDITOR
-    private async void OnValidate()
+    private void OnValidate()
     {
-        if (networkPlayerPrefab == null)
-        {
-            networkPlayerPrefab = (await Addressable.LoadAsset<GameObject>(Addressable.addressables[0])).GetComponent<S_NetworkPlayer>();
-        }
+        //if (networkPlayerPrefab == null)
+        //{
+        //    networkPlayerPrefab = (await Addressable.LoadAsset<GameObject>(Addressable.addressables[0])).GetComponent<S_NetworkPlayer>();
+        //}
 
         if (localPlayer == null)
         {
