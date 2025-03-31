@@ -4,6 +4,7 @@ using Fusion.Sockets;
 using System;
 using System.Collections.Generic;
 using Networking.Shared;
+using Extentions.Addressable;
 
 public class S_PlayerSpawner : SimulationBehaviour, IPlayerJoined, IPlayerLeft
 {
@@ -11,24 +12,36 @@ public class S_PlayerSpawner : SimulationBehaviour, IPlayerJoined, IPlayerLeft
     [SerializeField] bool spawnNetworkPlayer = true;
 
     [Header("References")]
-    [SerializeField] S_NetworkPlayer networkPlayerPrefab;
-    [SerializeField] S_LocalPlayer localPlayer;
+    S_NetworkPlayer networkPlayerPrefab;
+    S_LocalPlayer localPlayer;
 
     private Dictionary<PlayerRef, NetworkObject> _spawnedUsers = new Dictionary<PlayerRef, NetworkObject>();
 
-    private void Start()
+    private async void Start()
     {
-        if (localPlayer != null) return;
+        if(networkPlayerPrefab == null)
+        {
+            networkPlayerPrefab = (await Addressable.LoadAsset<GameObject>(Addressable.addressables[0])).GetComponent<S_NetworkPlayer>();
+        }
 
-        localPlayer = FindFirstObjectByType<S_LocalPlayer>();
+        if (localPlayer == null)
+        {
+            localPlayer = FindFirstObjectByType<S_LocalPlayer>();
+        }
     }
 
 #if UNITY_EDITOR
-    private void OnValidate()
+    private async void OnValidate()
     {
-        if (localPlayer != null) return;
+        if (networkPlayerPrefab == null)
+        {
+            networkPlayerPrefab = (await Addressable.LoadAsset<GameObject>(Addressable.addressables[0])).GetComponent<S_NetworkPlayer>();
+        }
 
-        localPlayer = FindFirstObjectByType<S_LocalPlayer>();
+        if (localPlayer == null)
+        {
+            localPlayer = FindFirstObjectByType<S_LocalPlayer>();
+        }
     }
 #endif
 
