@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class S_CustomerStateManager : MonoBehaviour
 {
-    S_State currentState;
+    public S_State currentState;
 
     private void Update() 
     {

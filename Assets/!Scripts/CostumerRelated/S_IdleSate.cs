@@ -15,6 +15,5 @@ public class S_IdleSate : S_State
         {
             return this;
         }
-        return this;
     }
 }

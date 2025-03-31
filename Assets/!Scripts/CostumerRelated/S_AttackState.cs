@@ -7,11 +7,12 @@ public class S_AttackState : S_State
 
     public override S_State RunCurrentState() 
     {
-        if (isInAttackRange) 
+        /*if (isInAttackRange) 
         {
             return attackState;
         }
-        else
+        else*/
+        Debug.Log("I have Attacked!");
         return this;
     }
 }
