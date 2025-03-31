@@ -36,7 +36,8 @@ public class HoleSpawner : NetworkBehaviour
         }
     }
 
-    [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
+    //[Rpc(RpcSources.InputAuthority, RpcTargets.All)]
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
     void RPC_CreatePortal(Vector3 pos, Quaternion rot)
     {
         Debug.Log("Spawn Portal");
