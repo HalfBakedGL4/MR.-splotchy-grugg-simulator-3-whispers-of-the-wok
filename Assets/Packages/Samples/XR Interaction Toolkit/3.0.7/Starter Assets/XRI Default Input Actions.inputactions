@@ -1298,6 +1298,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Scroll Ticket",
+                    "type": "Value",
+                    "id": "7ec27fe5-336d-4bc0-93b4-e15b76570041",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Snap Turn",
                     "type": "Value",
                     "id": "8c14e969-a054-4f12-840c-4e0bd85173d9",
@@ -1356,6 +1365,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ab6851fc-e42b-4795-a3b0-c3f26b94e064",
+                    "path": "<XRController>{LeftHand}/{Primary2DAxis}",
+                    "interactions": "Sector(directions=3,sweepBehavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Scroll Ticket",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -2369,6 +2389,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Scroll Ticket",
+                    "type": "Value",
+                    "id": "e92d056c-d7b9-4685-ac2a-cadec35e35e8",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Snap Turn",
                     "type": "Value",
                     "id": "44441ad6-5762-466d-ad54-aa44fcd61a5c",
@@ -2427,6 +2456,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6c462d85-8333-4b22-9d64-8a233add5cd5",
+                    "path": "<XRController>{RightHand}/{Primary2DAxis}",
+                    "interactions": "Sector(directions=3,sweepBehavior=2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Scroll Ticket",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

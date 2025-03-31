@@ -31,15 +31,24 @@ public class S_OrderWindow : MonoBehaviour
     public void MakeOrder(Dish dish)
     {
         var thisOrder = new Order();
+        var foundOrder = false;
         
         // Goes through list seeking order with the same dish
         foreach (var order in orderTypes.Where(order => order.nameOfDish == dish))
         {
             thisOrder = order;
+            foundOrder = true;
             break;
         }
-        
-        AddTicket(thisOrder);
+
+        if (foundOrder)
+        {
+            AddTicket(thisOrder);
+        }
+        else
+        {
+            Debug.LogError("Dish does not exist or is not added to the Order Window");
+        }
     }
 
     // Ticket is added
@@ -62,14 +71,14 @@ public class S_OrderWindow : MonoBehaviour
         ticket.InitTicket(order);
     }
 
-    public void RemoveTicket(S_Ticket sTicket)
+    public void RemoveTicket(S_Ticket ticket)
     {
         // Find through Dictionary
-        var pos = ticketsDictionary[sTicket];
+        var pos = ticketsDictionary[ticket];
         // Add position back to List
         ticketPlacements.Add(pos);
         // Remove used ticket
-        ticketsDictionary.Remove(sTicket);
+        ticketsDictionary.Remove(ticket);
 
     }
 }

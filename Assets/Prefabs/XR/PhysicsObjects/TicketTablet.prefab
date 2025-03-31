@@ -330,18 +330,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513e654e99d4811489784aef95e55d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputAction:
+  leftInputAction:
     m_UseReference: 1
     m_Action:
-      m_Name: Input
+      m_Name: Left Input
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: b7fabac9-a98a-4350-8093-884f66ec48b6
+      m_Id: 07c661ec-8cf8-40da-8103-58a90fdfaee2
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: 2464016903823916871, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_Reference: {fileID: 522499134443699102, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  rightInputAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Right Input
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: b94d3088-f542-42af-aa45-c6e5c16c5717
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -5529010338870892084, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   ticketNumberText: {fileID: 4544979672023711842}
   orderImage: {fileID: 8452597880353138873}
   orderIngredients: {fileID: 6805459691297070404}

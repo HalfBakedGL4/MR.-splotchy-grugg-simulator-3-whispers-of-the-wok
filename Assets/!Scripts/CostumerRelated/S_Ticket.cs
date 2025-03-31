@@ -26,6 +26,7 @@ public class S_Ticket : MonoBehaviour
     
     private bool isHeld = false;
     private bool isLeft = false;
+    private bool swappedPage = false;
     
     public void InitTicket(Order order)
     {
@@ -42,25 +43,30 @@ public class S_Ticket : MonoBehaviour
 
     public void TicketHeld(SelectEnterEventArgs args)
     {
-        isHeld = true;
+        // When player picks up ticket, near far intertactor is interactorObject
+        // To see if player has picked up ticket
+        isHeld = args.interactorObject.transform.name == "Near-Far Interactor";
 
         // Checks which hand is holding to make ui only moved by said hand
-        isLeft = args.interactorObject.transform.name == "Left Controller";
+        isLeft = args.interactorObject.transform.parent.name == "Left Controller";
     }
 
     public void TicketReleased(SelectExitEventArgs args)
     {
+        // When ticket is released the ticket is loose again
         isHeld = false;
     }
 
 
     private void Update()
     {
-        var isCorrectHand = (isLeft && leftInputAction.action.ReadValue<float>() > 0) || 
-                            (!isHeld && rightInputAction.action.ReadValue<float>() > 0);
+        var isCorrectHand = ((isLeft && leftInputAction.action.WasPerformedThisFrame()) || 
+                            (!isLeft && rightInputAction.action.WasPerformedThisFrame()));
+        print("Is input registered on the correct hand: " + isCorrectHand);
         if (isHeld && isCorrectHand)
         {
             SwapPage();
+            swappedPage = true;
         }
     }
 
