@@ -92,9 +92,45 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             ""id"": ""df70fa95-8a34-4494-b137-73ab6b9c7d37"",
             ""actions"": [
                 {
-                    ""name"": ""Trigger"",
+                    ""name"": ""R_Joystick"",
+                    ""type"": ""Value"",
+                    ""id"": ""d9fc714a-98ae-4016-be11-3cd490143855"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""R_Trigger"",
                     ""type"": ""Button"",
                     ""id"": ""c06abe4b-37c6-4ce8-8769-5584d5eeecb8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""R_Grip"",
+                    ""type"": ""Button"",
+                    ""id"": ""54744979-7f38-41d0-8b7a-c65f182aee9a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""R_A"",
+                    ""type"": ""Button"",
+                    ""id"": ""e4adcf89-ada5-426e-afd8-795ce200861d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""R_B"",
+                    ""type"": ""Button"",
+                    ""id"": ""f3e82c8e-d3a7-4ba1-9e29-6126d84e302b"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -105,24 +141,264 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""df41cced-c095-4974-8ebb-fe36551de74e"",
-                    ""path"": ""<OculusTouchController>{RightHand}/triggerPressed"",
+                    ""path"": ""<XRController>{RightHand}/triggerPressed"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";XR"",
-                    ""action"": ""Trigger"",
+                    ""action"": ""R_Trigger"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""803c13ab-8a96-4567-9431-a9edafaf69c7"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""id"": ""c1898c9e-9374-418f-b86c-7bab93257fe3"",
+                    ""path"": ""<XRController>{RightHand}/gripButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XR"",
+                    ""action"": ""R_Grip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6cc4a1ae-1939-4375-a4a6-552373e9e4e6"",
+                    ""path"": ""<XRController>{RightHand}/primaryButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XR"",
+                    ""action"": ""R_A"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b94a0f85-a6d6-49a5-be63-dcec829cc9f8"",
+                    ""path"": ""<XRController>{RightHand}/secondaryButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XR"",
+                    ""action"": ""R_B"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""bce1ef38-9ccc-4766-af7f-29e2febe50d6"",
+                    ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Trigger"",
+                    ""action"": ""R_Joystick"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""31d05e45-164c-44d9-afc7-699a66bbb177"",
+                    ""path"": ""<XRController>{RightHand}/thumbstickDpadUp"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XR"",
+                    ""action"": ""R_Joystick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""e1ef1f34-10ba-4344-b1f0-0867f6aa88c0"",
+                    ""path"": ""<XRController>{RightHand}/thumbstickDpadDown"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XR"",
+                    ""action"": ""R_Joystick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""bda7906e-8140-4a60-9df9-079fd6e48ef9"",
+                    ""path"": ""<XRController>{RightHand}/thumbstickDpadLeft"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XR"",
+                    ""action"": ""R_Joystick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""2fb6af9a-bab7-4cf1-9b7b-b0a99cb55355"",
+                    ""path"": ""<XRController>{RightHand}/thumbstickDpadRight"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XR"",
+                    ""action"": ""R_Joystick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
+        },
+        {
+            ""name"": ""LeftController"",
+            ""id"": ""ec3210a8-c410-487d-b894-5549209ada87"",
+            ""actions"": [
+                {
+                    ""name"": ""L_Joystick"",
+                    ""type"": ""Value"",
+                    ""id"": ""dd894c9d-adab-4b56-a6f0-fd603de50aca"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""L_Trigger"",
+                    ""type"": ""Button"",
+                    ""id"": ""bcfcbbb0-f612-46e6-b7ee-929336dd2c45"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""L_Grip"",
+                    ""type"": ""Button"",
+                    ""id"": ""792b065c-c047-4f12-a91f-290143a2c94e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""L_X"",
+                    ""type"": ""Button"",
+                    ""id"": ""afac696e-88c2-4490-ad25-3b0094e0d575"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""L_Y"",
+                    ""type"": ""Button"",
+                    ""id"": ""481fea99-299a-4d60-8741-9216462d8e96"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""6b292240-3d32-49bb-8593-3c0641bd0244"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""L_Trigger"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a7f20d09-92be-4cab-8a1e-08ebdc72562e"",
+                    ""path"": ""<XRController>{RightHand}/triggerPressed"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XR"",
+                    ""action"": ""L_Trigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""98f7eb59-17b3-49d8-8315-6958f4450750"",
+                    ""path"": ""<XRController>{RightHand}/gripButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XR"",
+                    ""action"": ""L_Grip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7f9b8152-62d2-4f1e-9803-4a4128bd32ea"",
+                    ""path"": ""<XRController>{RightHand}/primaryButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XR"",
+                    ""action"": ""L_X"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a38e1c58-689d-4fea-add1-5b71b4cbcbd7"",
+                    ""path"": ""<XRController>{RightHand}/secondaryButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XR"",
+                    ""action"": ""L_Y"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""5fe2da56-cd41-4739-9bde-607d0aabea2d"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""L_Joystick"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""a565ca5e-9374-4b3d-b393-61c82ad0fcbd"",
+                    ""path"": ""<XRController>{RightHand}/thumbstickDpadUp"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XR"",
+                    ""action"": ""L_Joystick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""580e856b-4fd0-45d3-abc2-361e05350913"",
+                    ""path"": ""<XRController>{RightHand}/thumbstickDpadDown"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XR"",
+                    ""action"": ""L_Joystick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""b346e681-ce3b-4ffd-9469-b61d4c6c321c"",
+                    ""path"": ""<XRController>{RightHand}/thumbstickDpadLeft"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XR"",
+                    ""action"": ""L_Joystick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""da382a8d-8aee-4d07-8792-dea4b6b680a4"",
+                    ""path"": ""<XRController>{RightHand}/thumbstickDpadRight"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XR"",
+                    ""action"": ""L_Joystick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -192,12 +468,24 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
 }");
         // RightController
         m_RightController = asset.FindActionMap("RightController", throwIfNotFound: true);
-        m_RightController_Trigger = m_RightController.FindAction("Trigger", throwIfNotFound: true);
+        m_RightController_R_Joystick = m_RightController.FindAction("R_Joystick", throwIfNotFound: true);
+        m_RightController_R_Trigger = m_RightController.FindAction("R_Trigger", throwIfNotFound: true);
+        m_RightController_R_Grip = m_RightController.FindAction("R_Grip", throwIfNotFound: true);
+        m_RightController_R_A = m_RightController.FindAction("R_A", throwIfNotFound: true);
+        m_RightController_R_B = m_RightController.FindAction("R_B", throwIfNotFound: true);
+        // LeftController
+        m_LeftController = asset.FindActionMap("LeftController", throwIfNotFound: true);
+        m_LeftController_L_Joystick = m_LeftController.FindAction("L_Joystick", throwIfNotFound: true);
+        m_LeftController_L_Trigger = m_LeftController.FindAction("L_Trigger", throwIfNotFound: true);
+        m_LeftController_L_Grip = m_LeftController.FindAction("L_Grip", throwIfNotFound: true);
+        m_LeftController_L_X = m_LeftController.FindAction("L_X", throwIfNotFound: true);
+        m_LeftController_L_Y = m_LeftController.FindAction("L_Y", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
     {
         UnityEngine.Debug.Assert(!m_RightController.enabled, "This will cause a leak and performance issues, InputSystem_Actions.RightController.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_LeftController.enabled, "This will cause a leak and performance issues, InputSystem_Actions.LeftController.Disable() has not been called.");
     }
 
     /// <summary>
@@ -273,7 +561,11 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     // RightController
     private readonly InputActionMap m_RightController;
     private List<IRightControllerActions> m_RightControllerActionsCallbackInterfaces = new List<IRightControllerActions>();
-    private readonly InputAction m_RightController_Trigger;
+    private readonly InputAction m_RightController_R_Joystick;
+    private readonly InputAction m_RightController_R_Trigger;
+    private readonly InputAction m_RightController_R_Grip;
+    private readonly InputAction m_RightController_R_A;
+    private readonly InputAction m_RightController_R_B;
     /// <summary>
     /// Provides access to input actions defined in input action map "RightController".
     /// </summary>
@@ -286,9 +578,25 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// </summary>
         public RightControllerActions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "RightController/Trigger".
+        /// Provides access to the underlying input action "RightController/R_Joystick".
         /// </summary>
-        public InputAction @Trigger => m_Wrapper.m_RightController_Trigger;
+        public InputAction @R_Joystick => m_Wrapper.m_RightController_R_Joystick;
+        /// <summary>
+        /// Provides access to the underlying input action "RightController/R_Trigger".
+        /// </summary>
+        public InputAction @R_Trigger => m_Wrapper.m_RightController_R_Trigger;
+        /// <summary>
+        /// Provides access to the underlying input action "RightController/R_Grip".
+        /// </summary>
+        public InputAction @R_Grip => m_Wrapper.m_RightController_R_Grip;
+        /// <summary>
+        /// Provides access to the underlying input action "RightController/R_A".
+        /// </summary>
+        public InputAction @R_A => m_Wrapper.m_RightController_R_A;
+        /// <summary>
+        /// Provides access to the underlying input action "RightController/R_B".
+        /// </summary>
+        public InputAction @R_B => m_Wrapper.m_RightController_R_B;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -315,9 +623,21 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_RightControllerActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_RightControllerActionsCallbackInterfaces.Add(instance);
-            @Trigger.started += instance.OnTrigger;
-            @Trigger.performed += instance.OnTrigger;
-            @Trigger.canceled += instance.OnTrigger;
+            @R_Joystick.started += instance.OnR_Joystick;
+            @R_Joystick.performed += instance.OnR_Joystick;
+            @R_Joystick.canceled += instance.OnR_Joystick;
+            @R_Trigger.started += instance.OnR_Trigger;
+            @R_Trigger.performed += instance.OnR_Trigger;
+            @R_Trigger.canceled += instance.OnR_Trigger;
+            @R_Grip.started += instance.OnR_Grip;
+            @R_Grip.performed += instance.OnR_Grip;
+            @R_Grip.canceled += instance.OnR_Grip;
+            @R_A.started += instance.OnR_A;
+            @R_A.performed += instance.OnR_A;
+            @R_A.canceled += instance.OnR_A;
+            @R_B.started += instance.OnR_B;
+            @R_B.performed += instance.OnR_B;
+            @R_B.canceled += instance.OnR_B;
         }
 
         /// <summary>
@@ -329,9 +649,21 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="RightControllerActions" />
         private void UnregisterCallbacks(IRightControllerActions instance)
         {
-            @Trigger.started -= instance.OnTrigger;
-            @Trigger.performed -= instance.OnTrigger;
-            @Trigger.canceled -= instance.OnTrigger;
+            @R_Joystick.started -= instance.OnR_Joystick;
+            @R_Joystick.performed -= instance.OnR_Joystick;
+            @R_Joystick.canceled -= instance.OnR_Joystick;
+            @R_Trigger.started -= instance.OnR_Trigger;
+            @R_Trigger.performed -= instance.OnR_Trigger;
+            @R_Trigger.canceled -= instance.OnR_Trigger;
+            @R_Grip.started -= instance.OnR_Grip;
+            @R_Grip.performed -= instance.OnR_Grip;
+            @R_Grip.canceled -= instance.OnR_Grip;
+            @R_A.started -= instance.OnR_A;
+            @R_A.performed -= instance.OnR_A;
+            @R_A.canceled -= instance.OnR_A;
+            @R_B.started -= instance.OnR_B;
+            @R_B.performed -= instance.OnR_B;
+            @R_B.canceled -= instance.OnR_B;
         }
 
         /// <summary>
@@ -365,6 +697,146 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="RightControllerActions" /> instance referencing this action map.
     /// </summary>
     public RightControllerActions @RightController => new RightControllerActions(this);
+
+    // LeftController
+    private readonly InputActionMap m_LeftController;
+    private List<ILeftControllerActions> m_LeftControllerActionsCallbackInterfaces = new List<ILeftControllerActions>();
+    private readonly InputAction m_LeftController_L_Joystick;
+    private readonly InputAction m_LeftController_L_Trigger;
+    private readonly InputAction m_LeftController_L_Grip;
+    private readonly InputAction m_LeftController_L_X;
+    private readonly InputAction m_LeftController_L_Y;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "LeftController".
+    /// </summary>
+    public struct LeftControllerActions
+    {
+        private @InputSystem_Actions m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public LeftControllerActions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "LeftController/L_Joystick".
+        /// </summary>
+        public InputAction @L_Joystick => m_Wrapper.m_LeftController_L_Joystick;
+        /// <summary>
+        /// Provides access to the underlying input action "LeftController/L_Trigger".
+        /// </summary>
+        public InputAction @L_Trigger => m_Wrapper.m_LeftController_L_Trigger;
+        /// <summary>
+        /// Provides access to the underlying input action "LeftController/L_Grip".
+        /// </summary>
+        public InputAction @L_Grip => m_Wrapper.m_LeftController_L_Grip;
+        /// <summary>
+        /// Provides access to the underlying input action "LeftController/L_X".
+        /// </summary>
+        public InputAction @L_X => m_Wrapper.m_LeftController_L_X;
+        /// <summary>
+        /// Provides access to the underlying input action "LeftController/L_Y".
+        /// </summary>
+        public InputAction @L_Y => m_Wrapper.m_LeftController_L_Y;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_LeftController; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="LeftControllerActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(LeftControllerActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="LeftControllerActions" />
+        public void AddCallbacks(ILeftControllerActions instance)
+        {
+            if (instance == null || m_Wrapper.m_LeftControllerActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_LeftControllerActionsCallbackInterfaces.Add(instance);
+            @L_Joystick.started += instance.OnL_Joystick;
+            @L_Joystick.performed += instance.OnL_Joystick;
+            @L_Joystick.canceled += instance.OnL_Joystick;
+            @L_Trigger.started += instance.OnL_Trigger;
+            @L_Trigger.performed += instance.OnL_Trigger;
+            @L_Trigger.canceled += instance.OnL_Trigger;
+            @L_Grip.started += instance.OnL_Grip;
+            @L_Grip.performed += instance.OnL_Grip;
+            @L_Grip.canceled += instance.OnL_Grip;
+            @L_X.started += instance.OnL_X;
+            @L_X.performed += instance.OnL_X;
+            @L_X.canceled += instance.OnL_X;
+            @L_Y.started += instance.OnL_Y;
+            @L_Y.performed += instance.OnL_Y;
+            @L_Y.canceled += instance.OnL_Y;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="LeftControllerActions" />
+        private void UnregisterCallbacks(ILeftControllerActions instance)
+        {
+            @L_Joystick.started -= instance.OnL_Joystick;
+            @L_Joystick.performed -= instance.OnL_Joystick;
+            @L_Joystick.canceled -= instance.OnL_Joystick;
+            @L_Trigger.started -= instance.OnL_Trigger;
+            @L_Trigger.performed -= instance.OnL_Trigger;
+            @L_Trigger.canceled -= instance.OnL_Trigger;
+            @L_Grip.started -= instance.OnL_Grip;
+            @L_Grip.performed -= instance.OnL_Grip;
+            @L_Grip.canceled -= instance.OnL_Grip;
+            @L_X.started -= instance.OnL_X;
+            @L_X.performed -= instance.OnL_X;
+            @L_X.canceled -= instance.OnL_X;
+            @L_Y.started -= instance.OnL_Y;
+            @L_Y.performed -= instance.OnL_Y;
+            @L_Y.canceled -= instance.OnL_Y;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="LeftControllerActions.UnregisterCallbacks(ILeftControllerActions)" />.
+        /// </summary>
+        /// <seealso cref="LeftControllerActions.UnregisterCallbacks(ILeftControllerActions)" />
+        public void RemoveCallbacks(ILeftControllerActions instance)
+        {
+            if (m_Wrapper.m_LeftControllerActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="LeftControllerActions.AddCallbacks(ILeftControllerActions)" />
+        /// <seealso cref="LeftControllerActions.RemoveCallbacks(ILeftControllerActions)" />
+        /// <seealso cref="LeftControllerActions.UnregisterCallbacks(ILeftControllerActions)" />
+        public void SetCallbacks(ILeftControllerActions instance)
+        {
+            foreach (var item in m_Wrapper.m_LeftControllerActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_LeftControllerActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="LeftControllerActions" /> instance referencing this action map.
+    /// </summary>
+    public LeftControllerActions @LeftController => new LeftControllerActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -438,11 +910,82 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     public interface IRightControllerActions
     {
         /// <summary>
-        /// Method invoked when associated input action "Trigger" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "R_Joystick" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnTrigger(InputAction.CallbackContext context);
+        void OnR_Joystick(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "R_Trigger" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnR_Trigger(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "R_Grip" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnR_Grip(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "R_A" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnR_A(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "R_B" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnR_B(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "LeftController" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="LeftControllerActions.AddCallbacks(ILeftControllerActions)" />
+    /// <seealso cref="LeftControllerActions.RemoveCallbacks(ILeftControllerActions)" />
+    public interface ILeftControllerActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "L_Joystick" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnL_Joystick(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "L_Trigger" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnL_Trigger(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "L_Grip" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnL_Grip(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "L_X" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnL_X(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "L_Y" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnL_Y(InputAction.CallbackContext context);
     }
 }
