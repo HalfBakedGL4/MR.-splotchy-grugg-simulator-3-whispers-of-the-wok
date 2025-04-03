@@ -77,7 +77,6 @@ public class S_OrderWindow : MonoBehaviour
         // Ticket is returned to the costumer so the costumer know which ticket they own
         return ticket;
     }
-
     
     public void RemoveTicket(S_Ticket ticket)
     {
@@ -97,9 +96,7 @@ public class S_OrderWindow : MonoBehaviour
         GiveOrderToCostumer(args.interactableObject.transform.GetComponent<S_DishStatus>());
         RemoveDish(args.interactableObject.transform.gameObject);
     }
-
     
-
     private void GiveOrderToCostumer(S_DishStatus dish)
     {
         var possibleTickets = new List<S_Ticket>();
