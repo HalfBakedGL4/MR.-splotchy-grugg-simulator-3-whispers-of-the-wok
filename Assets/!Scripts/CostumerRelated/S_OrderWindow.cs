@@ -5,6 +5,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using Random = UnityEngine.Random;
 
 
@@ -86,13 +87,18 @@ public class S_OrderWindow : MonoBehaviour
         ticketPlacements.Add(pos);
         // Remove used ticket
         ticketsDictionary.Remove(ticket);
+        // Destroy ticket from scene
+        Destroy(ticket.gameObject);
 
     }
 
     public void DeliverOrder(SelectEnterEventArgs args)
     {
         GiveOrderToCostumer(args.interactableObject.transform.GetComponent<S_DishStatus>());
+        RemoveDish(args.interactableObject.transform.gameObject);
     }
+
+    
 
     private void GiveOrderToCostumer(S_DishStatus dish)
     {
@@ -106,15 +112,34 @@ public class S_OrderWindow : MonoBehaviour
                 possibleTickets.Add(ticket);
             }
         }
+        
+        // If there are no correct dishes, the dish will still be given to a costumer
+        // Add all the orders to the list
+        if (possibleTickets.Count == 0)
+        {
+            foreach (var ticket in ticketsDictionary.Keys)
+            {
+                possibleTickets.Add(ticket);
+            }
+        }
 
-        S_Ticket correctTicket;
+        S_Ticket correctTicket = possibleTickets[0];
         // Check which ticket is the oldest one aka has the lowest ID
         foreach (var ticket in possibleTickets)
         {
-            
+            // If correctTicket is higher swap out with new ticket
+            if (correctTicket.GetTicketNumber() > ticket.GetTicketNumber())
+            {
+                correctTicket = ticket;
+            }
         }
         
-        
         // Give the order to the costumer through the ticket reference
+        correctTicket.GetCostumer().ReceiveDish(dish);
+    }
+
+    private void RemoveDish(GameObject dish)
+    {
+        Destroy(dish);
     }
 }

@@ -87,7 +87,6 @@ public class S_Ticket : MonoBehaviour
     {
         var isCorrectHand = ((_isLeft && leftInputAction.action.WasPerformedThisFrame()) || 
                             (!_isLeft && rightInputAction.action.WasPerformedThisFrame()));
-        print("Is input registered on the correct hand: " + isCorrectHand);
         if (_isHeld && isCorrectHand)
         {
             SwapPage();
