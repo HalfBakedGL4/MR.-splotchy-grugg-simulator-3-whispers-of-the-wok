@@ -138,7 +138,7 @@ public class S_Cooker : MonoBehaviour, IButtonObject
             var dish = Instantiate(dishToSpawn, dishSocket.transform.position, dishSocket.transform.rotation);
             if (dish.TryGetComponent(out S_DishStatus dishStatusScript))
             {
-                dishStatusScript.ChangStatus(dishStatus);
+                dishStatusScript.ChangeStatus(dishStatus);
             }
             // TODO: Animation that opens the cooker or show it stops cooking
             
@@ -152,7 +152,6 @@ public class S_Cooker : MonoBehaviour, IButtonObject
         
         if (dishInfo != null)
         {
-            print(dishInfo.name);
             return dishInfo.resultPrefab;
         }
         

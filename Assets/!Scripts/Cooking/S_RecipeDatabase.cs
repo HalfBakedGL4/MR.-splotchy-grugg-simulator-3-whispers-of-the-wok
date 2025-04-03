@@ -2,10 +2,21 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+
+public enum Dish
+{
+    // All the different dishes players can create and costumers can order
+    // add more at the BOTTOM when needed
+    FishBurgerWithOnion,
+    FishBurger,
+    Fries,
+    FriedFish,
+}
+
 [System.Serializable]
 public class Recipe
 {
-    public string name;
+    public Dish nameOfDish;
     public List<FoodType> ingredients;
     public CookerType canBeCookedIn;
     public GameObject resultPrefab; // The prefab to spawn

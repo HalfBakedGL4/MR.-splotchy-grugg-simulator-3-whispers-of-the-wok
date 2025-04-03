@@ -4,9 +4,12 @@
 TagManager:
   serializedVersion: 3
   tags:
+  - Knife
+  - Vegetable
   - RecipeBook
   - Food
   - Dish
+  - Ticket
   layers:
   - Default
   - TransparentFX
