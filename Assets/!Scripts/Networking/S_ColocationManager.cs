@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Text;
+using System.Collections;
 
 public class ColocationManager : NetworkBehaviour
 {
@@ -42,7 +43,7 @@ public class ColocationManager : NetworkBehaviour
             {
                 _sharedAnchorGroupId = startAdvertisementResult.Value;
                 Debug.Log("Colocation: ADvertisement started successfully. UUID: " + _sharedAnchorGroupId);
-                CreateAndShareAlignmentAnchor();
+                DelayedAnchorSpawn();
             }
             else
             {
@@ -82,6 +83,12 @@ public class ColocationManager : NetworkBehaviour
         _sharedAnchorGroupId = session.AdvertisementUuid;
         Debug.Log("Colocation: Discovered session with UUID: " + _sharedAnchorGroupId);
         LoadAndAlignToAnchor(_sharedAnchorGroupId);
+    }
+
+    IEnumerator DelayedAnchorSpawn()
+    {
+        yield return new WaitForSeconds(2.0f); // Adjust delay as needed
+        CreateAndShareAlignmentAnchor();
     }
 
     private async void CreateAndShareAlignmentAnchor()
