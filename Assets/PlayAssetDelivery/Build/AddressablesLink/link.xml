@@ -1,5 +1,6 @@
 <linker>
   <assembly fullname="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Input.S_InputReader" preserve="all" />
     <type fullname="Networking.Shared.S_DontDisplayForOwner" preserve="all" />
     <type fullname="Networking.Shared.S_LocalPlayer" preserve="all" />
     <type fullname="Networking.Shared.S_NetworkPlayer" preserve="all" />
@@ -7,8 +8,8 @@
     <type fullname="S_AnimateHandOnInput" preserve="all" />
     <type fullname="S_ColorClassifications" preserve="all" />
     <type fullname="S_HardwarePart" preserve="all" />
-    <type fullname="S_InputReader" preserve="all" />
     <type fullname="S_ItemSpawner" preserve="all" />
+    <type fullname="Input.InputInfo" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Fusion.Runtime, Version=2.0.4.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="Fusion.NetworkObject" preserve="all" />
@@ -33,7 +34,6 @@
     <type fullname="UnityEngine.InputSystem.InputActionReference" preserve="all" />
     <type fullname="UnityEngine.InputSystem.XR.TrackedPoseDriver" preserve="all" />
     <type fullname="UnityEngine.InputSystem.InputAction" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.InputSystem.InputAction/CallbackContext" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.InputSystem.InputActionMap" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.InputSystem.InputActionProperty" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.InputSystem.InputBinding" preserve="nothing" serialized="true" />
