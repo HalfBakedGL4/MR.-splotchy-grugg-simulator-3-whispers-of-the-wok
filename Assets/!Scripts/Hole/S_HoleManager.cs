@@ -1,9 +1,12 @@
 using System.Drawing;
 using UnityEngine;
+using Fusion;
+using Oculus.Interaction.Samples;
 
-public class HoleManager : MonoBehaviour
+public class S_HoleManager : MonoBehaviour
 {
-    private float size = 1;
+    [Networked, OnChangedRender(nameof(UpdateSize))]
+    public float size { get; set; }
 
     private void Start()
     {
@@ -15,25 +18,31 @@ public class HoleManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Finish"))
         {
-            HammerHit();
+            RPCHammerHit();
         }
     }
 
 
-    void HammerHit()
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    void RPCHammerHit()
     {
         // Shrinks hole by 20% each hit
         size -= 0.4f;
+
+    }
+
+    void UpdateSize()
+    {
         if (transform.parent != null)
         {
             transform.parent.localScale = transform.parent.localScale * size;
         }
-        else 
-        { 
-            transform.localScale = transform.localScale * size; 
+        else
+        {
+            transform.localScale = transform.localScale * size;
         }
 
-        if(size <= 0.2) { OnFixed(); }
+        if (size <= 0.2) { OnFixed(); }
     }
 
     void OnFixed()
