@@ -27,20 +27,35 @@ public class S_Hammer : NetworkBehaviour
 
     private void Update()
     {
-        charge += 1 * Time.deltaTime;
+        charge += 4*Time.deltaTime;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (transform.parent != null && other.CompareTag("Hole"))
+        {
+            if(other.TryGetComponent(out S_HoleManager holemanager))
+            {
+                holemanager.RPCHammerHit(charge * wallMultiplier);
+            }
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (transform.parent != null)
+        // Checks for parent, so no charge is lost when dropping hammer
+        if (transform.parent != null && collision.gameObject.CompareTag("Enemy"))
         {
-            DealDamage(Mathf.Clamp(charge, 0, 1));
+            DealDamage(Mathf.Clamp(charge, 0, 1), collision.gameObject);
         }
     }
 
-    void DealDamage(float charge)
+    void DealDamage(float charge, GameObject hit)
     {
-        
+        if (hit.TryGetComponent<Health>(out Health health))
+        {
+            health.Damage(charge * enemyMultiplier);
+        }
     }
 
     void NetworkUpdateVisuals()

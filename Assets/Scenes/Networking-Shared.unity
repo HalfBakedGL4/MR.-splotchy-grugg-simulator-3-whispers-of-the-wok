@@ -1318,6 +1318,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little Monster
       objectReference: {fileID: 0}
+    - target: {fileID: 5616077861368041243, guid: 8633f8479d2b12142b4499e36982a5ad, type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5652793604161244827, guid: 8633f8479d2b12142b4499e36982a5ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.03

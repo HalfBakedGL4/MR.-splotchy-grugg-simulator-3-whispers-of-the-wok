@@ -3,7 +3,7 @@ using UnityEngine;
 using Fusion;
 using Oculus.Interaction.Samples;
 
-public class HoleManager : NetworkBehaviour
+public class S_HoleManager : NetworkBehaviour
 {
     [Networked] public float size {get; set;}
 
@@ -27,17 +27,17 @@ public class HoleManager : NetworkBehaviour
         if (other.gameObject.CompareTag("Finish"))
         {
             if(!runner.IsSharedModeMasterClient) return;
-            RPCHammerHit();
+            RPCHammerHit(0.4f);
         }
     }
 
 
+
     [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
-    void RPCHammerHit()
+    public void RPCHammerHit(float charge)
     {
         if (!Object.HasStateAuthority) return;
-        // Shrinks hole by 20% each hit
-        size -= 0.3f;
+        size -= charge;
         Debug.Log("Hole Size: "+size);
         UpdateSize();
 
@@ -47,11 +47,11 @@ public class HoleManager : NetworkBehaviour
     {
         if (transform.parent != null)
         {
-            transform.parent.localScale = transform.parent.localScale * 0.6f;
+            transform.parent.localScale = transform.parent.localScale * size;
         }
         else
         {
-            transform.localScale = transform.localScale * 0.6f;
+            transform.localScale = transform.localScale * size;
         }
 
         if (size <= 0.2) 
