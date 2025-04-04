@@ -1,10 +1,13 @@
 using Fusion;
+using Fusion.Sockets;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
+using static Unity.Collections.Unicode;
 using Random = UnityEngine.Random;
 using Vector3 = UnityEngine.Vector3;
 
@@ -22,12 +25,33 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
     private bool windowPlaced = false;
 
     bool islocal => Object && Object.HasStateAuthority;
+    private bool isFusionConnected = false;
 
-    
-    // Needs to be referenced in the editor in ARPlaneManager
-    public void PlaceObjectOnPlane(ARTrackablesChangedEventArgs<ARPlane> changes)
+    public override void Spawned()
     {
-        if (!islocal) return; // Only host spawns
+        Debug.Log("[Spawn Objects] Network object spawned in Shared Mode.");
+        isFusionConnected = true;
+    }
+
+    // Needs to be referenced in the editor in ARPlaneManager
+    public async void PlaceObjectOnPlane(ARTrackablesChangedEventArgs<ARPlane> changes)
+    {
+        while(!isFusionConnected)
+        {
+            await Task.Delay(10);
+        }
+
+        if (!isFusionConnected)
+        {
+            Debug.LogWarning("[Spawn Objects] Waiting for Fusion connection...");
+            return;
+        }
+
+        if (!islocal)
+        {
+            Debug.LogError("[Spawn Objects] Object doesnt have state authority");
+            return;
+        }// Only host spawns
 
         if (changes == null)
         {
@@ -56,6 +80,7 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
 
                 var rowSize = item.size.x / rows;
                 var colSize = item.size.y / cols;
+                Debug.LogWarning("[Spawn Objects] size of item: " + item.name + " with rows: " + rowSize + " and cols: " + colSize);
 
                 //debugText.text += item.name + ": " + item.size + " Rows: " + rows + " Cols: " + cols + "\n";
 
@@ -63,8 +88,9 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
                 {
                     for (int j = 0; j < cols; j++)
                     {
+                        Debug.LogWarning("[Spawn Objects] in for - i=" + i + " j=" + j);
                         // Offset to place items in middle of grid square
-                        var offsetVector = new Vector3(rowSize * (i + 0.5f), 0, colSize * (j + 0.5f)) -
+                        var offsetVector = new Vector3(rowSize * (i + 0.5f), item.transform.position.y, colSize * (j + 0.5f)) -
                                            new Vector3(item.extents.x, 0, item.extents.y);
                         // Spawn Object
                         Vector3 worldPosition = item.transform.position + item.transform.rotation * offsetVector;
@@ -76,6 +102,7 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
                             Debug.LogError("[Spawn Objects] Prefab To Spawn is Null");
                         } else
                         {
+                            Debug.LogWarning("[Spawn Objects] in runner.spawn");
                             Runner.Spawn(prefabToSpawn, worldPosition, rotation);
                         }
                         // Where to spawn object in world Space
@@ -100,4 +127,6 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
             }
         }
     }
+
+  
 }
