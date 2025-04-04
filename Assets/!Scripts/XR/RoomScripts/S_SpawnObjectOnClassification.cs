@@ -5,15 +5,20 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using Random = UnityEngine.Random;
+using Vector3 = UnityEngine.Vector3;
 
 public class S_SpawnObjectOnClassification : MonoBehaviour
 {
-    [Header("Link this script to AR Plane Manager")]
+    [Header("Link this script to AR Plane Manager!!")]
     [SerializeField] private PlaneClassifications classifications;
     [SerializeField] private GameObject[] spawnObjects;
     [SerializeField] private TMP_Text debugText;
     
+    [SerializeField] private S_OrderWindow orderWindow;
+    [SerializeField] private float windowHeight = 1.0f;
     private float basketSize = 0.5f;
+    
+    private bool windowPlaced = false;
 
     
     // Needs to be referenced in the editor in ARPlaneManager
@@ -21,6 +26,7 @@ public class S_SpawnObjectOnClassification : MonoBehaviour
     {
         foreach (var item in changes.added)
         {
+            // Place applications on table across the room
             if (item.classifications == classifications)
             {
                 // Finds number of rows and columns to create a grid to place items
@@ -51,6 +57,21 @@ public class S_SpawnObjectOnClassification : MonoBehaviour
                         //debugText.text += objectInstance.name + ": " + objectInstance.transform.localPosition + "\n";
                     }
                 }
+            }
+
+            if (item.classifications == PlaneClassifications.WallFace && !windowPlaced)
+            {
+                debugText.text = item.transform.rotation.ToString();
+                debugText.text += "\n";
+                debugText.text += "Rotation (Euler Angles): " + item.transform.eulerAngles.ToString();
+                
+                var windowInstance = Instantiate(orderWindow, item.transform.position, Quaternion.identity);
+                
+                windowInstance.transform.parent = item.transform;
+                windowInstance.transform.localEulerAngles = new Vector3(180, -90, -90);
+                windowInstance.transform.position = new Vector3(windowInstance.transform.position.x, windowHeight, windowInstance.transform.position.z);
+                
+                windowPlaced = true;
             }
         }
     }

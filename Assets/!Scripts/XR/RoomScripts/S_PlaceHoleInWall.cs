@@ -1,36 +1,20 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.ARFoundation;
 
 public class S_PlaceHoleInWall : MonoBehaviour
 {
     
-    [SerializeField ]private S_FindPointsOnWalls _findPointsOnWalls;
     [SerializeField] private GameObject hole;
-    [SerializeField] private InputActionProperty inputAction;
-    
-    private void Start()
-    {
-        if (!_findPointsOnWalls)
-            Debug.LogError("No S_FindPointsOnWalls component found");
-    }
 
-    void Update()
+    public void SpawnHoleInWall((ARPlane wall, Vector3 pointOnWall) wallAndPoint)
     {
-        if (inputAction.action.WasPressedThisFrame())
-        {
-            SpawnHoleInWall();
-        }
-    }
-
-    private void SpawnHoleInWall()
-    {
-        // Gets Tuple (AR Plane: wall, Vector 3: point)
-        var wallAndPoint = _findPointsOnWalls.GetRandomWallAndPoint();
+        
         // Instantiates and set position and rotation equal to Wall
-        var instance = Instantiate(hole, wallAndPoint.Item1.transform.position, wallAndPoint.Item1.transform.rotation);
+        var instance = Instantiate(hole, wallAndPoint.wall.transform.position, wallAndPoint.wall.transform.rotation);
         // Move hole to Point on Wall
-        instance.transform.SetParent(wallAndPoint.Item1.transform);
-        instance.transform.localPosition += wallAndPoint.Item2;
+        instance.transform.SetParent(wallAndPoint.wall.transform);
+        instance.transform.localPosition += wallAndPoint.pointOnWall;
     }
 }

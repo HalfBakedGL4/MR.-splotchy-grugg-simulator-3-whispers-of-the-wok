@@ -18,8 +18,10 @@ public class S_DishStatus : MonoBehaviour
     private DishStatus currentDishStatus = DishStatus.UnCooked;
 
     private bool isGrugged = false;
+    
+    [SerializeField] private Dish typeOfDish;
 
-    public void ChangStatus(DishStatus newStatus)
+    public void ChangeStatus(DishStatus newStatus)
     {
         currentDishStatus = newStatus;
         //TODO: Add visual based on cooked time
@@ -32,5 +34,14 @@ public class S_DishStatus : MonoBehaviour
         // TODO: Add visual that grugg is added
         print("Grugg Applied to " + name);
     }
-    
+
+    public (Dish typeOfDish, DishStatus dishStatus, bool grugged) GetDishStatus()
+    {
+        return (typeOfDish, currentDishStatus, isGrugged);
+    }
+
+    public Dish GetTypeOfDish()
+    {
+        return typeOfDish;
+    }
 }

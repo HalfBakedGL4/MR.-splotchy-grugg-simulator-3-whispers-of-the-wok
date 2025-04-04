@@ -4,7 +4,8 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public enum FoodType
 {
-    // All types of food used to create dishes, add more at the BOTTOM if needed
+    // All types of food used to create dishes,
+    // add more at the BOTTOM when needed
     Onion,
     Fish,
     Bread,

@@ -4893,6 +4893,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5856037685992771168, guid: 5c41479a8a0dd0e4997e2afc9e92edde, type: 3}
+      propertyPath: m_UseDynamicAttach
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9145872765935959096, guid: 5c41479a8a0dd0e4997e2afc9e92edde, type: 3}
       propertyPath: m_Name
       value: BombaWithDaString
