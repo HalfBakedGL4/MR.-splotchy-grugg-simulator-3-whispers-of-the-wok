@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class WallExplosion : MonoBehaviour
+public class S_WallExplosion : MonoBehaviour
 {
     [Header("Material on wall-pieces must be transparent/alpha")]
     [Header("Time until pieces begin to fade")]

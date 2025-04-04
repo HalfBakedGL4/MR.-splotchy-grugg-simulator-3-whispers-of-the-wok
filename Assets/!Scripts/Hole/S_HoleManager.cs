@@ -3,14 +3,11 @@ using UnityEngine;
 using Fusion;
 using Oculus.Interaction.Samples;
 
-public class HoleManager : MonoBehaviour
+public class HoleManager : NetworkBehaviour
 {
-    [Networked, OnChangedRender(nameof(UpdateSize))]
-    public float size {get; set;}
-
     private void Start()
     {
-        size = transform.localScale.x;
+        
     }
 
     //Hammer fix wall
@@ -23,11 +20,10 @@ public class HoleManager : MonoBehaviour
     }
 
 
-    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
     void RPCHammerHit()
     {
         // Shrinks hole by 20% each hit
-        size -= 0.4f;
+        UpdateSize();
 
     }
 
@@ -35,14 +31,14 @@ public class HoleManager : MonoBehaviour
     {
         if (transform.parent != null)
         {
-            transform.parent.localScale = transform.parent.localScale * size;
+            transform.parent.localScale = transform.parent.localScale * -0.4f;
         }
         else
         {
-            transform.localScale = transform.localScale * size;
+            transform.localScale = transform.localScale * -0.4f;
         }
 
-        if (size <= 0.2) { OnFixed(); }
+        if (transform.localScale.x <= 0.2) { OnFixed(); }
     }
 
     void OnFixed()

@@ -4,8 +4,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Photon;
 using Fusion;
+using Input;
 
-public class HoleSpawner : NetworkBehaviour
+
+public class S_HoleSpawner : NetworkBehaviour
 {
     Camera cam => Camera.main; // Only used for raycast, remove later.
     [SerializeField] List<GameObject> holePrefabs; // Prefabs to instantiate on collision
@@ -14,10 +16,11 @@ public class HoleSpawner : NetworkBehaviour
     [Header("Fix multiple holes at once")]
     [SerializeField] bool multiHoleFix;
 
+    private int holeIndex;
     private Transform parent;
     NetworkRunner runner;
 
-    public bool IsLocalNetworkRig => Object.HasInputAuthority;
+    public bool IsLocalNetworkRig => Object && Object.HasStateAuthority;
 
     private void Start()
     {
@@ -26,18 +29,15 @@ public class HoleSpawner : NetworkBehaviour
         runner = FindFirstObjectByType<NetworkRunner>();
     }
 
-    void Update()
+    public void SpawnItem(InputInfo info)
     {
-        if (inputAction.action.WasPressedThisFrame())
-        {
-            Debug.Log("pressed Button");
-            CastRay(out RaycastHit hit);
-            RPC_CreatePortal(hit.point, hit.transform.rotation);
-        }
+        if (!info.context.started) return;
+
+        CastRay(out RaycastHit hit);
+        RPC_CreatePortal(hit.point, hit.transform.rotation);
     }
 
-    //[Rpc(RpcSources.InputAuthority, RpcTargets.All)]
-    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+
     void RPC_CreatePortal(Vector3 pos, Quaternion rot)
     {
         Debug.Log("Spawn Portal");
@@ -70,21 +70,18 @@ public class HoleSpawner : NetworkBehaviour
         }
 
         // Select random hole prefab from list
-        int holeIndex = UnityEngine.Random.Range(0, holePrefabs.Count);
+
+        holeIndex = UnityEngine.Random.Range(0, holePrefabs.Count);
 
         // rot.z = UnityEngine.Random.Range(0, 360);
+
+        NetworkObject spawnedHole = runner.Spawn(holePrefabs[holeIndex], pos, rot);
 
         // Merges all hole under one parent, so all connected holes can be fixed at once.
         if (multiHoleFix && parent != null)
         {
             // Spawns hole and then parent it to keep its original size on spawn.
-            NetworkObject spawnedHole = runner.Spawn(holePrefabs[holeIndex], transform.position, transform.rotation);
             spawnedHole.transform.parent = parent.transform;
-        }
-        // Seperate holes not connected.
-        else
-        {
-            NetworkObject spawnedHole = runner.Spawn(holePrefabs[holeIndex], pos, rot);
         }
 
         parent = null;
