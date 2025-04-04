@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Photon;
 using Fusion;
+using Input;
 
 
 public class S_HoleSpawner : NetworkBehaviour
@@ -19,7 +20,7 @@ public class S_HoleSpawner : NetworkBehaviour
     private Transform parent;
     NetworkRunner runner;
 
-    public bool IsLocalNetworkRig => Object.HasInputAuthority;
+    public bool IsLocalNetworkRig => Object && Object.HasStateAuthority;
 
     private void Start()
     {
@@ -28,18 +29,15 @@ public class S_HoleSpawner : NetworkBehaviour
         runner = FindFirstObjectByType<NetworkRunner>();
     }
 
-    void Update()
+    public void SpawnItem(InputInfo info)
     {
-        if (inputAction.action.WasPressedThisFrame())
-        {
-            Debug.Log("pressed Button");
-            CastRay(out RaycastHit hit);
-            RPC_CreatePortal(hit.point, hit.transform.rotation);
-        }
+        if (!info.context.started) return;
+
+        CastRay(out RaycastHit hit);
+        RPC_CreatePortal(hit.point, hit.transform.rotation);
     }
 
-    //[Rpc(RpcSources.InputAuthority, RpcTargets.All)]
-    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+
     void RPC_CreatePortal(Vector3 pos, Quaternion rot)
     {
         Debug.Log("Spawn Portal");

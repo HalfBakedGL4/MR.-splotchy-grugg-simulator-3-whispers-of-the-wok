@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ThrowAndPassThrough.unity
     guid: eccca53ade5d0db4dbfd173ba03b8d26
+  - enabled: 1
+    path: Assets/Scenes/Wall_Holes.unity
+    guid: b887082493958c8448b1476469a778bf
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: dc02a0b0feff2ee499040153a5e52e23, type: 2}
     com.unity.addressableassets: {fileID: 11400000, guid: d487f20e58cca3545a300fd358cfb10b, type: 2}

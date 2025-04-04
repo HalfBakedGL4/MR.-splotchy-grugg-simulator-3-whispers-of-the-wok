@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e104662d30e014fab29ce8844003a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _size: 0
 --- !u!114 &6363492814158527130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +162,7 @@ MonoBehaviour:
   Flags: 262145
   NestedObjects: []
   NetworkedBehaviours:
+  - {fileID: 8611827220600554759}
   - {fileID: 7637761502810297324}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &7637761502810297324
@@ -176,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stateAuthorityChangeErrorCorrectionDelta: 0.15
-  SyncScale: 0
+  SyncScale: 1
   SyncParent: 0
   _autoAOIOverride: 1
   DisableSharedModeInterpolation: 0
