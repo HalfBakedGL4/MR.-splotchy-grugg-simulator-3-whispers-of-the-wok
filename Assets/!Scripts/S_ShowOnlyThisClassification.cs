@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;
+
+public class S_ShowOnlyThisClassification : MonoBehaviour
+{
+    [SerializeField] private ARPlaneManager planeManager;
+    [SerializeField] private PlaneClassifications classifications;
+    [SerializeField] private Material portalMaterial;
+    [SerializeField] private Material wallMaterial;
+    
+    private void OnEnable()
+    {
+        planeManager.planesChanged += SetupPlane;
+    }
+    private void OnDisable()
+    {
+        planeManager.planesChanged -= SetupPlane;
+    }
+
+    private void SetupPlane(ARPlanesChangedEventArgs obj)
+    {
+        List<ARPlane> newPlane = obj.added;
+        foreach (var item in newPlane)
+        {
+            if (item.classifications == classifications)
+            {
+                
+            }
+
+            else if (item.classifications == PlaneClassifications.WindowFrame)
+            {
+                item.GetComponent<Renderer>().material = portalMaterial;
+            }
+            else
+            {
+                if (item.classifications == PlaneClassifications.WallArt || item.classifications == PlaneClassifications.WallFace || item.classifications == PlaneClassifications.InvisibleWallFace)
+                {
+                    item.gameObject.tag = "Wall";
+                }
+                Renderer itemrenderer = item.GetComponent<Renderer>();
+
+                Destroy(itemrenderer);
+            }
+        }
+    }
+
+    
+}
+
