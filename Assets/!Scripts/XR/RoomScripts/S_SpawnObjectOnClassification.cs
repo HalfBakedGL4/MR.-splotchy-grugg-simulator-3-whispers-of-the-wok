@@ -1,3 +1,4 @@
+using Fusion;
 using System;
 using System.Collections.Generic;
 using TMPro;
@@ -7,12 +8,14 @@ using UnityEngine.XR.ARSubsystems;
 using Random = UnityEngine.Random;
 using Vector3 = UnityEngine.Vector3;
 
-public class S_SpawnObjectOnClassification : MonoBehaviour
+public class S_SpawnObjectOnClassification : NetworkBehaviour
 {
     [Header("Link this script to AR Plane Manager!!")]
     [SerializeField] private PlaneClassifications classifications;
     [SerializeField] private GameObject[] spawnObjects;
     [SerializeField] private TMP_Text debugText;
+
+    [SerializeField] private NetworkRunner runner;
     
     [SerializeField] private S_OrderWindow orderWindow;
     [SerializeField] private float windowHeight = 1.0f;
@@ -24,6 +27,8 @@ public class S_SpawnObjectOnClassification : MonoBehaviour
     // Needs to be referenced in the editor in ARPlaneManager
     public void PlaceObjectOnPlane(ARTrackablesChangedEventArgs<ARPlane> changes)
     {
+        if (Object.HasStateAuthority) return; // Only host spawns
+
         foreach (var item in changes.added)
         {
             // Place applications on table across the room
@@ -49,10 +54,23 @@ public class S_SpawnObjectOnClassification : MonoBehaviour
                         var offsetVector = new Vector3(rowSize * (i + 0.5f), 0, colSize * (j + 0.5f)) -
                                            new Vector3(item.extents.x, 0, item.extents.y);
                         // Spawn Object
-                        var objectInstance = Instantiate(spawnObjects[Random.Range(0,spawnObjects.Length)], item.transform.position, Quaternion.identity);
-                        // Make Object Child of ARPlane to place it through localTransform
-                        objectInstance.transform.parent = item.transform;
-                        objectInstance.transform.localPosition += offsetVector;
+                        Vector3 worldPosition = item.transform.position + item.transform.rotation * offsetVector;
+                        Quaternion rotation = Quaternion.identity;
+
+                        GameObject prefabToSpawn = spawnObjects[Random.Range(0, spawnObjects.Length)];
+                        if (prefabToSpawn == null)
+                        {
+                            Debug.LogError("[Spawn Objects] Prefab To Spawn is Null");
+                        } else if (worldPosition == null)
+                        {
+                            Debug.LogError("[Spawn Objects] World Position is Null");
+                        } else if (rotation == null)
+                        {
+                            Debug.LogError("[Spawn Objects] Rotation is Null");
+                        } else
+                        {
+                            runner.Spawn(prefabToSpawn, worldPosition, rotation);
+                        }
                         // Where to spawn object in world Space
                         //debugText.text += objectInstance.name + ": " + objectInstance.transform.localPosition + "\n";
                     }

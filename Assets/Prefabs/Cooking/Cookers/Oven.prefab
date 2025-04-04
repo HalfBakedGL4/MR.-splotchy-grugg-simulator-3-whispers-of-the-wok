@@ -156,6 +156,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4890621050013555385}
   - component: {fileID: 7104565660179429157}
+  - component: {fileID: -3129658648468868885}
+  - component: {fileID: -6704324917748013034}
   m_Layer: 0
   m_Name: Oven
   m_TagString: Untagged
@@ -202,6 +204,36 @@ MonoBehaviour:
   - {fileID: 2241298248874653332}
   - {fileID: 8899598426157769274}
   dishSocket: {fileID: 6183257750404534362}
+--- !u!114 &-3129658648468868885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012386090533404722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1369537866, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-6704324917748013034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012386090533404722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SortKey: 781226837
+  ObjectInterest: 1
+  Flags: 1
+  NestedObjects: []
+  NetworkedBehaviours: []
+  ForceRemoteRenderTimeframe: 0
 --- !u!1 &3408328789083219764
 GameObject:
   m_ObjectHideFlags: 0
