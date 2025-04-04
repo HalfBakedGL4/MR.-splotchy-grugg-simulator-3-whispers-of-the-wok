@@ -12,6 +12,7 @@ TagManager:
   - Ticket
   - Wall
   - Hole
+
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Water
   - UI
   - Stencil Mask 1
-  - Hole
+  - 
   - 
   - 
   - 

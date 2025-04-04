@@ -18,6 +18,8 @@ public class S_Alien : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Camera.main == null) return;
+
         if (agent.isOnNavMesh)
         {
             /*Vector3 targetPosition = Camera.main.transform.position;

@@ -6,19 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Navmesh Test.unity
-    guid: d65f4b5349367794f831431528e76dee
-  - enabled: 1
-    path: Assets/Scenes/Networking.unity
-    guid: e6aef4864d5fdb14688435050447777d
+    path: Assets/Scenes/Networking-Shared.unity
+    guid: 79dc9ff79731e03419576e24a5b0a25f
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Networking.unity
+    guid: e6aef4864d5fdb14688435050447777d
   - enabled: 1
     path: Assets/Scenes/ThrowAndPassThrough.unity
     guid: eccca53ade5d0db4dbfd173ba03b8d26
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: dc02a0b0feff2ee499040153a5e52e23, type: 2}
+    com.unity.addressableassets: {fileID: 11400000, guid: d487f20e58cca3545a300fd358cfb10b, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 77072d57eac605046968f3fe7cc184f7, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: c4e5ee8affc9b7140b6169fc96de2868, type: 2}
