@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Fusion;
+using TMPro;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -14,11 +16,14 @@ public class S_FindPointsOnWalls : MonoBehaviour
 
     private void OnEnable()
     {
-        planeManager = FindAnyObjectByType<ARPlaneManager>();
+        planeManager = FindFirstObjectByType<ARPlaneManager>();
+        if (planeManager == null)
+            Log.Error("There are no plane manager.");
         planeManager.trackablesChanged.AddListener(FindWallPoints);
     }
 
   
+    [SerializeField] private TMP_Text debugText;
 
     // Must be connected to an AR plane manager
     void FindWallPoints(ARTrackablesChangedEventArgs<ARPlane> changes)
@@ -49,6 +54,7 @@ public class S_FindPointsOnWalls : MonoBehaviour
                         AddWallPoint(plane, offsetVector);
                     }
                 }
+                
             }
         }
     }
@@ -59,10 +65,12 @@ public class S_FindPointsOnWalls : MonoBehaviour
         {
             wallPoints[plane] = new List<Vector3>();
         }
-        
+
+        debugText.text += "."; 
         wallPoints[plane].Add(point);
     }
     
+
     // Returns Tuple containing the wall and point on wall
     // A Couple of line to debug and remove used spots so to not spawn hole on same position
     public (ARPlane, Vector3) GetRandomWallAndPoint()
@@ -71,6 +79,7 @@ public class S_FindPointsOnWalls : MonoBehaviour
         if (wallPoints == null || wallPoints.Count == 0)
         {
             Debug.LogWarning("No walls available in the dictionary.");
+            debugText.text += "No walls available in the dictionary";
             return (null, Vector3.zero);
         }
 
@@ -81,6 +90,8 @@ public class S_FindPointsOnWalls : MonoBehaviour
         if (walls.Count == 0)
         {
             Debug.LogWarning("Walls list is empty.");
+            debugText.text += "Walls list is empty.";
+
             return (null, Vector3.zero);
         }
 
@@ -91,6 +102,7 @@ public class S_FindPointsOnWalls : MonoBehaviour
         if (!wallPoints.ContainsKey(randomWall) || wallPoints[randomWall] == null || wallPoints[randomWall].Count == 0)
         {
             Debug.LogWarning($"Selected wall '{randomWall.name}' has no points.");
+            debugText.text += $"Selected wall '{randomWall.name}' has no points.";
             return (randomWall, Vector3.zero);
         }
 

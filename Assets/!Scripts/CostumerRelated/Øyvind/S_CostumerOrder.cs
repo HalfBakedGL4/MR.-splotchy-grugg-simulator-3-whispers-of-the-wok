@@ -13,17 +13,20 @@ public class S_CostumerOrder : MonoBehaviour
     private S_Ticket costumerTicket;
     
     private Dish orderedDish;
-    private void Awake()
+    private void Start()
     {
         // Find the window to place ticket
         orderWindow = FindAnyObjectByType<S_OrderWindow>();
-        if (!orderWindow)
+        if (orderWindow == null)
             Debug.LogError("Could not find OrderWindow");
     }
     
     // The costumer would order food when they approach the window
     public void OrderFood()
     {
+        if (orderWindow == null)
+            orderWindow = FindAnyObjectByType<S_OrderWindow>();
+
         orderedDish = canOrder[Random.Range(0, canOrder.Count)];
         
         // Ticket is returned to the costumer so the costumer know which ticket they own

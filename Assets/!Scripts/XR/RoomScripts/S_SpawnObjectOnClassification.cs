@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -12,7 +9,6 @@ public class S_SpawnObjectOnClassification : MonoBehaviour
     [Header("Link this script to AR Plane Manager!!")]
     [SerializeField] private PlaneClassifications classifications;
     [SerializeField] private GameObject[] spawnObjects;
-    [SerializeField] private TMP_Text debugText;
     
     [SerializeField] private S_OrderWindow orderWindow;
     [SerializeField] private float windowHeight = 1.0f;
@@ -68,10 +64,6 @@ public class S_SpawnObjectOnClassification : MonoBehaviour
 
             if (item.classifications == PlaneClassifications.WallFace && !windowPlaced)
             {
-                debugText.text = item.transform.rotation.ToString();
-                debugText.text += "\n";
-                debugText.text += "Rotation (Euler Angles): " + item.transform.eulerAngles.ToString();
-                
                 var windowInstance = Instantiate(orderWindow, item.transform.position, Quaternion.identity);
                 
                 windowInstance.transform.parent = item.transform;

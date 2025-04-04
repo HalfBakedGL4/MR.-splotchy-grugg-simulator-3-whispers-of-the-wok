@@ -8,34 +8,20 @@ public class S_CostumerManager : NetworkBehaviour
     [SerializeField] private S_FindWallToBreak findWallToBreak;
     
     bool isLocal => Object && Object.HasStateAuthority;
-
-    private void Awake()
-    {
-        //if (!isLocal) enabled = false;
-
-    }
-
-    private void Start()
-    {
-
-        
-
-    }
-
+    
     public override void Spawned()
     {
         base.Spawned();
-        
-        costumerOrder.OrderFood();
-        
-        InvokeRepeating(nameof(Debuggins), 0f, 10f);
-    }
 
-    private void Update()
-    {
-        Debug.Log(isLocal) ;
-    }
+        if (isLocal)
+        {
+            InvokeRepeating(nameof(Debuggins), 0f, 4f);
 
+            //costumerOrder.OrderFood();
+        }
+        
+    }
+    
     void Debuggins()
     {
         findWallToBreak.Debuggings();
