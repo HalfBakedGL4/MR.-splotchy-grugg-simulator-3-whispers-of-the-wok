@@ -2,13 +2,14 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using Fusion;
 
 public enum CookerType
 {
     Oven,
     Fryer,
 }
-public class S_Cooker : MonoBehaviour, IButtonObject
+public class S_Cooker : NetworkBehaviour, IButtonObject
 {
     private enum CookerState
     {
@@ -135,7 +136,7 @@ public class S_Cooker : MonoBehaviour, IButtonObject
             }
 
             CleanCooker();
-            var dish = Instantiate(dishToSpawn, dishSocket.transform.position, dishSocket.transform.rotation);
+            var dish =  Runner.Spawn(dishToSpawn, dishSocket.transform.position, dishSocket.transform.rotation);
             if (dish.TryGetComponent(out S_DishStatus dishStatusScript))
             {
                 dishStatusScript.ChangeStatus(dishStatus);

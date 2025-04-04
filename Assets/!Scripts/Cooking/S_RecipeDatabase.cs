@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,14 +8,14 @@ public enum Dish
 {
     // All the different dishes players can create and costumers can order
     // add more at the BOTTOM when needed
-    FishBurgerWithOnion,
+    FishBurgerWithOnio,
     FishBurger,
     Fries,
     FriedFish,
-    Burnt,
+    Burnt
 }
 
-[System.Serializable]
+[Serializable]
 public class Recipe
 {
     public Dish nameOfDish;
