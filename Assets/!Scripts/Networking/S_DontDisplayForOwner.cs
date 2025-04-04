@@ -1,34 +1,37 @@
 using Fusion;
 using UnityEngine;
 
-public class S_DontDisplayForOwner : NetworkBehaviour
+namespace Networking.Host
 {
-    MeshRenderer mesh;
-
-    public bool IsLocalNetworkRig => Object.HasInputAuthority;
-
-    private void Start()
+    public class S_DontDisplayForOwner : NetworkBehaviour
     {
-        mesh = GetComponent<MeshRenderer>();
+        MeshRenderer mesh;
 
-        if (IsLocalNetworkRig)
+        public bool IsLocalNetworkRig => Object.HasInputAuthority;
+
+        private void Start()
         {
-            Debug.Log("wont display");
-            mesh.enabled = false;
+            mesh = GetComponent<MeshRenderer>();
+
+            if (IsLocalNetworkRig)
+            {
+                Debug.Log("wont display");
+                mesh.enabled = false;
+            }
+
         }
 
-    }
-
-    public override void Spawned()
-    {
-        base.Spawned();
-
-        mesh = GetComponent<MeshRenderer>();
-
-        if(IsLocalNetworkRig)
+        public override void Spawned()
         {
-            Debug.Log("wont display");
-            mesh.enabled = false;
+            base.Spawned();
+
+            mesh = GetComponent<MeshRenderer>();
+
+            if (IsLocalNetworkRig)
+            {
+                Debug.Log("wont display");
+                mesh.enabled = false;
+            }
         }
     }
 }

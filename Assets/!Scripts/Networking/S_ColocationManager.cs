@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Text;
+using System.Collections;
 
 public class ColocationManager : NetworkBehaviour
 {
@@ -23,7 +24,8 @@ public class ColocationManager : NetworkBehaviour
         {
             Debug.Log("Colocation: Starting advertisement...");
             AdvertiseColocationSession();
-        } else
+        }
+        else
         {
             Debug.Log("Colocation: Starting discovery...");
             DiscoverNearBySession();
@@ -41,12 +43,14 @@ public class ColocationManager : NetworkBehaviour
             {
                 _sharedAnchorGroupId = startAdvertisementResult.Value;
                 Debug.Log("Colocation: ADvertisement started successfully. UUID: " + _sharedAnchorGroupId);
-                CreateAndShareAlignmentAnchor();
-            } else
+                DelayedAnchorSpawn();
+            }
+            else
             {
                 Debug.LogError("Colocation failed with status: " + startAdvertisementResult.Status);
             }
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             Debug.LogError("Colocation failed error: " + e.Message);
         }
@@ -59,14 +63,15 @@ public class ColocationManager : NetworkBehaviour
             OVRColocationSession.ColocationSessionDiscovered += OnColocationSessionDiscovered;
 
             var discoveryResult = await OVRColocationSession.StartDiscoveryAsync();
-            if(!discoveryResult.Success)
+            if (!discoveryResult.Success)
             {
                 Debug.LogError("Colocation: Discovery failed with status: " + discoveryResult.Status);
                 return;
             }
 
             Debug.Log("Colocation: Discovery started successfully.");
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             Debug.LogError("Colocation: Error during session: " + e.Message);
         }
@@ -78,6 +83,12 @@ public class ColocationManager : NetworkBehaviour
         _sharedAnchorGroupId = session.AdvertisementUuid;
         Debug.Log("Colocation: Discovered session with UUID: " + _sharedAnchorGroupId);
         LoadAndAlignToAnchor(_sharedAnchorGroupId);
+    }
+
+    IEnumerator DelayedAnchorSpawn()
+    {
+        yield return new WaitForSeconds(2.0f); // Adjust delay as needed
+        CreateAndShareAlignmentAnchor();
     }
 
     private async void CreateAndShareAlignmentAnchor()
@@ -117,7 +128,8 @@ public class ColocationManager : NetworkBehaviour
             }
 
             Debug.Log("Colocation: Alignment anchor shared successfully. Group Uuid: " + _sharedAnchorGroupId);
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             Debug.LogError("Colocation: Error during anchor creation and sharing: " + e.Message);
         }
@@ -137,14 +149,15 @@ public class ColocationManager : NetworkBehaviour
             };
 
             var spatialAnchor = anchorGameObject.AddComponent<OVRSpatialAnchor>();
-            while(!spatialAnchor.Created)
+            while (!spatialAnchor.Created)
             {
                 await Task.Yield();
             }
 
             Debug.Log("Colocation: Anchor created successfully, UUID: " + spatialAnchor.Uuid);
             return spatialAnchor;
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             Debug.LogError("Colocation: Error during anchor creation: " + e.Message);
             return null;
@@ -182,7 +195,8 @@ public class ColocationManager : NetworkBehaviour
 
                 Debug.LogWarning("Colocation: Failed to localize anchor: " + unboundAnchor.Uuid);
             }
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             Debug.LogError("Colocation: Failed loading and localizing anchors: " + e.Message);
         }
@@ -191,12 +205,12 @@ public class ColocationManager : NetworkBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
