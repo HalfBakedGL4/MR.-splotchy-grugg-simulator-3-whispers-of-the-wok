@@ -109,7 +109,7 @@ namespace Extentions
             /// </summary>
             /// <param name="networkObject">The networkobject to gain authority over</param>
             /// <returns></returns>
-            public async static Task<bool> GetStateAuthority(NetworkObject networkObject, int maxTries = 100)
+            public async static Task<bool> GetStateAuthority(NetworkObject networkObject, int maxTries = 10000)
             {
                 networkObject.RequestStateAuthority();
 
@@ -124,7 +124,7 @@ namespace Extentions
                     Debug.Log("[interactor] Check " + i);
                 }
 
-                Debug.Log("[interactor] Gained state authority after " + ((10 * i) * 1000) + " seconds (" + (10 * i) + " milliseconds)");
+                Debug.Log("[interactor] Gained state authority after " + ((10 * i) / 1000) + " seconds (" + (10 * i) + " milliseconds)");
                 return true;
             }
         }
