@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -12,8 +10,18 @@ public class S_FindPointsOnWalls : MonoBehaviour
     
     private Dictionary<ARPlane, List<Vector3>> wallPoints = new ();
     
+    private ARPlaneManager planeManager;
+
+    private void OnEnable()
+    {
+        planeManager = FindAnyObjectByType<ARPlaneManager>();
+        planeManager.trackablesChanged.AddListener(FindWallPoints);
+    }
+
+  
+
     // Must be connected to an AR plane manager
-    public void FindWallPoints(ARTrackablesChangedEventArgs<ARPlane> changes)
+    void FindWallPoints(ARTrackablesChangedEventArgs<ARPlane> changes)
     {
         foreach (ARPlane plane in changes.added)
         {
@@ -102,5 +110,10 @@ public class S_FindPointsOnWalls : MonoBehaviour
         }
 
         return (randomWall, randomPoint);
+    }
+    private void OnDisable()
+    {
+        planeManager.trackablesChanged.RemoveListener(FindWallPoints);
+
     }
 }

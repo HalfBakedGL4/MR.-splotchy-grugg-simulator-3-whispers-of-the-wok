@@ -1,24 +1,32 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 
 public class S_FindWallToBreak : MonoBehaviour
 {
     [SerializeField] private S_FindPointsOnWalls findPointsOnWalls;
-    [SerializeField] private S_PlaceHoleInWall placeHoleInWall;
+    [SerializeField] private HoleSpawner holeSpawner;
     private (ARPlane wall, Vector3 pointOnWall) wallPoint;
+
     
-    
-    private void Start()
+    [SerializeField] private TMP_Text debugText;
+
+
+    private void Awake()
     {
-        findPointsOnWalls = FindAnyObjectByType<S_FindPointsOnWalls>();
-        placeHoleInWall = FindAnyObjectByType<S_PlaceHoleInWall>();
-       
-        if (!findPointsOnWalls)
+        if (findPointsOnWalls == null)
             Debug.LogError("No S_FindPointsOnWalls component found");
-        if (!placeHoleInWall)
-            Debug.LogError("No S_PlaceHoleInWall component found");
+        if (holeSpawner == null)
+            Debug.LogError("No HoleSpawner component found");
     }
-    
+
+    public void Debuggings()
+    {
+        debugText.text += " Making ";
+        MakeHoleInWall();
+        debugText.text += " hole";
+    }
+
     public void FindWallToBreak()
     {
         // Gets Tuple (AR Plane: wall, Vector 3: point)
@@ -27,6 +35,6 @@ public class S_FindWallToBreak : MonoBehaviour
 
     public void MakeHoleInWall()
     {
-        placeHoleInWall.SpawnHoleInWall(wallPoint);
+        
     }
 }

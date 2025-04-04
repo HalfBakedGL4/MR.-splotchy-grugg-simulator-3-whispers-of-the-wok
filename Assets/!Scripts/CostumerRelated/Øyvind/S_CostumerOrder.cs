@@ -13,13 +13,12 @@ public class S_CostumerOrder : MonoBehaviour
     private S_Ticket costumerTicket;
     
     private Dish orderedDish;
-    private void Start()
+    private void Awake()
     {
         // Find the window to place ticket
         orderWindow = FindAnyObjectByType<S_OrderWindow>();
-
-        // TODO: Remove when implemented target
-        OrderFood();
+        if (!orderWindow)
+            Debug.LogError("Could not find OrderWindow");
     }
     
     // The costumer would order food when they approach the window

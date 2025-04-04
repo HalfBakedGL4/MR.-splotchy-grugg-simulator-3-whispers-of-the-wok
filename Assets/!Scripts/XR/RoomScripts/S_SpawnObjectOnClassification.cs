@@ -20,9 +20,16 @@ public class S_SpawnObjectOnClassification : MonoBehaviour
     
     private bool windowPlaced = false;
 
-    
+    private ARPlaneManager planeManager;
+
+    private void OnEnable()
+    {
+        planeManager = FindFirstObjectByType<ARPlaneManager>();
+        planeManager.trackablesChanged.AddListener(PlaceObjectOnPlane);
+    }
+
     // Needs to be referenced in the editor in ARPlaneManager
-    public void PlaceObjectOnPlane(ARTrackablesChangedEventArgs<ARPlane> changes)
+    void PlaceObjectOnPlane(ARTrackablesChangedEventArgs<ARPlane> changes)
     {
         foreach (var item in changes.added)
         {
@@ -74,5 +81,10 @@ public class S_SpawnObjectOnClassification : MonoBehaviour
                 windowPlaced = true;
             }
         }
+    }
+
+    private void OnDisable()
+    {
+        planeManager.trackablesChanged.RemoveListener(PlaceObjectOnPlane);
     }
 }
