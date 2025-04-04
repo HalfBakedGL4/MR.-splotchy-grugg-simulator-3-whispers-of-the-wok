@@ -2,11 +2,11 @@
     "name": "InputSystem_Actions",
     "maps": [
         {
-            "name": "RightController",
+            "name": "LeftController",
             "id": "df70fa95-8a34-4494-b137-73ab6b9c7d37",
             "actions": [
                 {
-                    "name": "R_Joystick",
+                    "name": "L_Joystick",
                     "type": "Value",
                     "id": "d9fc714a-98ae-4016-be11-3cd490143855",
                     "expectedControlType": "Vector2",
@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "R_Trigger",
+                    "name": "L_Trigger",
                     "type": "Button",
                     "id": "c06abe4b-37c6-4ce8-8769-5584d5eeecb8",
                     "expectedControlType": "",
@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "R_Grip",
+                    "name": "L_Grip",
                     "type": "Button",
                     "id": "54744979-7f38-41d0-8b7a-c65f182aee9a",
                     "expectedControlType": "",
@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "R_A",
+                    "name": "L_X",
                     "type": "Button",
                     "id": "e4adcf89-ada5-426e-afd8-795ce200861d",
                     "expectedControlType": "",
@@ -42,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "R_B",
+                    "name": "L_Y",
                     "type": "Button",
                     "id": "f3e82c8e-d3a7-4ba1-9e29-6126d84e302b",
                     "expectedControlType": "",
@@ -55,44 +55,44 @@
                 {
                     "name": "",
                     "id": "df41cced-c095-4974-8ebb-fe36551de74e",
-                    "path": "<XRController>{RightHand}/triggerPressed",
+                    "path": "<XRController>{LeftHand}/triggerPressed",
                     "interactions": "",
                     "processors": "",
                     "groups": ";XR",
-                    "action": "R_Trigger",
+                    "action": "L_Trigger",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "c1898c9e-9374-418f-b86c-7bab93257fe3",
-                    "path": "<XRController>{RightHand}/gripButton",
+                    "path": "<XRController>{LeftHand}/gripButton",
                     "interactions": "",
                     "processors": "",
                     "groups": ";XR",
-                    "action": "R_Grip",
+                    "action": "L_Grip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "6cc4a1ae-1939-4375-a4a6-552373e9e4e6",
-                    "path": "<XRController>{RightHand}/primaryButton",
+                    "path": "<XRController>{LeftHand}/primaryButton",
                     "interactions": "",
                     "processors": "",
                     "groups": ";XR",
-                    "action": "R_A",
+                    "action": "L_X",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "b94a0f85-a6d6-49a5-be63-dcec829cc9f8",
-                    "path": "<XRController>{RightHand}/secondaryButton",
+                    "path": "<XRController>{LeftHand}/secondaryButton",
                     "interactions": "",
                     "processors": "",
                     "groups": ";XR",
-                    "action": "R_B",
+                    "action": "L_Y",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -103,62 +103,62 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "R_Joystick",
+                    "action": "L_Joystick",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "up",
                     "id": "31d05e45-164c-44d9-afc7-699a66bbb177",
-                    "path": "<XRController>{RightHand}/thumbstickDpadUp",
+                    "path": "<XRController>{LeftHand}/thumbstickDpadUp",
                     "interactions": "",
                     "processors": "",
                     "groups": ";XR",
-                    "action": "R_Joystick",
+                    "action": "L_Joystick",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "down",
                     "id": "e1ef1f34-10ba-4344-b1f0-0867f6aa88c0",
-                    "path": "<XRController>{RightHand}/thumbstickDpadDown",
+                    "path": "<XRController>{LeftHand}/thumbstickDpadDown",
                     "interactions": "",
                     "processors": "",
                     "groups": ";XR",
-                    "action": "R_Joystick",
+                    "action": "L_Joystick",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "left",
                     "id": "bda7906e-8140-4a60-9df9-079fd6e48ef9",
-                    "path": "<XRController>{RightHand}/thumbstickDpadLeft",
+                    "path": "<XRController>{LeftHand}/thumbstickDpadLeft",
                     "interactions": "",
                     "processors": "",
                     "groups": ";XR",
-                    "action": "R_Joystick",
+                    "action": "L_Joystick",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "right",
                     "id": "2fb6af9a-bab7-4cf1-9b7b-b0a99cb55355",
-                    "path": "<XRController>{RightHand}/thumbstickDpadRight",
+                    "path": "<XRController>{LeftHand}/thumbstickDpadRight",
                     "interactions": "",
                     "processors": "",
                     "groups": ";XR",
-                    "action": "R_Joystick",
+                    "action": "L_Joystick",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }
             ]
         },
         {
-            "name": "LeftController",
+            "name": "RightController",
             "id": "ec3210a8-c410-487d-b894-5549209ada87",
             "actions": [
                 {
-                    "name": "L_Joystick",
+                    "name": "R_Joystick",
                     "type": "Value",
                     "id": "dd894c9d-adab-4b56-a6f0-fd603de50aca",
                     "expectedControlType": "Vector2",
@@ -167,7 +167,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "L_Trigger",
+                    "name": "R_Trigger",
                     "type": "Button",
                     "id": "bcfcbbb0-f612-46e6-b7ee-929336dd2c45",
                     "expectedControlType": "",
@@ -176,7 +176,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "L_Grip",
+                    "name": "R_Grip",
                     "type": "Button",
                     "id": "792b065c-c047-4f12-a91f-290143a2c94e",
                     "expectedControlType": "",
@@ -185,7 +185,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "L_X",
+                    "name": "R_A",
                     "type": "Button",
                     "id": "afac696e-88c2-4490-ad25-3b0094e0d575",
                     "expectedControlType": "",
@@ -194,7 +194,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "L_Y",
+                    "name": "R_B",
                     "type": "Button",
                     "id": "481fea99-299a-4d60-8741-9216462d8e96",
                     "expectedControlType": "",
@@ -211,7 +211,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "L_Trigger",
+                    "action": "R_Trigger",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -222,7 +222,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";XR",
-                    "action": "L_Trigger",
+                    "action": "R_Trigger",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -233,7 +233,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";XR",
-                    "action": "L_Grip",
+                    "action": "R_Grip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -244,7 +244,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";XR",
-                    "action": "L_X",
+                    "action": "R_A",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -255,7 +255,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";XR",
-                    "action": "L_Y",
+                    "action": "R_B",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -266,7 +266,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "L_Joystick",
+                    "action": "R_Joystick",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -277,7 +277,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";XR",
-                    "action": "L_Joystick",
+                    "action": "R_Joystick",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -288,7 +288,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";XR",
-                    "action": "L_Joystick",
+                    "action": "R_Joystick",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -299,7 +299,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";XR",
-                    "action": "L_Joystick",
+                    "action": "R_Joystick",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -310,7 +310,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";XR",
-                    "action": "L_Joystick",
+                    "action": "R_Joystick",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }
