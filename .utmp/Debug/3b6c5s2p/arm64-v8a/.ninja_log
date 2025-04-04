@@ -1,19 +1,19 @@
 # ninja log v5
-37	2282	7651093521047158	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	c59f153cc7fb76bc
-57	2323	7651093521707839	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	121c6149a5b947b9
-20	2285	7651093521163982	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	f077ee78f8faedb4
-25	2359	7651093522134357	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	1fed22b7360a0957
-31	2306	7651093521511726	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	c2f8da67718d2a8
-14	2358	7651093522124148	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	a8e00ee505728dbf
-47	2387	7651093522383654	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	1f8f76faf09c69bf
-7	2451	7651093523059919	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	8d79b6084fb28bd3
-2452	2686	7651093525459481	C:/Users/torje/!School/Semester 4/Gamelab/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/3b6c5s2p/obj/arm64-v8a/libgame.so	a7f44d0e483d0323
-43	1923	7651110777477296	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	c59f153cc7fb76bc
-65	1948	7651110777891926	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	121c6149a5b947b9
-48	1950	7651110777583322	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	c2f8da67718d2a8
-27	1951	7651110777775814	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	f077ee78f8faedb4
-17	1982	7651110778231484	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	1fed22b7360a0957
-37	2010	7651110778518133	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	a8e00ee505728dbf
-58	2072	7651110779168258	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	1f8f76faf09c69bf
-9	2222	7651110780593786	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	8d79b6084fb28bd3
-2222	2560	7651110783741055	C:/Users/torje/!School/Semester 4/Gamelab/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/3b6c5s2p/obj/arm64-v8a/libgame.so	a7f44d0e483d0323
+32	1517	7653691737105946	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	c59f153cc7fb76bc
+58	1514	7653691737105946	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	121c6149a5b947b9
+19	1463	7653691736717949	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	f077ee78f8faedb4
+14	1571	7653691737779599	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	1fed22b7360a0957
+38	1515	7653691737015408	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	c2f8da67718d2a8
+25	1612	7653691738225487	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	a8e00ee505728dbf
+47	1631	7653691738406792	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	1f8f76faf09c69bf
+8	1716	7653691739319256	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	8d79b6084fb28bd3
+1716	2035	7653691742545745	C:/Users/torje/!School/Semester 4/Gamelab/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/3b6c5s2p/obj/arm64-v8a/libgame.so	a7f44d0e483d0323
+39	1475	7653755877868296	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	c59f153cc7fb76bc
+15	1479	7653755877918579	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	f077ee78f8faedb4
+32	1495	7653755878080779	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	c2f8da67718d2a8
+52	1496	7653755878090772	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	121c6149a5b947b9
+27	1552	7653755878666579	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	1fed22b7360a0957
+22	1586	7653755878999171	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	a8e00ee505728dbf
+45	1613	7653755879279412	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	1f8f76faf09c69bf
+9	1702	7653755879986139	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	8d79b6084fb28bd3
+1702	1920	7653755882386061	C:/Users/torje/!School/Semester 4/Gamelab/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/3b6c5s2p/obj/arm64-v8a/libgame.so	a7f44d0e483d0323

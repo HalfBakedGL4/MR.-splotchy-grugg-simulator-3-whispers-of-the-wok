@@ -12,6 +12,7 @@ public class S_FindPointsOnWalls : MonoBehaviour
     
     private Dictionary<ARPlane, List<Vector3>> wallPoints = new ();
     
+    // Must be connected to an AR plane manager
     public void FindWallPoints(ARTrackablesChangedEventArgs<ARPlane> changes)
     {
         foreach (ARPlane plane in changes.added)
@@ -55,7 +56,7 @@ public class S_FindPointsOnWalls : MonoBehaviour
     }
     
     // Returns Tuple containing the wall and point on wall
-    // Couple of line to debug and remove used spots so to not spawn hole on same position
+    // A Couple of line to debug and remove used spots so to not spawn hole on same position
     public (ARPlane, Vector3) GetRandomWallAndPoint()
     {
         // Check if dictionary is empty

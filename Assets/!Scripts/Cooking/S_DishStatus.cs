@@ -35,9 +35,9 @@ public class S_DishStatus : MonoBehaviour
         print("Grugg Applied to " + name);
     }
 
-    public (DishStatus, bool) GetDishStatus()
+    public (Dish typeOfDish, DishStatus dishStatus, bool grugged) GetDishStatus()
     {
-        return (currentDishStatus, isGrugged);
+        return (typeOfDish, currentDishStatus, isGrugged);
     }
 
     public Dish GetTypeOfDish()

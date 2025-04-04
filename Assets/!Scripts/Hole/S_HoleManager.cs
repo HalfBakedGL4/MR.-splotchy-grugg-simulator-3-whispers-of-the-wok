@@ -3,10 +3,10 @@ using UnityEngine;
 using Fusion;
 using Oculus.Interaction.Samples;
 
-public class S_HoleManager : MonoBehaviour
+public class HoleManager : MonoBehaviour
 {
     [Networked, OnChangedRender(nameof(UpdateSize))]
-    public float size { get; set; }
+    public float size {get; set;}
 
     private void Start()
     {

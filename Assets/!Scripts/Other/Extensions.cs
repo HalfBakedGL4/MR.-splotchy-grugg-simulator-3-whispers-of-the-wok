@@ -7,19 +7,22 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace Extentions.Addressable
 {
+    /// <summary>
+    /// a extension class made for addressables
+    /// </summary>
     public static class Addressable
     {
         /// <summary>
-        /// Easily accessable addressabless
+        /// Easily accessable addressable names
         /// </summary>
-        public static readonly string[] addressables = new string[]
+        public static readonly string[] names = new string[]
         {
             "SharedNetworkPlayer",
             "SharedLocalPlayer",
         };
 
         /// <summary>
-        /// Easiy accessable lables
+        /// Easiy accessable addressable lables
         /// </summary>
         public static readonly string[] labels = new string[]
         {
@@ -28,7 +31,7 @@ namespace Extentions.Addressable
         /// <summary>
         /// Load a addressables asset by its addressable name
         /// </summary>
-        /// <typeparam name="T">The type to load</typeparam>
+        /// <typeparam name="T">The type to find</typeparam>
         /// <param name="addressable">The addressable name</param>
         /// <returns>Addressables asset</returns>
         public static async Task<T> LoadAsset<T>(string addressable)
@@ -43,6 +46,29 @@ namespace Extentions.Addressable
 
             Debug.LogError(handle.Status);
             return default;
+        }
+        /// <summary>
+        /// Load a addressables asset by its addressable name
+        /// </summary>
+        /// <typeparam name="T">The type to find</typeparam>
+        /// <param name="addressable">The addressable name</param>
+        /// <param name="getType">if it should return a script from a GameObject rather than return the gameobject</param>
+        /// <returns>Addressables asset</returns>
+        public static async Task<T> LoadAsset<T>(string addressable, bool getType) where T : Object
+        {
+            T item = await LoadAsset<T>(addressable);
+
+            if(item is ScriptableObject)
+            {
+                Debug.LogWarning(nameof(getType) + " should be false as " + typeof(T) + " is a ScriptableObject");
+                return item;
+            }
+            else if (item is GameObject && getType)
+            {
+                return (item as GameObject).GetComponent<T>();
+            }
+
+            return item;
         }
 
         /// <summary>

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: SharedNetworking
+  m_Name: Players
   m_EditorClassIdentifier: 
-  m_GroupName: SharedNetworking
-  m_GUID: 6e783fb9b2ee3094b9062c18c83df468
+  m_GroupName: Players
+  m_GUID: 7dca1d5d681454d449e1820e50568d39
   m_SerializeEntries:
   - m_GUID: 27dd3d8bf0a88f84b82d9ee28749e734
     m_Address: SharedNetworkPlayer
@@ -26,6 +26,8 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
-  m_Settings: {fileID: 11400000, guid: 8d1fcaa45d96e6d4c95400eada832bd6, type: 2}
+  m_Settings: {fileID: 11400000, guid: f88a475b84bb84d48a029f646265a64f, type: 2}
   m_SchemaSet:
-    m_Schemas: []
+    m_Schemas:
+    - {fileID: 11400000, guid: b7c7412c86cef9d4eb80dbc74da15ffd, type: 2}
+    - {fileID: 11400000, guid: 2552b8897bd3c5c43950fb26499b3ac5, type: 2}

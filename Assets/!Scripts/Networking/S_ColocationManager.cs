@@ -4,13 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Text;
+using System.Collections;
 
 public class ColocationManager : NetworkBehaviour
 {
     [SerializeField] private AlignmentManager alignmentManager;
 
-    [Networked, OnChangedRender(nameof(OnSharedAnchorUpdated))]
-    private Guid _sharedAnchorGroupId { get; set; }
+    private Guid _sharedAnchorGroupId;
 
     public override void Spawned()
     {
@@ -20,20 +20,20 @@ public class ColocationManager : NetworkBehaviour
 
     private void PrepareColocation()
     {
-        if (Runner.IsSharedModeMasterClient)
+        if (Object.HasStateAuthority)
         {
             Debug.Log("Colocation: Starting advertisement...");
             AdvertiseColocationSession();
-        } else
+        }
+        else
         {
             Debug.Log("Colocation: Starting discovery...");
+            DiscoverNearBySession();
         }
     }
 
     private async void AdvertiseColocationSession()
-    { 
-        if (!Runner.IsSharedModeMasterClient) return;
-
+    {
         try
         {
             var advertisementData = Encoding.UTF8.GetBytes("SharedSpatialAnchorSession");
@@ -43,26 +43,16 @@ public class ColocationManager : NetworkBehaviour
             {
                 _sharedAnchorGroupId = startAdvertisementResult.Value;
                 Debug.Log("Colocation: ADvertisement started successfully. UUID: " + _sharedAnchorGroupId);
-                RPC_SetSharedAnchor(_sharedAnchorGroupId);
-                CreateAndShareAlignmentAnchor();
-            } else
+                DelayedAnchorSpawn();
+            }
+            else
             {
                 Debug.LogError("Colocation failed with status: " + startAdvertisementResult.Status);
             }
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             Debug.LogError("Colocation failed error: " + e.Message);
-        }
-    }
-
-    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
-    private void RPC_SetSharedAnchor(Guid groupUuid)
-    {
-        _sharedAnchorGroupId = groupUuid;
-        Debug.Log("Colocation: Received Shared Anchor UUID: " + _sharedAnchorGroupId);
-        if (!Object.HasStateAuthority)
-        {
-            LoadAndAlignToAnchor(_sharedAnchorGroupId);
         }
     }
 
@@ -73,19 +63,19 @@ public class ColocationManager : NetworkBehaviour
             OVRColocationSession.ColocationSessionDiscovered += OnColocationSessionDiscovered;
 
             var discoveryResult = await OVRColocationSession.StartDiscoveryAsync();
-            if(!discoveryResult.Success)
+            if (!discoveryResult.Success)
             {
                 Debug.LogError("Colocation: Discovery failed with status: " + discoveryResult.Status);
                 return;
             }
 
             Debug.Log("Colocation: Discovery started successfully.");
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             Debug.LogError("Colocation: Error during session: " + e.Message);
         }
     }
-    //Maybe not used?
     private void OnColocationSessionDiscovered(OVRColocationSession.Data session)
     {
         OVRColocationSession.ColocationSessionDiscovered -= OnColocationSessionDiscovered;
@@ -93,6 +83,12 @@ public class ColocationManager : NetworkBehaviour
         _sharedAnchorGroupId = session.AdvertisementUuid;
         Debug.Log("Colocation: Discovered session with UUID: " + _sharedAnchorGroupId);
         LoadAndAlignToAnchor(_sharedAnchorGroupId);
+    }
+
+    IEnumerator DelayedAnchorSpawn()
+    {
+        yield return new WaitForSeconds(2.0f); // Adjust delay as needed
+        CreateAndShareAlignmentAnchor();
     }
 
     private async void CreateAndShareAlignmentAnchor()
@@ -132,7 +128,8 @@ public class ColocationManager : NetworkBehaviour
             }
 
             Debug.Log("Colocation: Alignment anchor shared successfully. Group Uuid: " + _sharedAnchorGroupId);
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             Debug.LogError("Colocation: Error during anchor creation and sharing: " + e.Message);
         }
@@ -152,14 +149,15 @@ public class ColocationManager : NetworkBehaviour
             };
 
             var spatialAnchor = anchorGameObject.AddComponent<OVRSpatialAnchor>();
-            while(!spatialAnchor.Created)
+            while (!spatialAnchor.Created)
             {
                 await Task.Yield();
             }
 
             Debug.Log("Colocation: Anchor created successfully, UUID: " + spatialAnchor.Uuid);
             return spatialAnchor;
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             Debug.LogError("Colocation: Error during anchor creation: " + e.Message);
             return null;
@@ -190,32 +188,29 @@ public class ColocationManager : NetworkBehaviour
                     var anchorGameObject = new GameObject("Anchor_" + unboundAnchor.Uuid);
                     var spatialAnchor = anchorGameObject.AddComponent<OVRSpatialAnchor>();
                     unboundAnchor.BindTo(spatialAnchor);
+
                     alignmentManager.AlignUserToAnchor(spatialAnchor);
                     return;
                 }
 
                 Debug.LogWarning("Colocation: Failed to localize anchor: " + unboundAnchor.Uuid);
             }
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             Debug.LogError("Colocation: Failed loading and localizing anchors: " + e.Message);
         }
     }
 
-    private void OnSharedAnchorUpdated()
-    {
-        LoadAndAlignToAnchor(_sharedAnchorGroupId);
-    }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
