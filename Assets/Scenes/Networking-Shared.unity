@@ -492,7 +492,7 @@ PrefabInstance:
       objectReference: {fileID: 1732349271}
     - target: {fileID: 843779624072344985, guid: 0d65012b6def127459ec08f4ac14a6c3, type: 3}
       propertyPath: DefaultRoomName
-      value: SharedTestingColocation
+      value: SharedTestingNoa
       objectReference: {fileID: 0}
     - target: {fileID: 2257321835538227356, guid: 0d65012b6def127459ec08f4ac14a6c3, type: 3}
       propertyPath: m_LocalPosition.x

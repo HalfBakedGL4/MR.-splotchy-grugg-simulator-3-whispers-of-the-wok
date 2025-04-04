@@ -5,9 +5,20 @@ using Oculus.Interaction.Samples;
 
 public class HoleManager : NetworkBehaviour
 {
+    [Networked] public float size {get; set;}
+
+
+    NetworkRunner runner;
+
+    public bool IsLocalNetworkRig => Object && Object.HasStateAuthority;
+
     private void Start()
     {
-        
+        size = 1;
+
+        if (!IsLocalNetworkRig) enabled = false;
+
+        runner = FindFirstObjectByType<NetworkRunner>();
     }
 
     //Hammer fix wall
@@ -15,14 +26,19 @@ public class HoleManager : NetworkBehaviour
     {
         if (other.gameObject.CompareTag("Finish"))
         {
+            if(!runner.IsSharedModeMasterClient) return;
             RPCHammerHit();
         }
     }
 
 
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
     void RPCHammerHit()
     {
+        if (!Object.HasStateAuthority) return;
         // Shrinks hole by 20% each hit
+        size -= 0.3f;
+        Debug.Log("Hole Size: "+size);
         UpdateSize();
 
     }
@@ -31,18 +47,33 @@ public class HoleManager : NetworkBehaviour
     {
         if (transform.parent != null)
         {
-            transform.parent.localScale = transform.parent.localScale * -0.4f;
+            transform.parent.localScale = transform.parent.localScale * 0.6f;
         }
         else
         {
-            transform.localScale = transform.localScale * -0.4f;
+            transform.localScale = transform.localScale * 0.6f;
         }
 
-        if (transform.localScale.x <= 0.2) { OnFixed(); }
+        if (size <= 0.2) 
+        { 
+            RPCOnFixed(); 
+            Debug.Log("Size less than 0.2");
+        }
     }
 
-    void OnFixed()
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    void RPCOnFixed()
     {
-        Destroy(gameObject.transform.parent);
+        if (!Object.HasStateAuthority) return;
+        if (transform.parent != null)
+        {
+            runner.Despawn(gameObject.transform.parent.GetComponent<NetworkObject>());
+        }
+        else
+        {
+            runner.Despawn(gameObject.transform.GetComponent<NetworkObject>());
+        }
+        
     }
+
 }
