@@ -981,6 +981,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3284256905931433717, guid: 16d0a31e62111be48815994228792d9a, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 1732349271}
     - target: {fileID: 7392882013123726181, guid: 16d0a31e62111be48815994228792d9a, type: 3}
       propertyPath: m_Name
       value: PlacementManager
