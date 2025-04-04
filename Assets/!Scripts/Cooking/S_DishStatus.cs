@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 
+[Flags]
 public enum DishStatus
 {
     UnCooked,
