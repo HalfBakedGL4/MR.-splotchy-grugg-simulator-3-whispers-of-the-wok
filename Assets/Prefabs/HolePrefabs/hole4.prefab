@@ -984,7 +984,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e104662d30e014fab29ce8844003a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _size: 0
 --- !u!114 &2788136137734995668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1002,7 +1001,6 @@ MonoBehaviour:
   Flags: 262145
   NestedObjects: []
   NetworkedBehaviours:
-  - {fileID: 4389431371835209947}
   - {fileID: -903403877307245476}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &-903403877307245476
