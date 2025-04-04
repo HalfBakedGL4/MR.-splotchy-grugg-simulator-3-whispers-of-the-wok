@@ -14,8 +14,6 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
     [SerializeField] private PlaneClassifications classifications;
     [SerializeField] private GameObject[] spawnObjects;
     [SerializeField] private TMP_Text debugText;
-
-    [SerializeField] private NetworkRunner runner;
     
     [SerializeField] private S_OrderWindow orderWindow;
     [SerializeField] private float windowHeight = 1.0f;
@@ -23,14 +21,29 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
     
     private bool windowPlaced = false;
 
+    bool islocal => Object && Object.HasStateAuthority;
+
     
     // Needs to be referenced in the editor in ARPlaneManager
     public void PlaceObjectOnPlane(ARTrackablesChangedEventArgs<ARPlane> changes)
     {
-        if (Object.HasStateAuthority) return; // Only host spawns
+        if (!islocal) return; // Only host spawns
+
+        if (changes == null)
+        {
+            Debug.LogError("[Spawn Objects] Null changes");
+        }
 
         foreach (var item in changes.added)
         {
+
+            if (item == null)
+            {
+                Debug.LogError("[Spawn Objects] Null ARPlane in 'added'");
+                continue;
+            }
+
+
             // Place applications on table across the room
             if (item.classifications == classifications)
             {
@@ -61,15 +74,9 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
                         if (prefabToSpawn == null)
                         {
                             Debug.LogError("[Spawn Objects] Prefab To Spawn is Null");
-                        } else if (worldPosition == null)
-                        {
-                            Debug.LogError("[Spawn Objects] World Position is Null");
-                        } else if (rotation == null)
-                        {
-                            Debug.LogError("[Spawn Objects] Rotation is Null");
                         } else
                         {
-                            runner.Spawn(prefabToSpawn, worldPosition, rotation);
+                            Runner.Spawn(prefabToSpawn, worldPosition, rotation);
                         }
                         // Where to spawn object in world Space
                         //debugText.text += objectInstance.name + ": " + objectInstance.transform.localPosition + "\n";
