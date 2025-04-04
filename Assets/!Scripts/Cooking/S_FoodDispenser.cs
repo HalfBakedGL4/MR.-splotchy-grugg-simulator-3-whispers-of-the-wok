@@ -28,6 +28,7 @@ public class S_FoodDispenser : MonoBehaviour, IButtonObject
         hoverItem.GetComponent<XRGrabInteractable>().enabled = false;
         hoverItem.GetComponent<S_Food>().enabled = false;
         hoverItem.transform.localScale = new Vector3(hoverItemSize, hoverItemSize, hoverItemSize);
+        hoverItem.transform.parent = transform;
     }
 
     private void Update()

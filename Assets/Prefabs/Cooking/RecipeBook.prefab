@@ -45,19 +45,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recipes:
-  - name: FishBurger
-    ingredients: 0100000002000000
-    canBeCookedIn: 0
-    resultPrefab: {fileID: 7705422996418108416, guid: 5325c53cf6edf054cb2073eb7abe65c0, type: 3}
-  - name: FishBurgerWithOnion
+  - nameOfDish: 0
     ingredients: 000000000100000002000000
     canBeCookedIn: 0
     resultPrefab: {fileID: 7705422996418108416, guid: 4aa1ee355ca81e540a9fee45d60daf20, type: 3}
-  - name: Fries
+  - nameOfDish: 1
+    ingredients: 0100000002000000
+    canBeCookedIn: 0
+    resultPrefab: {fileID: 7705422996418108416, guid: 5325c53cf6edf054cb2073eb7abe65c0, type: 3}
+  - nameOfDish: 2
     ingredients: 03000000
     canBeCookedIn: 1
     resultPrefab: {fileID: 5663040723896712990, guid: b93ac405de7dc564499bc7525e6d3a45, type: 3}
-  - name: FriedFish
+  - nameOfDish: 3
     ingredients: 01000000
     canBeCookedIn: 1
     resultPrefab: {fileID: 7705422996418108416, guid: 57e9e02c4aea5cb4583feeb77fd00cbf, type: 3}
