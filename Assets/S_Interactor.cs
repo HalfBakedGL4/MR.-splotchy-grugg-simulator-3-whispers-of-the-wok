@@ -6,12 +6,15 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class S_Interactor : NearFarInteractor
 {
+
     protected override async void OnSelectEntered(SelectEnterEventArgs args)
     {
-        if (args.interactableObject.transform.TryGetComponent(out NetworkObject networkObject))
-        {
-            await Shared.GetStateAuthority(networkObject);
-        }
+        Debug.Log("[interactor] interact");
+        if (!args.interactableObject.transform.TryGetComponent(out NetworkObject networkObject)) return;
+
+        if (!await Shared.GetStateAuthority(networkObject)) return;
+
+        Debug.Log("[interactor] state auth: " + networkObject.HasStateAuthority);
 
         base.OnSelectEntered(args);
     }

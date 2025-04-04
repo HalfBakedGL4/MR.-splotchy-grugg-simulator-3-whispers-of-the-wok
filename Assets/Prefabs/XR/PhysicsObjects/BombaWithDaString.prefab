@@ -4842,6 +4842,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1643530424203652927, guid: 5c41479a8a0dd0e4997e2afc9e92edde, type: 3}
+      propertyPath: Flags
+      value: 786433
+      objectReference: {fileID: 0}
+    - target: {fileID: 1643530424203652927, guid: 5c41479a8a0dd0e4997e2afc9e92edde, type: 3}
       propertyPath: SortKey
       value: 960371572
       objectReference: {fileID: 0}

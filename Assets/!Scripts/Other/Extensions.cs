@@ -1,4 +1,5 @@
 using Fusion;
+using Oculus.Interaction;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -108,16 +109,23 @@ namespace Extentions
             /// </summary>
             /// <param name="networkObject">The networkobject to gain authority over</param>
             /// <returns></returns>
-            public async static Task GetStateAuthority(NetworkObject networkObject)
+            public async static Task<bool> GetStateAuthority(NetworkObject networkObject, int maxTries = 100)
             {
                 networkObject.RequestStateAuthority();
 
-                if (networkObject.HasStateAuthority) return;
-
+                int i = 0;
                 while (!networkObject.HasStateAuthority)
                 {
-                    await Task.Delay(100);
+                    if (i > maxTries) return false;
+
+                    await Task.Delay(10);
+
+                    i++;
+                    Debug.Log("[interactor] Check " + i);
                 }
+
+                Debug.Log("[interactor] Gained state authority after " + ((10 * i) * 1000) + " seconds (" + (10 * i) + " milliseconds)");
+                return true;
             }
         }
     }
