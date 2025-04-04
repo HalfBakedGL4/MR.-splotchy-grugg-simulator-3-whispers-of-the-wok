@@ -1,9 +1,59 @@
 fileFormatVersion: 2
-guid: beab69f66fff47640b0de1c16999daa8
+guid: afadd9b59b7c1474ca6d7d2de32bdaf2
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BottomBun
+    second: {fileID: 2100000, guid: f2bfbe843a3c03e4b92bf2384fa5ea24, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BottomBun.001
+    second: {fileID: 2100000, guid: f2bfbe843a3c03e4b92bf2384fa5ea24, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chiise
+    second: {fileID: 2100000, guid: f2bfbe843a3c03e4b92bf2384fa5ea24, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GleebyEyes
+    second: {fileID: 2100000, guid: f2bfbe843a3c03e4b92bf2384fa5ea24, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: f2bfbe843a3c03e4b92bf2384fa5ea24, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: f2bfbe843a3c03e4b92bf2384fa5ea24, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Meat
+    second: {fileID: 2100000, guid: f2bfbe843a3c03e4b92bf2384fa5ea24, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Onion
+    second: {fileID: 2100000, guid: 247406d1c3ab35048acecbca58c46245, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Salad
+    second: {fileID: 2100000, guid: 247406d1c3ab35048acecbca58c46245, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tomato
+    second: {fileID: 2100000, guid: 247406d1c3ab35048acecbca58c46245, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -33,7 +83,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 10
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -88,7 +138,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.099999994
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
