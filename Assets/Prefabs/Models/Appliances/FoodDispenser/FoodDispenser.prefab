@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2579344870031852013}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6, y: 0, z: 0.5}
+  m_LocalPosition: {x: 0.6, y: -0.05, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -122,7 +122,7 @@ Transform:
   m_GameObject: {fileID: 8611497031435649812}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -287,6 +287,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ButtonForDispencer
       objectReference: {fileID: 0}
+    - target: {fileID: 1113489407256466703, guid: 564c05bce8f626f41b719dc047c7a434, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113489407256466703, guid: 564c05bce8f626f41b719dc047c7a434, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113489407256466703, guid: 564c05bce8f626f41b719dc047c7a434, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 6317578925029434746, guid: 564c05bce8f626f41b719dc047c7a434, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -295,6 +307,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 9c53b7d32f3c95b41bc1b3725b072f93, type: 2}
+    - target: {fileID: 8632055958874330854, guid: 564c05bce8f626f41b719dc047c7a434, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
