@@ -40,6 +40,8 @@ namespace Extentions
             {
             };
 
+            #region Load Asset
+
             /// <summary>
             /// Load a addressables asset by its addressable name
             /// </summary>
@@ -48,6 +50,15 @@ namespace Extentions
             public static async Task<GameObject> LoadAsset(AddressableAsset addressable)
             {
                 return await LoadAsset<GameObject>(paths[AddressableAsset.SharedNetworkPlayer]);
+            }
+            /// <summary>
+            /// Load a addressables asset by its addressable name
+            /// </summary>
+            /// <param name="addressable">The addressable asset</param>
+            /// <returns>Addressables gameobject</returns>
+            public static async Task<GameObject> LoadAsset(string addressable)
+            {
+                return await LoadAsset<GameObject>(addressable);
             }
 
             /// <summary>
@@ -116,6 +127,7 @@ namespace Extentions
                 Debug.LogError(handle.Status);
                 return default;
             }
+            #endregion
 
             /// <summary>
             /// Load addressables assets by their label
