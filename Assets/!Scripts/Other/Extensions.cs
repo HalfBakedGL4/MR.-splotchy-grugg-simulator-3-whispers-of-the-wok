@@ -12,10 +12,10 @@ namespace Extentions
     {
         public enum AddressableAsset
         {
-            SharedNetworkPlayer,
-            SharedLocalPlayer,
-            RecipeBook,
-            BurntFood
+            SharedNetworkPlayer = 0,
+            SharedLocalPlayer = 1,
+            RecipeBook = 2,
+            BurntFood = 3,
         }
         /// <summary>
         /// a extension class made for addressables
