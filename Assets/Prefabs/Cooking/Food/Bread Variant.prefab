@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4815739010710118726, guid: 4b7dbc79a08ec9f439d8160581f1d324, type: 3}
       propertyPath: foodType
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4910213251074518333, guid: 4b7dbc79a08ec9f439d8160581f1d324, type: 3}
       propertyPath: m_Size.x

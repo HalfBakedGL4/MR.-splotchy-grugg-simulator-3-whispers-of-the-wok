@@ -18,24 +18,8 @@ public class S_Interactor : NearFarInteractor
     {
         if (!args.interactableObject.transform.TryGetComponent(out NetworkObject networkObject)) return;
 
-        await GainStateAuthority(networkObject);
+        await Shared.GainStateAuthority(networkObject);
 
         base.OnSelectEntered(args);
-    }
-
-    async Task GainStateAuthority(NetworkObject networkObject)
-    {
-        if (networkObject.HasStateAuthority)
-        {
-            Debug.Log("[interactor] already has state authority");
-        }
-        Debug.Log("[interactor] interact");
-
-        if (!await Shared.GetStateAuthority(networkObject))
-        {
-            Debug.LogError("[interactor] failed to gain state authority");
-        }
-
-        Debug.Log("[interactor] state auth: " + networkObject.HasStateAuthority);
     }
 }

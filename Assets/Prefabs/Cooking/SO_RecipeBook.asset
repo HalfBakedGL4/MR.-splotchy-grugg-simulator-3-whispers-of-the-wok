@@ -13,19 +13,15 @@ MonoBehaviour:
   m_Name: SO_RecipeBook
   m_EditorClassIdentifier: 
   recipes:
-  - nameOfDish: 0
-    ingredients: 000000000100000002000000
-    canBeCookedIn: 0
-    resultPrefab: {fileID: 6908754657246016097, guid: 5baa5ec829edc26478bee01b5b7df615, type: 3}
   - nameOfDish: 1
-    ingredients: 0100000002000000
+    ingredients: 0300000002000000
     canBeCookedIn: 0
     resultPrefab: {fileID: 8545582343303444559, guid: c1c781faa12f1b8438bc7af1109928f6, type: 3}
-  - nameOfDish: 2
-    ingredients: 03000000
-    canBeCookedIn: 1
-    resultPrefab: {fileID: 3185499979857966717, guid: a6e3d3280932af94c87540ff6b6ca896, type: 3}
   - nameOfDish: 3
-    ingredients: 01000000
+    ingredients: 02000000
     canBeCookedIn: 1
     resultPrefab: {fileID: 420254107189024360, guid: 14f6a8161ca8d91408af69ad90adffd8, type: 3}
+  - nameOfDish: 0
+    ingredients: 01000000
+    canBeCookedIn: 1
+    resultPrefab: {fileID: 6908754657246016097, guid: 5baa5ec829edc26478bee01b5b7df615, type: 3}

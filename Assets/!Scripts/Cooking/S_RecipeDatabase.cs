@@ -6,27 +6,6 @@ using NaughtyAttributes;
 using Extentions.Addressable;
 using System.Threading.Tasks;
 
-
-public enum Dish
-{
-    // All the different dishes players can create and costumers can order
-    // add more at the BOTTOM when needed
-    FishBurgerWithOnio,
-    FishBurger,
-    Fries,
-    FriedFish,
-    Burnt
-}
-
-[Serializable]
-public class Recipe
-{
-    public Dish nameOfDish;
-    public List<FoodType> ingredients;
-    public CookerType canBeCookedIn;
-    public GameObject resultPrefab; // The prefab to spawn
-}
-
 public class S_RecipeDatabase : MonoBehaviour
 {
     public static S_RecipeDatabase Instance;
@@ -35,12 +14,12 @@ public class S_RecipeDatabase : MonoBehaviour
     private async void Start()
     {
         Instance = this;
-        book = await Addressable.LoadAsset<SO_RecipeBook>(Addressable.names[2]);
+        book = await Addressable.LoadAsset<SO_RecipeBook>(Addressable.paths[AddressableAsset.RecipeBook]);
     }
 #if UNITY_EDITOR
     private async void OnValidate()
     {
-        book = await Addressable.LoadAsset<SO_RecipeBook>(Addressable.names[2]);
+        book = await Addressable.LoadAsset<SO_RecipeBook>(Addressable.paths[AddressableAsset.RecipeBook]);
     }
 #endif
     public static Recipe FindMatchingRecipe(List<FoodType> playerIngredients, CookerType playerCooker)

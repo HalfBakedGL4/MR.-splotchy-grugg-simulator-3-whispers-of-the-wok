@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -476253657265187318, guid: 97f722354a37a0b4d898a73ec86bbdc1, type: 3}
       propertyPath: typeOfDish
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1596371502104667848, guid: 97f722354a37a0b4d898a73ec86bbdc1, type: 3}
       propertyPath: m_Name

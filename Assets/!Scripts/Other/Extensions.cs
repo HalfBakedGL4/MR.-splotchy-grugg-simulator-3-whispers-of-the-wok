@@ -1,7 +1,6 @@
-using Fusion;
-using Oculus.Interaction;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Fusion;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -11,6 +10,13 @@ namespace Extentions
 
     namespace Addressable
     {
+        public enum AddressableAsset
+        {
+            SharedNetworkPlayer,
+            SharedLocalPlayer,
+            RecipeBook,
+            BurntFood
+        }
         /// <summary>
         /// a extension class made for addressables
         /// </summary>
@@ -19,12 +25,12 @@ namespace Extentions
             /// <summary>
             /// Easily accessable addressable names
             /// </summary>
-            public static readonly string[] names = new string[]
+            public static readonly Dictionary<AddressableAsset, string> paths = new Dictionary<AddressableAsset, string>
             {
-            "SharedNetworkPlayer",
-            "SharedLocalPlayer",
-            "RecipeBook",
-            "BurntFood"
+                { AddressableAsset.SharedNetworkPlayer, "SharedNetworkPlayer" },
+                { AddressableAsset.SharedLocalPlayer, "SharedLocalPlayer" },
+                { AddressableAsset.RecipeBook,  "RecipeBook" },
+                { AddressableAsset.BurntFood,  "BurntFood" }
             };
 
             /// <summary>
@@ -101,6 +107,13 @@ namespace Extentions
 
     namespace Networking
     {
+        public enum AuthorityResult
+        {
+            NotNeeded,
+            Failure,
+            Success,
+        }
+
         /// <summary>
         /// Class extension for shared topology
         /// </summary>
@@ -110,25 +123,38 @@ namespace Extentions
             /// Use to gain state authoirty
             /// </summary>
             /// <param name="networkObject">The networkobject to gain authority over</param>
-            /// <returns></returns>
-            public async static Task<bool> GetStateAuthority(NetworkObject networkObject, int maxTries = 1000)
+            public static async Task GainStateAuthority(NetworkObject networkObject)
             {
+                Debug.Log("[StateAuthority] attempting to get authority over " + networkObject.gameObject.name);
+
+                AuthorityResult result = await AttemptStateAuthority(networkObject);
+
+                Debug.Log("[StateAuthority] State Authority check = " + result);
+            }
+            public async static Task<AuthorityResult> AttemptStateAuthority(NetworkObject networkObject, int maxTries = 1000)
+            {
+                if(networkObject.HasStateAuthority) 
+                    return AuthorityResult.NotNeeded;
+
                 networkObject.RequestStateAuthority();
 
                 int i = 0;
                 while (!networkObject.HasStateAuthority)
                 {
-                    if (!Application.isPlaying) return false;
-                    if (i > maxTries) return false;
+                    if (i > maxTries || !Application.isPlaying)
+                    {
+                        Debug.Log("[StateAuthority] StateAuthority timeout or application ended");
+                        return AuthorityResult.Failure;
+                    }
 
                     await Task.Delay(10);
 
                     i++;
-                    Debug.Log("[interactor] Check " + i);
+                    Debug.Log("[StateAuthority] Attempt " + i);
                 }
 
-                Debug.Log("[interactor] Gained state authority after " + ((10 * i) / 1000) + " seconds (" + (10 * i) + " milliseconds)");
-                return true;
+                Debug.Log("[StateAuthority] Gained state authority after " + (10 * i / 1000) + " seconds (" + (10 * i) + " milliseconds)");
+                return AuthorityResult.Success;
             }
         }
     }

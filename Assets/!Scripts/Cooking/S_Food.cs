@@ -6,10 +6,10 @@ public enum FoodType
 {
     // All types of food used to create dishes,
     // add more at the BOTTOM when needed
-    Onion,
-    Fish,
-    Bread,
-    Potato,
+    None = 0,
+    Onion = 1,
+    Fish = 2,
+    Bread = 3
 }
 public class S_Food : MonoBehaviour
 {

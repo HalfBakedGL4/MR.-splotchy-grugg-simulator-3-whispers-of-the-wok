@@ -42,7 +42,7 @@ public class S_Cooker : NetworkBehaviour, IButtonObject
     private float timer;
     private async void Start()
     {
-        burntSlop = await Addressable.LoadAsset<GameObject>(Addressable.names[3]);
+        burntSlop = await Addressable.LoadAsset<GameObject>(Addressable.paths[AddressableAsset.BurntFood]);
     }
 
     void Update()
@@ -155,7 +155,7 @@ public class S_Cooker : NetworkBehaviour, IButtonObject
         return burntSlop;
     }
 
-    //we can do object pooling later as it requires RPC calling and stuff make happen
+    //we can do object pooling later as it requires RPC calling and stuff to make happen
     private void CleanCooker()  // Moves items in cooker under the stage. possible to use object pooling.
     {
         S_Food[] foodList = foodScripts.ToArray();
