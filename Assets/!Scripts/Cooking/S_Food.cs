@@ -18,36 +18,58 @@ public class S_Food : MonoBehaviour
     private XRGrabInteractable grabInteractable;
     
     private Collider coll;
+    MeshRenderer[] renderers;
     
     private void Start()
     {
         coll = GetComponent<Collider>();
         grabInteractable = GetComponent<XRGrabInteractable>();
+        renderers = GetComponentsInChildren<MeshRenderer>();
     }
 
     public FoodType GetFoodType()
     {
         return foodType;
     }
-    
-    // Turn on and off grab interactable script to move away from socket
-    public void TurnOffGrab()
+
+    /// <summary>
+    /// toggle grab, colliders and visuals
+    /// </summary>
+    /// <param name="toggle">enable or disable</param>
+    public void Toggle(bool toggle = false)
     {
-        grabInteractable.enabled = false;
+        ToggleGrab(toggle);
+        ToggleColliders(toggle);
+        ToggleVisuals(toggle);
     }
-    public void TurnOnGrab()
+
+    /// <summary>
+    /// Turn on and off grab interactable script to move away from socket
+    /// </summary>
+    /// <param name="toggle">enable or disable</param>
+    public void ToggleGrab(bool toggle = false)
     {
-        grabInteractable.enabled = true;
+        grabInteractable.enabled = toggle;
     }
-    
-    // Turn on and off collider so that player can't grab object
-    public void TurnOffColliders()
+
+    /// <summary>
+    /// Turn on and off collider so that player can't grab object
+    /// </summary>
+    /// <param name="toggle">enable or disable</param>
+    public void ToggleColliders(bool toggle = false)
     {
-        coll.enabled = false;
+        coll.enabled = toggle;
     }
-    public void TurnOnColliders()
+    /// <summary>
+    /// Turn on and off the visuals
+    /// </summary>
+    /// <param name="toggle">enable or disable</param>
+    public void ToggleVisuals(bool toggle = false)
     {
-        coll.enabled = true;
+        foreach (var renderer in renderers)
+        {
+            renderer.enabled = toggle;
+        }
     }
     
 }

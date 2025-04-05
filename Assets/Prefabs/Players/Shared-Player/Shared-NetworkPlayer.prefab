@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 387426432640405418}
   - component: {fileID: 8198567401433797707}
   - component: {fileID: 6941708403805599025}
+  - component: {fileID: 235160260771068281}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -335,7 +336,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f9ff5caa975cf4492f8c4330efad86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 3430269437256706840, guid: 0310795c2f100a34cbb6f8090fda5e3d, type: 3}
+  item: {fileID: 6301938050321122278, guid: 48265b0daa2db844395a589ccb792748, type: 3}
+--- !u!114 &235160260771068281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4028725702897656151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f9ff5caa975cf4492f8c4330efad86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 405504742847306990, guid: 15a9df953c19fc04399e52a454e0389f, type: 3}
 --- !u!1 &5374872096494914040
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,6 +396,7 @@ GameObject:
   - component: {fileID: 2813029364104225378}
   - component: {fileID: 6822119568636653505}
   - component: {fileID: 6296414655312412233}
+  - component: {fileID: 8978307619694644836}
   m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
@@ -448,6 +463,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 2067976080343418641, guid: e1b0ef59760462f439b86bd0e007b54b, type: 3}
+--- !u!114 &8978307619694644836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6275414587528930596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f9ff5caa975cf4492f8c4330efad86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 3430269437256706840, guid: 0310795c2f100a34cbb6f8090fda5e3d, type: 3}
 --- !u!1 &6814099746120680431
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,9 +539,11 @@ MonoBehaviour:
   - {fileID: 2813029364104225378}
   - {fileID: 6822119568636653505}
   - {fileID: 6296414655312412233}
+  - {fileID: 8978307619694644836}
   - {fileID: 387426432640405418}
   - {fileID: 8198567401433797707}
   - {fileID: 6941708403805599025}
+  - {fileID: 235160260771068281}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &2032407206206816740
 MonoBehaviour:
@@ -566,6 +596,12 @@ MonoBehaviour:
       m_Calls: []
   RightTrigger:
     m_PersistentCalls:
+      m_Calls: []
+  RightGrip:
+    m_PersistentCalls:
+      m_Calls: []
+  RightA:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6941708403805599025}
         m_TargetAssemblyTypeName: S_ItemSpawner, Assembly-CSharp
@@ -579,19 +615,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  RightGrip:
-    m_PersistentCalls:
-      m_Calls: []
-  RightA:
-    m_PersistentCalls:
-      m_Calls: []
   RightB:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 235160260771068281}
+        m_TargetAssemblyTypeName: S_ItemSpawner, Assembly-CSharp
+        m_MethodName: SpawnItem
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   LeftJoystick:
     m_PersistentCalls:
       m_Calls: []
   LeftTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  LeftGrip:
+    m_PersistentCalls:
+      m_Calls: []
+  LeftX:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6296414655312412233}
@@ -606,15 +654,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  LeftGrip:
-    m_PersistentCalls:
-      m_Calls: []
-  LeftX:
-    m_PersistentCalls:
-      m_Calls: []
   LeftY:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8978307619694644836}
+        m_TargetAssemblyTypeName: S_ItemSpawner, Assembly-CSharp
+        m_MethodName: SpawnItem
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8689100458184367061
 GameObject:
   m_ObjectHideFlags: 0

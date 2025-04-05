@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using Fusion;
 using Extentions.Addressable;
+using NaughtyAttributes;
 
 public enum CookerType
 {
@@ -76,7 +77,7 @@ public class S_Cooker : NetworkBehaviour, IButtonObject
             foodScripts.Remove(food);
         }
     }
-    
+
     public void OnButtonPressed()
     {
         print("Interacting with Cooker " + name);
@@ -88,7 +89,7 @@ public class S_Cooker : NetworkBehaviour, IButtonObject
             // Turn off colliders so they can't be picked up while cooking
             foreach (var foodScript in foodScripts)
             {
-                foodScript.TurnOffColliders();
+                foodScript.ToggleColliders();
             }
             //TODO: animation that closes the cooker or shows cooker cooking
             state = CookerState.Cooking;
@@ -154,15 +155,18 @@ public class S_Cooker : NetworkBehaviour, IButtonObject
         return burntSlop;
     }
 
+    //we can do object pooling later as it requires RPC calling and stuff make happen
     private void CleanCooker()  // Moves items in cooker under the stage. possible to use object pooling.
     {
         S_Food[] foodList = foodScripts.ToArray();
         foreach (var foodScript in foodList)
         {
-            foodScript.TurnOffGrab();
-            foodScript.TurnOnColliders();
-            foodScript.transform.position = new Vector3(0,-10,0);
-            foodScript.TurnOnGrab();
+            Runner.Despawn(foodScript.GetComponent<NetworkObject>());
+
+            //foodScript.Toggle();
+            //foodScript.transform.position = new Vector3(0,-10,0);
         }
+
+        foodScripts.Clear();
     }
 }

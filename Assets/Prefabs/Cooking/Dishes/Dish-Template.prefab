@@ -14,15 +14,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4079872096204683752, guid: 22b4f0ed2bf00f24489321e0366165b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.5392013
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4079872096204683752, guid: 22b4f0ed2bf00f24489321e0366165b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.279
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4079872096204683752, guid: 22b4f0ed2bf00f24489321e0366165b1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.7581682
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4079872096204683752, guid: 22b4f0ed2bf00f24489321e0366165b1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -65,7 +65,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5663040723896712990, guid: 22b4f0ed2bf00f24489321e0366165b1, type: 3}
-      insertIndex: -1
+      insertIndex: 1
       addedObject: {fileID: -476253657265187318}
   m_SourcePrefab: {fileID: 100100000, guid: 22b4f0ed2bf00f24489321e0366165b1, type: 3}
 --- !u!1 &1596371502104667848 stripped
