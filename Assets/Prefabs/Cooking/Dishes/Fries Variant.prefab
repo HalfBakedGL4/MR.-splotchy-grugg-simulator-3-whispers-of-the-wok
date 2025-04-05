@@ -1,68 +1,68 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &205709143859238714
+--- !u!1001 &3294156917906324674
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 3020055282682737815}
+    m_TransformParent: {fileID: 6502244432003428491}
     m_Modifications:
-    - target: {fileID: 3951390753295133094, guid: 4aa1ee355ca81e540a9fee45d60daf20, type: 3}
+    - target: {fileID: 4079872096204683752, guid: b93ac405de7dc564499bc7525e6d3a45, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3951390753295133094, guid: 4aa1ee355ca81e540a9fee45d60daf20, type: 3}
+    - target: {fileID: 4079872096204683752, guid: b93ac405de7dc564499bc7525e6d3a45, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3951390753295133094, guid: 4aa1ee355ca81e540a9fee45d60daf20, type: 3}
+    - target: {fileID: 4079872096204683752, guid: b93ac405de7dc564499bc7525e6d3a45, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3951390753295133094, guid: 4aa1ee355ca81e540a9fee45d60daf20, type: 3}
+    - target: {fileID: 4079872096204683752, guid: b93ac405de7dc564499bc7525e6d3a45, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3951390753295133094, guid: 4aa1ee355ca81e540a9fee45d60daf20, type: 3}
+    - target: {fileID: 4079872096204683752, guid: b93ac405de7dc564499bc7525e6d3a45, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3951390753295133094, guid: 4aa1ee355ca81e540a9fee45d60daf20, type: 3}
+    - target: {fileID: 4079872096204683752, guid: b93ac405de7dc564499bc7525e6d3a45, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3951390753295133094, guid: 4aa1ee355ca81e540a9fee45d60daf20, type: 3}
+    - target: {fileID: 4079872096204683752, guid: b93ac405de7dc564499bc7525e6d3a45, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3951390753295133094, guid: 4aa1ee355ca81e540a9fee45d60daf20, type: 3}
+    - target: {fileID: 4079872096204683752, guid: b93ac405de7dc564499bc7525e6d3a45, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3951390753295133094, guid: 4aa1ee355ca81e540a9fee45d60daf20, type: 3}
+    - target: {fileID: 4079872096204683752, guid: b93ac405de7dc564499bc7525e6d3a45, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3951390753295133094, guid: 4aa1ee355ca81e540a9fee45d60daf20, type: 3}
+    - target: {fileID: 4079872096204683752, guid: b93ac405de7dc564499bc7525e6d3a45, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7705422996418108416, guid: 4aa1ee355ca81e540a9fee45d60daf20, type: 3}
+    - target: {fileID: 5663040723896712990, guid: b93ac405de7dc564499bc7525e6d3a45, type: 3}
       propertyPath: m_Name
-      value: FishBurgerWithOnionArt
+      value: Fries
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4aa1ee355ca81e540a9fee45d60daf20, type: 3}
---- !u!4 &3750649203641876124 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: b93ac405de7dc564499bc7525e6d3a45, type: 3}
+--- !u!4 &1524939396921247018 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3951390753295133094, guid: 4aa1ee355ca81e540a9fee45d60daf20, type: 3}
-  m_PrefabInstance: {fileID: 205709143859238714}
+  m_CorrespondingSourceObject: {fileID: 4079872096204683752, guid: b93ac405de7dc564499bc7525e6d3a45, type: 3}
+  m_PrefabInstance: {fileID: 3294156917906324674}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &5316394553949295785
+--- !u!1001 &4184503996824932533
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -70,13 +70,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -476253657265187318, guid: 97f722354a37a0b4d898a73ec86bbdc1, type: 3}
+      propertyPath: typeOfDish
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1596371502104667848, guid: 97f722354a37a0b4d898a73ec86bbdc1, type: 3}
       propertyPath: m_Name
-      value: FishBurgerWithOnion Variant
+      value: Fries Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6000371400109821179, guid: 97f722354a37a0b4d898a73ec86bbdc1, type: 3}
       propertyPath: SortKey
-      value: 1064624735
+      value: 2568186102
       objectReference: {fileID: 0}
     - target: {fileID: 6930693389086138430, guid: 97f722354a37a0b4d898a73ec86bbdc1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -123,11 +127,11 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6930693389086138430, guid: 97f722354a37a0b4d898a73ec86bbdc1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3750649203641876124}
+      addedObject: {fileID: 1524939396921247018}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97f722354a37a0b4d898a73ec86bbdc1, type: 3}
---- !u!4 &3020055282682737815 stripped
+--- !u!4 &6502244432003428491 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6930693389086138430, guid: 97f722354a37a0b4d898a73ec86bbdc1, type: 3}
-  m_PrefabInstance: {fileID: 5316394553949295785}
+  m_PrefabInstance: {fileID: 4184503996824932533}
   m_PrefabAsset: {fileID: 0}

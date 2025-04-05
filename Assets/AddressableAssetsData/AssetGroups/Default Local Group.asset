@@ -15,13 +15,13 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 4c284546592b23b47bb008fefefee8db
   m_SerializeEntries:
-  - m_GUID: 86849b952c9f27c4a936d9cdf3dfdc48
-    m_Address: BurntFood
+  - m_GUID: 9fea2b54dbfa5cf4b9263dd6d792913a
+    m_Address: RecipeBook
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9fea2b54dbfa5cf4b9263dd6d792913a
-    m_Address: RecipeBook
+  - m_GUID: d7c61bc6aaa123b4fa7fae2fa9453ade
+    m_Address: BurntFood
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

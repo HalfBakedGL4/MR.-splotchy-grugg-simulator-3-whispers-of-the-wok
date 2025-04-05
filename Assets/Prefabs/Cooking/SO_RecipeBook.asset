@@ -16,16 +16,16 @@ MonoBehaviour:
   - nameOfDish: 0
     ingredients: 000000000100000002000000
     canBeCookedIn: 0
-    resultPrefab: {fileID: 7705422996418108416, guid: 4aa1ee355ca81e540a9fee45d60daf20, type: 3}
+    resultPrefab: {fileID: 6908754657246016097, guid: 5baa5ec829edc26478bee01b5b7df615, type: 3}
   - nameOfDish: 1
     ingredients: 0100000002000000
     canBeCookedIn: 0
-    resultPrefab: {fileID: 7705422996418108416, guid: 5325c53cf6edf054cb2073eb7abe65c0, type: 3}
+    resultPrefab: {fileID: 8545582343303444559, guid: c1c781faa12f1b8438bc7af1109928f6, type: 3}
   - nameOfDish: 2
     ingredients: 03000000
     canBeCookedIn: 1
-    resultPrefab: {fileID: 5663040723896712990, guid: b93ac405de7dc564499bc7525e6d3a45, type: 3}
+    resultPrefab: {fileID: 3185499979857966717, guid: a6e3d3280932af94c87540ff6b6ca896, type: 3}
   - nameOfDish: 3
     ingredients: 01000000
     canBeCookedIn: 1
-    resultPrefab: {fileID: 7705422996418108416, guid: 57e9e02c4aea5cb4583feeb77fd00cbf, type: 3}
+    resultPrefab: {fileID: 420254107189024360, guid: 14f6a8161ca8d91408af69ad90adffd8, type: 3}

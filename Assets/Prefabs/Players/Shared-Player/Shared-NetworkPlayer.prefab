@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f9ff5caa975cf4492f8c4330efad86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 6887932550299811162, guid: 53729fdcb1c72874f825b46df0800d5f, type: 3}
+  item: {fileID: 3430269437256706840, guid: 0310795c2f100a34cbb6f8090fda5e3d, type: 3}
 --- !u!1 &5374872096494914040
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,7 +447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f9ff5caa975cf4492f8c4330efad86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 6887932550299811162, guid: 53729fdcb1c72874f825b46df0800d5f, type: 3}
+  item: {fileID: 2067976080343418641, guid: e1b0ef59760462f439b86bd0e007b54b, type: 3}
 --- !u!1 &6814099746120680431
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,6 +709,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6450896892371885189}
     m_Modifications:
+    - target: {fileID: 6158800709001278190, guid: b7ee10ba487867d47a2942e352102583, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4b5efa0c69d901449a38989140500c0d, type: 2}
     - target: {fileID: 8466306517634800441, guid: b7ee10ba487867d47a2942e352102583, type: 3}
       propertyPath: m_Name
       value: Left Terminator
@@ -776,6 +780,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 933351277913022186}
     m_Modifications:
+    - target: {fileID: 5291795384926291915, guid: 06cd9e9af97d88946893bd961c4d7f4f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3338dde1ae80a3b43826deca5c238356, type: 2}
     - target: {fileID: 7079028628379841702, guid: 06cd9e9af97d88946893bd961c4d7f4f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0191
