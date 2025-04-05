@@ -18,25 +18,12 @@ public class S_PlayerSpawner : SimulationBehaviour, IPlayerJoined, IPlayerLeft
 
     public static Dictionary<PlayerRef, NetworkObject> _spawnedUsers = new Dictionary<PlayerRef, NetworkObject>();
 
-    private async void Start()
-    {
-        if (networkPlayerPrefab == null)
-        {
-            networkPlayerPrefab = await Addressable.LoadAsset<S_NetworkPlayer>(Addressable.paths[AddressableAsset.SharedNetworkPlayer], true);
-        }
-
-        if (localPlayer == null)
-        {
-            localPlayer = FindFirstObjectByType<S_LocalPlayer>();
-        }
-    }
-
 #if UNITY_EDITOR
     private async void OnValidate()
     {
         if (networkPlayerPrefab == null)
         {
-            networkPlayerPrefab = await Addressable.LoadAsset<S_NetworkPlayer>(Addressable.paths[AddressableAsset.SharedNetworkPlayer], true);
+            networkPlayerPrefab = await Addressable.LoadAsset<S_NetworkPlayer>(AddressableAsset.SharedNetworkPlayer, true);
         }
 
         if (localPlayer == null)
@@ -49,7 +36,7 @@ public class S_PlayerSpawner : SimulationBehaviour, IPlayerJoined, IPlayerLeft
     public async Task SpawnPlayer(PlayerRef player)
     {
         if (networkPlayerPrefab == null)
-            networkPlayerPrefab = await Addressable.LoadAsset<S_NetworkPlayer>(Addressable.paths[0], true);
+            networkPlayerPrefab = await Addressable.LoadAsset<S_NetworkPlayer>(AddressableAsset.SharedNetworkPlayer, true);
         
 
         if (localPlayer == null)

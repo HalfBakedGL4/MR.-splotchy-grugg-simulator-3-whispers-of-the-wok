@@ -42,7 +42,7 @@ public class S_Cooker : NetworkBehaviour, IButtonObject
     private float timer;
     private async void Start()
     {
-        burntSlop = await Addressable.LoadAsset<GameObject>(Addressable.paths[AddressableAsset.BurntFood]);
+        burntSlop = await Addressable.LoadAsset(AddressableAsset.BurntFood);
     }
 
     void Update()
