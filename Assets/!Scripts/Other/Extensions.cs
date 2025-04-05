@@ -23,6 +23,8 @@ namespace Extentions
             {
             "SharedNetworkPlayer",
             "SharedLocalPlayer",
+            "RecipeBook",
+            "BurntFood"
             };
 
             /// <summary>
@@ -109,13 +111,14 @@ namespace Extentions
             /// </summary>
             /// <param name="networkObject">The networkobject to gain authority over</param>
             /// <returns></returns>
-            public async static Task<bool> GetStateAuthority(NetworkObject networkObject, int maxTries = 10000)
+            public async static Task<bool> GetStateAuthority(NetworkObject networkObject, int maxTries = 1000)
             {
                 networkObject.RequestStateAuthority();
 
                 int i = 0;
                 while (!networkObject.HasStateAuthority)
                 {
+                    if (!Application.isPlaying) return false;
                     if (i > maxTries) return false;
 
                     await Task.Delay(10);

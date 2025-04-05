@@ -79,25 +79,9 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 861809427380688173, guid: 3b0d110b90d83f5489633275b8511955, type: 3}
-      propertyPath: Flags
-      value: 262145
-      objectReference: {fileID: 0}
-    - target: {fileID: 861809427380688173, guid: 3b0d110b90d83f5489633275b8511955, type: 3}
       propertyPath: SortKey
       value: 2479840596
       objectReference: {fileID: 0}
-    - target: {fileID: 861809427380688173, guid: 3b0d110b90d83f5489633275b8511955, type: 3}
-      propertyPath: NestedObjects.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 861809427380688173, guid: 3b0d110b90d83f5489633275b8511955, type: 3}
-      propertyPath: NetworkedBehaviours.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 861809427380688173, guid: 3b0d110b90d83f5489633275b8511955, type: 3}
-      propertyPath: 'NetworkedBehaviours.Array.data[0]'
-      value: 
-      objectReference: {fileID: 7414584731672001464}
     - target: {fileID: 4079872096204683752, guid: 3b0d110b90d83f5489633275b8511955, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -155,14 +139,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4079872096204683752, guid: 3b0d110b90d83f5489633275b8511955, type: 3}
   m_PrefabInstance: {fileID: 7851631409729661441}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7414584731672001464 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 726061048958046649, guid: 3b0d110b90d83f5489633275b8511955, type: 3}
-  m_PrefabInstance: {fileID: 7851631409729661441}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

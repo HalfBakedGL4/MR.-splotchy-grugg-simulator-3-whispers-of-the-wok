@@ -1,0 +1,5 @@
+E:/Work/Shool/Semester 4/Gamelab/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/.utmp/RelWithDebInfo/631q2l33/arm64-v8a/CMakeFiles/edit_cache.dir
+E:/Work/Shool/Semester 4/Gamelab/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/.utmp/RelWithDebInfo/631q2l33/arm64-v8a/CMakeFiles/rebuild_cache.dir
+E:/Work/Shool/Semester 4/Gamelab/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/.utmp/RelWithDebInfo/631q2l33/arm64-v8a/GameActivity/CMakeFiles/game.dir
+E:/Work/Shool/Semester 4/Gamelab/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/.utmp/RelWithDebInfo/631q2l33/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+E:/Work/Shool/Semester 4/Gamelab/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/.utmp/RelWithDebInfo/631q2l33/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir

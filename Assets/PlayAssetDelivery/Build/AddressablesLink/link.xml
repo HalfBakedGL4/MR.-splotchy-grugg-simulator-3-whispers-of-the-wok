@@ -7,9 +7,12 @@
     <type fullname="Rig" preserve="all" />
     <type fullname="S_AnimateHandOnInput" preserve="all" />
     <type fullname="S_ColorClassifications" preserve="all" />
+    <type fullname="S_DishStatus" preserve="all" />
     <type fullname="S_HardwarePart" preserve="all" />
     <type fullname="S_Interactor" preserve="all" />
     <type fullname="S_ItemSpawner" preserve="all" />
+    <type fullname="SO_RecipeBook" preserve="all" />
+    <type fullname=".Recipe" preserve="nothing" serialized="true" />
     <type fullname="Input.InputInfo" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Fusion.Runtime, Version=2.0.4.0, Culture=neutral, PublicKeyToken=null">
@@ -80,20 +83,20 @@
     <type fullname="UnityEngine.XR.Interaction.Toolkit.Locomotion.XRBodyTransformer" preserve="all" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.ActivateEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.DeactivateEvent" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.XR.Interaction.Toolkit.Feedback.HapticImpulseData" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.FocusEnterEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.FocusExitEvent" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.XR.Interaction.Toolkit.Gaze.XRGazeAssistance/InteractorData" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.HoverEnterEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.HoverExitEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.InteractionLayerMask" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.SelectEnterEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.SelectExitEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Feedback.HapticImpulseData" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Gaze.XRGazeAssistance/InteractorData" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.Inputs.Haptics.XRInputHapticImpulseProvider" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.Inputs.Readers.XRInputButtonReader" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.Inputs.Readers.XRInputValueReader`1" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.XR.Interaction.Toolkit.InteractionLayerMask" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.Interactors.IXRRayProvider" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.Interactors.Visuals.LineProperties" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.XR.Interaction.Toolkit.SelectEnterEvent" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.XR.Interaction.Toolkit.SelectExitEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.UI.UIHoverEnterEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.UI.UIHoverExitEvent" preserve="nothing" serialized="true" />
   </assembly>
@@ -124,8 +127,8 @@
     <type fullname="UnityEngine.SkinnedMeshRenderer" preserve="all" />
     <type fullname="UnityEngine.Texture2D" preserve="all" />
     <type fullname="UnityEngine.Transform" preserve="all" />
-    <type fullname="UnityEngine.Events.ArgumentCache" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Events.PersistentCallGroup" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Events.ArgumentCache" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Events.PersistentListenerMode" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Events.UnityEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Events.UnityEvent`1" preserve="nothing" serialized="true" />
@@ -137,6 +140,7 @@
   </assembly>
   <assembly fullname="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.BoxCollider" preserve="all" />
+    <type fullname="UnityEngine.CapsuleCollider" preserve="all" />
     <type fullname="UnityEngine.CharacterController" preserve="all" />
     <type fullname="UnityEngine.MeshCollider" preserve="all" />
     <type fullname="UnityEngine.Rigidbody" preserve="all" />

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using Fusion;
+using Extentions.Addressable;
 
 public enum CookerType
 {
@@ -20,7 +21,7 @@ public class S_Cooker : NetworkBehaviour, IButtonObject
     
 
     [SerializeField] private CookerType cookerType;
-    [SerializeField] private GameObject burntSlop;
+    private GameObject burntSlop;
     
     [Header("Cooking Timers")]
     [SerializeField] private float goodTime;
@@ -34,24 +35,15 @@ public class S_Cooker : NetworkBehaviour, IButtonObject
     
     private CookerState state = CookerState.Available;
 
-    private S_RecipeDatabase _RecipeDatabase;
-
-    private void Awake()
-    {
-        // Find the RecipeDatabase in the scene
-        _RecipeDatabase = FindFirstObjectByType<S_RecipeDatabase>();
-
-        if (_RecipeDatabase == null)
-        {
-            Debug.LogError("RecipeBook not found in the scene!");
-        }
-    }
-
     private List<FoodType> foodCooking = new ();
     private List<S_Food> foodScripts = new ();
 
     private float timer;
-    
+    private async void Start()
+    {
+        burntSlop = await Addressable.LoadAsset<GameObject>(Addressable.names[3]);
+    }
+
     void Update()
     {
         switch (state)
@@ -104,26 +96,30 @@ public class S_Cooker : NetworkBehaviour, IButtonObject
         // Stop Cooker and empty food items inside
         else if (state == CookerState.Cooking)
         {
-            GameObject dishToSpawn;
+            GameObject dish = GetDish();
+            Debug.Log(dish);
+            if (!dish.TryGetComponent(out NetworkObject dishToSpawn))
+            {
+                Debug.LogError("Couldnt get a networkobject");
+                return;
+            }
+
             DishStatus dishStatus = DishStatus.UnCooked;
 
             // Undercooked
             if (timer < goodTime)
             {
-                dishToSpawn = GetDish();
                 dishStatus = DishStatus.UnderCooked;
             }
             // Perfect
             else if (timer < badTime)
             {
-                dishToSpawn = GetDish();
                 dishStatus = DishStatus.Cooked;
 
             }
             // Overcooked
             else if (timer < worstTime)
             {
-                dishToSpawn = GetDish();
                 dishStatus = DishStatus.OverCooked;
 
             }
@@ -131,13 +127,12 @@ public class S_Cooker : NetworkBehaviour, IButtonObject
             else
             {
                 // Cannot be served
-                dishToSpawn = burntSlop;
                 dishStatus = DishStatus.Burnt;
             }
 
             CleanCooker();
-            var dish =  Runner.Spawn(dishToSpawn, dishSocket.transform.position, dishSocket.transform.rotation);
-            if (dish.TryGetComponent(out S_DishStatus dishStatusScript))
+            var spawnedDish =  Runner.Spawn(dishToSpawn, dishSocket.transform.position, dishSocket.transform.rotation);
+            if (spawnedDish.TryGetComponent(out S_DishStatus dishStatusScript))
             {
                 dishStatusScript.ChangeStatus(dishStatus);
             }
@@ -149,7 +144,7 @@ public class S_Cooker : NetworkBehaviour, IButtonObject
 
     private GameObject GetDish() //Looks through the RecipeBook to see if any dish is created from those ingredients
     {
-        var dishInfo = _RecipeDatabase.FindMatchingRecipe(foodCooking, cookerType);
+        var dishInfo = S_RecipeDatabase.FindMatchingRecipe(foodCooking, cookerType);
         
         if (dishInfo != null)
         {
