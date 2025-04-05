@@ -16,7 +16,7 @@ public class S_PlayerSpawner : SimulationBehaviour, IPlayerJoined, IPlayerLeft
     [SerializeField, ReadOnly] S_NetworkPlayer networkPlayerPrefab;
     S_LocalPlayer localPlayer;
 
-    private Dictionary<PlayerRef, NetworkObject> _spawnedUsers = new Dictionary<PlayerRef, NetworkObject>();
+    public static Dictionary<PlayerRef, NetworkObject> _spawnedUsers = new Dictionary<PlayerRef, NetworkObject>();
 
 #if UNITY_EDITOR
     private async void OnValidate()
