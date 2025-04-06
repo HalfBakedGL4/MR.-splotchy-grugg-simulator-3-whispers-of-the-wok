@@ -47,17 +47,16 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
                 Debug.LogError("[Spawn Objects] Null ARPlane in 'added'");
             } else
             {
-                GameObject prefabToSpawn = spawnObjects[i];
-                Quaternion rotation = Quaternion.identity;
-                Runner.Spawn(prefabToSpawn, Vector3.zero, rotation);
+                Debug.LogError("[Spawn Objects] " + item.classifications);
                 // Place applications on table across the room
                 if (item.classifications == PlaneClassifications.Table)
                 {
-                //    GameObject prefabToSpawn = spawnObjects[i];
-                //    var offsetVector = new Vector3(1, item.transform.position.y, 1) -
-                //                              new Vector3(item.extents.x, 0, item.extents.y);
-                //    Quaternion rotation = Quaternion.identity;
-                //    Runner.Spawn(prefabToSpawn, Vector3.zero, rotation);
+                    GameObject prefabToSpawn = spawnObjects[i];
+                    var offsetVector = new Vector3(1, item.transform.position.y, 1) -
+                                              new Vector3(item.extents.x, 0, item.extents.y);
+                    Quaternion rotation = Quaternion.identity;
+                    Runner.Spawn(prefabToSpawn, item.transform.position, rotation);
+                    i++;
 
 
                     //// Finds number of rows and columns to create a grid to place items
@@ -100,7 +99,7 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
                     //}
                 }
 
-            if (item.classifications == PlaneClassifications.WallFace && !windowPlaced)
+                if (item.classifications == PlaneClassifications.WallFace && !windowPlaced)
                 {
                     //debugText.text = item.transform.rotation.ToString();
                     //debugText.text += "\n";
@@ -114,8 +113,6 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
 
                     windowPlaced = true;
                 }
-
-                i++;
             }
 
             

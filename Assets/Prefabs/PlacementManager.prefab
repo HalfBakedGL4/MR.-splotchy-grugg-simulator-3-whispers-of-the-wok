@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2730567577262896153}
   - component: {fileID: 3284256905931433717}
+  - component: {fileID: 5359521854802662126}
   m_Layer: 0
   m_Name: PlacementManager
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7392882013123726181}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.11788559, y: 1.22364, z: -0.64595413}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -48,4 +49,25 @@ MonoBehaviour:
   spawnObjects:
   - {fileID: 5439066145181431010, guid: 7e4225130453e544cb89d9d619d58bef, type: 3}
   - {fileID: 2012386090533404722, guid: 19eb3f79a96263743992872919600d57, type: 3}
-  debugText: {fileID: 0}
+  orderWindow: {fileID: 2266349842765232060, guid: fff54c2ebb177374a80aacd97af28aaa, type: 3}
+  windowHeight: 1
+  planeManager: {fileID: 0}
+--- !u!114 &5359521854802662126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7392882013123726181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SortKey: 3706970417
+  ObjectInterest: 1
+  Flags: 131073
+  NestedObjects: []
+  NetworkedBehaviours:
+  - {fileID: 3284256905931433717}
+  ForceRemoteRenderTimeframe: 0
