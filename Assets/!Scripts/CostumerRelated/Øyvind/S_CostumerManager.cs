@@ -11,11 +11,6 @@ public class S_CostumerManager : NetworkBehaviour
     [SerializeField] private S_CostumerSpawner costumerSpawner;
     [SerializeField] private S_FindPointsOnWalls findPointsOnWalls;
     [SerializeField] private S_HoleSpawner holeSpawner;
-    
-    
-    [Header("Debugging, will remove later")]
-    [SerializeField] private TMP_Text debugText;
-
 
     private bool isLocal => Object && Object.HasStateAuthority;
     
@@ -25,7 +20,7 @@ public class S_CostumerManager : NetworkBehaviour
 
         if (isLocal)
         {
-            InvokeRepeating(nameof(Debuggings), 0f, 10f);
+            InvokeRepeating(nameof(Debuggings), 10f, 45f);
         }
     }
     
@@ -36,15 +31,9 @@ public class S_CostumerManager : NetworkBehaviour
 
         costumerOrder.OrderFood();
         
-        debugText.text += " Making ";
         MakeHoleInWall(wallTuple);
-        debugText.text += " hole, ";
 
-        debugText.text += " Spawning ";
         SpawnCostumer(wallTuple);
-        debugText.text += " costumer, ";
-        
-        
     }
 
 

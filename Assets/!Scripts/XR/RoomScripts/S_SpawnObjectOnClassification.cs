@@ -105,11 +105,11 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
                     //debugText.text += "\n";
                     //debugText.text += "Rotation (Euler Angles): " + item.transform.eulerAngles.ToString();
 
-                    var windowInstance = Runner.Spawn(orderWindow, item.transform.position, Quaternion.identity);
+                    var windowInstance = Runner.Spawn(orderWindow, item.transform.position, Quaternion.Euler(item.transform.eulerAngles + new Vector3(90, 90, 0)));
 
-                    windowInstance.transform.parent = item.transform;
-                    windowInstance.transform.localEulerAngles = new Vector3(180, -90, -90);
-                    windowInstance.transform.position = new Vector3(windowInstance.transform.position.x, windowHeight, windowInstance.transform.position.z);
+                    //windowInstance.transform.parent = item.transform;
+                    //windowInstance.transform.localEulerAngles = new Vector3(180, -90, -90);
+                    //windowInstance.transform.position = new Vector3(windowInstance.transform.position.x, windowHeight, windowInstance.transform.position.z);
 
                     windowPlaced = true;
                 }
