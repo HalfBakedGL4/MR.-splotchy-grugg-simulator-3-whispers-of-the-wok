@@ -124,7 +124,7 @@ namespace Extentions
                     return (T)handle.Result;
                 }
 
-                Debug.LogError(handle.Status);
+                Debug.LogError("[Addressable] " + handle.Status + " to load " + addressable);
                 return default;
             }
             #endregion
