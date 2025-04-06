@@ -55,7 +55,7 @@ public class S_CostumerManager : NetworkBehaviour
     private void MakeHoleInWall((ARPlane wall, Vector3 pointOnWall) wallTuple)
     {
         var holePos = wallTuple.pointOnWall + wallTuple.wall.transform.position;
-
+        
         holeSpawner.SpawnHole(holePos, wallTuple.wall.transform.rotation);
     }
     

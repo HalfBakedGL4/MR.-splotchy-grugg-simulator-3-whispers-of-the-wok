@@ -26,9 +26,8 @@ public class S_OrderWindow : NetworkBehaviour
     [SerializeField] private List<Transform> ticketPlacements;
     [Tooltip("All possible dishes for costumers to order, with the descriptive images of items ordered")]
     [SerializeField] private List<Order> orderTypes = new List<Order>();
-    [SerializeField] private List<(Order order, S_CostumerOrder costumerOrder)> orderOverload = new List<(Order, S_CostumerOrder)>();
-
-    NetworkRunner runner;
+    private List<(Order order, S_CostumerOrder costumerOrder)> orderOverload = new List<(Order, S_CostumerOrder)>();
+    
 
     private Dictionary<S_Ticket, Transform> ticketsDictionary = new Dictionary<S_Ticket, Transform>();
 
@@ -60,15 +59,16 @@ public class S_OrderWindow : NetworkBehaviour
     // Ticket is added
     private S_Ticket AddTicket(Order order, S_CostumerOrder costumer)
     {
-        // Check if runner is there
-        if (runner == null)
+        if (ticketPlacements.Count < 1)
         {
-            runner = FindAnyObjectByType<NetworkRunner>();
+            orderOverload.Add((order, costumer));
+            return null;
         }
+       
         // Get random transform from List to place item
         var pos = ticketPlacements[Random.Range(0, ticketPlacements.Count - 1)];
         // Instantiate and place ticket on position
-        var ticket = runner.Spawn(ticketPrefab, pos.position, quaternion.identity);
+        var ticket = Runner.Spawn(ticketPrefab, pos.position, quaternion.identity);
         
         // Remove position ticket can appear
         ticketPlacements.Remove(pos);
@@ -95,12 +95,13 @@ public class S_OrderWindow : NetworkBehaviour
         // Remove used ticket
         ticketsDictionary.Remove(ticket);
         // Destroy ticket from scene
-        runner.Despawn(ticket.GetComponent<NetworkObject>());
+        Runner.Despawn(ticket.GetComponent<NetworkObject>());
 
         if (orderOverload.Count > 0)
         {
             var ticketInstance = AddTicket(orderOverload[0].order, orderOverload[0].costumerOrder);
             orderOverload[0].costumerOrder.ConnecTicket(ticketInstance);
+            orderOverload.RemoveAt(0);
         }
     }
 
@@ -150,6 +151,6 @@ public class S_OrderWindow : NetworkBehaviour
 
     private void RemoveDish(GameObject dish)
     {
-        Destroy(dish);
+        Runner.Despawn(dish.GetComponent<NetworkObject>());
     }
 }

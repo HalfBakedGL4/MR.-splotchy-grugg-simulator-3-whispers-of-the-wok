@@ -15,7 +15,6 @@ public class S_HoleSpawner : NetworkBehaviour
 
     private int holeIndex;
     private Transform parent;
-    NetworkRunner runner;
 
     
     /*
@@ -73,17 +72,12 @@ public class S_HoleSpawner : NetworkBehaviour
         }
 
         // Select random hole prefab from list
-        holeIndex = UnityEngine.Random.Range(0, holePrefabs.Count);
+        holeIndex = Random.Range(0, holePrefabs.Count);
         
         //rot.z = UnityEngine.Random.Range(0, 360);
         
-        // Check if runner is found
-        if (runner == null)
-        {
-            runner = FindAnyObjectByType<NetworkRunner>();
-        }
         // Spawns hole
-        NetworkObject spawnedHole = runner.Spawn(holePrefabs[holeIndex], pos, rot);
+        NetworkObject spawnedHole = Runner.Spawn(holePrefabs[holeIndex], pos, rot);
 
         // Merges all hole under one parent, so all connected holes can be fixed at once.
         if (multiHoleFix && parent != null)
