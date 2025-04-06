@@ -1,4 +1,5 @@
 using Fusion;
+using Oculus.Interaction;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,26 +28,23 @@ public class S_Hammer : NetworkBehaviour
 
     private void Update()
     {
+        if (!Object.HasStateAuthority) return;
+        if(charge > 1) return;
         charge += 4*Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (transform.parent != null && other.CompareTag("Hole"))
+        if (transform.parent != null)
         {
             if(other.TryGetComponent(out S_HoleManager holemanager))
             {
                 holemanager.RPCHammerHit(charge * wallMultiplier);
             }
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        // Checks for parent, so no charge is lost when dropping hammer
-        if (transform.parent != null && collision.gameObject.CompareTag("Enemy"))
-        {
-            DealDamage(Mathf.Clamp(charge, 0, 1), collision.gameObject);
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                DealDamage(Mathf.Clamp(charge, 0, 1), other.gameObject);
+            }
         }
     }
 
