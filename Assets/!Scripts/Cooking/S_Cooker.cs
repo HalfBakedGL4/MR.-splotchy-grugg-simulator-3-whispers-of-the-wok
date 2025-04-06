@@ -24,11 +24,6 @@ public class S_Cooker : NetworkBehaviour, IButtonObject
     [SerializeField] private CookerType cookerType;
     private GameObject burntSlop;
     
-    [Header("Cooking Timers")]
-    [SerializeField] private float goodTime;
-    [SerializeField] private float badTime;
-    [SerializeField] private float worstTime;
-    
     [Header("Sockets")]
     [SerializeField] private S_SocketTagInteractor[] foodSocket;
     [SerializeField] private S_SocketTagInteractor dishSocket;
@@ -97,9 +92,9 @@ public class S_Cooker : NetworkBehaviour, IButtonObject
         // Stop Cooker and empty food items inside
         else if (state == CookerState.Cooking)
         {
-            GameObject dish = GetDish();
+            Dish dish = GetDish();
             Debug.Log(dish);
-            if (!dish.TryGetComponent(out NetworkObject dishToSpawn))
+            if (!dish.resultPrefab.TryGetComponent(out NetworkObject dishToSpawn))
             {
                 Debug.LogError("Couldnt get a networkobject");
                 return;
@@ -108,18 +103,18 @@ public class S_Cooker : NetworkBehaviour, IButtonObject
             DishStatus dishStatus = DishStatus.UnCooked;
 
             // Undercooked
-            if (timer < goodTime)
+            if (timer < dish.underCookedTime)
             {
                 dishStatus = DishStatus.UnderCooked;
             }
             // Perfect
-            else if (timer < badTime)
+            else if (timer < dish.perfectlyCookedTime)
             {
                 dishStatus = DishStatus.Cooked;
 
             }
             // Overcooked
-            else if (timer < worstTime)
+            else if (timer < dish.overCookedTime)
             {
                 dishStatus = DishStatus.OverCooked;
 
@@ -143,16 +138,16 @@ public class S_Cooker : NetworkBehaviour, IButtonObject
         }
     }
 
-    private GameObject GetDish() //Looks through the RecipeBook to see if any dish is created from those ingredients
+    private Dish GetDish() //Looks through the RecipeBook to see if any dish is created from those ingredients
     {
         var dishInfo = S_RecipeDatabase.FindMatchingRecipe(foodCooking, cookerType);
         
         if (dishInfo != null)
         {
-            return dishInfo.resultPrefab;
+            return dishInfo;
         }
         
-        return burntSlop;
+        return null;
     }
 
     //we can do object pooling later as it requires RPC calling and stuff to make happen

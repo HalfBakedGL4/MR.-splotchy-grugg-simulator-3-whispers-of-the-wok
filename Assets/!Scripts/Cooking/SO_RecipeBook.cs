@@ -1,14 +1,15 @@
 using System;
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SO_RecipeBook", menuName = "Food/SO_RecipeBook")]
 public class SO_RecipeBook : ScriptableObject
 {
-    public List<Recipe> recipes = new List<Recipe>();
+    public List<Dish> recipes = new List<Dish>();
 }
 
-public enum Dish
+public enum DishType
 {
     // All the different dishes players can create and costumers can order
     // add more at the BOTTOM when needed
@@ -20,10 +21,17 @@ public enum Dish
 }
 
 [Serializable]
-public class Recipe
+public class Dish
 {
-    public Dish nameOfDish;
+    public DishType typeOfDish;
     public List<FoodType> ingredients;
     public CookerType canBeCookedIn;
+    [Required]
     public GameObject resultPrefab; // The prefab to spawn
+
+    [Space]
+
+    public float underCookedTime = 10;
+    public float perfectlyCookedTime = 20;
+    public float overCookedTime = 30;
 }

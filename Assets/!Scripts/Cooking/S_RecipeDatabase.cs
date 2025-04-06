@@ -22,7 +22,7 @@ public class S_RecipeDatabase : MonoBehaviour
         book = await Addressable.LoadAsset<SO_RecipeBook>(AddressableAsset.RecipeBook);
     }
 #endif
-    public static Recipe FindMatchingRecipe(List<FoodType> playerIngredients, CookerType playerCooker)
+    public static Dish FindMatchingRecipe(List<FoodType> playerIngredients, CookerType playerCooker)
     {
         if(Instance.book == null)
         {

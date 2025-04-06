@@ -21,7 +21,7 @@ public class S_DishStatus : MonoBehaviour
 
     private bool isGrugged = false;
     
-    [SerializeField] private Dish typeOfDish;
+    [SerializeField] private DishType typeOfDish;
 
     public void ChangeStatus(DishStatus newStatus)
     {
@@ -37,12 +37,12 @@ public class S_DishStatus : MonoBehaviour
         print("Grugg Applied to " + name);
     }
 
-    public (Dish typeOfDish, DishStatus dishStatus, bool grugged) GetDishStatus()
+    public (DishType typeOfDish, DishStatus dishStatus, bool grugged) GetDishStatus()
     {
         return (typeOfDish, currentDishStatus, isGrugged);
     }
 
-    public Dish GetTypeOfDish()
+    public DishType GetTypeOfDish()
     {
         return typeOfDish;
     }

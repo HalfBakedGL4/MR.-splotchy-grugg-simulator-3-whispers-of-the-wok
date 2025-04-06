@@ -8,11 +8,11 @@ public class S_CostumerOrder : MonoBehaviour
     S_OrderWindow orderWindow;
     
     [Header("What Dishes the costumer can order")]
-    [SerializeField] private List<Dish> canOrder = new ();
+    [SerializeField] private List<DishType> canOrder = new ();
 
     private S_Ticket costumerTicket;
     
-    private Dish orderedDish;
+    private DishType orderedDish;
     private void Start()
     {
         // Find the window to place ticket
