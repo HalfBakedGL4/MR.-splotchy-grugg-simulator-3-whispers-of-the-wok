@@ -520,6 +520,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Oven
       objectReference: {fileID: 0}
+    - target: {fileID: 3447831807833010460, guid: 19eb3f79a96263743992872919600d57, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.04500005
+      objectReference: {fileID: 0}
     - target: {fileID: 4890621050013555385, guid: 19eb3f79a96263743992872919600d57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -560,10 +564,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5636263461841611952, guid: 19eb3f79a96263743992872919600d57, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4058729964456199870, guid: 19eb3f79a96263743992872919600d57, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 19eb3f79a96263743992872919600d57, type: 3}
 --- !u!1 &774583548
 GameObject:
@@ -1162,12 +1173,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 772271146220862191, guid: c3c5889aef860f047ba34393bc5d3b95, type: 3}
       propertyPath: spawnNetworkPlayer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 772271146220862191, guid: c3c5889aef860f047ba34393bc5d3b95, type: 3}
       propertyPath: networkPlayerPrefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7061299194469122700, guid: 27dd3d8bf0a88f84b82d9ee28749e734, type: 3}
     - target: {fileID: 5619847185980448748, guid: c3c5889aef860f047ba34393bc5d3b95, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

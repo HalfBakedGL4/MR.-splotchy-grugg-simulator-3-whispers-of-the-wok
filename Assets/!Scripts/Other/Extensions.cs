@@ -47,7 +47,12 @@ namespace Extentions
             {
             };
 
-            public static string returnPath(AddressableAsset addressable)
+            /// <summary>
+            /// return the coresponding path
+            /// </summary>
+            /// <param name="addressable">the addressable to load</param>
+            /// <returns>path</returns>
+            public static string ReturnPath(AddressableAsset addressable)
             {
                 if(paths[addressable] != null)
                     return paths[addressable];
@@ -65,7 +70,7 @@ namespace Extentions
             /// <returns>Addressables gameobject</returns>
             public static async Task<GameObject> LoadAsset(AddressableAsset addressable)
             {
-                return await LoadAsset<GameObject>(returnPath(addressable));
+                return await LoadAsset<GameObject>(ReturnPath(addressable));
             }
 
             /// <summary>
@@ -76,7 +81,7 @@ namespace Extentions
             /// <returns>Addressables asset</returns>
             public static async Task<T> LoadAsset<T>(AddressableAsset addressable) where T : Object
             {
-                return await LoadAsset<T>(returnPath(addressable));
+                return await LoadAsset<T>(ReturnPath(addressable));
             }
 
             /// <summary>
@@ -86,9 +91,9 @@ namespace Extentions
             /// <param name="addressable">The addressable asset</param>
             /// <param name="getComponent">if it should return a script from a GameObject rather than return the gameobject</param>
             /// <returns>Addressables asset</returns>
-            public static async Task<T> LoadAsset<T>(AddressableAsset addressable, bool getComponent) where T : MonoBehaviour
+            public static async Task<T> LoadAsset<T>(AddressableAsset addressable, bool getComponent = true) where T : MonoBehaviour
             {
-                return await LoadAsset<T>(returnPath(addressable), getComponent);
+                return await LoadAsset<T>(ReturnPath(addressable), getComponent);
             }
 
             /// <summary>

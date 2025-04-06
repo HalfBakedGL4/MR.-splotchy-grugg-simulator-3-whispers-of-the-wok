@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using Fusion;
 using Extentions.Addressable;
-using NaughtyAttributes;
+using TMPro;
 
 public enum CookerType
 {
@@ -27,27 +27,35 @@ public class S_Cooker : NetworkBehaviour, IButtonObject
     [Header("Sockets")]
     [SerializeField] private S_SocketTagInteractor[] foodSocket;
     [SerializeField] private S_SocketTagInteractor dishSocket;
+    TMP_Text timerText;
 
     
-    private CookerState state = CookerState.Available;
+    [SerializeField, Networked] private CookerState state { get; set; } = CookerState.Available;
 
     private List<FoodType> foodCooking = new ();
     private List<S_Food> foodScripts = new ();
 
-    private float timer;
+    bool isLocal => Object && Object.HasStateAuthority;
+    [SerializeField, Networked] private float timer { get; set; }
     private async void Start()
     {
         burntSlop = await Addressable.LoadAsset(AddressableAsset.BurntFood);
+        timerText = GetComponentInChildren<TMP_Text>();
     }
 
-    void Update()
+    public override void FixedUpdateNetwork()
     {
+        base.FixedUpdateNetwork();
+
         switch (state)
         {
             case CookerState.Available:
-                break; 
+                break;
             case CookerState.Cooking:
-                timer += Time.deltaTime;
+                if(isLocal)
+                    timer += Time.fixedDeltaTime;
+
+                timerText.text = "Timer: " + timer.ToString("..");
                 //TODO: update the timer UI
                 break;
             case CookerState.Finished:
@@ -87,7 +95,7 @@ public class S_Cooker : NetworkBehaviour, IButtonObject
                 foodScript.ToggleColliders();
             }
             //TODO: animation that closes the cooker or shows cooker cooking
-            state = CookerState.Cooking;
+            RPC_SetCookerState(CookerState.Cooking);
         }
         // Stop Cooker and empty food items inside
         else if (state == CookerState.Cooking)
@@ -133,8 +141,8 @@ public class S_Cooker : NetworkBehaviour, IButtonObject
                 dishStatusScript.ChangeStatus(dishStatus);
             }
             // TODO: Animation that opens the cooker or show it stops cooking
-            
-            state = CookerState.Available;
+
+            RPC_SetCookerState(CookerState.Available);
         }
     }
 
@@ -163,5 +171,12 @@ public class S_Cooker : NetworkBehaviour, IButtonObject
         }
 
         foodScripts.Clear();
+    }
+
+    [Rpc(sources: RpcSources.All, targets: RpcTargets.StateAuthority)]
+    void RPC_SetCookerState(CookerState state)
+    {
+        if(isLocal)
+            this.state = state; 
     }
 }
