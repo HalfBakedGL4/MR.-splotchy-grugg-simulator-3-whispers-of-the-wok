@@ -43,22 +43,22 @@ public class S_Cooker : NetworkBehaviour, IButtonObject
         timerText = GetComponentInChildren<TMP_Text>();
     }
 
-    public override void FixedUpdateNetwork()
+    void Update()
     {
-        base.FixedUpdateNetwork();
-
         switch (state)
         {
             case CookerState.Available:
+                timerText.text = "Available";
                 break;
             case CookerState.Cooking:
                 if(isLocal)
-                    timer += Time.fixedDeltaTime;
+                    timer += Time.deltaTime;
 
                 timerText.text = "Timer: " + timer.ToString("..");
                 //TODO: update the timer UI
                 break;
             case CookerState.Finished:
+                timerText.text = "Finished!";
                 break;
         }
     }
@@ -176,7 +176,6 @@ public class S_Cooker : NetworkBehaviour, IButtonObject
     [Rpc(sources: RpcSources.All, targets: RpcTargets.StateAuthority)]
     void RPC_SetCookerState(CookerState state)
     {
-        if(isLocal)
-            this.state = state; 
+        this.state = state;
     }
 }
