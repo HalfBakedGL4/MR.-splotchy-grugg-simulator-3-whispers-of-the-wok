@@ -662,26 +662,11 @@ MonoBehaviour:
   - {fileID: 1746841681180694677}
   - {fileID: 6549408184306184643}
   orderTypes:
-  - nameOfDish: 0
-    orderImage: {fileID: 21300000, guid: dc2f4b262d388cc46b5f9115409b5835, type: 3}
-    orderIngredients: {fileID: 21300000, guid: 641c12671329fed4a9bb978666890ba7, type: 3}
-    orderTools: {fileID: 21300000, guid: f44bedea604c98b41bda1e441af24570, type: 3}
-    orderTutorial: {fileID: 21300000, guid: 4c12c9cc126abab4f9daa8b10378db53, type: 3}
-  - nameOfDish: 1
-    orderImage: {fileID: 21300000, guid: dc2f4b262d388cc46b5f9115409b5835, type: 3}
-    orderIngredients: {fileID: 21300000, guid: 641c12671329fed4a9bb978666890ba7, type: 3}
-    orderTools: {fileID: 21300000, guid: f44bedea604c98b41bda1e441af24570, type: 3}
-    orderTutorial: {fileID: 21300000, guid: 4c12c9cc126abab4f9daa8b10378db53, type: 3}
-  - nameOfDish: 3
-    orderImage: {fileID: 0}
-    orderIngredients: {fileID: 0}
-    orderTools: {fileID: 0}
-    orderTutorial: {fileID: 0}
   - nameOfDish: 2
-    orderImage: {fileID: 0}
-    orderIngredients: {fileID: 0}
-    orderTools: {fileID: 0}
-    orderTutorial: {fileID: 0}
+    orderImage: {fileID: 21300000, guid: dc2f4b262d388cc46b5f9115409b5835, type: 3}
+    orderIngredients: {fileID: 21300000, guid: 641c12671329fed4a9bb978666890ba7, type: 3}
+    orderTools: {fileID: 21300000, guid: f44bedea604c98b41bda1e441af24570, type: 3}
+    orderTutorial: {fileID: 21300000, guid: 4c12c9cc126abab4f9daa8b10378db53, type: 3}
 --- !u!114 &1694133620938066648
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -240,6 +240,8 @@ MonoBehaviour:
   - {fileID: 2241298248874653332}
   - {fileID: 8899598426157769274}
   dishSocket: {fileID: 6183257750404534362}
+  _state: 0
+  _timer: 0
 --- !u!114 &-3129658648468868885
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -34,6 +34,8 @@ public class S_CostumerManager : NetworkBehaviour
         // Find point on wall
         var wallTuple = FindAndStoreWallToBreak();
 
+        costumerOrder.OrderFood();
+        
         debugText.text += " Making ";
         MakeHoleInWall(wallTuple);
         debugText.text += " hole, ";
@@ -42,7 +44,7 @@ public class S_CostumerManager : NetworkBehaviour
         SpawnCostumer(wallTuple);
         debugText.text += " costumer, ";
         
-        costumerOrder.OrderFood();
+        
     }
 
 
