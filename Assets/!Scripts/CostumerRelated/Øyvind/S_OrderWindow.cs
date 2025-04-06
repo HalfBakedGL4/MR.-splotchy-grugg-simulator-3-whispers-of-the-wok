@@ -26,6 +26,7 @@ public class S_OrderWindow : NetworkBehaviour
     [SerializeField] private List<Transform> ticketPlacements;
     [Tooltip("All possible dishes for costumers to order, with the descriptive images of items ordered")]
     [SerializeField] private List<Order> orderTypes = new List<Order>();
+    [SerializeField] private List<(Order order, S_CostumerOrder costumerOrder)> orderOverload = new List<(Order, S_CostumerOrder)>();
 
     NetworkRunner runner;
 
@@ -96,6 +97,11 @@ public class S_OrderWindow : NetworkBehaviour
         // Destroy ticket from scene
         runner.Despawn(ticket.GetComponent<NetworkObject>());
 
+        if (orderOverload.Count > 0)
+        {
+            var ticketInstance = AddTicket(orderOverload[0].order, orderOverload[0].costumerOrder);
+            orderOverload[0].costumerOrder.ConnecTicket(ticketInstance);
+        }
     }
 
     public void DeliverOrder(SelectEnterEventArgs args)

@@ -104,5 +104,10 @@ public class S_CostumerOrder : MonoBehaviour
         Debug.Log(orderWindow);
         orderWindow.RemoveTicket(costumerTicket);
     }
+
+    public void ConnecTicket(S_Ticket ticket)
+    {
+        costumerTicket = ticket;
+    }
     
 }

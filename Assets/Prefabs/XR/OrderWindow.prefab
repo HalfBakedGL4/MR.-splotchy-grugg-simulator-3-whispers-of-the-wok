@@ -594,6 +594,7 @@ GameObject:
   - component: {fileID: 1610778550458200487}
   - component: {fileID: 64954712190795161}
   - component: {fileID: 2266349842765232060}
+  - component: {fileID: 1694133620938066648}
   m_Layer: 0
   m_Name: OrderWindow
   m_TagString: Untagged
@@ -635,10 +636,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SortKey: 767980371
   ObjectInterest: 1
-  Flags: 262145
+  Flags: 131073
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 2266349842765232060}
+  - {fileID: 1694133620938066648}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &2266349842765232060
 MonoBehaviour:
@@ -665,12 +667,12 @@ MonoBehaviour:
     orderIngredients: {fileID: 21300000, guid: 641c12671329fed4a9bb978666890ba7, type: 3}
     orderTools: {fileID: 21300000, guid: f44bedea604c98b41bda1e441af24570, type: 3}
     orderTutorial: {fileID: 21300000, guid: 4c12c9cc126abab4f9daa8b10378db53, type: 3}
-  - nameOfDish: 3
-    orderImage: {fileID: 0}
-    orderIngredients: {fileID: 0}
-    orderTools: {fileID: 0}
-    orderTutorial: {fileID: 0}
   - nameOfDish: 1
+    orderImage: {fileID: 21300000, guid: dc2f4b262d388cc46b5f9115409b5835, type: 3}
+    orderIngredients: {fileID: 21300000, guid: 641c12671329fed4a9bb978666890ba7, type: 3}
+    orderTools: {fileID: 21300000, guid: f44bedea604c98b41bda1e441af24570, type: 3}
+    orderTutorial: {fileID: 21300000, guid: 4c12c9cc126abab4f9daa8b10378db53, type: 3}
+  - nameOfDish: 3
     orderImage: {fileID: 0}
     orderIngredients: {fileID: 0}
     orderTools: {fileID: 0}
@@ -680,6 +682,23 @@ MonoBehaviour:
     orderIngredients: {fileID: 0}
     orderTools: {fileID: 0}
     orderTutorial: {fileID: 0}
+--- !u!114 &1694133620938066648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3824072423694789037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateAuthorityChangeErrorCorrectionDelta: 0.15
+  SyncScale: 0
+  SyncParent: 0
+  _autoAOIOverride: 1
+  DisableSharedModeInterpolation: 0
 --- !u!1 &4423759678789587568
 GameObject:
   m_ObjectHideFlags: 0

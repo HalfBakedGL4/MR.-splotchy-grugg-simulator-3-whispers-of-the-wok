@@ -25,9 +25,7 @@ public class S_CostumerManager : NetworkBehaviour
 
         if (isLocal)
         {
-            //InvokeRepeating(nameof(Debuggings), 0f, 10f);
-            
-            costumerOrder.OrderFood();
+            InvokeRepeating(nameof(Debuggings), 0f, 10f);
         }
     }
     
@@ -43,6 +41,8 @@ public class S_CostumerManager : NetworkBehaviour
         debugText.text += " Spawning ";
         SpawnCostumer(wallTuple);
         debugText.text += " costumer, ";
+        
+        costumerOrder.OrderFood();
     }
 
 
