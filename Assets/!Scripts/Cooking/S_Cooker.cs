@@ -2,13 +2,16 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using Fusion;
+using Extentions.Addressable;
+using TMPro;
 
 public enum CookerType
 {
     Oven,
     Fryer,
 }
-public class S_Cooker : MonoBehaviour, IButtonObject
+public class S_Cooker : NetworkBehaviour, IButtonObject
 {
     private enum CookerState
     {
@@ -19,49 +22,43 @@ public class S_Cooker : MonoBehaviour, IButtonObject
     
 
     [SerializeField] private CookerType cookerType;
-    [SerializeField] private GameObject burntSlop;
-    
-    [Header("Cooking Timers")]
-    [SerializeField] private float goodTime;
-    [SerializeField] private float badTime;
-    [SerializeField] private float worstTime;
+    private GameObject burntSlop;
     
     [Header("Sockets")]
     [SerializeField] private S_SocketTagInteractor[] foodSocket;
     [SerializeField] private S_SocketTagInteractor dishSocket;
+    TMP_Text timerText;
 
     
-    private CookerState state = CookerState.Available;
-
-    private S_RecipeDatabase _RecipeDatabase;
-
-    private void Awake()
-    {
-        // Find the RecipeDatabase in the scene
-        _RecipeDatabase = FindFirstObjectByType<S_RecipeDatabase>();
-
-        if (_RecipeDatabase == null)
-        {
-            Debug.LogError("RecipeBook not found in the scene!");
-        }
-    }
+    [SerializeField, Networked] private CookerState state { get; set; } = CookerState.Available;
 
     private List<FoodType> foodCooking = new ();
     private List<S_Food> foodScripts = new ();
 
-    private float timer;
-    
+    bool isLocal => Object && Object.HasStateAuthority;
+    [SerializeField, Networked] private float timer { get; set; }
+    private async void Start()
+    {
+        burntSlop = await Addressable.LoadAsset(AddressableAsset.BurntFood);
+        timerText = GetComponentInChildren<TMP_Text>();
+    }
+
     void Update()
     {
         switch (state)
         {
             case CookerState.Available:
-                break; 
+                timerText.text = "Available";
+                break;
             case CookerState.Cooking:
-                timer += Time.deltaTime;
+                if(isLocal)
+                    timer += Time.deltaTime;
+
+                timerText.text = "Timer: " + timer.ToString("..");
                 //TODO: update the timer UI
                 break;
             case CookerState.Finished:
+                timerText.text = "Finished!";
                 break;
         }
     }
@@ -83,7 +80,7 @@ public class S_Cooker : MonoBehaviour, IButtonObject
             foodScripts.Remove(food);
         }
     }
-    
+
     public void OnButtonPressed()
     {
         print("Interacting with Cooker " + name);
@@ -95,34 +92,38 @@ public class S_Cooker : MonoBehaviour, IButtonObject
             // Turn off colliders so they can't be picked up while cooking
             foreach (var foodScript in foodScripts)
             {
-                foodScript.TurnOffColliders();
+                foodScript.ToggleColliders();
             }
             //TODO: animation that closes the cooker or shows cooker cooking
-            state = CookerState.Cooking;
+            RPC_SetCookerState(CookerState.Cooking);
         }
         // Stop Cooker and empty food items inside
         else if (state == CookerState.Cooking)
         {
-            GameObject dishToSpawn;
+            Dish dish = GetDish();
+            Debug.Log(dish);
+            if (!dish.resultPrefab.TryGetComponent(out NetworkObject dishToSpawn))
+            {
+                Debug.LogError("Couldnt get a networkobject");
+                return;
+            }
+
             DishStatus dishStatus = DishStatus.UnCooked;
 
             // Undercooked
-            if (timer < goodTime)
+            if (timer < dish.underCookedTime)
             {
-                dishToSpawn = GetDish();
                 dishStatus = DishStatus.UnderCooked;
             }
             // Perfect
-            else if (timer < badTime)
+            else if (timer < dish.perfectlyCookedTime)
             {
-                dishToSpawn = GetDish();
                 dishStatus = DishStatus.Cooked;
 
             }
             // Overcooked
-            else if (timer < worstTime)
+            else if (timer < dish.overCookedTime)
             {
-                dishToSpawn = GetDish();
                 dishStatus = DishStatus.OverCooked;
 
             }
@@ -130,43 +131,51 @@ public class S_Cooker : MonoBehaviour, IButtonObject
             else
             {
                 // Cannot be served
-                dishToSpawn = burntSlop;
                 dishStatus = DishStatus.Burnt;
             }
 
             CleanCooker();
-            var dish = Instantiate(dishToSpawn, dishSocket.transform.position, dishSocket.transform.rotation);
-            if (dish.TryGetComponent(out S_DishStatus dishStatusScript))
+            var spawnedDish =  Runner.Spawn(dishToSpawn, dishSocket.transform.position, dishSocket.transform.rotation);
+            if (spawnedDish.TryGetComponent(out S_DishStatus dishStatusScript))
             {
                 dishStatusScript.ChangeStatus(dishStatus);
             }
             // TODO: Animation that opens the cooker or show it stops cooking
-            
-            state = CookerState.Available;
+
+            RPC_SetCookerState(CookerState.Available);
         }
     }
 
-    private GameObject GetDish() //Looks through the RecipeBook to see if any dish is created from those ingredients
+    private Dish GetDish() //Looks through the RecipeBook to see if any dish is created from those ingredients
     {
-        var dishInfo = _RecipeDatabase.FindMatchingRecipe(foodCooking, cookerType);
+        var dishInfo = S_RecipeDatabase.FindMatchingRecipe(foodCooking, cookerType);
         
         if (dishInfo != null)
         {
-            return dishInfo.resultPrefab;
+            return dishInfo;
         }
         
-        return burntSlop;
+        return null;
     }
 
+    //we can do object pooling later as it requires RPC calling and stuff to make happen
     private void CleanCooker()  // Moves items in cooker under the stage. possible to use object pooling.
     {
         S_Food[] foodList = foodScripts.ToArray();
         foreach (var foodScript in foodList)
         {
-            foodScript.TurnOffGrab();
-            foodScript.TurnOnColliders();
-            foodScript.transform.position = new Vector3(0,-10,0);
-            foodScript.TurnOnGrab();
+            Runner.Despawn(foodScript.GetComponent<NetworkObject>());
+
+            //foodScript.Toggle();
+            //foodScript.transform.position = new Vector3(0,-10,0);
         }
+
+        foodScripts.Clear();
+    }
+
+    [Rpc(sources: RpcSources.All, targets: RpcTargets.StateAuthority)]
+    void RPC_SetCookerState(CookerState state)
+    {
+        this.state = state;
     }
 }

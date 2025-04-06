@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95afc7c9919862b4ba04c97958d97ed2, type: 3}
+  m_Name: SO_RecipeBook
+  m_EditorClassIdentifier: 
+  recipes:
+  - typeOfDish: 2
+    ingredients: 0300000002000000
+    canBeCookedIn: 0
+    resultPrefab: {fileID: 8545582343303444559, guid: c1c781faa12f1b8438bc7af1109928f6, type: 3}
+    underCookedTime: 10
+    perfectlyCookedTime: 20
+    overCookedTime: 30
+  - typeOfDish: 4
+    ingredients: 02000000
+    canBeCookedIn: 1
+    resultPrefab: {fileID: 420254107189024360, guid: 14f6a8161ca8d91408af69ad90adffd8, type: 3}
+    underCookedTime: 10
+    perfectlyCookedTime: 20
+    overCookedTime: 30
+  - typeOfDish: 1
+    ingredients: 01000000
+    canBeCookedIn: 1
+    resultPrefab: {fileID: 6908754657246016097, guid: 5baa5ec829edc26478bee01b5b7df615, type: 3}
+    underCookedTime: 10
+    perfectlyCookedTime: 20
+    overCookedTime: 30

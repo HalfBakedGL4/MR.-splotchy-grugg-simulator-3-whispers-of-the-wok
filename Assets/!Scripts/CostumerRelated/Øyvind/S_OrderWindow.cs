@@ -13,7 +13,7 @@ using Random = UnityEngine.Random;
 [Serializable]
 public class Order
 {
-    public Dish nameOfDish;
+    public DishType nameOfDish;
     public Sprite orderImage;
     public Sprite orderIngredients;
     public Sprite orderTools;
@@ -32,7 +32,7 @@ public class S_OrderWindow : NetworkBehaviour
     private Dictionary<S_Ticket, Transform> ticketsDictionary = new Dictionary<S_Ticket, Transform>();
 
     // Costumer will request a Dish
-    public S_Ticket MakeOrder(Dish dish, S_CostumerOrder costumer)
+    public S_Ticket MakeOrder(DishType dish, S_CostumerOrder costumer)
     {
         var thisOrder = new Order();
         var foundOrder = false;

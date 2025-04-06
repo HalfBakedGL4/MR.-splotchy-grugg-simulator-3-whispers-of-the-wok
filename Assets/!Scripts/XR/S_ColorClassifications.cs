@@ -16,11 +16,12 @@ public class S_ColorClassifications : MonoBehaviour
     // Needs to be referenced in the editor in ARPlaneManager
     public void SetupPlane(ARTrackablesChangedEventArgs<ARPlane> changes)
     {
+        Debug.Log(changes.added);
         foreach (var item in changes.added)
         {
             if (item.classifications == showClassifications)
             {
-                
+
             }
             else if (item.classifications == portalClassifications)
             {
