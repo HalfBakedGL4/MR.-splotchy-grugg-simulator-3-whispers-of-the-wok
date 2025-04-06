@@ -1,19 +1,10 @@
 # ninja log v5
-11	771	7655456142112381	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	96c1d0cc2bf02271
-21	839	7655456142820613	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	5fddcdb5ee241a20
-8	778	7655456142217700	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	fa5ba92cf798e669
-5	874	7655456143210206	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	a3fa2246756f8b70
-25	791	7655456142328907	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	732a46b919ea0ba7
-14	846	7655456142916548	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	81d6dea2f6d7de7d
-1068	1178	7655456146279835	E:/Work/Shool/Semester 4/Gamelab/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/631q2l33/obj/arm64-v8a/libgame.so	38328b9ad36a8548
-18	989	7655456144323251	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	6ff1ce6dee3dc640
-1	1068	7655456145145651	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	5e5ebf09731e0b16
-19	965	7655863518153397	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	96c1d0cc2bf02271
-12	975	7655863518254837	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	fa5ba92cf798e669
-22	989	7655863518388518	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	732a46b919ea0ba7
-31	1028	7655863518846819	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	5fddcdb5ee241a20
-8	1084	7655863519381751	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	a3fa2246756f8b70
-15	1090	7655863519425575	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	81d6dea2f6d7de7d
-26	1170	7655863520305724	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	6ff1ce6dee3dc640
-3	1259	7655863521199855	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	5e5ebf09731e0b16
-1259	1504	7655863523753066	E:/Work/Shool/Semester 4/Gamelab/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/631q2l33/obj/arm64-v8a/libgame.so	38328b9ad36a8548
+10	759	7656401652269605	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	96c1d0cc2bf02271
+7	776	7656401652417077	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	fa5ba92cf798e669
+20	788	7656401652547539	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	732a46b919ea0ba7
+23	829	7656401652948700	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	5fddcdb5ee241a20
+14	839	7656401653094890	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	81d6dea2f6d7de7d
+1	867	7656401653379582	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	a3fa2246756f8b70
+17	948	7656401654180250	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	6ff1ce6dee3dc640
+4	1019	7656401654901081	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	5e5ebf09731e0b16
+1020	1122	7656401655945868	E:/Work/Shool/Semester 4/Gamelab/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/631q2l33/obj/arm64-v8a/libgame.so	38328b9ad36a8548

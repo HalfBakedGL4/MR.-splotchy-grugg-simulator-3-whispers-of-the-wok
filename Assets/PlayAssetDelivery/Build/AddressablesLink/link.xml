@@ -14,7 +14,7 @@
     <type fullname="S_Interactor" preserve="all" />
     <type fullname="S_ItemSpawner" preserve="all" />
     <type fullname="SO_RecipeBook" preserve="all" />
-    <type fullname=".Recipe" preserve="nothing" serialized="true" />
+    <type fullname=".Dish" preserve="nothing" serialized="true" />
     <type fullname="Input.InputInfo" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Fusion.Runtime, Version=2.0.4.0, Culture=neutral, PublicKeyToken=null">

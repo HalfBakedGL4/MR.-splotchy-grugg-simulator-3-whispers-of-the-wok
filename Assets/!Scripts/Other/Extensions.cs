@@ -49,7 +49,7 @@ namespace Extentions
             /// <returns>Addressables gameobject</returns>
             public static async Task<GameObject> LoadAsset(AddressableAsset addressable)
             {
-                return await LoadAsset<GameObject>(paths[AddressableAsset.SharedNetworkPlayer]);
+                return await LoadAsset<GameObject>(paths[addressable]);
             }
             /// <summary>
             /// Load a addressables asset by its addressable name
@@ -69,7 +69,7 @@ namespace Extentions
             /// <returns>Addressables asset</returns>
             public static async Task<T> LoadAsset<T>(AddressableAsset addressable)
             {
-                return await LoadAsset<T>(paths[AddressableAsset.SharedNetworkPlayer]);
+                return await LoadAsset<T>(paths[addressable]);
             }
 
             /// <summary>
@@ -81,7 +81,7 @@ namespace Extentions
             /// <returns>Addressables asset</returns>
             public static async Task<T> LoadAsset<T>(AddressableAsset addressable, bool getType) where T : Object
             {
-                return await LoadAsset<T>(paths[AddressableAsset.SharedNetworkPlayer], getType);
+                return await LoadAsset<T>(paths[addressable], getType);
             }
 
             /// <summary>
