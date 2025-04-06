@@ -161,6 +161,7 @@ MonoBehaviour:
   Flags: 262145
   NestedObjects: []
   NetworkedBehaviours:
+  - {fileID: 8611827220600554759}
   - {fileID: 7637761502810297324}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &7637761502810297324
@@ -176,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stateAuthorityChangeErrorCorrectionDelta: 0.15
-  SyncScale: 0
+  SyncScale: 1
   SyncParent: 0
   _autoAOIOverride: 1
   DisableSharedModeInterpolation: 0

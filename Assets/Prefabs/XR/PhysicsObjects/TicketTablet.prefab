@@ -293,6 +293,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4150662434704240411}
   - component: {fileID: 2605544696694138344}
+  - component: {fileID: 8403066639688458402}
+  - component: {fileID: 8591368419294303443}
   m_Layer: 0
   m_Name: TicketTablet
   m_TagString: Untagged
@@ -361,6 +363,44 @@ MonoBehaviour:
   orderTutorial: {fileID: 540296009514835558}
   page1: {fileID: 5940157534431125081}
   page2: {fileID: 6767069569903709378}
+--- !u!114 &8403066639688458402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4668012434935202449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SortKey: 3842950153
+  ObjectInterest: 1
+  Flags: 262145
+  NestedObjects: []
+  NetworkedBehaviours:
+  - {fileID: 2605544696694138344}
+  - {fileID: 8591368419294303443}
+  - {fileID: 9069301321194446962}
+  ForceRemoteRenderTimeframe: 0
+--- !u!114 &8591368419294303443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4668012434935202449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateAuthorityChangeErrorCorrectionDelta: 0.15
+  SyncScale: 0
+  SyncParent: 0
+  _autoAOIOverride: 1
+  DisableSharedModeInterpolation: 0
 --- !u!1 &4794476957168840563
 GameObject:
   m_ObjectHideFlags: 0
@@ -1305,6 +1345,7 @@ GameObject:
   - component: {fileID: 4617778547156558517}
   - component: {fileID: 706085725198836494}
   - component: {fileID: 3121715960539327788}
+  - component: {fileID: 9069301321194446962}
   m_Layer: 0
   m_Name: TicketBottom
   m_TagString: Ticket
@@ -1522,6 +1563,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.23424333, y: 0.75531465, z: 0.61898947}
   m_Center: {x: 0, y: 0.29975715, z: 0}
+--- !u!114 &9069301321194446962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8517472702203484261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateAuthorityChangeErrorCorrectionDelta: 0.15
+  SyncScale: 0
+  SyncParent: 0
+  _autoAOIOverride: 1
+  DisableSharedModeInterpolation: 0
 --- !u!1 &8872065322958271379
 GameObject:
   m_ObjectHideFlags: 0

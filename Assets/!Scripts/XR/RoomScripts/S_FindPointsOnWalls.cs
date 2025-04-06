@@ -1,6 +1,6 @@
-using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using Fusion;
+using TMPro;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -12,8 +12,18 @@ public class S_FindPointsOnWalls : MonoBehaviour
     
     private Dictionary<ARPlane, List<Vector3>> wallPoints = new ();
     
+    private ARPlaneManager planeManager;
+
+    private void OnEnable()
+    {
+        planeManager = FindFirstObjectByType<ARPlaneManager>();
+        if (planeManager == null)
+            Log.Error("There are no plane manager.");
+        planeManager.trackablesChanged.AddListener(FindWallPoints);
+    }
+    
     // Must be connected to an AR plane manager
-    public void FindWallPoints(ARTrackablesChangedEventArgs<ARPlane> changes)
+    void FindWallPoints(ARTrackablesChangedEventArgs<ARPlane> changes)
     {
         foreach (ARPlane plane in changes.added)
         {
@@ -41,6 +51,7 @@ public class S_FindPointsOnWalls : MonoBehaviour
                         AddWallPoint(plane, offsetVector);
                     }
                 }
+                
             }
         }
     }
@@ -51,10 +62,11 @@ public class S_FindPointsOnWalls : MonoBehaviour
         {
             wallPoints[plane] = new List<Vector3>();
         }
-        
+
         wallPoints[plane].Add(point);
     }
     
+
     // Returns Tuple containing the wall and point on wall
     // A Couple of line to debug and remove used spots so to not spawn hole on same position
     public (ARPlane, Vector3) GetRandomWallAndPoint()
@@ -102,5 +114,10 @@ public class S_FindPointsOnWalls : MonoBehaviour
         }
 
         return (randomWall, randomPoint);
+    }
+    private void OnDisable()
+    {
+        planeManager.trackablesChanged.RemoveListener(FindWallPoints);
+
     }
 }

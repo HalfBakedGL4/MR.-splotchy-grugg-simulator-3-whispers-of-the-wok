@@ -1070,9 +1070,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SortKey: 1497535725
   ObjectInterest: 1
-  Flags: 1
+  Flags: 262145
   NestedObjects: []
   NetworkedBehaviours:
+  - {fileID: 3020123559839700090}
   - {fileID: -4855331834214666279}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &-4855331834214666279
@@ -1088,7 +1089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stateAuthorityChangeErrorCorrectionDelta: 0.15
-  SyncScale: 0
+  SyncScale: 1
   SyncParent: 0
   _autoAOIOverride: 1
   DisableSharedModeInterpolation: 0

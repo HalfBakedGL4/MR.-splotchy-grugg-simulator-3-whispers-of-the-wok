@@ -1,10 +1,6 @@
-using Fusion;
-using Fusion.Sockets;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -17,17 +13,14 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
     [Header("Link this script to AR Plane Manager!!")]
     [SerializeField] private PlaneClassifications classifications;
     [SerializeField] private GameObject[] spawnObjects;
-    [SerializeField] private TMP_Text debugText;
-
-    [SerializeField] private ARPlaneManager planeManager;
-
+    
     [SerializeField] private S_OrderWindow orderWindow;
     [SerializeField] private float windowHeight = 1.0f;
     private float basketSize = 0.5f;
     
     private bool windowPlaced = false;
 
-    bool islocal => Object && Object.HasStateAuthority;
+    
 
     public override void Spawned()
     {
@@ -36,7 +29,15 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
     }
 
     // Needs to be referenced in the editor in ARPlaneManager
-    public void PlaceObjectOnPlane(TrackableCollection<ARPlane> changes)
+
+    private void OnEnable()
+    {
+        planeManager = FindFirstObjectByType<ARPlaneManager>();
+        planeManager.trackablesChanged.AddListener(PlaceObjectOnPlane);
+    }
+
+    // Needs to be referenced in the editor in ARPlaneManager
+    public void PlaceObjectOnPlane(ARTrackablesChangedEventArgs<ARPlane> changes)
     {
         if (!islocal) return;
 
@@ -103,7 +104,7 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
                     //}
                 }
 
-                if (item.classifications == PlaneClassifications.WallFace && !windowPlaced)
+            if (item.classifications == PlaneClassifications.WallFace && !windowPlaced)
                 {
                     //debugText.text = item.transform.rotation.ToString();
                     //debugText.text += "\n";
@@ -123,6 +124,11 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
 
             
         }
+    }
+
+    private void OnDisable()
+    {
+        planeManager.trackablesChanged.RemoveListener(PlaceObjectOnPlane);
     }
 
   
