@@ -313,7 +313,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6221656747758952707, guid: 7e4225130453e544cb89d9d619d58bef, type: 3}
       insertIndex: -1
       addedObject: {fileID: 815035152}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4526459698588862537, guid: 7e4225130453e544cb89d9d619d58bef, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 7e4225130453e544cb89d9d619d58bef, type: 3}
 --- !u!1 &286243544
 GameObject:
@@ -913,6 +916,17 @@ Transform:
   - {fileID: 1131146537}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1045538101 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2049683816127363178, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
+  m_PrefabInstance: {fileID: 672148616}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1131146536
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,6 +1256,10 @@ PrefabInstance:
       propertyPath: orderWindow
       value: 
       objectReference: {fileID: 2266349842765232060, guid: fff54c2ebb177374a80aacd97af28aaa, type: 3}
+    - target: {fileID: 3284256905931433717, guid: 16d0a31e62111be48815994228792d9a, type: 3}
+      propertyPath: planeManager
+      value: 
+      objectReference: {fileID: 1045538101}
     - target: {fileID: 3284256905931433717, guid: 16d0a31e62111be48815994228792d9a, type: 3}
       propertyPath: classifications
       value: 256

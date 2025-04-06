@@ -7,6 +7,7 @@ using UnityEngine.XR.ARSubsystems;
 using static Unity.Collections.Unicode;
 using Random = UnityEngine.Random;
 using Vector3 = UnityEngine.Vector3;
+using Fusion;
 
 public class S_SpawnObjectOnClassification : NetworkBehaviour
 {
@@ -16,9 +17,12 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
     
     [SerializeField] private S_OrderWindow orderWindow;
     [SerializeField] private float windowHeight = 1.0f;
+    [SerializeField] private ARPlaneManager planeManager;
     private float basketSize = 0.5f;
     
     private bool windowPlaced = false;
+
+    private bool islocal => Object && Object.HasStateAuthority;
 
     
 
@@ -29,15 +33,7 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
     }
 
     // Needs to be referenced in the editor in ARPlaneManager
-
-    private void OnEnable()
-    {
-        planeManager = FindFirstObjectByType<ARPlaneManager>();
-        planeManager.trackablesChanged.AddListener(PlaceObjectOnPlane);
-    }
-
-    // Needs to be referenced in the editor in ARPlaneManager
-    public void PlaceObjectOnPlane(ARTrackablesChangedEventArgs<ARPlane> changes)
+    public void PlaceObjectOnPlane(TrackableCollection<ARPlane> changes)
     {
         if (!islocal) return;
 
@@ -125,11 +121,5 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
             
         }
     }
-
-    private void OnDisable()
-    {
-        planeManager.trackablesChanged.RemoveListener(PlaceObjectOnPlane);
-    }
-
   
 }
