@@ -39,7 +39,7 @@ public class S_CostumerManager : NetworkBehaviour
         debugText.text += " hole, ";
 
         debugText.text += " Spawning ";
-        SpawnPlayer(wallTuple);
+        SpawnCostumer(wallTuple);
         debugText.text += " costumer, ";
     }
 
@@ -57,11 +57,11 @@ public class S_CostumerManager : NetworkBehaviour
         holeSpawner.SpawnHole(holePos, wallTuple.wall.transform.rotation);
     }
     
-    private void SpawnPlayer( (ARPlane wall, Vector3 pointOnWall) wallTuple)
+    private void SpawnCostumer( (ARPlane wall, Vector3 pointOnWall) wallTuple)
     {
         var costumerPos = wallTuple.pointOnWall + wallTuple.wall.transform.position;
 
-        costumerSpawner.SpawnCostumer(costumerPos, wallTuple.wall.transform.rotation);
+        costumerSpawner.SpawnCostumer(costumerPos, wallTuple.wall);
     }
 
 }

@@ -61,7 +61,6 @@ public class S_HoleSpawner : NetworkBehaviour
 
     public void SpawnHole(Vector3 pos, Quaternion rot)
     {
-
         // Checks for holes nearby.
         Collider[] hitColliders = Physics.OverlapSphere(pos, 1, LayerMask.GetMask("Default"), QueryTriggerInteraction.Collide);
         foreach (var hitCollider in hitColliders)
