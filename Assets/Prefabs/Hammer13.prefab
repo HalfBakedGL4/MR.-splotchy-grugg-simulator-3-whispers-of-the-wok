@@ -302,8 +302,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 730d08152046a4a4fbee5e6afead1da2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallMultiplier: 0
-  enemyMultiplier: 0
+  wallMultiplier: 1
+  enemyMultiplier: 1
   _charge: 0
   fillImage: {fileID: 1614263941821130414}
 --- !u!1 &4650672753702284893 stripped
