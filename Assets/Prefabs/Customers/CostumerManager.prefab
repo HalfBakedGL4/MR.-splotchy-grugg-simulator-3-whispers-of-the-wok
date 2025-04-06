@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 6391273715721676291}
   - component: {fileID: 4703017640537988835}
   - component: {fileID: 465479620234018708}
+  - component: {fileID: 3178879479147982308}
+  - component: {fileID: 5517262160264635024}
+  - component: {fileID: 6265764638419284911}
   - component: {fileID: 1602496550865357669}
-  - component: {fileID: 7622674982314317245}
   m_Layer: 0
   m_Name: CostumerManager
   m_TagString: Untagged
@@ -28,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2685125063712157668}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -49,10 +51,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SortKey: 1373633571
   ObjectInterest: 1
-  Flags: 262145
+  Flags: 131073
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 465479620234018708}
+  - {fileID: 5517262160264635024}
+  - {fileID: 6265764638419284911}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &465479620234018708
 MonoBehaviour:
@@ -66,6 +70,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b245bc2ab9989cf4facfffedcc00b348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  costumerOrder: {fileID: 1602496550865357669}
+  costumerSpawner: {fileID: 6265764638419284911}
+  findPointsOnWalls: {fileID: 3178879479147982308}
+  holeSpawner: {fileID: 5517262160264635024}
+  debugText: {fileID: 0}
+--- !u!114 &3178879479147982308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2685125063712157668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3411f65f6497e5240a9c631d5984be27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holeSize: 0.25
+  debugText: {fileID: 0}
+--- !u!114 &5517262160264635024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2685125063712157668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd6db474e03a05947acd47b8559fb5ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holePrefabs:
+  - {fileID: 4427969772178598340, guid: 3ea18882433980549a145c0b85a48d4f, type: 3}
+  - {fileID: 8743803021790657939, guid: 0532bc8cf048bfe4d86cbfe657684b0d, type: 3}
+  - {fileID: 3562898645679848131, guid: 669256b87b3fc62488ccc6af40fab9f5, type: 3}
+  - {fileID: 8194431942295444678, guid: 804a74eea11472046ac279d38a10fd57, type: 3}
+  multiHoleFix: 0
+--- !u!114 &6265764638419284911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2685125063712157668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9adcd39eaf4bbe34e943d5d4546dc2b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  costumerPrefabs:
+  - {fileID: 1569034952356095297, guid: 5f15a259763701549bcbb704158bfa84, type: 3}
+  lengthInFrontOfHole: 0.2
 --- !u!114 &1602496550865357669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,17 +135,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canOrder: 00000000
---- !u!114 &7622674982314317245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2685125063712157668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c152cab05802da4bb57d10a6677b90d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  findPointsOnWalls: {fileID: 0}
-  holeSpawner: {fileID: 0}

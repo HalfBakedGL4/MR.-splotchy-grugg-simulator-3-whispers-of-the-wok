@@ -1,18 +1,14 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using Photon;
 using Fusion;
-using Input;
-using TMPro;
+
 
 
 public class S_HoleSpawner : NetworkBehaviour
 {
-    Camera cam => Camera.main; // Only used for raycast, remove later.
+    
     [SerializeField] List<GameObject> holePrefabs; // Prefabs to instantiate on collision
-    [SerializeField] private InputActionProperty inputAction;
 
     [Header("Fix multiple holes at once")]
     [SerializeField] bool multiHoleFix;
@@ -21,14 +17,11 @@ public class S_HoleSpawner : NetworkBehaviour
     private Transform parent;
     NetworkRunner runner;
 
-    [SerializeField] private TMP_Text debug;
     
-    private void Start()
-    {
-        runner = FindFirstObjectByType<NetworkRunner>();
-    }
     /*
-       public bool IsLocalNetworkRig => Object && Object.HasStateAuthority;
+        Camera cam => Camera.main; // Only used for raycast, remove later.
+        [SerializeField] private InputActionProperty inputAction;
+        public bool IsLocalNetworkRig => Object && Object.HasStateAuthority;
 
        private void Start()
        {
@@ -68,7 +61,6 @@ public class S_HoleSpawner : NetworkBehaviour
 
     public void SpawnHole(Vector3 pos, Quaternion rot)
     {
-        debug.text += " trying to spawn hole ";
 
         // Checks for holes nearby.
         Collider[] hitColliders = Physics.OverlapSphere(pos, 1, LayerMask.GetMask("Default"), QueryTriggerInteraction.Collide);
@@ -80,16 +72,19 @@ public class S_HoleSpawner : NetworkBehaviour
                 parent = hitCollider.transform;
             }
         }
-        debug.text += " after checking for naighboring holes ";
 
         // Select random hole prefab from list
-
         holeIndex = UnityEngine.Random.Range(0, holePrefabs.Count);
-        debug.text += " Hole Index" + holeIndex;
-        // rot.z = UnityEngine.Random.Range(0, 360);
-
+        
+        //rot.z = UnityEngine.Random.Range(0, 360);
+        
+        // Check if runner is found
+        if (runner == null)
+        {
+            runner = FindAnyObjectByType<NetworkRunner>();
+        }
+        // Spawns hole
         NetworkObject spawnedHole = runner.Spawn(holePrefabs[holeIndex], pos, rot);
-        debug.text += " SpawnedHole " + spawnedHole.name;
 
         // Merges all hole under one parent, so all connected holes can be fixed at once.
         if (multiHoleFix && parent != null)

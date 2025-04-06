@@ -269,7 +269,6 @@ GameObject:
   - component: {fileID: 933351277913022186}
   - component: {fileID: 387426432640405418}
   - component: {fileID: 8198567401433797707}
-  - component: {fileID: 1612497302555870456}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -323,35 +322,6 @@ MonoBehaviour:
   SyncParent: 0
   _autoAOIOverride: 1
   DisableSharedModeInterpolation: 0
---- !u!114 &1612497302555870456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4028725702897656151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd6db474e03a05947acd47b8559fb5ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  holePrefabs:
-  - {fileID: 4427969772178598340, guid: 3ea18882433980549a145c0b85a48d4f, type: 3}
-  - {fileID: 8743803021790657939, guid: 0532bc8cf048bfe4d86cbfe657684b0d, type: 3}
-  inputAction:
-    m_UseReference: 0
-    m_Action:
-      m_Name: Input
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: beaa63ce-a79d-4fd7-ab02-e041c569599b
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 0}
-  multiHoleFix: 0
-  debug: {fileID: 0}
 --- !u!1 &5374872096494914040
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,7 +499,6 @@ MonoBehaviour:
   - {fileID: 6296414655312412233}
   - {fileID: 387426432640405418}
   - {fileID: 8198567401433797707}
-  - {fileID: 1612497302555870456}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &2032407206206816740
 MonoBehaviour:
@@ -583,7 +552,7 @@ MonoBehaviour:
   RightTrigger:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1612497302555870456}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: S_HoleSpawner, Assembly-CSharp
         m_MethodName: SpawnItem
         m_Mode: 0

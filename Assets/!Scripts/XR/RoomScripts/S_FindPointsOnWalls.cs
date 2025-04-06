@@ -21,10 +21,7 @@ public class S_FindPointsOnWalls : MonoBehaviour
             Log.Error("There are no plane manager.");
         planeManager.trackablesChanged.AddListener(FindWallPoints);
     }
-
-  
-    [SerializeField] private TMP_Text debugText;
-
+    
     // Must be connected to an AR plane manager
     void FindWallPoints(ARTrackablesChangedEventArgs<ARPlane> changes)
     {
@@ -66,7 +63,6 @@ public class S_FindPointsOnWalls : MonoBehaviour
             wallPoints[plane] = new List<Vector3>();
         }
 
-        debugText.text += "."; 
         wallPoints[plane].Add(point);
     }
     
@@ -79,7 +75,6 @@ public class S_FindPointsOnWalls : MonoBehaviour
         if (wallPoints == null || wallPoints.Count == 0)
         {
             Debug.LogWarning("No walls available in the dictionary.");
-            debugText.text += "No walls available in the dictionary";
             return (null, Vector3.zero);
         }
 
@@ -90,8 +85,6 @@ public class S_FindPointsOnWalls : MonoBehaviour
         if (walls.Count == 0)
         {
             Debug.LogWarning("Walls list is empty.");
-            debugText.text += "Walls list is empty.";
-
             return (null, Vector3.zero);
         }
 
@@ -102,7 +95,6 @@ public class S_FindPointsOnWalls : MonoBehaviour
         if (!wallPoints.ContainsKey(randomWall) || wallPoints[randomWall] == null || wallPoints[randomWall].Count == 0)
         {
             Debug.LogWarning($"Selected wall '{randomWall.name}' has no points.");
-            debugText.text += $"Selected wall '{randomWall.name}' has no points.";
             return (randomWall, Vector3.zero);
         }
 

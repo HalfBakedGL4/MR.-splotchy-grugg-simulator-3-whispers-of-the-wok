@@ -32,7 +32,8 @@ public class S_RecipeDatabase : MonoBehaviour
         foreach (var recipe in recipes)
         {
             // First check if correct cooking station   and   then check if the recipe is correct
-            if (recipe.canBeCookedIn == playerCooker && recipe.ingredients.OrderBy(i => i).SequenceEqual(playerIngredients.OrderBy(i => i)))
+            if (recipe.canBeCookedIn == playerCooker && 
+                recipe.ingredients.OrderBy(i => i).SequenceEqual(playerIngredients.OrderBy(i => i)))
             {
                 return recipe;
             }
