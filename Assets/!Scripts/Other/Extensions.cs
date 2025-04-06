@@ -17,6 +17,13 @@ namespace Extentions
             RecipeBook = 2,
             BurntFood = 3,
         }
+        public enum AddressableLabel
+        {
+            SharedNetworkPlayer = 0,
+            SharedLocalPlayer = 1,
+            RecipeBook = 2,
+            BurntFood = 3,
+        }
         /// <summary>
         /// a extension class made for addressables
         /// </summary>
@@ -25,7 +32,7 @@ namespace Extentions
             /// <summary>
             /// Easily accessable addressable names
             /// </summary>
-            public static readonly Dictionary<AddressableAsset, string> paths = new Dictionary<AddressableAsset, string>
+            static readonly Dictionary<AddressableAsset, string> paths = new Dictionary<AddressableAsset, string>
             {
                 { AddressableAsset.SharedNetworkPlayer, "SharedNetworkPlayer" },
                 { AddressableAsset.SharedLocalPlayer, "SharedLocalPlayer" },
@@ -36,9 +43,18 @@ namespace Extentions
             /// <summary>
             /// Easiy accessable addressable lables
             /// </summary>
-            public static readonly string[] labels = new string[]
+            static readonly Dictionary<AddressableLabel, string> lables = new Dictionary<AddressableLabel, string>
             {
             };
+
+            public static string returnPath(AddressableAsset addressable)
+            {
+                if(paths[addressable] != null)
+                    return paths[addressable];
+
+                Debug.LogError("[Addressable] path not found");
+                return null;
+            }
 
             #region Load Asset
 
@@ -49,16 +65,7 @@ namespace Extentions
             /// <returns>Addressables gameobject</returns>
             public static async Task<GameObject> LoadAsset(AddressableAsset addressable)
             {
-                return await LoadAsset<GameObject>(paths[addressable]);
-            }
-            /// <summary>
-            /// Load a addressables asset by its addressable name
-            /// </summary>
-            /// <param name="addressable">The addressable asset</param>
-            /// <returns>Addressables gameobject</returns>
-            public static async Task<GameObject> LoadAsset(string addressable)
-            {
-                return await LoadAsset<GameObject>(addressable);
+                return await LoadAsset<GameObject>(returnPath(addressable));
             }
 
             /// <summary>
@@ -67,9 +74,9 @@ namespace Extentions
             /// <typeparam name="T">The type to find</typeparam>
             /// <param name="addressable">The addressable asset</param>
             /// <returns>Addressables asset</returns>
-            public static async Task<T> LoadAsset<T>(AddressableAsset addressable)
+            public static async Task<T> LoadAsset<T>(AddressableAsset addressable) where T : Object
             {
-                return await LoadAsset<T>(paths[addressable]);
+                return await LoadAsset<T>(returnPath(addressable));
             }
 
             /// <summary>
@@ -77,11 +84,11 @@ namespace Extentions
             /// </summary>
             /// <typeparam name="T">The type to find</typeparam>
             /// <param name="addressable">The addressable asset</param>
-            /// <param name="getType">if it should return a script from a GameObject rather than return the gameobject</param>
+            /// <param name="getComponent">if it should return a script from a GameObject rather than return the gameobject</param>
             /// <returns>Addressables asset</returns>
-            public static async Task<T> LoadAsset<T>(AddressableAsset addressable, bool getType) where T : Object
+            public static async Task<T> LoadAsset<T>(AddressableAsset addressable, bool getComponent) where T : MonoBehaviour
             {
-                return await LoadAsset<T>(paths[addressable], getType);
+                return await LoadAsset<T>(returnPath(addressable), getComponent);
             }
 
             /// <summary>
@@ -91,21 +98,20 @@ namespace Extentions
             /// <param name="addressable">The addressable name</param>
             /// <param name="getType">if it should return a script from a GameObject rather than return the gameobject</param>
             /// <returns>Addressables asset</returns>
-            public static async Task<T> LoadAsset<T>(string addressable, bool getType) where T : Object
+            static async Task<T> LoadAsset<T>(string addressable, bool getType) where T : MonoBehaviour
             {
-                T item = await LoadAsset<T>(addressable);
+                GameObject item = await LoadAsset<GameObject>(addressable);
 
-                if (item is ScriptableObject)
+                if (item == null)
                 {
-                    Debug.LogWarning(nameof(getType) + " should be false as " + typeof(T) + " is a ScriptableObject");
-                    return item;
+                    Debug.LogError("[Addressable] item is null");
                 }
-                else if (item is GameObject && getType)
+                if (getType)
                 {
-                    return (item as GameObject).GetComponent<T>();
+                    return item.GetComponent<T>();
                 }
 
-                return item;
+                return null;
             }
 
             /// <summary>
@@ -114,10 +120,19 @@ namespace Extentions
             /// <typeparam name="T">The type to find</typeparam>
             /// <param name="addressable">The addressable name</param>
             /// <returns>Addressables asset</returns>
-            public static async Task<T> LoadAsset<T>(string addressable)
+            static async Task<T> LoadAsset<T>(string addressable) where T : Object
             {
+                if (addressable == null || addressable == string.Empty)
+                {
+                    Debug.LogError("[Addressable] empty string");
+                    return default;
+                }
+
+                Debug.Log("[Addressable] loading " + addressable);
+
                 AsyncOperationHandle handle = Addressables.LoadAssetAsync<T>(addressable);
                 await handle.Task;
+
 
                 if (handle.Status == AsyncOperationStatus.Succeeded)
                 {
@@ -135,7 +150,7 @@ namespace Extentions
             /// <typeparam name="T">The type of assets to load</typeparam>
             /// <param name="label">The label</param>
             /// <returns>List of asseets</returns>
-            public static async Task<List<T>> LoadAssets<T>(string label)
+            public static async Task<List<T>> LoadAssets<T>(string label) where T : Object
             {
                 AsyncOperationHandle handle = Addressables.LoadAssetsAsync<T>(label);
                 await handle.Task;
