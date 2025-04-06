@@ -25,7 +25,9 @@ public class S_CostumerManager : NetworkBehaviour
 
         if (isLocal)
         {
-            InvokeRepeating(nameof(Debuggings), 0f, 10f);
+            //InvokeRepeating(nameof(Debuggings), 0f, 10f);
+            
+            costumerOrder.OrderFood();
         }
     }
     

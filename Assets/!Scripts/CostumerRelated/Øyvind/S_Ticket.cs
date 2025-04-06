@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Mime;
+using Fusion;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class S_Ticket : MonoBehaviour
+public class S_Ticket : NetworkBehaviour
 {
     [SerializeField] private InputActionProperty leftInputAction;
     [SerializeField] private InputActionProperty rightInputAction;

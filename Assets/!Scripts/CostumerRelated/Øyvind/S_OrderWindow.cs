@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Fusion;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,14 +20,15 @@ public class Order
     public Sprite orderTutorial;
     
 }
-public class S_OrderWindow : MonoBehaviour
+public class S_OrderWindow : NetworkBehaviour
 {
     [SerializeField] private S_Ticket ticketPrefab;
     [SerializeField] private List<Transform> ticketPlacements;
     [Tooltip("All possible dishes for costumers to order, with the descriptive images of items ordered")]
     [SerializeField] private List<Order> orderTypes = new List<Order>();
 
-    
+    NetworkRunner runner;
+
     private Dictionary<S_Ticket, Transform> ticketsDictionary = new Dictionary<S_Ticket, Transform>();
 
     // Costumer will request a Dish
@@ -57,10 +59,15 @@ public class S_OrderWindow : MonoBehaviour
     // Ticket is added
     private S_Ticket AddTicket(Order order, S_CostumerOrder costumer)
     {
+        // Check if runner is there
+        if (runner == null)
+        {
+            runner = FindAnyObjectByType<NetworkRunner>();
+        }
         // Get random transform from List to place item
         var pos = ticketPlacements[Random.Range(0, ticketPlacements.Count - 1)];
         // Instantiate and place ticket on position
-        var ticket = Instantiate(ticketPrefab, pos.position, quaternion.identity);
+        var ticket = runner.Spawn(ticketPrefab, pos.position, quaternion.identity);
         
         // Remove position ticket can appear
         ticketPlacements.Remove(pos);
@@ -87,7 +94,7 @@ public class S_OrderWindow : MonoBehaviour
         // Remove used ticket
         ticketsDictionary.Remove(ticket);
         // Destroy ticket from scene
-        Destroy(ticket.gameObject);
+        runner.Despawn(ticket.GetComponent<NetworkObject>());
 
     }
 
