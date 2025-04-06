@@ -16,14 +16,14 @@ public class S_PlayerSpawner : SimulationBehaviour, IPlayerJoined, IPlayerLeft
     [SerializeField, ReadOnly] S_NetworkPlayer networkPlayerPrefab;
     S_LocalPlayer localPlayer;
 
-    private Dictionary<PlayerRef, NetworkObject> _spawnedUsers = new Dictionary<PlayerRef, NetworkObject>();
+    public static Dictionary<PlayerRef, NetworkObject> _spawnedUsers = new Dictionary<PlayerRef, NetworkObject>();
 
 #if UNITY_EDITOR
     private async void OnValidate()
     {
         if (networkPlayerPrefab == null)
         {
-            networkPlayerPrefab = (await Addressable.LoadAsset<GameObject>(Addressable.names[0])).GetComponent<S_NetworkPlayer>();
+            networkPlayerPrefab = await Addressable.LoadAsset<S_NetworkPlayer>(AddressableAsset.SharedNetworkPlayer, true);
         }
 
         if (localPlayer == null)
@@ -36,7 +36,7 @@ public class S_PlayerSpawner : SimulationBehaviour, IPlayerJoined, IPlayerLeft
     public async Task SpawnPlayer(PlayerRef player)
     {
         if (networkPlayerPrefab == null)
-            networkPlayerPrefab = await Addressable.LoadAsset<S_NetworkPlayer>(Addressable.names[0], true);
+            networkPlayerPrefab = await Addressable.LoadAsset<S_NetworkPlayer>(AddressableAsset.SharedNetworkPlayer, true);
         
 
         if (localPlayer == null)
