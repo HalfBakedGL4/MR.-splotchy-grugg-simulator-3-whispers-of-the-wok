@@ -99,19 +99,27 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
                     //}
                 }
 
-                if (item.classifications == PlaneClassifications.WallFace && !windowPlaced)
+                if(!windowPlaced)
                 {
-                    //debugText.text = item.transform.rotation.ToString();
-                    //debugText.text += "\n";
-                    //debugText.text += "Rotation (Euler Angles): " + item.transform.eulerAngles.ToString();
+                    if ((item.classifications == PlaneClassifications.WallFace ||
+                        item.classifications == PlaneClassifications.WallArt ||
+                        item.classifications == PlaneClassifications.InvisibleWallFace ||
+                        item.classifications == PlaneClassifications.WindowFrame))
+                    {
+                        Debug.Log("[Spawn Objects] " + item.classifications);
 
-                    var windowInstance = Runner.Spawn(orderWindow, item.transform.position, Quaternion.Euler(item.transform.eulerAngles + new Vector3(90, 90, 0)));
+                        //debugText.text = item.transform.rotation.ToString();
+                        //debugText.text += "\n";
+                        //debugText.text += "Rotation (Euler Angles): " + item.transform.eulerAngles.ToString();
 
-                    //windowInstance.transform.parent = item.transform;
-                    //windowInstance.transform.localEulerAngles = new Vector3(180, -90, -90);
-                    //windowInstance.transform.position = new Vector3(windowInstance.transform.position.x, windowHeight, windowInstance.transform.position.z);
+                        var windowInstance = Runner.Spawn(orderWindow, item.transform.position, Quaternion.Euler(item.transform.eulerAngles + new Vector3(90, 90, 0)));
 
-                    windowPlaced = true;
+                        //windowInstance.transform.parent = item.transform;
+                        //windowInstance.transform.localEulerAngles = new Vector3(180, -90, -90);
+                        //windowInstance.transform.position = new Vector3(windowInstance.transform.position.x, windowHeight, windowInstance.transform.position.z);
+
+                        windowPlaced = true;
+                    }
                 }
             }
 

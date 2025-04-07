@@ -9,6 +9,7 @@
     <type fullname="S_ColorClassifications" preserve="all" />
     <type fullname="S_DishStatus" preserve="all" />
     <type fullname="S_Food" preserve="all" />
+    <type fullname="S_Hammer" preserve="all" />
     <type fullname="S_HardwarePart" preserve="all" />
     <type fullname="S_InfoScreen" preserve="all" />
     <type fullname="S_Interactor" preserve="all" />
