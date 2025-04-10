@@ -12,9 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 975057b4fdcfb8142b3080d19a5cc712, type: 3}
   m_Name: OpenXR Editor Settings
   m_EditorClassIdentifier: 
+<<<<<<<< HEAD:Assets/Packages/XR/Settings/OpenXR Editor Settings.asset
   Keys: 0100000007000000
   Values:
   - featureSets:
+========
+  Keys: 0700000001000000
+  Values:
+  - featureSets:
+    - com.unity.openxr.featureset.meta
+>>>>>>>> Developer:Assets/XR/Settings/OpenXR Editor Settings.asset
     - com.meta.openxr.featureset.metaxr
   - featureSets:
     - com.meta.openxr.featureset.metaxr
