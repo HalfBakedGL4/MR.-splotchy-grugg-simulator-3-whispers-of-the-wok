@@ -1,4 +1,5 @@
 using Fusion;
+using Oculus.Interaction;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,20 +28,32 @@ public class S_Hammer : NetworkBehaviour
 
     private void Update()
     {
-        charge += 1 * Time.deltaTime;
+        if (!Object.HasStateAuthority) return;
+        if(charge > 1) return;
+        charge += 4*Time.deltaTime;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         if (transform.parent != null)
         {
-            DealDamage(Mathf.Clamp(charge, 0, 1));
+            if(other.TryGetComponent(out S_HoleManager holemanager))
+            {
+                holemanager.RPCHammerHit(charge * wallMultiplier);
+            }
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                DealDamage(Mathf.Clamp(charge, 0, 1), other.gameObject);
+            }
         }
     }
 
-    void DealDamage(float charge)
+    void DealDamage(float charge, GameObject hit)
     {
-        
+        if (hit.TryGetComponent<Health>(out Health health))
+        {
+            health.Damage(charge * enemyMultiplier);
+        }
     }
 
     void NetworkUpdateVisuals()
