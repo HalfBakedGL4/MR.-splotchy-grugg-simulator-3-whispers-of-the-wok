@@ -74,7 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2182171417703739960}
   m_Layer: 0
-  m_Name: FoodDispenser
+  m_Name: FBX_FoodDispenser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
