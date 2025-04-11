@@ -37,6 +37,8 @@ public class S_RecipeDatabase : MonoBehaviour
                 return recipe;
             }
         }
-        return null; // No match
+        
+        var burntDish = Instance.book.recipes.FirstOrDefault(e => e.typeOfDish == DishType.Burnt);
+        return burntDish; // No match
     }
 }

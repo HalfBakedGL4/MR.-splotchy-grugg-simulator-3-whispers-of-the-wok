@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4346989336351811989}
   m_Layer: 0
-  m_Name: Plate
+  m_Name: FBX_Plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
