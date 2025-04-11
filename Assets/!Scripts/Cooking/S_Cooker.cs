@@ -5,6 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 using Fusion;
 using Extentions.Addressable;
 using TMPro;
+using Extentions.Networking;
 
 public enum CookerType
 {
@@ -135,7 +136,9 @@ public class S_Cooker : NetworkBehaviour, IButtonObject
             }
 
             CleanCooker();
+
             var spawnedDish =  Runner.Spawn(dishToSpawn, dishSocket.transform.position, dishSocket.transform.rotation);
+
             if (spawnedDish.TryGetComponent(out S_DishStatus dishStatusScript))
             {
                 dishStatusScript.ChangeStatus(dishStatus);

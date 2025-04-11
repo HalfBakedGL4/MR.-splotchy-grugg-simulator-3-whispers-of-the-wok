@@ -14,12 +14,12 @@ public class S_RecipeDatabase : MonoBehaviour
     private async void Start()
     {
         Instance = this;
-        book = await Addressable.LoadAsset<SO_RecipeBook>(AddressableAsset.RecipeBook);
+        book = await Addressable.LoadAsset<SO_RecipeBook>(AddressableAsset.RecipeBook, AddressableToLoad.ScriptableObject);
     }
 #if UNITY_EDITOR
     private async void OnValidate()
     {
-        book = await Addressable.LoadAsset<SO_RecipeBook>(AddressableAsset.RecipeBook);
+        book = await Addressable.LoadAsset<SO_RecipeBook>(AddressableAsset.RecipeBook, AddressableToLoad.ScriptableObject);
     }
 #endif
     public static Dish FindMatchingRecipe(List<FoodType> playerIngredients, CookerType playerCooker)
