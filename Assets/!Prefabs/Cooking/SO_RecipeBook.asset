@@ -34,3 +34,10 @@ MonoBehaviour:
     underCookedTime: 10
     perfectlyCookedTime: 20
     overCookedTime: 30
+  - typeOfDish: 5
+    ingredients: 
+    canBeCookedIn: 1
+    resultPrefab: {fileID: 1005427734386093009, guid: d7c61bc6aaa123b4fa7fae2fa9453ade, type: 3}
+    underCookedTime: 10
+    perfectlyCookedTime: 20
+    overCookedTime: 30
