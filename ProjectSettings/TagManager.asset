@@ -13,6 +13,7 @@ TagManager:
   - Wall
   - Hole
   - FryingBasket
+  - Enemy
   layers:
   - Default
   - TransparentFX

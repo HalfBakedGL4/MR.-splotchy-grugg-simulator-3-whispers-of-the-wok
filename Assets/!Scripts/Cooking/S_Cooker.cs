@@ -5,6 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 using Fusion;
 using Extentions.Addressable;
 using TMPro;
+using Unity.VisualScripting;
 
 public enum CookerType
 {
@@ -25,7 +26,7 @@ public class S_Cooker : NetworkBehaviour, IButtonObject
     private GameObject burntSlop;
     
     [Header("Sockets")]
-    [SerializeField] private S_SocketTagInteractor[] foodSocket;
+    [SerializeField] private S_SocketTagInteractor[] foodSockets;
     [SerializeField] private S_SocketTagInteractor dishSocket;
     TMP_Text timerText;
 
@@ -41,6 +42,13 @@ public class S_Cooker : NetworkBehaviour, IButtonObject
     {
         burntSlop = await Addressable.LoadAsset(AddressableAsset.BurntFood);
         timerText = GetComponentInChildren<TMP_Text>();
+
+        // Subscribe to foodSockets Events
+        foreach (var foodSocket in foodSockets)
+        {
+            foodSocket.selectEntered.AddListener(AddFood);
+            foodSocket.selectExited.AddListener(RemoveFood);
+        }
     }
 
     void Update()
@@ -177,5 +185,14 @@ public class S_Cooker : NetworkBehaviour, IButtonObject
     void RPC_SetCookerState(CookerState state)
     {
         this.state = state;
+    }
+
+    private void OnDestroy()
+    {
+        foreach (var foodSocket in foodSockets)
+        {
+            foodSocket.selectEntered.RemoveListener(AddFood);
+            foodSocket.selectExited.RemoveListener(RemoveFood);
+        }
     }
 }
