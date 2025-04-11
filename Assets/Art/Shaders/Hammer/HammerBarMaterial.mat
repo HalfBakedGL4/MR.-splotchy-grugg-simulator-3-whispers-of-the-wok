@@ -42,15 +42,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaClipping: 0.5
+    - _AlphaClipping: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Slider: 0.821
+    - _Slider: 0
     m_Colors:
-    - _Colour: {r: 0.7490196, g: 0.654275, b: 0, a: 0}
+    - _Colour: {r: 0.06299189, g: 0.1037841, b: 0.572327, a: 1}
+    - _Vector2: {r: 0, g: 21.95, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &4357915887216462998
+--- !u!114 &6095240454570932630
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
