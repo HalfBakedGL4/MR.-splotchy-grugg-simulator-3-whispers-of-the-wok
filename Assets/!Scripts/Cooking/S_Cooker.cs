@@ -23,25 +23,31 @@ public class S_Cooker : NetworkBehaviour
     
 
     [SerializeField] private CookerType cookerType;
-    private GameObject burntSlop;
     
     [Header("Sockets")]
     [SerializeField] private S_SocketTagInteractor[] foodSockets;
     [SerializeField] private S_SocketTagInteractor dishSocket;
-    TMP_Text timerText;
-
     
     [SerializeField, Networked] private CookerState state { get; set; } = CookerState.Available;
 
     private List<FoodType> foodCooking = new ();
     private List<S_Food> foodScripts = new ();
 
+    
+    [Space]
+    [Header("Timer related")]
+    [SerializeField] private float underCookedTime = 10;
+    [SerializeField] private float perfectlyCookedTime = 20;
+    [SerializeField] private float overCookedTime = 30;
+    TMP_Text timerText;
+
+    
+    
     private bool isAbleToStartCooking = true;
     bool isLocal => Object && Object.HasStateAuthority;
     [SerializeField, Networked] private float timer { get; set; }
     private async void Start()
     {
-        burntSlop = await Addressable.LoadAsset(AddressableAsset.BurntFood);
         timerText = GetComponentInChildren<TMP_Text>();
 
         // Subscribe to foodSockets Events
@@ -49,6 +55,11 @@ public class S_Cooker : NetworkBehaviour
         {
             foodSocket.selectEntered.AddListener(AddFood);
             foodSocket.selectExited.AddListener(RemoveFood);
+        }
+
+        if (cookerType == CookerType.Oven)
+        {
+            dishSocket.selectExited.AddListener(StopOven);
         }
     }
 
@@ -70,7 +81,9 @@ public class S_Cooker : NetworkBehaviour
                 timerText.text = "Finished!";
                 break;
         }
+        
     }
+
 
     private void AddFood(SelectEnterEventArgs args)
     {
@@ -85,7 +98,7 @@ public class S_Cooker : NetworkBehaviour
             }
             else if (foodCooking.Count > 1)
             {
-                // TODO: Increase Timer
+                AddTime();
             }
         }
     }
@@ -130,18 +143,18 @@ public class S_Cooker : NetworkBehaviour
             DishStatus dishStatus = DishStatus.UnCooked;
 
             // Undercooked
-            if (timer < dish.underCookedTime)
+            if (timer < underCookedTime)
             {
                 dishStatus = DishStatus.UnderCooked;
             }
             // Perfect
-            else if (timer < dish.perfectlyCookedTime)
+            else if (timer < perfectlyCookedTime)
             {
                 dishStatus = DishStatus.Cooked;
 
             }
             // Overcooked
-            else if (timer < dish.overCookedTime)
+            else if (timer < overCookedTime)
             {
                 dishStatus = DishStatus.OverCooked;
 
@@ -149,7 +162,6 @@ public class S_Cooker : NetworkBehaviour
             // Burnt
             else
             {
-                // Cannot be served
                 dishStatus = DishStatus.Burnt;
             }
 
@@ -191,7 +203,24 @@ public class S_Cooker : NetworkBehaviour
 
         foodScripts.Clear();
     }
+
+    #region OvenSpecifics
+
+    // When food are added to the Oven increase the timer
+    private void AddTime()
+    {
+        
+    }
+
+    private void StopOven(SelectExitEventArgs args)
+    {
+        if (state == CookerState.Cooking)
+            InteractWithCooker();
+    }
+    #endregion
     
+    #region FryerSpecifics
+
     // When the basket is placed in the fryer, check if there is food to cook
     // Connect this to the editor
     public void CheckIfFryerShouldStart(S_Cooker fryer)
@@ -209,6 +238,8 @@ public class S_Cooker : NetworkBehaviour
     {
         isAbleToStartCooking = false;
     }
+
+    #endregion
 
     [Rpc(sources: RpcSources.All, targets: RpcTargets.StateAuthority)]
     void RPC_SetCookerState(CookerState state)
