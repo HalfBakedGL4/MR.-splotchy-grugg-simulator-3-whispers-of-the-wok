@@ -431,7 +431,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 81b56b900761f8f48b7fa6a8f21726f5, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 9f9303c310363b746adb30a0b02e9b86, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1001 &573291282
 PrefabInstance:
@@ -447,7 +447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5652793604161244827, guid: 8633f8479d2b12142b4499e36982a5ad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.03
+      value: 2.02
       objectReference: {fileID: 0}
     - target: {fileID: 5652793604161244827, guid: 8633f8479d2b12142b4499e36982a5ad, type: 3}
       propertyPath: m_LocalPosition.y
@@ -581,6 +581,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &681902212 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5914218168018401880, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
+  m_PrefabInstance: {fileID: 2083739773}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &740253455
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,6 +620,55 @@ Transform:
   - {fileID: 1580680775}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &777893067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 777893068}
+  - component: {fileID: 777893069}
+  m_Layer: 0
+  m_Name: EnvironmentDepthManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &777893068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777893067}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1078906728}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &777893069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777893067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71a155ece80369d4e99bdaf5e59169b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _occlusionShadersMode: 1
+  _removeHands: 0
+  CustomTrackingSpace: {fileID: 681902212}
+  <MaskMeshFilters>k__BackingField: []
+  _cameraRig: {fileID: 2083739777}
 --- !u!1 &904782961
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,6 +746,7 @@ Transform:
   - {fileID: 2136220246}
   - {fileID: 1746927325}
   - {fileID: 1841124987}
+  - {fileID: 777893068}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1105050966
@@ -1543,6 +1598,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nonRigidbodyVelocity: 0
   attenuationObject: {fileID: 0}
+--- !u!114 &2083739777 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4293483038683862455, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
+  m_PrefabInstance: {fileID: 2083739773}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df9f338034892c44ebb62d97894772f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2136220243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1595,6 +1661,10 @@ PrefabInstance:
       propertyPath: planeManager
       value: 
       objectReference: {fileID: 2083739774}
+    - target: {fileID: 5316215853475862061, guid: 16d0a31e62111be48815994228792d9a, type: 3}
+      propertyPath: SortKey
+      value: 1782891852
+      objectReference: {fileID: 0}
     - target: {fileID: 5359521854802662126, guid: 16d0a31e62111be48815994228792d9a, type: 3}
       propertyPath: SortKey
       value: 2367087715
