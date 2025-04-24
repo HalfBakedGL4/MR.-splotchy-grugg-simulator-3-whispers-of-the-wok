@@ -1430,10 +1430,74 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5936200727939915957, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
+      propertyPath: m_Move
+      value: 
+      objectReference: {fileID: -5572863050064521689, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    - target: {fileID: 5936200727939915957, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
+      propertyPath: m_Turn
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5936200727939915957, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
+      propertyPath: m_SnapTurn
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5936200727939915957, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
+      propertyPath: m_TeleportMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5936200727939915957, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
+      propertyPath: m_TeleportModeCancel
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5936200727939915957, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
+      propertyPath: m_NearFarEnableTeleportDuringNearInteraction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6376283653254482050, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
+      propertyPath: m_PositionInput.m_Reference
+      value: 
+      objectReference: {fileID: -2024308242397127297, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 6376283653254482050, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
+      propertyPath: m_RotationInput.m_Reference
+      value: 
+      objectReference: {fileID: 8248158260566104461, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 6757734071968302547, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
+      propertyPath: m_Move
+      value: 
+      objectReference: {fileID: -5737863620124566178, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    - target: {fileID: 6757734071968302547, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
+      propertyPath: m_Turn
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6757734071968302547, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
+      propertyPath: m_SnapTurn
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6757734071968302547, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
+      propertyPath: m_TeleportMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6757734071968302547, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
+      propertyPath: m_TeleportModeCancel
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6757734071968302547, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
+      propertyPath: m_NearFarEnableTeleportDuringNearInteraction
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7225380768329135335, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
       propertyPath: m_Name
       value: Shared-LocalPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 7282339968385000942, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
+      propertyPath: m_PositionInput.m_Reference
+      value: 
+      objectReference: {fileID: -3326005586356538449, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 7282339968385000942, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
+      propertyPath: m_RotationInput.m_Reference
+      value: 
+      objectReference: {fileID: 5101698808175986029, guid: c348712bda248c246b8c49b3db54643f, type: 3}
     m_RemovedComponents:
     - {fileID: 574972128664444891, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
     m_RemovedGameObjects: []
