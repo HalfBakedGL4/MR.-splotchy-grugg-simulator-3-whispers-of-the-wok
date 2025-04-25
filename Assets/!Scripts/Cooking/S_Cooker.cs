@@ -219,7 +219,7 @@ public class S_Cooker : NetworkBehaviour
         {
             foodScript.Toggle();
             foodScript.transform.position = new Vector3(0,-10,0);
-            S_World.DespawnFood(foodScript);
+            S_GameManager.DespawnFood(foodScript);
         }
 
         foodScripts.Clear();

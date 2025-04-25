@@ -41,7 +41,7 @@ public class S_FoodDispenser : MonoBehaviour, IButtonObject
     */
     public void OnButtonPressed() // When button is pressed spawn and launch the selected food Item
     {
-        var foodItem = S_World.SpawnFood(foodToDispense, transform.position, Quaternion.identity);
+        var foodItem = S_GameManager.SpawnFood(foodToDispense, transform.position, Quaternion.identity);
 
         if (foodItem.TryGetComponent(out Rigidbody rb))
         {

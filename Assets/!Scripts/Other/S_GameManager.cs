@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class S_World : NetworkBehaviour
+public class S_GameManager : NetworkBehaviour
 {
-    static S_World instance;
+    static S_GameManager instance;
     public static List<S_Food> currentFood { get; private set; } = new List<S_Food>();
     public const int maxFood = 10;
 
