@@ -17,7 +17,7 @@ public class S_World : NetworkBehaviour
     }
 
     /// <summary>
-    /// used to instantiate food
+    /// used to spawn food
     /// </summary>
     public static S_Food SpawnFood(S_Food food, Vector3 position, quaternion rotation)
     {
