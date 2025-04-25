@@ -27,6 +27,8 @@ public class S_World : MonoBehaviour
     public static S_Food InstantiateFood(S_Food food, Transform parent)
     {
         S_Food instantiatedFood = InstantiateFood(food, parent.position, parent.rotation);
+        if (instantiatedFood == null) return null;
+
         instantiatedFood.transform.parent = parent;
         instantiatedFood.transform.localPosition = Vector3.zero;
         instantiatedFood.transform.localEulerAngles = Vector3.zero;
