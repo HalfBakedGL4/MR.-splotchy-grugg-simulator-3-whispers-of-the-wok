@@ -1,9 +1,7 @@
 using Fusion;
 using System.Collections.Generic;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class S_World : NetworkBehaviour
 {
@@ -24,12 +22,9 @@ public class S_World : NetworkBehaviour
         if (currentFood.Count >= maxFood) return null;
 
         S_Food instantiatedFood = instance.Runner.Spawn(food.GetComponent<NetworkObject>(), position, rotation).GetComponent<S_Food>();
-        currentFood.Add(instantiatedFood);
 
         if (instantiatedFood == null) return null;
-
-        instantiatedFood.transform.position = position;
-        instantiatedFood.transform.rotation = rotation;
+        currentFood.Add(instantiatedFood);
 
         return instantiatedFood;
     }
