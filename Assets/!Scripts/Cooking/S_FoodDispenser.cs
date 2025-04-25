@@ -20,7 +20,7 @@ public class S_FoodDispenser : MonoBehaviour, IButtonObject
     private void Start()
     {
         // Spawn Object to be Displayed over machine, to show what it spawns ig
-        var itemInstance = Instantiate(foodToDispense, hoverPoint.position, Quaternion.identity);
+        var itemInstance = S_World.InstantiateFood(foodToDispense, hoverPoint.position, Quaternion.identity);
         hoverItem = itemInstance.gameObject;
         hoverItem.GetComponent<Rigidbody>().isKinematic = true;
         hoverItem.GetComponent<Collider>().enabled = false;
@@ -39,7 +39,7 @@ public class S_FoodDispenser : MonoBehaviour, IButtonObject
     
     public void OnButtonPressed() // When button is pressed spawn and launch the selected food Item
     {
-        var foodItem = Instantiate(foodToDispense, transform.position, Quaternion.identity);
+        var foodItem = S_World.InstantiateFood(foodToDispense, transform.position, Quaternion.identity);
 
         if (foodItem.TryGetComponent(out Rigidbody rb))
         {
