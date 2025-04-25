@@ -570,17 +570,6 @@ Transform:
   - {fileID: 153770899}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1045538101 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2049683816127363178, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-  m_PrefabInstance: {fileID: 672148616}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1066288117
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,14 +939,6 @@ PrefabInstance:
     - target: {fileID: 2730567577262896153, guid: 16d0a31e62111be48815994228792d9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3284256905931433717, guid: 16d0a31e62111be48815994228792d9a, type: 3}
-      propertyPath: planeManager
-      value: 
-      objectReference: {fileID: 1045538101}
-    - target: {fileID: 3284256905931433717, guid: 16d0a31e62111be48815994228792d9a, type: 3}
-      propertyPath: placeAppliancesOn
-      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 5316215853475862061, guid: 16d0a31e62111be48815994228792d9a, type: 3}
       propertyPath: SortKey
