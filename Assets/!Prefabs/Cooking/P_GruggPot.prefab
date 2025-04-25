@@ -325,6 +325,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3000184719239268793}
   - component: {fileID: 3229044161764529807}
+  - component: {fileID: 5464214638882273747}
+  - component: {fileID: 3214850747704202974}
   m_Layer: 0
   m_Name: P_GruggPot
   m_TagString: Untagged
@@ -364,6 +366,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gruggJuiceCollider: {fileID: 3958319279577001797}
+--- !u!114 &5464214638882273747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3892053843264737743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SortKey: 1120006369
+  ObjectInterest: 1
+  Flags: 131073
+  NestedObjects: []
+  NetworkedBehaviours:
+  - {fileID: 3214850747704202974}
+  ForceRemoteRenderTimeframe: 0
+--- !u!114 &3214850747704202974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3892053843264737743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateAuthorityChangeErrorCorrectionDelta: 0.15
+  SyncScale: 0
+  SyncParent: 0
+  _autoAOIOverride: 1
+  DisableSharedModeInterpolation: 0
 --- !u!1 &3958319279577001797
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,15 +762,15 @@ PrefabInstance:
       objectReference: {fileID: -5447036705194824928, guid: 5d965792e6012c04bbe2572fcfa2d511, type: 3}
     - target: {fileID: 7061671384639600787, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0000000011949806
+      value: -9.559845e-10
       objectReference: {fileID: 0}
     - target: {fileID: 7061671384639600787, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.089999974
+      value: 0.08999995
       objectReference: {fileID: 0}
     - target: {fileID: 7061671384639600787, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.00000015869335
+      value: 0.0000000898625
       objectReference: {fileID: 0}
     - target: {fileID: 9213621254682700026, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
       propertyPath: m_LocalScale.x

@@ -1,31 +1,75 @@
 <linker>
   <assembly fullname="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="AlignmentManager" preserve="all" />
+    <type fullname="ColocationManager" preserve="all" />
     <type fullname="Input.S_InputReader" preserve="all" />
     <type fullname="Networking.Shared.S_DontDisplayForOwner" preserve="all" />
     <type fullname="Networking.Shared.S_LocalPlayer" preserve="all" />
     <type fullname="Networking.Shared.S_NetworkPlayer" preserve="all" />
     <type fullname="Rig" preserve="all" />
+    <type fullname="S_Alien" preserve="all" />
     <type fullname="S_AnimateHandOnInput" preserve="all" />
     <type fullname="S_ColorClassifications" preserve="all" />
+    <type fullname="S_Cooker" preserve="all" />
     <type fullname="S_DishStatus" preserve="all" />
     <type fullname="S_Food" preserve="all" />
+    <type fullname="S_FryerActivater" preserve="all" />
     <type fullname="S_Hammer" preserve="all" />
     <type fullname="S_HardwarePart" preserve="all" />
     <type fullname="S_InfoScreen" preserve="all" />
     <type fullname="S_Interactor" preserve="all" />
     <type fullname="S_ItemSpawner" preserve="all" />
+    <type fullname="S_OrderWindow" preserve="all" />
+    <type fullname="S_PlayerSpawner" preserve="all" />
+    <type fullname="S_RecipeDatabase" preserve="all" />
+    <type fullname="S_RuntimeNavmeshBuilder" preserve="all" />
+    <type fullname="S_SocketTagInteractor" preserve="all" />
+    <type fullname="S_SpawnNetworkObject" preserve="all" />
+    <type fullname="S_SpawnObjectOnClassification" preserve="all" />
+    <type fullname="S_Ticket" preserve="all" />
     <type fullname="SO_RecipeBook" preserve="all" />
+    <type fullname="Verpha.HierarchyDesigner.HierarchyDesignerFolder" preserve="all" />
     <type fullname=".Dish" preserve="nothing" serialized="true" />
+    <type fullname=".Order" preserve="nothing" serialized="true" />
+    <type fullname=".SpawnableStation" preserve="nothing" serialized="true" />
+    <type fullname=".Station" preserve="nothing" serialized="true" />
     <type fullname="Input.InputInfo" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="FMODUnity, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="FMODUnity.StudioListener" preserve="all" />
   </assembly>
   <assembly fullname="Fusion.Runtime, Version=2.0.4.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Fusion.NetworkEvents" preserve="all" />
     <type fullname="Fusion.NetworkObject" preserve="all" />
+    <type fullname="Fusion.NetworkObjectInactivityGuard" preserve="all" />
     <type fullname="Fusion.NetworkObjectPrefabData" preserve="all" />
+    <type fullname="Fusion.NetworkRunner" preserve="all" />
     <type fullname="Fusion.NetworkTransform" preserve="all" />
+    <type fullname="Fusion.NetworkEvents/ConnectFailedEvent" preserve="nothing" serialized="true" />
+    <type fullname="Fusion.NetworkEvents/ConnectRequestEvent" preserve="nothing" serialized="true" />
+    <type fullname="Fusion.NetworkEvents/CustomAuthenticationResponse" preserve="nothing" serialized="true" />
+    <type fullname="Fusion.NetworkEvents/DisconnectFromServerEvent" preserve="nothing" serialized="true" />
+    <type fullname="Fusion.NetworkEvents/HostMigrationEvent" preserve="nothing" serialized="true" />
+    <type fullname="Fusion.NetworkEvents/InputEvent" preserve="nothing" serialized="true" />
+    <type fullname="Fusion.NetworkEvents/InputPlayerEvent" preserve="nothing" serialized="true" />
+    <type fullname="Fusion.NetworkEvents/ObjectPlayerEvent" preserve="nothing" serialized="true" />
+    <type fullname="Fusion.NetworkEvents/PlayerEvent" preserve="nothing" serialized="true" />
+    <type fullname="Fusion.NetworkEvents/ReliableDataEvent" preserve="nothing" serialized="true" />
+    <type fullname="Fusion.NetworkEvents/ReliableProgressEvent" preserve="nothing" serialized="true" />
+    <type fullname="Fusion.NetworkEvents/RunnerEvent" preserve="nothing" serialized="true" />
+    <type fullname="Fusion.NetworkEvents/SessionListUpdateEvent" preserve="nothing" serialized="true" />
+    <type fullname="Fusion.NetworkEvents/ShutdownEvent" preserve="nothing" serialized="true" />
+    <type fullname="Fusion.NetworkEvents/SimulationMessageEvent" preserve="nothing" serialized="true" />
     <type fullname="Fusion.NetworkObjectGuid" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Fusion.Unity, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Fusion.FusionBootstrap" preserve="all" />
+    <type fullname="Fusion.FusionBootstrapDebugGUI" preserve="all" />
+    <type fullname="Fusion.RunnerEnableVisibility" preserve="all" />
+  </assembly>
+  <assembly fullname="meta.xr.mrutilitykit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Meta.XR.MRUtilityKit.AnchorPrefabSpawner" preserve="all" />
+    <type fullname="Meta.XR.MRUtilityKit.AnchorPrefabSpawner/AnchorPrefabGroup" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Oculus.VR, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="OVRCameraRig" preserve="all" />
@@ -38,6 +82,10 @@
     <type fullname="UnityEngine.AddressableAssets.Android.PlayAssetDeliveryAssetBundleProvider" preserve="all" />
     <type fullname="UnityEngine.AddressableAssets.Android.PlayAssetDeliveryInitialization" preserve="all" />
     <type fullname="UnityEngine.AddressableAssets.Android.PlayAssetDeliveryInitializationData" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.AI.Navigation, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Unity.AI.Navigation.NavMeshModifier" preserve="all" />
+    <type fullname="Unity.AI.Navigation.NavMeshSurface" preserve="all" />
   </assembly>
   <assembly fullname="Unity.InputSystem, Version=1.12.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.InputSystem.InputActionAsset" preserve="all" />
@@ -59,6 +107,7 @@
   </assembly>
   <assembly fullname="Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="TMPro.TextMeshPro" preserve="all" />
+    <type fullname="TMPro.TextMeshProUGUI" preserve="all" />
     <type fullname="TMPro.TMP_FontAsset" preserve="all" />
     <type fullname="TMPro.FaceInfo_Legacy" preserve="nothing" serialized="true" />
     <type fullname="TMPro.FontAssetCreationSettings" preserve="nothing" serialized="true" />
@@ -71,9 +120,11 @@
   <assembly fullname="Unity.XR.ARFoundation, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.XR.ARFoundation.ARCameraBackground" preserve="all" />
     <type fullname="UnityEngine.XR.ARFoundation.ARCameraManager" preserve="all" />
+    <type fullname="UnityEngine.XR.ARFoundation.ARInputManager" preserve="all" />
     <type fullname="UnityEngine.XR.ARFoundation.ARPlane" preserve="all" />
     <type fullname="UnityEngine.XR.ARFoundation.ARPlaneManager" preserve="all" />
     <type fullname="UnityEngine.XR.ARFoundation.ARPlaneMeshVisualizer" preserve="all" />
+    <type fullname="UnityEngine.XR.ARFoundation.ARSession" preserve="all" />
     <type fullname="UnityEngine.XR.ARFoundation.ARTrackablesChangedEventArgs`1" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Unity.XR.CoreUtils, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
@@ -122,6 +173,10 @@
     <type fullname="UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets.DynamicMoveProvider" preserve="all" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets.GazeInputManager" preserve="all" />
   </assembly>
+  <assembly fullname="UnityEngine.AIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.AI.NavMeshAgent" preserve="all" />
+    <type fullname="UnityEngine.AI.NavMeshData" preserve="all" />
+  </assembly>
   <assembly fullname="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.AnimationClip" preserve="all" />
     <type fullname="UnityEngine.Animator" preserve="all" />
@@ -146,18 +201,26 @@
     <type fullname="UnityEngine.Sprite" preserve="all" />
     <type fullname="UnityEngine.Texture2D" preserve="all" />
     <type fullname="UnityEngine.Transform" preserve="all" />
-    <type fullname="UnityEngine.Events.PersistentCallGroup" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Events.ArgumentCache" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Events.PersistentCallGroup" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Events.PersistentListenerMode" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Events.UnityEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Events.UnityEvent`1" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Vector2" preserve="nothing" serialized="true" />
   </assembly>
+  <assembly fullname="UnityEngine.IMGUIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.GUISkin" preserve="all" />
+    <type fullname="UnityEngine.GUISettings" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.GUIStyle" preserve="nothing" serialized="true" />
+  </assembly>
   <assembly fullname="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.BoxCollider" preserve="all" />
+    <type fullname="UnityEngine.CapsuleCollider" preserve="all" />
     <type fullname="UnityEngine.CharacterController" preserve="all" />
+    <type fullname="UnityEngine.HingeJoint" preserve="all" />
     <type fullname="UnityEngine.MeshCollider" preserve="all" />
     <type fullname="UnityEngine.Rigidbody" preserve="all" />
+    <type fullname="UnityEngine.SphereCollider" preserve="all" />
   </assembly>
   <assembly fullname="UnityEngine.TextRenderingModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.Font" preserve="all" />

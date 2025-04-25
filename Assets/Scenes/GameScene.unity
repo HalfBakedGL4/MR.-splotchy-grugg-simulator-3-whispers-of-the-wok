@@ -475,7 +475,7 @@ MonoBehaviour:
   AutoClients: 2
   ClientStartDelay: 1
   ServerPort: 0
-  DefaultRoomName: SharedTestingInteractions
+  DefaultRoomName: GameScene
   InitialScenePath: 
   _currentStage: 0
   AutoConnectVirtualInstances: 1
@@ -2213,9 +2213,9 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1241628364}
   - {fileID: 1586695828}
   - {fileID: 249713850}
-  - {fileID: 1241628364}
   - {fileID: 59362021}
   - {fileID: 651728806}
   - {fileID: 2083739773}
