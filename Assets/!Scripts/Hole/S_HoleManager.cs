@@ -38,6 +38,7 @@ public class S_HoleManager : NetworkBehaviour
     {
         if (!Object.HasStateAuthority) return;
         size -= charge;
+        Debug.Log("Recieved charge " + charge);
         Debug.Log("Hole Size: "+size);
         UpdateSize();
 

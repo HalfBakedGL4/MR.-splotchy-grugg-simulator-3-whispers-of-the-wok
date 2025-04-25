@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e104662d30e014fab29ce8844003a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _size: 0
 --- !u!114 &6363492814158527130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +163,8 @@ MonoBehaviour:
   SortKey: 225202417
   ObjectInterest: 1
   Flags: 262145
-  NestedObjects: []
+  NestedObjects:
+  - {fileID: 1953856008197019213}
   NetworkedBehaviours:
   - {fileID: 8611827220600554759}
   - {fileID: 7637761502810297324}
@@ -401,6 +403,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a4879c459d9135642881ea9cf60a261f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2305050962316157882}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a4879c459d9135642881ea9cf60a261f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1953856008197019213}
     - targetCorrespondingSourceObject: {fileID: -353992321229026460, guid: a4879c459d9135642881ea9cf60a261f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4855252343985087186}
@@ -1199,6 +1204,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeUntilFade: 4
   fadeDuration: 4
+--- !u!114 &1953856008197019213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9129334489806653631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SortKey: 3602659381
+  ObjectInterest: 1
+  Flags: 262145
+  NestedObjects: []
+  NetworkedBehaviours:
+  - {fileID: 2305050962316157882}
+  ForceRemoteRenderTimeframe: 0
 --- !u!1 &9184919026286524857 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8284402608834081705, guid: a4879c459d9135642881ea9cf60a261f, type: 3}
