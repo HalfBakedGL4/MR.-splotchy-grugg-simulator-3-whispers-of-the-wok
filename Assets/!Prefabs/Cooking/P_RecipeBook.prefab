@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5027127974021051110}
   - component: {fileID: 6131294680328968511}
   m_Layer: 0
-  m_Name: RecipeBook
+  m_Name: P_RecipeBook
   m_TagString: RecipeBook
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

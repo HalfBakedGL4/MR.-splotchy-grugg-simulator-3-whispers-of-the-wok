@@ -33,15 +33,19 @@ public class S_Cooker : NetworkBehaviour
     private List<FoodType> foodCooking = new ();
     private List<S_Food> foodScripts = new ();
 
-    
+    private S_DishStatus _currentDishStatus;
+
     [Space]
+    
     [Header("Timer related")]
     [SerializeField] private float underCookedTime = 10;
     [SerializeField] private float perfectlyCookedTime = 20;
     [SerializeField] private float overCookedTime = 30;
     TMP_Text timerText;
 
-    
+    private float savedUnderCookedTime;
+    private float savedPerfectlyCookedTime;
+    private float savedOverCookedTime;
     
     private bool isAbleToStartCooking = true;
     bool isLocal => Object && Object.HasStateAuthority;
@@ -61,6 +65,11 @@ public class S_Cooker : NetworkBehaviour
         {
             dishSocket.selectExited.AddListener(StopOven);
         }
+        
+        // Just storing the values to increase for Oven
+        savedUnderCookedTime = underCookedTime;
+        savedPerfectlyCookedTime = perfectlyCookedTime;
+        savedOverCookedTime = overCookedTime;
     }
 
     void Update()
@@ -74,6 +83,10 @@ public class S_Cooker : NetworkBehaviour
                 if(isLocal)
                     timer += Time.deltaTime;
 
+                if (cookerType == CookerType.Oven)
+                {
+                    SetDishStatus();
+                }
                 timerText.text = "Timer: " + timer.ToString("..");
                 //TODO: update the timer UI
                 break;
@@ -81,7 +94,6 @@ public class S_Cooker : NetworkBehaviour
                 timerText.text = "Finished!";
                 break;
         }
-        
     }
 
 
@@ -132,49 +144,59 @@ public class S_Cooker : NetworkBehaviour
         // Stop Cooker and empty food items inside
         else if (state == CookerState.Cooking)
         {
-            Dish dish = GetDish();
-            Debug.Log(dish);
-            if (!dish.resultPrefab.TryGetComponent(out NetworkObject dishToSpawn))
-            {
-                Debug.LogError("Couldnt get a networkobject");
-                return;
-            }
-
-            DishStatus dishStatus = DishStatus.UnCooked;
-
-            // Undercooked
-            if (timer < underCookedTime)
-            {
-                dishStatus = DishStatus.UnderCooked;
-            }
-            // Perfect
-            else if (timer < perfectlyCookedTime)
-            {
-                dishStatus = DishStatus.Cooked;
-
-            }
-            // Overcooked
-            else if (timer < overCookedTime)
-            {
-                dishStatus = DishStatus.OverCooked;
-
-            }
-            // Burnt
-            else
-            {
-                dishStatus = DishStatus.Burnt;
-            }
-
-            CleanCooker();
-            var spawnedDish =  Runner.Spawn(dishToSpawn, dishSocket.transform.position, dishSocket.transform.rotation);
-            if (spawnedDish.TryGetComponent(out S_DishStatus dishStatusScript))
-            {
-                dishStatusScript.ChangeStatus(dishStatus);
-            }
+            _currentDishStatus = SpawnDish();
             // TODO: Animation that opens the cooker or show it stops cooking
 
             RPC_SetCookerState(CookerState.Available);
         }
+    }
+
+    // Spawns the dish in the dish sockets and returns the dish if it needs to change
+    private S_DishStatus SpawnDish()
+    {
+        Dish dish = GetDish();
+        Debug.Log(dish);
+        if (!dish.resultPrefab.TryGetComponent(out NetworkObject dishToSpawn))
+        {
+            Debug.LogError("Couldnt get a networkobject");
+            return null;
+        }
+
+        DishStatus dishStatus = CheckDishStatus();
+
+        CleanCooker();
+        var dishInstance =  Runner.Spawn(dishToSpawn, dishSocket.transform.position, dishSocket.transform.rotation);
+        if (dishInstance.TryGetComponent(out S_DishStatus dishStatusScript))
+        {
+            dishStatusScript.ChangeStatus(dishStatus);
+            return dishStatusScript;
+        }
+
+        return null;
+    }
+
+    // Check and return what cooking state the Dish is in. E.g. UnderCooked 
+    private DishStatus CheckDishStatus()
+    {
+        DishStatus dishStatus;
+        if (timer < underCookedTime)                // Undercooked
+        {
+            dishStatus = DishStatus.UnderCooked;
+        }
+        else if (timer < perfectlyCookedTime)       // Perfect
+        {
+            dishStatus = DishStatus.Cooked;
+        }
+        else if (timer < overCookedTime)            // Overcooked
+        {
+            dishStatus = DishStatus.OverCooked;
+        }
+        else                                        // Burnt
+        {
+            dishStatus = DishStatus.Burnt;
+        }
+
+        return dishStatus;
     }
 
     private Dish GetDish() //Looks through the RecipeBook to see if any dish is created from those ingredients
@@ -190,7 +212,6 @@ public class S_Cooker : NetworkBehaviour
     }
 
     
-    //we can do object pooling later as it requires RPC calling and stuff to make happen
     private void CleanCooker()  // Moves items in cooker under the stage. possible to use object pooling.
     {
         S_Food[] foodList = foodScripts.ToArray();
@@ -209,13 +230,40 @@ public class S_Cooker : NetworkBehaviour
     // When food are added to the Oven increase the timer
     private void AddTime()
     {
-        
+        underCookedTime += 5;
+        perfectlyCookedTime += 5;
+        overCookedTime += 5;
     }
 
+    // Dish 
+    private void SetDishStatus()
+    {
+        if (_currentDishStatus)
+        {
+            var newStatus = CheckDishStatus();
+            var currentStatus = _currentDishStatus.GetDishStatus().dishStatus;
+            if (newStatus == currentStatus)
+                _currentDishStatus.ChangeStatus(newStatus);
+        }
+        else if (timer > underCookedTime)
+        {
+            _currentDishStatus = SpawnDish();
+        }
+    }
+
+    // When Dish is removed make the oven available and ready to cook next dish
     private void StopOven(SelectExitEventArgs args)
     {
         if (state == CookerState.Cooking)
-            InteractWithCooker();
+        {
+            _currentDishStatus = null;
+
+            underCookedTime = savedUnderCookedTime;
+            perfectlyCookedTime = savedPerfectlyCookedTime;
+            overCookedTime = savedOverCookedTime;
+            
+            RPC_SetCookerState(CookerState.Available);
+        }
     }
     #endregion
     

@@ -7,7 +7,6 @@ public class S_FoodDispenser : MonoBehaviour, IButtonObject
 {
     [Header("Food Dispenser")]
     [SerializeField] private S_Food foodToDispense;
-    [SerializeField] private Transform spawnPoint;
     [SerializeField] private float launchSpeed;
     [SerializeField] private float rotationSpeed;
     
@@ -40,12 +39,12 @@ public class S_FoodDispenser : MonoBehaviour, IButtonObject
     
     public void OnButtonPressed() // When button is pressed spawn and launch the selected food Item
     {
-        var foodItem = Instantiate(foodToDispense, spawnPoint.position, Quaternion.identity);
+        var foodItem = Instantiate(foodToDispense, transform.position, Quaternion.identity);
 
         if (foodItem.TryGetComponent(out Rigidbody rb))
         {
             // Launches the item forward
-            rb.linearVelocity = spawnPoint.transform.forward * launchSpeed;
+            rb.linearVelocity = transform.forward * launchSpeed;
             
             // Set random angular velocity
             rb.angularVelocity = Random.insideUnitSphere * rotationSpeed;
