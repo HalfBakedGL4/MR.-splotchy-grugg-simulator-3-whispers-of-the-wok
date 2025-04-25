@@ -18,7 +18,10 @@ public class S_Interactor : NearFarInteractor
     {
         if (!args.interactableObject.transform.TryGetComponent(out NetworkObject networkObject)) return;
 
-        await Shared.GainStateAuthority(networkObject);
+        if(await Shared.GainStateAuthority(networkObject) == AuthorityResult.Failure )
+        {
+            return;
+        }
 
         base.OnSelectEntered(args);
     }

@@ -16,13 +16,20 @@ namespace Extentions
             SharedLocalPlayer = 1,
             RecipeBook = 2,
             BurntFood = 3,
+            Networking = 4,
+            MR = 5,
+            World = 6,
         }
         public enum AddressableLabel
         {
-            SharedNetworkPlayer = 0,
-            SharedLocalPlayer = 1,
-            RecipeBook = 2,
-            BurntFood = 3,
+
+        }
+
+        public enum AddressableToLoad
+        {
+            GameObject,
+            ScriptableObject,
+            Component
         }
         /// <summary>
         /// a extension class made for addressables
@@ -37,7 +44,10 @@ namespace Extentions
                 { AddressableAsset.SharedNetworkPlayer, "SharedNetworkPlayer" },
                 { AddressableAsset.SharedLocalPlayer, "SharedLocalPlayer" },
                 { AddressableAsset.RecipeBook,  "RecipeBook" },
-                { AddressableAsset.BurntFood,  "BurntFood" }
+                { AddressableAsset.BurntFood,  "BurntFood" },
+                { AddressableAsset.Networking,  "Networking" },
+                { AddressableAsset.MR,  "MR" },
+                { AddressableAsset.World,  "World" }
             };
 
             /// <summary>
@@ -66,8 +76,8 @@ namespace Extentions
             /// <summary>
             /// Load a addressables asset by its addressable name
             /// </summary>
+            /// <typeparam name="T">The type to find</typeparam>
             /// <param name="addressable">The addressable asset</param>
-            /// <returns>Addressables gameobject</returns>
             public static async Task<GameObject> LoadAsset(AddressableAsset addressable)
             {
                 return await LoadAsset<GameObject>(ReturnPath(addressable));
@@ -78,22 +88,28 @@ namespace Extentions
             /// </summary>
             /// <typeparam name="T">The type to find</typeparam>
             /// <param name="addressable">The addressable asset</param>
+            /// <param name="loadSetting">what to return</param>
             /// <returns>Addressables asset</returns>
-            public static async Task<T> LoadAsset<T>(AddressableAsset addressable) where T : Object
+            public static async Task<T> LoadAsset<T>(AddressableAsset addressable, AddressableToLoad loadSetting = AddressableToLoad.Component) where T : Object
             {
-                return await LoadAsset<T>(ReturnPath(addressable));
-            }
+                switch (loadSetting)
+                {
+                    case AddressableToLoad.GameObject:
+                        {
+                            return await LoadAsset<T>(ReturnPath(addressable));
+                        }
+                    case AddressableToLoad.ScriptableObject:
+                        {
+                            return await LoadAsset<T>(ReturnPath(addressable));
+                        }
+                    case AddressableToLoad.Component:
+                        {
+                            GameObject item = await LoadAsset<GameObject>(ReturnPath(addressable));
+                            return item.GetComponent<T>();
+                        }
+                }
 
-            /// <summary>
-            /// Load a addressables asset by its addressable name
-            /// </summary>
-            /// <typeparam name="T">The type to find</typeparam>
-            /// <param name="addressable">The addressable asset</param>
-            /// <param name="getComponent">if it should return a script from a GameObject rather than return the gameobject</param>
-            /// <returns>Addressables asset</returns>
-            public static async Task<T> LoadAsset<T>(AddressableAsset addressable, bool getComponent = true) where T : MonoBehaviour
-            {
-                return await LoadAsset<T>(ReturnPath(addressable), getComponent);
+                return default;
             }
 
             /// <summary>
@@ -189,13 +205,15 @@ namespace Extentions
             /// Use to gain state authoirty
             /// </summary>
             /// <param name="networkObject">The networkobject to gain authority over</param>
-            public static async Task GainStateAuthority(NetworkObject networkObject)
+            public static async Task<AuthorityResult> GainStateAuthority(NetworkObject networkObject)
             {
                 Debug.Log("[StateAuthority] attempting to get authority over " + networkObject.gameObject.name);
 
                 AuthorityResult result = await AttemptStateAuthority(networkObject);
 
                 Debug.Log("[StateAuthority] State Authority check = " + result);
+
+                return result;
             }
             public async static Task<AuthorityResult> AttemptStateAuthority(NetworkObject networkObject, int maxTries = 1000)
             {
