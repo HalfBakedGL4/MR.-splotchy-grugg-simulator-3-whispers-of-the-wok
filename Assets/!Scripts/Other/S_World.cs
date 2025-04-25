@@ -12,12 +12,27 @@ public class S_World : MonoBehaviour
     /// <summary>
     /// used to instantiate food
     /// </summary>
-    public static S_Food InstantiateFood(S_Food food, Vector3 position, quaternion rotation)
+    public static S_Food InstantiateFood(S_Food food)
     {
         if (currentFood.Count >= maxFood) return null;
 
-        S_Food instantiatedFood = Instantiate(food, position, rotation);
+        S_Food instantiatedFood = Instantiate(food);
         currentFood.Add(instantiatedFood);
+
+        return instantiatedFood;
+    }
+
+    /// <summary>
+    /// used to instantiate food
+    /// </summary>
+    public static S_Food InstantiateFood(S_Food food, Vector3 position, quaternion rotation)
+    {
+        S_Food instantiatedFood = InstantiateFood(food);
+
+        if (instantiatedFood == null) return null;
+
+        instantiatedFood.transform.position = position;
+        instantiatedFood.transform.rotation = rotation;
 
         return instantiatedFood;
     }
