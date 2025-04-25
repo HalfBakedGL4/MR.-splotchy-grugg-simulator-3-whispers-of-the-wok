@@ -9,7 +9,9 @@ public class S_FoodDispenser : MonoBehaviour, IButtonObject
     [SerializeField] private S_Food foodToDispense;
     [SerializeField] private float launchSpeed;
     [SerializeField] private float rotationSpeed;
-    
+    /*
+    // These are all used as a visual to show what item would apear for debugging purposes
+    // but then it stopped working so I left it in this state
     [Header("Hover Item showing food Dispensed")]
     [SerializeField] private Transform hoverPoint;
     [SerializeField] private float hoverItemSize = 0.1f;
@@ -20,7 +22,7 @@ public class S_FoodDispenser : MonoBehaviour, IButtonObject
     private void Start()
     {
         // Spawn Object to be Displayed over machine, to show what it spawns ig
-        var itemInstance = S_World.InstantiateFood(foodToDispense, hoverPoint.position, Quaternion.identity);
+        var itemInstance = S_World.SpawnFood(foodToDispense, hoverPoint.position, Quaternion.identity);
         hoverItem = itemInstance.gameObject;
         hoverItem.GetComponent<Rigidbody>().isKinematic = true;
         hoverItem.GetComponent<Collider>().enabled = false;
@@ -36,10 +38,10 @@ public class S_FoodDispenser : MonoBehaviour, IButtonObject
         // Spins the hover Item
         hoverItem.transform.Rotate(30 * t, 15 * t, 10 * t);
     }
-    
+    */
     public void OnButtonPressed() // When button is pressed spawn and launch the selected food Item
     {
-        var foodItem = S_World.InstantiateFood(foodToDispense, transform.position, Quaternion.identity);
+        var foodItem = S_World.SpawnFood(foodToDispense, transform.position, Quaternion.identity);
 
         if (foodItem.TryGetComponent(out Rigidbody rb))
         {
