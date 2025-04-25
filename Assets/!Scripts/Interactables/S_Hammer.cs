@@ -9,8 +9,7 @@ public class S_Hammer : NetworkBehaviour
     [Header("Damage to objects")]
     [SerializeField] float wallMultiplier;
     [SerializeField] float enemyMultiplier;
-    [Networked, OnChangedRender(nameof(NetworkUpdateVisuals))]
-    public float charge { get; set; }
+    [Networked, OnChangedRender(nameof(NetworkUpdateVisuals))] public float charge { get; set; }
     private Rigidbody rb;
     NetworkRunner runner;
     public bool IsLocalNetworkRig => Object.HasInputAuthority;
@@ -18,8 +17,9 @@ public class S_Hammer : NetworkBehaviour
     //For testing
     [SerializeField] Image fillImage;
 
-    public override void Spawned()
+    public void Start()
     {
+        Debug.Log("Spawned");
         rb = GetComponent<Rigidbody>();
         if (!IsLocalNetworkRig) enabled = false;
 
@@ -28,6 +28,7 @@ public class S_Hammer : NetworkBehaviour
 
     private void Update()
     {
+        Debug.Log("Hammer charge is: "+charge);
         if (!Object.HasStateAuthority) return;
         if(charge > 1) return;
         charge += 4*Time.deltaTime;
@@ -35,17 +36,22 @@ public class S_Hammer : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(!Object.HasStateAuthority) return;
         if (transform.parent != null)
         {
             if(other.TryGetComponent(out S_HoleManager holemanager))
             {
                 holemanager.RPCHammerHit(charge * wallMultiplier);
+                charge = 0;
+                Debug.Log("Hammer hit hole");
             }
             if (other.gameObject.CompareTag("Enemy"))
             {
                 DealDamage(Mathf.Clamp(charge, 0, 1), other.gameObject);
             }
         }
+        Debug.Log("Changing Charge level");
+        
     }
 
     void DealDamage(float charge, GameObject hit)
@@ -58,7 +64,9 @@ public class S_Hammer : NetworkBehaviour
 
     void NetworkUpdateVisuals()
     {
+        Debug.Log("trying to Update Visuals for hammer");
         fillImage.fillAmount = charge;
+        Debug.Log("Update Visuals for hammer");
         // Update visuals for all players here
     }
 }
