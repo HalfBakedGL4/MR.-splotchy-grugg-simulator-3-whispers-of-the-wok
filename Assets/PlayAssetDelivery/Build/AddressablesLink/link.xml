@@ -67,6 +67,9 @@
     <type fullname="Fusion.FusionBootstrapDebugGUI" preserve="all" />
     <type fullname="Fusion.RunnerEnableVisibility" preserve="all" />
   </assembly>
+  <assembly fullname="Meta.XR.EnvironmentDepth, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Meta.XR.EnvironmentDepth.EnvironmentDepthManager" preserve="all" />
+  </assembly>
   <assembly fullname="meta.xr.mrutilitykit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="Meta.XR.MRUtilityKit.AnchorPrefabSpawner" preserve="all" />
     <type fullname="Meta.XR.MRUtilityKit.AnchorPrefabSpawner/AnchorPrefabGroup" preserve="nothing" serialized="true" />
