@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 301761055327055046}
   - component: {fileID: 2446296382763830541}
   - component: {fileID: 992043932031702050}
+  - component: {fileID: -4780748143897151855}
   m_Layer: 5
   m_Name: button
   m_TagString: Untagged
@@ -211,6 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 2446296382763830541}
+  col: {fileID: -4780748143897151855}
   hoverColor: {r: 0.9, g: 0.9, b: 0.9, a: 1}
   pressedColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   PressedEnter:
@@ -222,6 +224,27 @@ MonoBehaviour:
   PressedExit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!65 &-4780748143897151855
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5798362978878491182}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.16, y: 0.16, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8861899051137072810
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,6 +44,7 @@ namespace Input
 
     public class S_InputReader : NetworkBehaviour, InputSystem_Actions.IRightControllerActions, InputSystem_Actions.ILeftControllerActions
     {
+        public static S_InputReader instance;
         [HideInInspector] public InputSystem_Actions playerInput;
         bool isLocal => Object && Object.HasStateAuthority;
 
@@ -58,6 +59,14 @@ namespace Input
         private void OnDisable()
         {
             playerInput.Disable();
+        }
+
+        public override void Spawned()
+        {
+            if (!isLocal) return;
+            instance = this;
+
+            base.Spawned();
         }
 
         #region Right Hand

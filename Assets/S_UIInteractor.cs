@@ -1,3 +1,5 @@
+using Input;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -7,53 +9,73 @@ public class S_UIInteractor : MonoBehaviour
     [SerializeField] float length;
     [Range(0, 1)]
     [SerializeField] float radius;
-    [SerializeField] InputActionReference toInteract;
 
     LayerMask uiLayer = 32;
 
     Ray uiRay => new Ray(transform.position, transform.forward);
     RaycastHit uiHit;
 
-    bool isHititng;
-
-    public UnityEvent started;
-    public UnityEvent preformed;
-    public UnityEvent cancelled;
+    S_UIElement hitting;
 
     void Update()
     {
         bool hit = Physics.SphereCast(uiRay, radius, out uiHit, length, uiLayer);
-        if (hit && isHititng)
-        {
-            if(uiHit.collider.TryGetComponent(out S_UIElement element))
-            {
-                element.OnHover();
-                if (element is S_UIButton && toInteract.action.WasPressedThisFrame())
-                {
-                    //(S_UIButton)element.on
-                }
-            }
+        Debug.Log(S_InputReader.instance);
 
-            preformed?.Invoke();
-        } else if(hit && !isHititng)
+        if(hit && hitting == null)
         {
             if (uiHit.collider.TryGetComponent(out S_UIElement element))
             {
                 element.OnHoverEnter();
-            }
+                hitting = element;
 
-            started?.Invoke();
-        } else if(!hit && isHititng)
+                S_InputReader.instance.RightA.AddListener(PressButton);
+            }
+        }
+        
+        if(!hit && hitting != null)
+        {
+            hitting.OnHoverExit();
+            hitting = null;
+
+            S_InputReader.instance.RightA.RemoveListener(PressButton);
+        }
+
+        if (hit)
         {
             if (uiHit.collider.TryGetComponent(out S_UIElement element))
             {
-                element.OnHoverExit();
-            }
+                if(element != hitting)
+                {
+                    hitting.OnHoverExit();
+                }
 
-            cancelled?.Invoke();
+                hitting = element;
+
+                element.OnHover();
+            }
+        }
+    }
+
+    private void PressButton(InputInfo info)
+    {
+        Debug.Log("[UIinteractor] pressing");
+        if (!(hitting is S_UIButton)) return;
+
+        if (!info.context.started)
+        {
+            ((S_UIButton)hitting).OnPressedEnter();
         }
 
-        isHititng = hit;
+        if (!info.context.performed)
+        {
+            ((S_UIButton)hitting).OnPressed();
+        }
+
+        if (!info.context.canceled)
+        {
+            ((S_UIButton)hitting).OnPressedExit();
+        }
     }
 
     private void OnDrawGizmosSelected()

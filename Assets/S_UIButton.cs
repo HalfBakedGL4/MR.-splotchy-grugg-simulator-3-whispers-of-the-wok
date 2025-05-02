@@ -3,8 +3,6 @@ using UnityEngine.Events;
 
 public class S_UIButton : S_UIElement
 {
-    [SerializeField] SpriteRenderer sprite;
-
     Color spriteColor;
     [SerializeField] Color hoverColor = Color.white * 0.9f;
     [SerializeField] Color pressedColor = Color.white * 0.7f;
@@ -18,34 +16,30 @@ public class S_UIButton : S_UIElement
     {
         spriteColor = sprite.color;
     }
+
     public override void OnHoverEnter()
     {
+        Debug.Log("[UIinteractor] HoverEnter");
         sprite.color = hoverColor;
         base.OnHoverEnter();
     }
     public override void OnHoverExit()
     {
+        Debug.Log("[UIinteractor] HoverExit");
         sprite.color = spriteColor;
         base.OnHoverExit();
     }
     public virtual void OnPressedEnter()
     {
-
+        Debug.Log("[UIinteractor] PressedEnter");
     }
     public virtual void OnPressed()
     {
-
+        Debug.Log("[UIinteractor] Pressed");
+        sprite.color = pressedColor;
     }
     public virtual void OnPressedExit()
     {
-
-    }
-
-    private void Reset()
-    {
-        if(!TryGetComponent(out sprite))
-        {
-            sprite = gameObject.AddComponent<SpriteRenderer>();
-        }
+        Debug.Log("[UIinteractor] PressedExit");
     }
 }

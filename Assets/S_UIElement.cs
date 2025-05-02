@@ -1,12 +1,15 @@
+using Oculus.Platform.Models;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Collider))]
 public class S_UIElement : MonoBehaviour
 {
-    private void OnValidate()
-    {
-        gameObject.layer = 5;
-    }
+    [SerializeField] protected SpriteRenderer sprite;
+    [SerializeField] protected Collider col;
+
+
     public virtual void OnHoverEnter()
     {
     }
@@ -15,5 +18,30 @@ public class S_UIElement : MonoBehaviour
     }
     public virtual void OnHoverExit()
     {
+
+
+    }
+
+    private void Reset()
+    {
+        gameObject.layer = 5;
+
+        TryGetComponent(out sprite);
+        if (!TryGetComponent(out col))
+        {
+            col = gameObject.AddComponent<BoxCollider>();
+        }
+
+    }
+    private void OnValidate()
+    {
+        gameObject.layer = 5;
+
+        TryGetComponent(out sprite);
+        if(!TryGetComponent(out col))
+        {
+            col = gameObject.AddComponent<BoxCollider>();
+        }
+
     }
 }
