@@ -107,6 +107,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 321d71cc596ffe54f8e14dac47defe13, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1661222852958608849}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 321d71cc596ffe54f8e14dac47defe13, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7508715916809284625}
     - targetCorrespondingSourceObject: {fileID: -353992321229026460, guid: 321d71cc596ffe54f8e14dac47defe13, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3697956780916951312}
@@ -522,6 +525,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeUntilFade: 4
   fadeDuration: 4
+--- !u!114 &7508715916809284625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6595421431458065942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SortKey: 2350737716
+  ObjectInterest: 1
+  Flags: 262145
+  NestedObjects: []
+  NetworkedBehaviours:
+  - {fileID: 1661222852958608849}
+  ForceRemoteRenderTimeframe: 0
 --- !u!1 &6703156119568627683 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8484594844359138140, guid: 321d71cc596ffe54f8e14dac47defe13, type: 3}
@@ -987,6 +1009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e104662d30e014fab29ce8844003a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _size: 0
 --- !u!114 &2788136137734995668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1002,7 +1025,8 @@ MonoBehaviour:
   SortKey: 1655594863
   ObjectInterest: 1
   Flags: 262145
-  NestedObjects: []
+  NestedObjects:
+  - {fileID: 7508715916809284625}
   NetworkedBehaviours:
   - {fileID: 4389431371835209947}
   - {fileID: -903403877307245476}

@@ -1,1 +1,1 @@
-{"Entries":[{"m_AssetPackName":"AddressablesAssetPack","m_DeliveryType":1,"AssetBundles":[]}]}
+{"Entries":[{"m_AssetPackName":"AddressablesAssetPack","m_DeliveryType":1,"AssetBundles":[]},{"m_AssetPackName":"DefaultLocalGroup","m_DeliveryType":2,"AssetBundles":["defaultlocalgroup_assets_all_835c96c9413ad31f73f8ee69ff4cfb71"]},{"m_AssetPackName":"Players","m_DeliveryType":2,"AssetBundles":["players_assets_all_f64c614ccfb933513eb54e7c26655f06"]}]}
