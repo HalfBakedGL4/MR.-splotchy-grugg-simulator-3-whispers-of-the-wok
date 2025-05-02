@@ -14,12 +14,12 @@ public class S_RecipeDatabase : MonoBehaviour
     private async void Start()
     {
         Instance = this;
-        book = await Addressable.LoadAsset<SO_RecipeBook>(AddressableAsset.RecipeBook);
+        book = await Addressable.LoadAsset<SO_RecipeBook>(AddressableAsset.RecipeBook, AddressableToLoad.ScriptableObject);
     }
 #if UNITY_EDITOR
     private async void OnValidate()
     {
-        book = await Addressable.LoadAsset<SO_RecipeBook>(AddressableAsset.RecipeBook);
+        book = await Addressable.LoadAsset<SO_RecipeBook>(AddressableAsset.RecipeBook, AddressableToLoad.ScriptableObject);
     }
 #endif
     public static Dish FindMatchingRecipe(List<FoodType> playerIngredients, CookerType playerCooker)
@@ -37,6 +37,8 @@ public class S_RecipeDatabase : MonoBehaviour
                 return recipe;
             }
         }
-        return null; // No match
+        
+        var burntDish = Instance.book.recipes.FirstOrDefault(e => e.typeOfDish == DishType.Burnt);
+        return burntDish; // No match
     }
 }

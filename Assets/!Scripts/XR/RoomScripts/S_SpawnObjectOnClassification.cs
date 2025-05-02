@@ -11,23 +11,33 @@ using Fusion;
 
 public class S_SpawnObjectOnClassification : NetworkBehaviour
 {
-    [Header("Link this script to AR Plane Manager!!")]
-    [SerializeField] private PlaneClassifications classifications;
-    [SerializeField] private GameObject[] spawnObjects;
-    
+    [SerializeField, ReadOnly]private ARPlaneManager planeManager;
+
+    [Header("Appliances")]
+    [SerializeField] private GameObject[] Appliances;
+    [SerializeField] private PlaneClassifications placeAppliancesOn;
+
+    [Header("Window")]
     [SerializeField] private S_OrderWindow orderWindow;
     [SerializeField] private float windowHeight = 1.0f;
-    [SerializeField] private ARPlaneManager planeManager;
+    [SerializeField] private PlaneClassifications placeWindowOn;
+
     private float basketSize = 0.5f;
     
     private bool windowPlaced = false;
 
     private bool islocal => Object && Object.HasStateAuthority;
 
-    
+    private void OnValidate()
+    {
+        if(planeManager == null)
+            planeManager = FindFirstObjectByType<ARPlaneManager>();
+    }
 
     public override void Spawned()
     {
+        if (planeManager == null)
+            planeManager = FindFirstObjectByType<ARPlaneManager>();
         Debug.Log("[Spawn Objects] Network object spawned in Shared Mode.");
         PlaceObjectOnPlane(planeManager.trackables);
     }
@@ -49,9 +59,9 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
             {
                 Debug.LogError("[Spawn Objects] " + item.classifications);
                 // Place applications on table across the room
-                if (item.classifications == PlaneClassifications.Table)
+                if (placeAppliancesOn.HasFlag(item.classifications))
                 {
-                    GameObject prefabToSpawn = spawnObjects[i];
+                    GameObject prefabToSpawn = Appliances[i];
                     var offsetVector = new Vector3(1, item.transform.position.y, 1) -
                                               new Vector3(item.extents.x, 0, item.extents.y);
                     Quaternion rotation = Quaternion.identity;
@@ -101,22 +111,13 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
 
                 if(!windowPlaced)
                 {
-                    if ((item.classifications == PlaneClassifications.WallFace ||
-                        item.classifications == PlaneClassifications.WallArt ||
-                        item.classifications == PlaneClassifications.InvisibleWallFace ||
-                        item.classifications == PlaneClassifications.WindowFrame))
+                    if (placeWindowOn.HasFlag(item.classifications))
                     {
                         Debug.Log("[Spawn Objects] " + item.classifications);
 
-                        //debugText.text = item.transform.rotation.ToString();
-                        //debugText.text += "\n";
-                        //debugText.text += "Rotation (Euler Angles): " + item.transform.eulerAngles.ToString();
-
-                        var windowInstance = Runner.Spawn(orderWindow, item.transform.position, Quaternion.Euler(item.transform.eulerAngles + new Vector3(90, 90, 0)));
-
-                        //windowInstance.transform.parent = item.transform;
-                        //windowInstance.transform.localEulerAngles = new Vector3(180, -90, -90);
-                        //windowInstance.transform.position = new Vector3(windowInstance.transform.position.x, windowHeight, windowInstance.transform.position.z);
+                        var windowInstance = Runner.Spawn(orderWindow, 
+                            new Vector3(item.transform.position.x, windowHeight, item.transform.position.z), 
+                            Quaternion.Euler(item.transform.eulerAngles + new Vector3(90, 90, 0)));
 
                         windowPlaced = true;
                     }
