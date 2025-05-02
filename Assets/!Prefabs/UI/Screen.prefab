@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 301761055327055046}
   - component: {fileID: 2446296382763830541}
   - component: {fileID: 992043932031702050}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,6 +210,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ff77a7530168834ebd459e61d3744f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 2446296382763830541}
+  hoverColor: {r: 0.9, g: 0.9, b: 0.9, a: 1}
+  pressedColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  PressedEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  Pressed:
+    m_PersistentCalls:
+      m_Calls: []
+  PressedExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8861899051137072810
 GameObject:
   m_ObjectHideFlags: 0

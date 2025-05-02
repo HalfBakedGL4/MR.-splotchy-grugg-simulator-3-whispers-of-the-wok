@@ -3,19 +3,17 @@ using UnityEngine.Events;
 
 public class S_UIElement : MonoBehaviour
 {
-    public UnityEvent HoverEnter;
-    public UnityEvent Hover;
-    public UnityEvent HoverExit;
+    private void OnValidate()
+    {
+        gameObject.layer = 5;
+    }
     public virtual void OnHoverEnter()
     {
-        HoverEnter?.Invoke();
     }
     public virtual void OnHover()
     {
-        Hover?.Invoke();
     }
     public virtual void OnHoverExit()
     {
-        HoverExit?.Invoke();
     }
 }
