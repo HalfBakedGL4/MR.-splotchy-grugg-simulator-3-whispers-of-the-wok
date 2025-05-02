@@ -752,6 +752,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Push Button
       objectReference: {fileID: 0}
+    - target: {fileID: 4775916728556860482, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5925488958627174871, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
       propertyPath: objectWithIButtonObject
       value: 
@@ -762,15 +766,15 @@ PrefabInstance:
       objectReference: {fileID: -5447036705194824928, guid: 5d965792e6012c04bbe2572fcfa2d511, type: 3}
     - target: {fileID: 7061671384639600787, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.559845e-10
+      value: -0.0000000011949806
       objectReference: {fileID: 0}
     - target: {fileID: 7061671384639600787, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.08999995
+      value: 0.089999974
       objectReference: {fileID: 0}
     - target: {fileID: 7061671384639600787, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0000000898625
+      value: 0.00000015869335
       objectReference: {fileID: 0}
     - target: {fileID: 9213621254682700026, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
       propertyPath: m_LocalScale.x
@@ -831,6 +835,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1661306588347682009, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
+    - {fileID: 8560365039172291144, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7061671384639600787, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
       insertIndex: -1

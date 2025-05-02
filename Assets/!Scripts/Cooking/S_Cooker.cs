@@ -47,7 +47,7 @@ public class S_Cooker : NetworkBehaviour
     private float savedPerfectlyCookedTime;
     private float savedOverCookedTime;
     
-    private bool isAbleToStartCooking = true;
+    [SerializeField, Networked] private bool _isAbleToStartCooking { get; set; } = true;
     bool isLocal => Object && Object.HasStateAuthority;
     [SerializeField, Networked] private float timer { get; set; }
     private async void Start()
@@ -128,7 +128,7 @@ public class S_Cooker : NetworkBehaviour
     {
         print("Interacting with Cooker " + name);
         // Activate Cooker and start timer
-        if (state == CookerState.Available && isAbleToStartCooking)
+        if (state == CookerState.Available && _isAbleToStartCooking)
         {
             timer = 0.0f;
 
@@ -271,11 +271,9 @@ public class S_Cooker : NetworkBehaviour
 
     // When the basket is placed in the fryer, check if there is food to cook
     // Connect this to the editor
-    public void CheckIfFryerShouldStart(S_Cooker fryer)
+    public void CheckIfFryerShouldStart()
     {
-        print("Interacting with Socket " + name);
-
-        isAbleToStartCooking = true;
+        RPC_SetCookerAbleToCook(true);
         
         if (foodCooking.Count > 0)
         {
@@ -284,7 +282,7 @@ public class S_Cooker : NetworkBehaviour
     }
     public void CantCook()
     {
-        isAbleToStartCooking = false;
+        RPC_SetCookerAbleToCook(false);
     }
     
     // If the basket has something in it and is let go the items inside will be disabled so that there won't be any collider issues
@@ -293,7 +291,6 @@ public class S_Cooker : NetworkBehaviour
         if (foodScripts.Count == 1)
         {  
             foodScripts[0].ToggleColliders(false);
-            foodScripts[0].ToggleGrab(false);
         }
     }
 
@@ -303,10 +300,15 @@ public class S_Cooker : NetworkBehaviour
         if (foodScripts.Count == 1)
         {  
             foodScripts[0].ToggleColliders(true);
-            foodScripts[0].ToggleGrab(true);
         }
     }
     
+    
+    [Rpc(sources: RpcSources.All, targets: RpcTargets.StateAuthority)]
+    void RPC_SetCookerAbleToCook(bool isActive)
+    {
+        _isAbleToStartCooking = isActive;
+    }
 
     #endregion
 

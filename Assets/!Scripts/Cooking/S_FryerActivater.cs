@@ -10,7 +10,7 @@ public class S_FryerActivater : MonoBehaviour
     {
         if (args.interactableObject.transform.TryGetComponent(out S_Cooker fryer))
         {
-            fryer.CheckIfFryerShouldStart(fryer);
+            fryer.CheckIfFryerShouldStart();
         }
     }
 
