@@ -489,6 +489,7 @@ GameObject:
   - component: {fileID: 2032407206206816740}
   - component: {fileID: 7061299194469122700}
   - component: {fileID: 598091341739480930}
+  - component: {fileID: 978995464951321929}
   m_Layer: 0
   m_Name: Shared-NetworkPlayer
   m_TagString: Untagged
@@ -534,6 +535,7 @@ MonoBehaviour:
   - {fileID: 2032407206206816740}
   - {fileID: 7061299194469122700}
   - {fileID: 598091341739480930}
+  - {fileID: 978995464951321929}
   - {fileID: 1889978002005811193}
   - {fileID: 7996577955182783173}
   - {fileID: 2813029364104225378}
@@ -614,14 +616,11 @@ MonoBehaviour:
       m_Calls: []
   RightA:
     m_PersistentCalls:
-      m_Calls: []
-  RightB:
-    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 235160260771068281}
-        m_TargetAssemblyTypeName: S_ItemSpawner, Assembly-CSharp
-        m_MethodName: SpawnItem
-        m_Mode: 0
+      - m_Target: {fileID: 978995464951321929}
+        m_TargetAssemblyTypeName: ColocationInputHandler, Assembly-CSharp
+        m_MethodName: clickA
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -630,6 +629,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  RightB:
+    m_PersistentCalls:
+      m_Calls: []
   LeftJoystick:
     m_PersistentCalls:
       m_Calls: []
@@ -669,6 +671,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &978995464951321929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6814099746120680431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 471a6a10c7264e8459f12ab837a8a8bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colocationManager: {fileID: 0}
 --- !u!1 &8689100458184367061
 GameObject:
   m_ObjectHideFlags: 0

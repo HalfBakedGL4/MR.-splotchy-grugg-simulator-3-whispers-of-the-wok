@@ -1,5 +1,6 @@
 <linker>
   <assembly fullname="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="ColocationInputHandler" preserve="all" />
     <type fullname="Input.S_InputReader" preserve="all" />
     <type fullname="Networking.Shared.S_DontDisplayForOwner" preserve="all" />
     <type fullname="Networking.Shared.S_LocalPlayer" preserve="all" />

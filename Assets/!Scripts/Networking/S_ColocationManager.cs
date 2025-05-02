@@ -205,6 +205,18 @@ public class ColocationManager : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-
     }
+
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    private void RpcResetColocation()
+    {
+        Debug.Log("Colocation: Resetting for all users...");
+        PrepareColocation();
+    }
+
+    public void ResetColocationForAll()
+    {
+        RpcResetColocation();
+    }
+    
 }
