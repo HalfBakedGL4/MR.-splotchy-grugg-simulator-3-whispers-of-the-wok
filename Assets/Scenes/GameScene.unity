@@ -343,12 +343,9 @@ MonoBehaviour:
       offset: {x: 0, y: 0, z: 0}
       eulerOffset: {x: 0, y: 0, z: 0}
       spawnedAllInstances: 0
-    toPlaceOn: 256
-  - name: Dispensers
-    stations:
     - toSpawn: {fileID: 7200728395727634709, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
       amount: 1
-      maxHeight: 1
+      maxHeight: 0
       offset: {x: 0, y: 0, z: 0}
       eulerOffset: {x: 0, y: 0, z: 0}
       spawnedAllInstances: 0
