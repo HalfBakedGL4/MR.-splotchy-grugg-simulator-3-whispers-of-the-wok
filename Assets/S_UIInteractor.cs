@@ -6,9 +6,9 @@ using UnityEngine.InputSystem;
 
 public class S_UIInteractor : MonoBehaviour
 {
-    [SerializeField] float length;
+    [SerializeField] float length = 3;
     [Range(0, 1)]
-    [SerializeField] float radius;
+    [SerializeField] float radius = .1f;
 
     LayerMask uiLayer = 32;
 
@@ -57,7 +57,7 @@ public class S_UIInteractor : MonoBehaviour
         }
     }
 
-    private void PressButton(InputInfo info)
+    public void PressButton(InputInfo info)
     {
         Debug.Log("[UIinteractor] pressing");
         if (!(hitting is S_UIButton)) return;
