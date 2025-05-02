@@ -1,5 +1,6 @@
 using Fusion;
 using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -87,8 +88,6 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
 
                     if (spawnableStation.toPlaceOn.HasFlag(surface.classifications)) //checking if the classifications match
                     {
-                        Debug.Log("[Spawn Objects] spawning " + station.toSpawn + " on " + surface.classifications);
-
                         //getting the appropriate position and rotation
                         Vector3 position = surface.transform.position + station.offset;
                         Quaternion rotation = Quaternion.Euler(surface.transform.eulerAngles + station.eulerOffset);
@@ -104,6 +103,8 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
 
                         //spawning the object
                         Runner.Spawn(station.toSpawn, position, rotation);
+
+                        Debug.Log("[Spawn Objects] spawned " + station.toSpawn + " on " + surface.classifications);
 
                         station.amount--;
 

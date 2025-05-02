@@ -1,7 +1,8 @@
 using DG.Tweening;
+using Fusion;
 using UnityEngine;
 
-public class S_WallExplosion : MonoBehaviour
+public class S_WallExplosion : NetworkBehaviour
 {
     [Header("Material on wall-pieces must be transparent/alpha")]
     [Header("Time until pieces begin to fade")]
@@ -11,7 +12,10 @@ public class S_WallExplosion : MonoBehaviour
 
     private MeshRenderer[] fadeMaterial;
     private Rigidbody[] rb;
-    
+
+    NetworkRunner runner;
+    public bool IsLocalNetworkRig => Object && Object.HasStateAuthority;
+
     private void Start()
     {
         fadeMaterial = GetComponentsInChildren<MeshRenderer>();
@@ -28,6 +32,10 @@ public class S_WallExplosion : MonoBehaviour
 
         Invoke("FadeOut", timeUntilFade);   // Fading out wall pieces after amount of time.
         Invoke("RemovePieces", fadeDuration+timeUntilFade); //Removes everything after faded out.0
+
+        if (!IsLocalNetworkRig) enabled = false;
+
+        runner = FindFirstObjectByType<NetworkRunner>();
     }
 
     void FadeOut()
@@ -41,6 +49,6 @@ public class S_WallExplosion : MonoBehaviour
 
     void RemovePieces()
     {
-        Destroy(gameObject);
+        runner.Despawn(gameObject.GetComponent<NetworkObject>());
     }
 }
