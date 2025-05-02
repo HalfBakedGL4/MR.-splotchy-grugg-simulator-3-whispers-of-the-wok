@@ -608,6 +608,7 @@ MonoBehaviour:
   - {fileID: 5160016885632812606}
   - {fileID: 7104565660179429157}
   - {fileID: 430843560358817930}
+  - {fileID: 8647710530322724590}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &5160016885632812606
 MonoBehaviour:
@@ -649,6 +650,7 @@ MonoBehaviour:
   underCookedTime: 10
   perfectlyCookedTime: 20
   overCookedTime: 30
+  __isAbleToStartCooking: 1
   _timer: 0
 --- !u!114 &-3129658648468868885
 MonoBehaviour:
