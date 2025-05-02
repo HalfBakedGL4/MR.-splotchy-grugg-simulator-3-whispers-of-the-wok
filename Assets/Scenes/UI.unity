@@ -1361,30 +1361,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1226985883}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1250651133 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8140637237505375130, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-  m_PrefabInstance: {fileID: 1755186111}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1250651134 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7146458900424174748, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
   m_PrefabInstance: {fileID: 1755186111}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1250651140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1250651133}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c6ef794fe8916d409d34365a260e261, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  length: 3
-  radius: 0.1
 --- !u!1 &1288280941
 GameObject:
   m_ObjectHideFlags: 0
@@ -1808,16 +1789,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shared-LocalPlayer
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3261946493531797857, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7146458900424174748, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2123981236}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8140637237505375130, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1250651140}
     - targetCorrespondingSourceObject: {fileID: 2846391589684802325, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -1983,8 +1962,8 @@ Transform:
   m_GameObject: {fileID: 2123981235}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: 1.5}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1250651134}
