@@ -22,7 +22,8 @@ public class S_EditorMenu : MonoBehaviour
         if (networking == null)
             networking = await Addressable.LoadAsset<HierarchyDesignerFolder>(AddressableAsset.Networking);
 
-        Instantiate(networking);
+        HierarchyDesignerFolder folder = Instantiate(networking);
+        folder.name = folder.name.Replace("(Clone)", "");
     }
     [MenuItem("GameElements/Add MR")]
     static async void MRMyScene()
@@ -30,7 +31,8 @@ public class S_EditorMenu : MonoBehaviour
         if (mr == null)
             mr = await Addressable.LoadAsset<HierarchyDesignerFolder>(AddressableAsset.MR);
 
-        Instantiate(mr);
+        HierarchyDesignerFolder folder = Instantiate(mr);
+        folder.name = folder.name.Replace("(Clone)", "");
     }
     [MenuItem("GameElements/Add Game")]
     static async void GameMyScene()
@@ -38,6 +40,7 @@ public class S_EditorMenu : MonoBehaviour
         if (world == null)
             world = await Addressable.LoadAsset<HierarchyDesignerFolder>(AddressableAsset.World);
 
-        Instantiate(world);
+        HierarchyDesignerFolder folder = Instantiate(world);
+        folder.name = folder.name.Replace("(Clone)", "");
     }
 }
