@@ -286,6 +286,27 @@ public class S_Cooker : NetworkBehaviour
     {
         isAbleToStartCooking = false;
     }
+    
+    // If the basket has something in it and is let go the items inside will be disabled so that there won't be any collider issues
+    public void DisableFoodInBasket(SelectExitEventArgs args = null)
+    {
+        if (foodScripts.Count == 1)
+        {  
+            foodScripts[0].ToggleColliders(false);
+            foodScripts[0].ToggleGrab(false);
+        }
+    }
+
+    // When picked up items then are enabled again to be able to pick them up
+    public void EnableFoodInBasket(SelectEnterEventArgs args = null)
+    {
+        if (foodScripts.Count == 1)
+        {  
+            foodScripts[0].ToggleColliders(true);
+            foodScripts[0].ToggleGrab(true);
+        }
+    }
+    
 
     #endregion
 
