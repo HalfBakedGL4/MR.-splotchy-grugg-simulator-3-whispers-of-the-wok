@@ -1,19 +1,19 @@
 # ninja log v5
-15	601	7656779695797601	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	c6dab6b24e1712a5
-35	619	7656779695944225	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	620644d96304c213
-22	599	7656779695716325	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	24921d1ca782999b
-30	600	7656779695751495	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	727a7d5a7e85d924
-12	636	7656779696148595	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	e6bb6ed0be31d5f4
-5	602	7656779695777533	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	9d2e0bdf46a26d12
-26	685	7656779696625183	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	ad8768486f5e88a2
-0	706	7656779696793111	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	b415056df5934b24
-707	845	7656779698287853	C:/Users/torje/!School/Semester 4/Gamelab/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/3b6c5s2p/obj/arm64-v8a/libgame.so	9f0c1150eee26ac3
-33	1394	7657228366342237	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	c6dab6b24e1712a5
-60	1447	7657228366806236	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	727a7d5a7e85d924
-51	1450	7657228366796115	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	24921d1ca782999b
-81	1451	7657228366831472	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	620644d96304c213
-15	1515	7657228367584352	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	e6bb6ed0be31d5f4
-24	1547	7657228367897267	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	9d2e0bdf46a26d12
-41	1618	7657228368611528	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	ad8768486f5e88a2
-8	1666	7657228369098236	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	b415056df5934b24
-1667	1916	7657228371718618	C:/Users/torje/!School/Semester 4/Gamelab/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/3b6c5s2p/obj/arm64-v8a/libgame.so	9f0c1150eee26ac3
+54	1675	7678766668951696	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	24921d1ca782999b
+33	1766	7678766670309079	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	e6bb6ed0be31d5f4
+47	1687	7678766669371103	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	727a7d5a7e85d924
+61	1685	7678766669248463	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	620644d96304c213
+24	1643	7678766668956781	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	c6dab6b24e1712a5
+16	1809	7678766670663712	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	9d2e0bdf46a26d12
+40	1829	7678766670901809	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	ad8768486f5e88a2
+9	1932	7678766671991797	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	b415056df5934b24
+1932	2215	7678766674785476	C:/Users/torje/!School/Semester 4/Gamelab/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/3b6c5s2p/obj/arm64-v8a/libgame.so	9f0c1150eee26ac3
+31	1649	7678782824015041	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	c6dab6b24e1712a5
+46	1651	7678782824150653	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	24921d1ca782999b
+55	1652	7678782824240947	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	727a7d5a7e85d924
+65	1691	7678782824826419	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	620644d96304c213
+15	1708	7678782824997195	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	e6bb6ed0be31d5f4
+22	1773	7678782825440848	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	9d2e0bdf46a26d12
+39	1814	7678782826099963	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	ad8768486f5e88a2
+8	1887	7678782826840365	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	b415056df5934b24
+1887	2113	7678782829122347	C:/Users/torje/!School/Semester 4/Gamelab/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/3b6c5s2p/obj/arm64-v8a/libgame.so	9f0c1150eee26ac3

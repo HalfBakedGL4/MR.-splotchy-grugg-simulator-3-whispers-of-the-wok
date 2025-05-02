@@ -23,7 +23,7 @@ public class S_PlayerSpawner : SimulationBehaviour, IPlayerJoined, IPlayerLeft
     {
         if (networkPlayerPrefab == null)
         {
-            networkPlayerPrefab = await Addressable.LoadAsset<S_NetworkPlayer>(AddressableAsset.SharedNetworkPlayer, true);
+            networkPlayerPrefab = await Addressable.LoadAsset<S_NetworkPlayer>(AddressableAsset.SharedNetworkPlayer);
         }
 
         if (localPlayer == null)
@@ -36,7 +36,7 @@ public class S_PlayerSpawner : SimulationBehaviour, IPlayerJoined, IPlayerLeft
     public async Task SpawnPlayer(PlayerRef player)
     {
         if (networkPlayerPrefab == null)
-            networkPlayerPrefab = await Addressable.LoadAsset<S_NetworkPlayer>(AddressableAsset.SharedNetworkPlayer, true);
+            networkPlayerPrefab = await Addressable.LoadAsset<S_NetworkPlayer>(AddressableAsset.SharedNetworkPlayer);
         
 
         if (localPlayer == null)

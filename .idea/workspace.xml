@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="766b8065-bb22-46bb-b9f6-73b063636f70" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/S_ShowOnlyThisClassification.cs.meta" beforeDir="false" />
-    </list>
+    <list default="true" id="766b8065-bb22-46bb-b9f6-73b063636f70" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,7 +25,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Costumers",
+    "git-widget-placeholder": "Cooking",
     "ignore.virus.scanning.warn.message": "true",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
@@ -51,6 +49,7 @@
       <updated>1738586569116</updated>
       <workItem from="1738586570979" duration="25000" />
       <workItem from="1743754483587" duration="68000" />
+      <workItem from="1744383310035" duration="209000" />
     </task>
     <servers />
   </component>

@@ -1,33 +1,74 @@
+using Fusion;
 using System;
-using System.Collections.Generic;
-using TMPro;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
-using static Unity.Collections.Unicode;
-using Random = UnityEngine.Random;
 using Vector3 = UnityEngine.Vector3;
-using Fusion;
 
+[Serializable]
+public class Station
+{
+    public GameObject toSpawn;
+
+    public int amount;
+
+    public int maxHeight; //zero will do nothing
+    public Vector3 offset;
+    public Vector3 eulerOffset;
+
+    [ReadOnly] public bool spawnedAllInstances;
+
+
+    public Station(GameObject toSpawn, Vector3 offset = default, Vector3 eulerOffset = default, int amount = 1, bool spawnedAllInstances = false)
+    {
+        this.toSpawn = toSpawn;
+        this.amount = amount;
+        this.spawnedAllInstances = spawnedAllInstances;
+
+        this.offset = offset;
+        this.eulerOffset = eulerOffset;
+
+        //name = toSpawn.name;
+    }
+}
+[Serializable]
+public class SpawnableStation
+{
+    public string name;
+
+    public Station[] stations;
+
+    public PlaneClassifications toPlaceOn;
+
+    public SpawnableStation(Station[] stations, PlaneClassifications toPlaceOn = PlaneClassifications.Table)
+    {
+        this.stations = stations;
+        this.toPlaceOn = toPlaceOn;
+
+        name = this.stations[0].toSpawn.name;
+    }
+}
 public class S_SpawnObjectOnClassification : NetworkBehaviour
 {
-    [Header("Link this script to AR Plane Manager!!")]
-    [SerializeField] private PlaneClassifications classifications;
-    [SerializeField] private GameObject[] spawnObjects;
-    
-    [SerializeField] private S_OrderWindow orderWindow;
-    [SerializeField] private float windowHeight = 1.0f;
-    [SerializeField] private ARPlaneManager planeManager;
-    private float basketSize = 0.5f;
-    
-    private bool windowPlaced = false;
+    [SerializeField, ReadOnly] private ARPlaneManager planeManager;
+
+    [SerializeField] SpawnableStation[] spawnableStations;
 
     private bool islocal => Object && Object.HasStateAuthority;
 
-    
+    private void OnValidate()
+    {
+        if (planeManager == null)
+            planeManager = FindFirstObjectByType<ARPlaneManager>();
+    }
 
     public override void Spawned()
     {
+        if (!islocal) return;
+
+        if (planeManager == null)
+            planeManager = FindFirstObjectByType<ARPlaneManager>();
         Debug.Log("[Spawn Objects] Network object spawned in Shared Mode.");
         PlaceObjectOnPlane(planeManager.trackables);
     }
@@ -35,96 +76,47 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
     // Needs to be referenced in the editor in ARPlaneManager
     public void PlaceObjectOnPlane(TrackableCollection<ARPlane> changes)
     {
-        if (!islocal) return;
-
-        int i = 0;
-
-        foreach (var item in changes)
+        foreach (var spawnableStation in spawnableStations)
         {
-
-            if (item == null)
+            foreach (var surface in changes)
             {
-                Debug.LogError("[Spawn Objects] Null ARPlane in 'added'");
-            } else
-            {
-                Debug.LogError("[Spawn Objects] " + item.classifications);
-                // Place applications on table across the room
-                if (item.classifications == PlaneClassifications.Table)
+                foreach (var station in spawnableStation.stations)
                 {
-                    GameObject prefabToSpawn = spawnObjects[i];
-                    var offsetVector = new Vector3(1, item.transform.position.y, 1) -
-                                              new Vector3(item.extents.x, 0, item.extents.y);
-                    Quaternion rotation = Quaternion.identity;
-                    Runner.Spawn(prefabToSpawn, item.transform.position, rotation);
-                    i++;
 
+                    if (station.spawnedAllInstances == true) //checking if we should spawn more of the station
+                        continue;
 
-                    //// Finds number of rows and columns to create a grid to place items
-                    //var rows = item.size.x / basketSize;
-                    //var cols = item.size.y / basketSize;
-
-                    //rows = Mathf.FloorToInt(rows);
-                    //cols = Mathf.FloorToInt(cols);
-
-                    //var rowSize = item.size.x / rows;
-                    //var colSize = item.size.y / cols;
-                    //Debug.LogWarning("[Spawn Objects] size of item: " + item.name + " with rows: " + rowSize + " and cols: " + colSize);
-
-                    ////debugText.text += item.name + ": " + item.size + " Rows: " + rows + " Cols: " + cols + "\n";
-
-                    //for (int i = 0; i < rows; i++)
-                    //{
-                    //    for (int j = 0; j < cols; j++)
-                    //    {
-                    //        Debug.LogWarning("[Spawn Objects] in for - i=" + i + " j=" + j);
-                    //        // Offset to place items in middle of grid square
-                    //        var offsetVector = new Vector3(rowSize * (i + 0.5f), item.transform.position.y, colSize * (j + 0.5f)) -
-                    //                           new Vector3(item.extents.x, 0, item.extents.y);
-                    //        // Spawn Object
-                    //        Vector3 worldPosition = item.transform.position + item.transform.rotation * offsetVector;
-                    //        Quaternion rotation = Quaternion.identity;
-
-                    //        GameObject prefabToSpawn = spawnObjects[Random.Range(0, spawnObjects.Length)];
-                    //        if (prefabToSpawn == null)
-                    //        {
-                    //            Debug.LogError("[Spawn Objects] Prefab To Spawn is Null");
-                    //        } else
-                    //        {
-                    //            Debug.LogWarning("[Spawn Objects] in runner.spawn");
-                    //            Runner.Spawn(prefabToSpawn, worldPosition, rotation);
-                    //        }
-                    //        // Where to spawn object in world Space
-                    //        //debugText.text += objectInstance.name + ": " + objectInstance.transform.localPosition + "\n";
-                    //    }
-                    //}
-                }
-
-                if(!windowPlaced)
-                {
-                    if ((item.classifications == PlaneClassifications.WallFace ||
-                        item.classifications == PlaneClassifications.WallArt ||
-                        item.classifications == PlaneClassifications.InvisibleWallFace ||
-                        item.classifications == PlaneClassifications.WindowFrame))
+                    if (spawnableStation.toPlaceOn.HasFlag(surface.classifications)) //checking if the classifications match
                     {
-                        Debug.Log("[Spawn Objects] " + item.classifications);
+                        //getting the appropriate position and rotation
+                        Vector3 position = surface.transform.position + station.offset;
+                        Quaternion rotation = Quaternion.Euler(surface.transform.eulerAngles + station.eulerOffset);
 
-                        //debugText.text = item.transform.rotation.ToString();
-                        //debugText.text += "\n";
-                        //debugText.text += "Rotation (Euler Angles): " + item.transform.eulerAngles.ToString();
+                        //checking height
+                        if (station.maxHeight != 0) 
+                        {
+                            if(position.y > station.maxHeight)
+                            {
+                                position.y = station.maxHeight;
+                            }
+                        }
 
-                        var windowInstance = Runner.Spawn(orderWindow, item.transform.position, Quaternion.Euler(item.transform.eulerAngles + new Vector3(90, 90, 0)));
+                        //spawning the object
+                        Runner.Spawn(station.toSpawn, position, rotation);
 
-                        //windowInstance.transform.parent = item.transform;
-                        //windowInstance.transform.localEulerAngles = new Vector3(180, -90, -90);
-                        //windowInstance.transform.position = new Vector3(windowInstance.transform.position.x, windowHeight, windowInstance.transform.position.z);
+                        Debug.Log("[Spawn Objects] spawned " + station.toSpawn + " on " + surface.classifications);
 
-                        windowPlaced = true;
+                        station.amount--;
+
+                        if(station.amount <= 0)
+                            station.spawnedAllInstances = true;
+
+                        break;
                     }
                 }
-            }
 
-            
+            }
         }
     }
-  
+
 }
