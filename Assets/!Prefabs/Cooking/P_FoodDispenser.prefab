@@ -1496,7 +1496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodToDispense: {fileID: 8838173536849041710, guid: 15a9df953c19fc04399e52a454e0389f, type: 3}
-  launchSpeed: 3
+  launchSpeed: 1
   rotationSpeed: 45
 --- !u!1 &8113687841787916565
 GameObject:
@@ -1662,7 +1662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodToDispense: {fileID: 7184869932161336017, guid: e1b0ef59760462f439b86bd0e007b54b, type: 3}
-  launchSpeed: 3
+  launchSpeed: 1
   rotationSpeed: 45
 --- !u!1 &8759584452105121207
 GameObject:
@@ -1709,7 +1709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodToDispense: {fileID: 5809053682801831640, guid: 0310795c2f100a34cbb6f8090fda5e3d, type: 3}
-  launchSpeed: 3
+  launchSpeed: 1
   rotationSpeed: 45
 --- !u!1 &8782577149790394468
 GameObject:
@@ -1927,7 +1927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7061671384639600787, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.04346206
+      value: 0.043462057
       objectReference: {fileID: 0}
     - target: {fileID: 7061671384639600787, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
       propertyPath: m_LocalPosition.z

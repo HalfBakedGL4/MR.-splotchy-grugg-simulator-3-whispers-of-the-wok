@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4985485349489685525
 RectTransform:
   m_ObjectHideFlags: 0
@@ -812,6 +812,7 @@ MonoBehaviour:
   underCookedTime: 10
   perfectlyCookedTime: 20
   overCookedTime: 30
+  cookTimer: {fileID: 968840830078755187}
   __isAbleToStartCooking: 1
   _timer: 0
 --- !u!1001 &956324363989069927
@@ -822,6 +823,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3511736406895139694}
     m_Modifications:
+    - target: {fileID: 2524033725491458654, guid: 82e36614bc5e0c24d996375c7eaedc0b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.029293055
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524033725491458654, guid: 82e36614bc5e0c24d996375c7eaedc0b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.029293051
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524033725491458654, guid: 82e36614bc5e0c24d996375c7eaedc0b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.029293064
+      objectReference: {fileID: 0}
     - target: {fileID: 2524033725491458654, guid: 82e36614bc5e0c24d996375c7eaedc0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -871,6 +884,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82e36614bc5e0c24d996375c7eaedc0b, type: 3}
+--- !u!114 &968840830078755187 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 15631117485052180, guid: 82e36614bc5e0c24d996375c7eaedc0b, type: 3}
+  m_PrefabInstance: {fileID: 956324363989069927}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e7a89b6121e1a4bb9b1a38ab9b90f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &3333403411517833785 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2524033725491458654, guid: 82e36614bc5e0c24d996375c7eaedc0b, type: 3}

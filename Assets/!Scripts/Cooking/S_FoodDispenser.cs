@@ -43,6 +43,8 @@ public class S_FoodDispenser : MonoBehaviour, IButtonObject
     {
         var foodItem = S_GameManager.SpawnFood(foodToDispense, transform.position, Quaternion.identity);
 
+        if (foodItem == null) return;
+        
         if (foodItem.TryGetComponent(out Rigidbody rb))
         {
             // Launches the item forward
