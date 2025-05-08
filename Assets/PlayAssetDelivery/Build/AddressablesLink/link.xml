@@ -1,6 +1,7 @@
 <linker>
   <assembly fullname="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="AlignmentManager" preserve="all" />
+    <type fullname="ColocationInputHandler" preserve="all" />
     <type fullname="ColocationManager" preserve="all" />
     <type fullname="Input.S_InputReader" preserve="all" />
     <type fullname="Networking.Shared.S_DontDisplayForOwner" preserve="all" />
@@ -9,13 +10,23 @@
     <type fullname="Rig" preserve="all" />
     <type fullname="S_Alien" preserve="all" />
     <type fullname="S_AnimateHandOnInput" preserve="all" />
+    <type fullname="S_AttackState" preserve="all" />
+    <type fullname="S_ChaseState" preserve="all" />
     <type fullname="S_ColorClassifications" preserve="all" />
     <type fullname="S_Cooker" preserve="all" />
+    <type fullname="S_CostumerManager" preserve="all" />
+    <type fullname="S_CostumerOrder" preserve="all" />
+    <type fullname="S_CostumerSpawner" preserve="all" />
+    <type fullname="S_CustomerStateManager" preserve="all" />
     <type fullname="S_DishStatus" preserve="all" />
-    <type fullname="S_Food" preserve="all" />
+    <type fullname="S_FindPointsOnWalls" preserve="all" />
     <type fullname="S_FryerActivater" preserve="all" />
+    <type fullname="S_GameManager" preserve="all" />
     <type fullname="S_Hammer" preserve="all" />
     <type fullname="S_HardwarePart" preserve="all" />
+    <type fullname="S_HoleManager" preserve="all" />
+    <type fullname="S_HoleSpawner" preserve="all" />
+    <type fullname="S_IdleSate" preserve="all" />
     <type fullname="S_InfoScreen" preserve="all" />
     <type fullname="S_Interactor" preserve="all" />
     <type fullname="S_ItemSpawner" preserve="all" />
@@ -27,6 +38,8 @@
     <type fullname="S_SpawnNetworkObject" preserve="all" />
     <type fullname="S_SpawnObjectOnClassification" preserve="all" />
     <type fullname="S_Ticket" preserve="all" />
+    <type fullname="S_UIInteractor" preserve="all" />
+    <type fullname="S_WallExplosion" preserve="all" />
     <type fullname="SO_RecipeBook" preserve="all" />
     <type fullname="Verpha.HierarchyDesigner.HierarchyDesignerFolder" preserve="all" />
     <type fullname=".Dish" preserve="nothing" serialized="true" />
@@ -185,7 +198,9 @@
     <type fullname="UnityEngine.RuntimeAnimatorController" preserve="all" />
   </assembly>
   <assembly fullname="UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.AudioClip" preserve="all" />
     <type fullname="UnityEngine.AudioListener" preserve="all" />
+    <type fullname="UnityEngine.AudioSource" preserve="all" />
   </assembly>
   <assembly fullname="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.Camera" preserve="all" />

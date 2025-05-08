@@ -42,10 +42,10 @@ namespace Input
         }
     }
 
-    public class S_InputReader : NetworkBehaviour, InputSystem_Actions.IRightControllerActions, InputSystem_Actions.ILeftControllerActions
+    public class S_InputReader : MonoBehaviour, InputSystem_Actions.IRightControllerActions, InputSystem_Actions.ILeftControllerActions
     {
+        public static S_InputReader instance;
         [HideInInspector] public InputSystem_Actions playerInput;
-        bool isLocal => Object && Object.HasStateAuthority;
 
         private void OnEnable()
         {
@@ -59,14 +59,16 @@ namespace Input
         {
             playerInput.Disable();
         }
+        private void Start()
+        {
+            instance = this;
+        }
 
         #region Right Hand
 
         public UnityEvent<InputInfo> RightJoystick;
         public void OnR_Joystick(InputAction.CallbackContext context)
         {
-            if (!isLocal) return;
-
             InputInfo info = new InputInfo<Vector2>(context, Source.RightHand);
             RightJoystick?.Invoke(info);
         }
@@ -74,8 +76,6 @@ namespace Input
         public UnityEvent<InputInfo> RightTrigger;
         public void OnR_Trigger(InputAction.CallbackContext context)
         {
-            if (!isLocal) return;
-
             InputInfo info = new InputInfo(context, Source.RightHand);
             RightTrigger?.Invoke(info);
         }
@@ -83,8 +83,6 @@ namespace Input
         public UnityEvent<InputInfo> RightGrip;
         public void OnR_Grip(InputAction.CallbackContext context)
         {
-            if (!isLocal) return;
-
             InputInfo info = new InputInfo(context, Source.RightHand);
             RightGrip?.Invoke(info);
         }
@@ -92,8 +90,6 @@ namespace Input
         public UnityEvent<InputInfo> RightA;
         public void OnR_A(InputAction.CallbackContext context)
         {
-            if (!isLocal) return;
-
             InputInfo info = new InputInfo(context, Source.RightHand);
             RightA?.Invoke(info);
         }
@@ -101,8 +97,6 @@ namespace Input
         public UnityEvent<InputInfo> RightB;
         public void OnR_B(InputAction.CallbackContext context)
         {
-            if (!isLocal) return;
-
             InputInfo info = new InputInfo(context, Source.RightHand);
             RightB?.Invoke(info);
         }
@@ -117,8 +111,6 @@ namespace Input
         public UnityEvent<InputInfo> LeftJoystick;
         public void OnL_Joystick(InputAction.CallbackContext context)
         {
-            if (!isLocal) return;
-
             InputInfo info = new InputInfo<Vector2>(context, Source.LeftHand);
             LeftJoystick?.Invoke(info);
         }
@@ -126,8 +118,6 @@ namespace Input
         public UnityEvent<InputInfo> LeftTrigger;
         public void OnL_Trigger(InputAction.CallbackContext context)
         {
-            if (!isLocal) return;
-
             InputInfo info = new InputInfo(context, Source.LeftHand);
             LeftTrigger?.Invoke(info);
         }
@@ -135,8 +125,6 @@ namespace Input
         public UnityEvent<InputInfo> LeftGrip;
         public void OnL_Grip(InputAction.CallbackContext context)
         {
-            if (!isLocal) return;
-
             InputInfo info = new InputInfo(context, Source.LeftHand);
             LeftGrip?.Invoke(info);
         }
@@ -144,8 +132,6 @@ namespace Input
         public UnityEvent<InputInfo> LeftX;
         public void OnL_X(InputAction.CallbackContext context)
         {
-            if (!isLocal) return;
-
             InputInfo info = new InputInfo(context, Source.LeftHand);
             LeftX?.Invoke(info);
         }
@@ -153,8 +139,6 @@ namespace Input
         public UnityEvent<InputInfo> LeftY;
         public void OnL_Y(InputAction.CallbackContext context)
         {
-            if (!isLocal) return;
-
             InputInfo info = new InputInfo(context, Source.LeftHand);
             LeftY?.Invoke(info);
         }
