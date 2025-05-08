@@ -6,10 +6,15 @@ public class ColocationInputHandler : NetworkBehaviour
 {
     public ColocationManager colocationManager;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start() {
+    override
+    public void Spawned()
+    {
+        Debug.Log("Colocation: Started Input Handler");
         colocationManager = FindFirstObjectByType<ColocationManager>();
     }
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start() {}
 
     // Update is called once per frame
     void Update()

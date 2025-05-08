@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,6 +7,9 @@ public class S_UIButton : S_UIElement
     Color spriteColor;
     [SerializeField] Color hoverColor = Color.white * 0.9f;
     [SerializeField] Color pressedColor = Color.white * 0.7f;
+
+    [HideInInspector]
+    public bool isPressed;
 
     [Space]
     public UnityEvent PressedEnter;
@@ -16,30 +20,43 @@ public class S_UIButton : S_UIElement
     {
         spriteColor = sprite.color;
     }
+    private void Update()
+    {
+        if(isHovering)
+        {
+            if(isPressed)
+            {
+                sprite.color = pressedColor;
+            } 
+            else
+            {
+                sprite.color = hoverColor;
+            }
+        } else
+        {
+            sprite.color = spriteColor;
+        }
+    }
 
-    public override void OnHoverEnter()
+    public virtual void OnPressedEnter(S_UIInteractor interactor)
     {
-        Debug.Log("[UIinteractor] HoverEnter");
-        sprite.color = hoverColor;
-        base.OnHoverEnter();
-    }
-    public override void OnHoverExit()
-    {
-        Debug.Log("[UIinteractor] HoverExit");
-        sprite.color = spriteColor;
-        base.OnHoverExit();
-    }
-    public virtual void OnPressedEnter()
-    {
+        interactor.hapticPlayer.SendHapticImpulse(interactor.hapicAmplitude, interactor.hapicDuration);
+        isPressed = true;
+        PressedEnter?.Invoke();
+
         Debug.Log("[UIinteractor] PressedEnter");
     }
-    public virtual void OnPressed()
+    public virtual void OnPressed(S_UIInteractor interactor)
     {
+        Pressed?.Invoke();
+
         Debug.Log("[UIinteractor] Pressed");
-        sprite.color = pressedColor;
     }
-    public virtual void OnPressedExit()
+    public virtual void OnPressedExit(S_UIInteractor interactor)
     {
+        isPressed = false;
+        PressedExit?.Invoke();
+
         Debug.Log("[UIinteractor] PressedExit");
     }
 }

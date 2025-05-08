@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using Oculus.Platform.Models;
 using UnityEngine;
 using UnityEngine.Events;
@@ -9,17 +10,23 @@ public class S_UIElement : MonoBehaviour
     [SerializeField] protected SpriteRenderer sprite;
     [SerializeField] protected Collider col;
 
+    [HideInInspector]
+    public bool isHovering;
 
-    public virtual void OnHoverEnter()
+
+    public virtual void OnHoverEnter(S_UIInteractor interactor)
+    {
+        interactor.hapticPlayer.SendHapticImpulse(interactor.hapicAmplitude, interactor.hapicDuration);
+        Debug.Log("[UIinteractor] HoverEnter");
+        isHovering = true;
+    }
+    public virtual void OnHover(S_UIInteractor interactor)
     {
     }
-    public virtual void OnHover()
+    public virtual void OnHoverExit(S_UIInteractor interactor)
     {
-    }
-    public virtual void OnHoverExit()
-    {
-
-
+        Debug.Log("[UIinteractor] HoverExit");
+        isHovering = false;
     }
 
     private void Reset()
