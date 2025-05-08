@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="EventFolder" id="{4b16093d-33ac-427b-b070-cf0fadde126b}">
+	<object class="EventFolder" id="{94a3ee7a-c844-4b23-9721-5c5f3ee2c7d2}">
 		<property name="name">
-			<value>Utensils</value>
+			<value>ChachRegister</value>
 		</property>
 		<relationship name="folder">
-			<destination>{a3c34aaf-f1d3-4964-9aa1-327013f16f8c}</destination>
+			<destination>{c7311d5a-cb81-4201-bf87-fc9ff4cebf12}</destination>
 		</relationship>
 	</object>
 </objects>
