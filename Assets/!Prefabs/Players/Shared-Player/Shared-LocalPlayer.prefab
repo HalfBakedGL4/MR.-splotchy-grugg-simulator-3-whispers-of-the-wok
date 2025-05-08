@@ -670,18 +670,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7587488022083453592, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8600024942964948797}
-    - targetCorrespondingSourceObject: {fileID: 7587488022083453592, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3261946493531797857}
     - targetCorrespondingSourceObject: {fileID: 517355175604575722, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
       insertIndex: -1
       addedObject: {fileID: -8198266487408949669}
+    - targetCorrespondingSourceObject: {fileID: 551790755284736704, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8455747855692244314}
     - targetCorrespondingSourceObject: {fileID: 2074720279474278519, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
       insertIndex: 1
       addedObject: {fileID: 1680469278921472803}
-    - targetCorrespondingSourceObject: {fileID: 2074720279474278519, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 7240602576111316090}
     - targetCorrespondingSourceObject: {fileID: 9074968542040919525, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7335614726308319071}
@@ -708,6 +705,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nonRigidbodyVelocity: 0
   attenuationObject: {fileID: 0}
+--- !u!1 &766108253375818943 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 551790755284736704, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
+  m_PrefabInstance: {fileID: 939450914234873471}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8455747855692244314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766108253375818943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c6ef794fe8916d409d34365a260e261, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  length: 3
+  radius: 0.1
 --- !u!114 &1077515024369972435 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 287530629901664940, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
@@ -916,20 +932,6 @@ MonoBehaviour:
     m_InputActionReference: {fileID: 0}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualValue: {x: 0, y: 0}
---- !u!114 &7240602576111316090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1280001663096038920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c6ef794fe8916d409d34365a260e261, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  length: 1
-  radius: 0.05
 --- !u!4 &1577476649118705446 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1796315055618462041, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
@@ -1215,7 +1217,19 @@ MonoBehaviour:
       m_Calls: []
   RightB:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7335614726308319071}
+        m_TargetAssemblyTypeName: S_UIInteractor, Assembly-CSharp
+        m_MethodName: PressButton
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   LeftJoystick:
     m_PersistentCalls:
       m_Calls: []
@@ -1230,20 +1244,19 @@ MonoBehaviour:
       m_Calls: []
   LeftY:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &3261946493531797857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7225380768329135335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 471a6a10c7264e8459f12ab837a8a8bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colocationManager: {fileID: 0}
+      m_Calls:
+      - m_Target: {fileID: 766108253375818943}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7818218323416738342 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7022938681217834073, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}

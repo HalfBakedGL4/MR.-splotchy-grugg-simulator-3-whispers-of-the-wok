@@ -1,14 +1,20 @@
 using Input;
 using System;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit.Inputs.Haptics;
 
+[RequireComponent(typeof(HapticImpulsePlayer))]
 public class S_UIInteractor : MonoBehaviour
 {
-    [SerializeField] float length;
+    [SerializeField, Min(0f)] float length = 3;
     [Range(0, 1)]
-    [SerializeField] float radius;
+    [SerializeField] float radius = .1f;
+
+    [Space]
+
+    [Range(0, 1)] public float hapicAmplitude = .3f;
+    [Range(0, 1)] public float hapicDuration = .1f;
+
 
     LayerMask uiLayer = 32;
 
@@ -17,25 +23,32 @@ public class S_UIInteractor : MonoBehaviour
 
     S_UIElement hitting;
 
+    [HideInInspector] public HapticImpulsePlayer hapticPlayer;
+
+    private void Start()
+    {
+        hapticPlayer = GetComponent<HapticImpulsePlayer>();
+    }
+
     void Update()
     {
         bool hit = Physics.SphereCast(uiRay, radius, out uiHit, length, uiLayer);
         Debug.Log(S_InputReader.instance);
 
-        if(hit && hitting == null)
+        if (hit && hitting == null)
         {
             if (uiHit.collider.TryGetComponent(out S_UIElement element))
             {
-                element.OnHoverEnter();
+                element.OnHoverEnter(this);
                 hitting = element;
 
                 S_InputReader.instance.RightA.AddListener(PressButton);
             }
         }
-        
-        if(!hit && hitting != null)
+
+        if (!hit && hitting != null)
         {
-            hitting.OnHoverExit();
+            hitting.OnHoverExit(this);
             hitting = null;
 
             S_InputReader.instance.RightA.RemoveListener(PressButton);
@@ -45,36 +58,36 @@ public class S_UIInteractor : MonoBehaviour
         {
             if (uiHit.collider.TryGetComponent(out S_UIElement element))
             {
-                if(element != hitting)
+                if (element != hitting)
                 {
-                    hitting.OnHoverExit();
+                    hitting.OnHoverExit(this);
                 }
 
                 hitting = element;
 
-                element.OnHover();
+                element.OnHover(this);
             }
         }
     }
 
-    private void PressButton(InputInfo info)
+    public void PressButton(InputInfo info)
     {
         Debug.Log("[UIinteractor] pressing");
         if (!(hitting is S_UIButton)) return;
 
         if (!info.context.started)
         {
-            ((S_UIButton)hitting).OnPressedEnter();
+            ((S_UIButton)hitting).OnPressedEnter(this);
         }
 
         if (!info.context.performed)
         {
-            ((S_UIButton)hitting).OnPressed();
+            ((S_UIButton)hitting).OnPressed(this);
         }
 
         if (!info.context.canceled)
         {
-            ((S_UIButton)hitting).OnPressedExit();
+            ((S_UIButton)hitting).OnPressedExit(this);
         }
     }
 
