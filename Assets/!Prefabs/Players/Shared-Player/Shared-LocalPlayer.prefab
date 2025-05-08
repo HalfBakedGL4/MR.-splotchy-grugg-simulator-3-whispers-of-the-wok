@@ -724,6 +724,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   length: 3
   radius: 0.1
+  hapicAmplitude: 0.3
+  hapicDuration: 0.1
+  hapticPlayer: {fileID: 0}
 --- !u!114 &1077515024369972435 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 287530629901664940, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
@@ -1287,6 +1290,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   length: 3
   radius: 0.1
+  hapicAmplitude: 0.3
+  hapicDuration: 0.1
+  hapticPlayer: {fileID: 0}
 --- !u!114 &8902215669061502580 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8539559767342936075, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}

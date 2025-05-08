@@ -414,7 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SortKey: 1411395303
+  SortKey: 0
   ObjectInterest: 1
   Flags: 131073
   NestedObjects: []
@@ -1023,7 +1023,7 @@ MonoBehaviour:
   m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SortKey: 3010676062
+  SortKey: 0
   ObjectInterest: 1
   Flags: 131073
   NestedObjects: []
@@ -1411,6 +1411,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Screen
       objectReference: {fileID: 0}
+    - target: {fileID: 5798362978878491182, guid: 5af324ff2a2d6534ab485d53985f5bc0, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1582,7 +1586,7 @@ MonoBehaviour:
   m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SortKey: 3990170552
+  SortKey: 0
   ObjectInterest: 1
   Flags: 131073
   NestedObjects: []
@@ -1733,26 +1737,6 @@ PrefabInstance:
     - target: {fileID: 7225380768329135335, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
       propertyPath: m_Name
       value: Shared-LocalPlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 7335614726308319071, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      propertyPath: length
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7335614726308319071, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      propertyPath: hapicDuration
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7335614726308319071, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      propertyPath: hapicAmplitude
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8455747855692244314, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      propertyPath: hapicDuration
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8455747855692244314, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      propertyPath: hapicAmplitude
-      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
