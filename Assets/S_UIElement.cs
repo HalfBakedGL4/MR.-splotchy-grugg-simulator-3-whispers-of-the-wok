@@ -7,12 +7,22 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Collider))]
 public class S_UIElement : MonoBehaviour
 {
-    [SerializeField] protected SpriteRenderer sprite;
-    [SerializeField] protected Collider col;
+    protected SpriteRenderer sprite;
+    protected Collider col;
 
     [HideInInspector]
     public bool isHovering;
 
+    private void Start()
+    {
+        gameObject.layer = 5;
+
+        TryGetComponent(out sprite);
+        if (!TryGetComponent(out col))
+        {
+            col = gameObject.AddComponent<BoxCollider>();
+        }
+    }
 
     public virtual void OnHoverEnter(S_UIInteractor interactor)
     {
