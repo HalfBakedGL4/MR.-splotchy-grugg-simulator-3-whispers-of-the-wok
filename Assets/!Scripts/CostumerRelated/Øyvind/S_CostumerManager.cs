@@ -31,7 +31,6 @@ public class S_CostumerManager : NetworkBehaviour
 
         costumerOrder.OrderFood();
         
-        MakeHoleInWall(wallTuple);
 
         SpawnCostumer(wallTuple);
     }
@@ -41,13 +40,6 @@ public class S_CostumerManager : NetworkBehaviour
     {       
         // Gets Tuple (AR Plane: wall, Vector 3: point)
         return findPointsOnWalls.GetRandomWallAndPoint();
-    }
-
-    private void MakeHoleInWall((ARPlane wall, Vector3 pointOnWall) wallTuple)
-    {
-        var holePos = wallTuple.pointOnWall + wallTuple.wall.transform.position;
-        
-        holeSpawner.SpawnHole(holePos, wallTuple.wall.transform.rotation);
     }
     
     private void SpawnCostumer( (ARPlane wall, Vector3 pointOnWall) wallTuple)

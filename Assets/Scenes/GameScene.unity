@@ -333,6 +333,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 275004650170707682, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: multiHoleFix
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4184649426864620437, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
       propertyPath: SortKey
       value: 3196166563
