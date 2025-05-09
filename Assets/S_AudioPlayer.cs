@@ -4,13 +4,21 @@ using UnityEngine;
 public class S_AudioPlayer : MonoBehaviour
 {
     public bool playOnAwake = true;
-    [SerializeField] EventReference audioToPlay;
+    [SerializeField] AudioReference audioToPlay;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    async void Start()
     {
-        if(playOnAwake)
-            AudioManager.PlayAudio(audioToPlay);
+        while(true)
+        {
+            if (playOnAwake)
+                await audioToPlay.PlayAsync();
+        }
+    }
+
+    public void PlayAudio()
+    {
+        audioToPlay.Play();
     }
 
 }

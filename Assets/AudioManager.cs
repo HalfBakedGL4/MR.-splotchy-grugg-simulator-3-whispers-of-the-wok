@@ -3,28 +3,81 @@ using FMODUnity;
 using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
+using NaughtyAttributes;
+using System;
+using Unity.Collections.LowLevel.Unsafe;
+using UnityEngine.Events;
+using static AudioManager;
 
-public static class AudioManager
+public enum AudioCategory
 {
+    None = 0,
+    SFX = 1,
+    Music = 2
+}
+
+/// <summary>
+/// a reference to audio
+/// </summary>
+[Serializable]
+public struct AudioReference
+{
+    public EventReference audio;
+    public GameObject emitter;
+
+    [Space]
+
+    public AudioCategory category;
+    public Volume volume;
+
+    float currentVolume
+    {
+        get
+        {
+            switch(category)
+            {
+                case AudioCategory.SFX:
+                    {
+                        return audioManager.MasterVolume.value * volume.value * audioManager.SFXVolume.value;
+                    }
+                case AudioCategory.Music:
+                    {
+                        return audioManager.MasterVolume.value * volume.value * audioManager.MusicVolume.value;
+                    }
+                default:
+                    {
+                        return audioManager.MasterVolume.value * volume.value;
+                    }
+            }
+        }
+    }
+
+    public AudioReference(EventReference reference, GameObject emitter, AudioCategory category, Volume volume)
+    {
+        audio = reference;
+        this.emitter = emitter;
+        this.category = category;
+        this.volume = volume;
+    }
+
     /// <summary>
     /// Play one instance of audio
     /// </summary>
-    /// <param name="audio">Refrence to the audio clip</param>
-    /// <param name="attachTo">Object to attach to</param>
     /// <returns>Instance of the played audio</returns>
-    public static EventInstance PlayAudio(EventReference audio, GameObject attachTo = null)
+    public EventInstance Play()
     {
         EventInstance audioInstance = RuntimeManager.CreateInstance(audio);
+        audioInstance.setVolume(currentVolume);
 
-        if (attachTo != null)
+        if (emitter != null)
         {
-            if (attachTo.TryGetComponent(out Rigidbody rb))
+            if (emitter.TryGetComponent(out Rigidbody rb))
             {
-                RuntimeManager.AttachInstanceToGameObject(audioInstance, attachTo, rb);
+                RuntimeManager.AttachInstanceToGameObject(audioInstance, emitter, rb);
             }
             else
             {
-                RuntimeManager.AttachInstanceToGameObject(audioInstance, attachTo);
+                RuntimeManager.AttachInstanceToGameObject(audioInstance, emitter);
             }
         }
 
@@ -34,25 +87,21 @@ public static class AudioManager
     /// <summary>
     /// Play one instance of audio
     /// </summary>
-    /// <param name="audio">Refrence to the audio clip</param>
     /// <param name="audioInstance">out of the audio instance</param>
-    /// <param name="attachTo">Object to attach to</param>
     /// <returns>Instance of the played audio</returns>
-    public static EventInstance PlayAudio(EventReference audio, out EventInstance audioInstance, GameObject attachTo = null)
+    public EventInstance Play(out EventInstance audioInstance)
     {
-        audioInstance = PlayAudio(audio, attachTo);
+        audioInstance = Play();
         return audioInstance;
     }
     /// <summary>
     /// Play one instance of audio, can delay until after the audio finished playing
     /// </summary>
-    /// <param name="audio">Refrence to the audio clip</param>
     /// <param name="additionalMilliseconds">additional milliseconds to wait</param>
-    /// <param name="attachTo">Object to attach to</param>
     /// <returns>Instance of the played audio</returns>
-    public static async Task<EventInstance> AsyncPlayAudio(EventReference audio, int additionalMilliseconds = 0, GameObject attachTo = null)
+    public async Task<EventInstance> PlayAsync(int additionalMilliseconds = 0)
     {
-        PlayAudio(audio, out EventInstance audioInstance, attachTo);
+        Play(out EventInstance audioInstance);
 
         audioInstance.getDescription(out EventDescription description);
         description.getLength(out int audioLength);
@@ -60,34 +109,36 @@ public static class AudioManager
         await Task.Delay(audioLength + additionalMilliseconds);
         return audioInstance;
     }
-    /// <summary>
-    /// Repeat audio, can delay until after all instances have played
-    /// </summary>
-    /// <param name="audio">Refrence to the audio clip</param>
-    /// <param name="repeatTimes">How many times to play, leave at 0 to repeat forever</param>
-    /// <param name="additionalDelay">Delay between each instance</param>
-    /// <param name="attachTo">Object to attach to</param>
-    public static async Task AsyncPlayAudioRepeating(EventReference audio, int repeatTimes, int additionalDelay = 0, GameObject attachTo = null)
+}
+
+[Serializable]
+public class Volume
+{
+    [field: SerializeField, Range(0, 1)] public float value { get; private set; }
+
+    public UnityEvent OnUpdated;
+
+    public void UpdateVolume(float amount)
     {
-        if(repeatTimes == 1)
-        {
-            PlayAudio(audio, out EventInstance instance, attachTo);
-            return;
-        }
+        value += amount;
+    }
 
-        if(repeatTimes <= 0)
-        {
-            while(true)
-            {
-                await AsyncPlayAudio(audio, additionalDelay, attachTo);
-            }
+    public Volume(float value)
+    {
+        this.value = value;
+    }
+}
+public class AudioManager : MonoBehaviour
+{
+    public static AudioManager audioManager;
 
-        } else
-        {
-            for (int i = 0; i < repeatTimes; i++)
-            {
-                await AsyncPlayAudio(audio, additionalDelay, attachTo);
-            }
-        }
+    [field: SerializeField] public Volume MasterVolume { get; private set; } = new(1);
+    [field: SerializeField] public Volume SFXVolume { get; private set; } = new(1);
+    [field: SerializeField] public Volume MusicVolume { get; private set; } = new(1);
+
+    private void Start()
+    {
+        audioManager = this;
+        DontDestroyOnLoad(gameObject);
     }
 }
