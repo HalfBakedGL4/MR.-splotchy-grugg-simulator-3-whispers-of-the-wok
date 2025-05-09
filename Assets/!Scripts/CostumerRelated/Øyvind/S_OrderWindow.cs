@@ -1,12 +1,10 @@
+using Fusion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Fusion;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using Random = UnityEngine.Random;
 
 
@@ -18,7 +16,7 @@ public class Order
     public Sprite orderIngredients;
     public Sprite orderTools;
     public Sprite orderTutorial;
-    
+
 }
 public class S_OrderWindow : NetworkBehaviour
 {
@@ -27,7 +25,7 @@ public class S_OrderWindow : NetworkBehaviour
     [Tooltip("All possible dishes for costumers to order, with the descriptive images of items ordered")]
     [SerializeField] private List<Order> orderTypes = new List<Order>();
     private List<(Order order, S_CostumerOrder costumerOrder)> orderOverload = new List<(Order, S_CostumerOrder)>();
-    
+
 
     private Dictionary<S_Ticket, Transform> ticketsDictionary = new Dictionary<S_Ticket, Transform>();
 
@@ -36,7 +34,7 @@ public class S_OrderWindow : NetworkBehaviour
     {
         var thisOrder = new Order();
         var foundOrder = false;
-        
+
         // Goes through list seeking order with the same dish
         foreach (var order in orderTypes.Where(order => order.nameOfDish == dish))
         {
@@ -64,28 +62,28 @@ public class S_OrderWindow : NetworkBehaviour
             orderOverload.Add((order, costumer));
             return null;
         }
-       
+
         // Get random transform from List to place item
         var pos = ticketPlacements[Random.Range(0, ticketPlacements.Count - 1)];
         // Instantiate and place ticket on position
         var ticket = Runner.Spawn(ticketPrefab, pos.position, quaternion.identity);
-        
+
         // Remove position ticket can appear
         ticketPlacements.Remove(pos);
         // add to Dictionary
         ticketsDictionary[ticket] = pos;
-        
+
         // Rotate Ticket to fit
         ticket.transform.eulerAngles = pos.eulerAngles;
         ticket.transform.parent = pos.parent;
-        
+
         // Initiate ticket giving it the corresponding visuals to complete it
         ticket.InitTicket(order, costumer);
-        
+
         // Ticket is returned to the costumer so the costumer know which ticket they own
         return ticket;
     }
-    
+
     public void RemoveTicket(S_Ticket ticket)
     {
         // Find through Dictionary
@@ -94,6 +92,8 @@ public class S_OrderWindow : NetworkBehaviour
         ticketPlacements.Add(pos);
         // Remove used ticket
         ticketsDictionary.Remove(ticket);
+        // Destroy ticket details
+        ticket.DestroyTicketDetails();
         // Destroy ticket from scene
         Runner.Despawn(ticket.GetComponent<NetworkObject>());
 
@@ -110,7 +110,7 @@ public class S_OrderWindow : NetworkBehaviour
         GiveOrderToCostumer(args.interactableObject.transform.gameObject.GetComponent<S_Plate>().dishStatus);
         RemoveDish(args.interactableObject.transform.gameObject);
     }
-    
+
     private void GiveOrderToCostumer(S_DishStatus dish)
     {
         Debug.Log("DishStatus:" + dish);
@@ -124,7 +124,7 @@ public class S_OrderWindow : NetworkBehaviour
                 possibleTickets.Add(ticket);
             }
         }
-        
+
         // If there are no correct dishes, the dish will still be given to a costumer
         // Add all the orders to the list
         if (possibleTickets.Count == 0)
@@ -145,7 +145,7 @@ public class S_OrderWindow : NetworkBehaviour
                 correctTicket = ticket;
             }
         }
-        
+
         // Give the order to the costumer through the ticket reference
         correctTicket.GetCostumer().ReceiveDish(dish);
     }

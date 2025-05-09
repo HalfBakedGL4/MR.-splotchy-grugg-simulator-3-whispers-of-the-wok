@@ -14,6 +14,7 @@
     <type fullname="S_ChaseState" preserve="all" />
     <type fullname="S_ColorClassifications" preserve="all" />
     <type fullname="S_Cooker" preserve="all" />
+    <type fullname="S_CookTimer" preserve="all" />
     <type fullname="S_CostumerManager" preserve="all" />
     <type fullname="S_CostumerOrder" preserve="all" />
     <type fullname="S_CostumerSpawner" preserve="all" />
@@ -29,6 +30,7 @@
     <type fullname="S_InfoScreen" preserve="all" />
     <type fullname="S_Interactor" preserve="all" />
     <type fullname="S_ItemSpawner" preserve="all" />
+    <type fullname="S_OpenDoor" preserve="all" />
     <type fullname="S_OrderWindow" preserve="all" />
     <type fullname="S_Plate" preserve="all" />
     <type fullname="S_PlayerSpawner" preserve="all" />
@@ -81,6 +83,10 @@
     <type fullname="Fusion.FusionBootstrapDebugGUI" preserve="all" />
     <type fullname="Fusion.RunnerEnableVisibility" preserve="all" />
   </assembly>
+  <assembly fullname="Meta.XR.BuildingBlocks, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Meta.XR.BuildingBlocks.BuildingBlock" preserve="all" />
+    <type fullname="Meta.XR.BuildingBlocks.InstallationRoutineCheckpoint" preserve="nothing" serialized="true" />
+  </assembly>
   <assembly fullname="Meta.XR.EnvironmentDepth, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="Meta.XR.EnvironmentDepth.EnvironmentDepthManager" preserve="all" />
   </assembly>
@@ -112,6 +118,8 @@
     <type fullname="UnityEngine.InputSystem.InputActionMap" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.InputSystem.InputActionProperty" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.InputSystem.InputBinding" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.InputSystem.InputControlScheme" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.InputSystem.InputControlScheme/DeviceRequirement" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Unity.RenderPipelines.Universal.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData" preserve="all" />
@@ -156,6 +164,7 @@
     <type fullname="UnityEngine.XR.Interaction.Toolkit.Inputs.XRInputModalityManager" preserve="all" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.Inputs.XRTransformStabilizer" preserve="all" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable" preserve="all" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.Interactors.Casters.CurveInteractionCaster" preserve="all" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.Interactors.Casters.SphereInteractionCaster" preserve="all" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.Interactors.Visuals.CurveVisualController" preserve="all" />
@@ -198,11 +207,6 @@
     <type fullname="UnityEngine.Animator" preserve="all" />
     <type fullname="UnityEngine.RuntimeAnimatorController" preserve="all" />
   </assembly>
-  <assembly fullname="UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-    <type fullname="UnityEngine.AudioClip" preserve="all" />
-    <type fullname="UnityEngine.AudioListener" preserve="all" />
-    <type fullname="UnityEngine.AudioSource" preserve="all" />
-  </assembly>
   <assembly fullname="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.Camera" preserve="all" />
     <type fullname="UnityEngine.GameObject" preserve="all" />
@@ -235,7 +239,6 @@
     <type fullname="UnityEngine.BoxCollider" preserve="all" />
     <type fullname="UnityEngine.CapsuleCollider" preserve="all" />
     <type fullname="UnityEngine.CharacterController" preserve="all" />
-    <type fullname="UnityEngine.HingeJoint" preserve="all" />
     <type fullname="UnityEngine.MeshCollider" preserve="all" />
     <type fullname="UnityEngine.Rigidbody" preserve="all" />
     <type fullname="UnityEngine.SphereCollider" preserve="all" />

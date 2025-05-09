@@ -1,3 +1,4 @@
+using System;
 using Fusion;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -8,6 +9,8 @@ public class S_GameManager : NetworkBehaviour
     static S_GameManager instance;
     public static List<S_Food> currentFood { get; private set; } = new List<S_Food>();
     public const int maxFood = 10;
+    
+    public static event Action OnFoodListFull;
 
     private void Start()
     {
@@ -19,7 +22,14 @@ public class S_GameManager : NetworkBehaviour
     /// </summary>
     public static S_Food SpawnFood(S_Food food, Vector3 position, Quaternion rotation)
     {
-        if (currentFood.Count >= maxFood) return null;
+        if (currentFood.Count >= maxFood)
+        {
+            if (instance != null && instance.HasStateAuthority)
+            {
+                instance.RPC_FullFoodSpawn();
+            }
+            return null;
+        }
 
         if (food == null)
         {
@@ -57,5 +67,12 @@ public class S_GameManager : NetworkBehaviour
 
         currentFood.Remove(toDestroy);
         instance.Runner.Despawn(toDestroy.GetComponent<NetworkObject>());
+    }
+    
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    private void RPC_FullFoodSpawn()
+    {
+        Debug.Log("Food list is full and needs to trash some food");
+        OnFoodListFull?.Invoke();
     }
 }

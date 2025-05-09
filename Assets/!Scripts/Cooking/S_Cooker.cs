@@ -34,25 +34,26 @@ public class S_Cooker : NetworkBehaviour
     private List<S_Food> foodScripts = new ();
 
     private S_DishStatus _currentDishStatus;
+    private GameObject _spawnedDish;
 
     [Space]
     
-    [Header("Timer related")]
+    [Header("Timer until they are no longer that state")]
     [SerializeField] private float underCookedTime = 10;
     [SerializeField] private float perfectlyCookedTime = 20;
     [SerializeField] private float overCookedTime = 30;
-    TMP_Text timerText;
+    
+    [SerializeField] private S_CookTimer cookTimer;
 
     private float savedUnderCookedTime;
     private float savedPerfectlyCookedTime;
     private float savedOverCookedTime;
     
-    private bool isAbleToStartCooking = true;
+    [SerializeField, Networked] private bool _isAbleToStartCooking { get; set; } = true;
     bool isLocal => Object && Object.HasStateAuthority;
     [SerializeField, Networked] private float timer { get; set; }
     private async void Start()
     {
-        timerText = GetComponentInChildren<TMP_Text>();
 
         // Subscribe to foodSockets Events
         foreach (var foodSocket in foodSockets)
@@ -60,6 +61,8 @@ public class S_Cooker : NetworkBehaviour
             foodSocket.selectEntered.AddListener(AddFood);
             foodSocket.selectExited.AddListener(RemoveFood);
         }
+        
+        dishSocket.selectExited.AddListener(RemoveSocket);
 
         if (cookerType == CookerType.Oven)
         {
@@ -70,6 +73,12 @@ public class S_Cooker : NetworkBehaviour
         savedUnderCookedTime = underCookedTime;
         savedPerfectlyCookedTime = perfectlyCookedTime;
         savedOverCookedTime = overCookedTime;
+        
+        cookTimer.SetAllTimers(underCookedTime, perfectlyCookedTime, overCookedTime);
+        
+        // Turn off Dishsocket, should only be used when dish is spawned
+        dishSocket.socketActive = false;
+
     }
 
     void Update()
@@ -77,23 +86,23 @@ public class S_Cooker : NetworkBehaviour
         switch (state)
         {
             case CookerState.Available:
-                timerText.text = "Available";
                 break;
             case CookerState.Cooking:
-                if(isLocal)
+                if (isLocal)
+                {
                     timer += Time.deltaTime;
+                }
 
                 if (cookerType == CookerType.Oven)
                 {
                     SetDishStatus();
                 }
-                timerText.text = "Timer: " + timer.ToString("..");
-                //TODO: update the timer UI
                 break;
             case CookerState.Finished:
-                timerText.text = "Finished!";
                 break;
         }
+        cookTimer.UpdateTimer(timer);
+
     }
 
 
@@ -123,21 +132,25 @@ public class S_Cooker : NetworkBehaviour
             foodScripts.Remove(food);
         }
     }
+    
+    private void RemoveSocket(SelectExitEventArgs arg0)
+    {
+        dishSocket.socketActive = false;
+    }
 
     public void InteractWithCooker()
     {
         print("Interacting with Cooker " + name);
         // Activate Cooker and start timer
-        if (state == CookerState.Available && isAbleToStartCooking)
+        if (state == CookerState.Available && _isAbleToStartCooking)
         {
             timer = 0.0f;
-
+            cookTimer.TimerToggle(true);
             // Turn off colliders so they can't be picked up while cooking
             foreach (var foodScript in foodScripts)
             {
                 foodScript.ToggleColliders();
             }
-            //TODO: animation that closes the cooker or shows cooker cooking
             RPC_SetCookerState(CookerState.Cooking);
             
         }
@@ -145,7 +158,7 @@ public class S_Cooker : NetworkBehaviour
         else if (state == CookerState.Cooking)
         {
             _currentDishStatus = SpawnDish();
-            // TODO: Animation that opens the cooker or show it stops cooking
+            cookTimer.TimerToggle(false);
 
             RPC_SetCookerState(CookerState.Available);
         }
@@ -165,6 +178,9 @@ public class S_Cooker : NetworkBehaviour
         DishStatus dishStatus = CheckDishStatus();
 
         CleanCooker();
+        
+        dishSocket.socketActive = true;
+
         var dishInstance =  Runner.Spawn(dishToSpawn, dishSocket.transform.position, dishSocket.transform.rotation);
         if (dishInstance.TryGetComponent(out S_DishStatus dishStatusScript))
         {
@@ -233,6 +249,7 @@ public class S_Cooker : NetworkBehaviour
         underCookedTime += 5;
         perfectlyCookedTime += 5;
         overCookedTime += 5;
+        cookTimer.SetAllTimers(underCookedTime, perfectlyCookedTime, overCookedTime);
     }
 
     // Dish 
@@ -242,12 +259,25 @@ public class S_Cooker : NetworkBehaviour
         {
             var newStatus = CheckDishStatus();
             var currentStatus = _currentDishStatus.GetDishStatus().dishStatus;
-            if (newStatus == currentStatus)
+            if (newStatus == DishStatus.Burnt)
+            {
+                Runner.Despawn(_spawnedDish.GetComponent<NetworkObject>());
+                SpawnDish();
+            }
+            else if (newStatus != currentStatus)
                 _currentDishStatus.ChangeStatus(newStatus);
+            
         }
         else if (timer > underCookedTime)
         {
             _currentDishStatus = SpawnDish();
+            _spawnedDish = _currentDishStatus.gameObject;
+            // Disable the food socket so that the oven doesn't break
+            foreach (var socket in foodSockets)
+            {
+                socket.socketActive = false;
+            }
+            dishSocket.socketActive = true;
         }
     }
 
@@ -262,6 +292,16 @@ public class S_Cooker : NetworkBehaviour
             perfectlyCookedTime = savedPerfectlyCookedTime;
             overCookedTime = savedOverCookedTime;
             
+            cookTimer.TimerToggle(false);
+            
+            // Enable the food socket so that the oven can be used again
+            foreach (var socket in foodSockets)
+            {
+                socket.socketActive = true;
+            }
+            
+            dishSocket.socketActive = false;
+            
             RPC_SetCookerState(CookerState.Available);
         }
     }
@@ -271,11 +311,9 @@ public class S_Cooker : NetworkBehaviour
 
     // When the basket is placed in the fryer, check if there is food to cook
     // Connect this to the editor
-    public void CheckIfFryerShouldStart(S_Cooker fryer)
+    public void CheckIfFryerShouldStart()
     {
-        print("Interacting with Socket " + name);
-
-        isAbleToStartCooking = true;
+        RPC_SetCookerAbleToCook(true);
         
         if (foodCooking.Count > 0)
         {
@@ -284,7 +322,32 @@ public class S_Cooker : NetworkBehaviour
     }
     public void CantCook()
     {
-        isAbleToStartCooking = false;
+        RPC_SetCookerAbleToCook(false);
+    }
+    
+    // If the basket has something in it and is let go the items inside will be disabled so that there won't be any collider issues
+    public void DisableFoodInBasket(SelectExitEventArgs args = null)
+    {
+        if (foodScripts.Count == 1)
+        {  
+            foodScripts[0].ToggleColliders(false);
+        }
+    }
+
+    // When picked up items then are enabled again to be able to pick them up
+    public void EnableFoodInBasket(SelectEnterEventArgs args = null)
+    {
+        if (foodScripts.Count == 1)
+        {  
+            foodScripts[0].ToggleColliders(true);
+        }
+    }
+    
+    
+    [Rpc(sources: RpcSources.All, targets: RpcTargets.StateAuthority)]
+    void RPC_SetCookerAbleToCook(bool isActive)
+    {
+        _isAbleToStartCooking = isActive;
     }
 
     #endregion
@@ -301,6 +364,12 @@ public class S_Cooker : NetworkBehaviour
         {
             foodSocket.selectEntered.RemoveListener(AddFood);
             foodSocket.selectExited.RemoveListener(RemoveFood);
+        }
+        dishSocket.selectExited.RemoveListener(RemoveSocket);
+        
+        if (cookerType == CookerType.Oven)
+        {
+            dishSocket.selectExited.RemoveListener(StopOven);
         }
     }
 }
