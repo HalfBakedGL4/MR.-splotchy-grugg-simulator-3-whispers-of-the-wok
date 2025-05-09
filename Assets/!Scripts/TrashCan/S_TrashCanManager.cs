@@ -26,6 +26,8 @@ public class S_TrashCanManager : NetworkBehaviour
         S_GameManager.OnFoodListFull += CleanUpFloor;
     }
 
+    // Whenever Game Manager Food list is full the trash will try to clean up the scene
+    // Moves any food on the floor to the trash can
     private void CleanUpFloor()
     {
         var foodInScene = FindObjectsByType<S_Food>(FindObjectsSortMode.None);
@@ -59,7 +61,7 @@ public class S_TrashCanManager : NetworkBehaviour
             {
                 if (food == null) continue;
 
-                food.AddForce((suckPoint.position - food.transform.position).normalized * 10f); // optional strength
+                food.AddForce((suckPoint.position - food.transform.position).normalized * 5f); 
 
                 if (Vector3.Distance(food.transform.position, suckPoint.position) < 0.1f)
                 {
