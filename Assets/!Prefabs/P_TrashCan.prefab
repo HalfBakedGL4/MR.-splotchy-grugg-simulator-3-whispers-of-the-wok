@@ -868,7 +868,7 @@ GameObject:
   - component: {fileID: 8710454314155209102}
   - component: {fileID: 3488259125174242280}
   m_Layer: 0
-  m_Name: TrashCan
+  m_Name: P_TrashCan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
