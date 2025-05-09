@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4455139161587672198, guid: 4b7dbc79a08ec9f439d8160581f1d324, type: 3}
       propertyPath: m_Name
-      value: Bread Variant
+      value: P_Bread Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4815739010710118726, guid: 4b7dbc79a08ec9f439d8160581f1d324, type: 3}
       propertyPath: foodType
@@ -115,15 +115,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7733294463896545180, guid: 3e9f2e0c0e3958749a9722bda5159c49, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.75
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7733294463896545180, guid: 3e9f2e0c0e3958749a9722bda5159c49, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.75
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7733294463896545180, guid: 3e9f2e0c0e3958749a9722bda5159c49, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.75
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7733294463896545180, guid: 3e9f2e0c0e3958749a9722bda5159c49, type: 3}
       propertyPath: m_LocalPosition.x
