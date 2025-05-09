@@ -94,6 +94,8 @@ public class S_OrderWindow : NetworkBehaviour
         ticketPlacements.Add(pos);
         // Remove used ticket
         ticketsDictionary.Remove(ticket);
+        // Destroy ticket details
+        ticket.DestroyTicketDetails();
         // Destroy ticket from scene
         Runner.Despawn(ticket.GetComponent<NetworkObject>());
 
@@ -107,12 +109,13 @@ public class S_OrderWindow : NetworkBehaviour
 
     public void DeliverOrder(SelectEnterEventArgs args)
     {
-        GiveOrderToCostumer(args.interactableObject.transform.GetComponent<S_DishStatus>());
-        RemoveDish(args.interactableObject.transform.gameObject);
+        GiveOrderToCostumer(args.interactableObject.transform.gameObject.GetComponent<S_Plate>().dishStatus);
+        RemoveDish(args.interactableObject.transform.parent.gameObject);
     }
     
     private void GiveOrderToCostumer(S_DishStatus dish)
     {
+        Debug.Log("DishStatus:" + dish);
         var possibleTickets = new List<S_Ticket>();
         // Compare dish with every ticket
         foreach (var ticket in ticketsDictionary.Keys)

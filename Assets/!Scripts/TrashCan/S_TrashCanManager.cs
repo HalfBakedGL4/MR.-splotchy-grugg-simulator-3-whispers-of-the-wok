@@ -1,27 +1,24 @@
-using System;
+using Fusion;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Fusion;
-using Unity.VisualScripting;
-using UnityEditor.Build.Content;
 using UnityEngine;
 
 public class S_TrashCanManager : NetworkBehaviour
 {
     [SerializeField] private Transform suckPoint;
-    
+
     [Header("Child Scripts")]
     [SerializeField] private S_DestroyTrash destroyTrash;
     [SerializeField] private S_MoveTrash moveTrash;
-    
+
     public override void Spawned()
     {
         base.Spawned();
-        
+
         destroyTrash.enabled = true;
         moveTrash.enabled = true;
-        
+
         // Add listener to event by the GameManager That calls CleanUpFloor
         S_GameManager.OnFoodListFull += CleanUpFloor;
     }
@@ -33,7 +30,7 @@ public class S_TrashCanManager : NetworkBehaviour
         var foodInScene = FindObjectsByType<S_Food>(FindObjectsSortMode.None);
 
         List<S_Food> foodOnFloor = new List<S_Food>();
-        
+
         foreach (var food in foodInScene)
         {
             if (food.transform.position.y < .3f)
@@ -45,7 +42,7 @@ public class S_TrashCanManager : NetworkBehaviour
         // Make food on floor move towards suckPoint to be deleted
         StartCoroutine(SuckFoodCoroutine(foodOnFloor));
     }
-    
+
     private IEnumerator SuckFoodCoroutine(List<S_Food> foodOnFloor)
     {
         List<Rigidbody> foodRBs = new List<Rigidbody>();
@@ -61,7 +58,7 @@ public class S_TrashCanManager : NetworkBehaviour
             {
                 if (food == null) continue;
 
-                food.AddForce((suckPoint.position - food.transform.position).normalized * 5f); 
+                food.AddForce((suckPoint.position - food.transform.position).normalized * 5f);
 
                 if (Vector3.Distance(food.transform.position, suckPoint.position) < 0.1f)
                 {

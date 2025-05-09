@@ -39,7 +39,7 @@ public class S_GameManager : NetworkBehaviour
 
         if (instance == null)
         {
-            Debug.LogError("Oh No, No instance");
+            Debug.LogError("Oh No, No game manager in scene");
             return null;
         }
 

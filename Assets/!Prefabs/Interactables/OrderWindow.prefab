@@ -668,6 +668,16 @@ MonoBehaviour:
     orderIngredients: {fileID: 21300000, guid: 641c12671329fed4a9bb978666890ba7, type: 3}
     orderTools: {fileID: 21300000, guid: f44bedea604c98b41bda1e441af24570, type: 3}
     orderTutorial: {fileID: 21300000, guid: 4c12c9cc126abab4f9daa8b10378db53, type: 3}
+  - nameOfDish: 4
+    orderImage: {fileID: 21300000, guid: b53a6f5413a27f94992e8524104d7486, type: 3}
+    orderIngredients: {fileID: 21300000, guid: b0e5b261a7b38f4469177e532e242ce0, type: 3}
+    orderTools: {fileID: 21300000, guid: 1efd8e9161739f94aa23ec22a8e988c2, type: 3}
+    orderTutorial: {fileID: 21300000, guid: 53826f171e1c13645be0faec9493c292, type: 3}
+  - nameOfDish: 1
+    orderImage: {fileID: 21300000, guid: e524b3c2362c9b34bb764314b4a3c5e7, type: 3}
+    orderIngredients: {fileID: 21300000, guid: a3ccea55b6eecd64c8933d24d4b62f54, type: 3}
+    orderTools: {fileID: 21300000, guid: 79c96643f5f23ee4fa2ac35ee774a4d8, type: 3}
+    orderTutorial: {fileID: 21300000, guid: bfa49c56377b5784fa128e0b4ff86d69, type: 3}
 --- !u!114 &1694133620938066648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1228,7 +1238,7 @@ Transform:
   m_GameObject: {fileID: 8335726729027421876}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.08, y: 0.6, z: 0}
+  m_LocalPosition: {x: 0.006, y: 0.6, z: 0}
   m_LocalScale: {x: 0.1, y: 1, z: 0.18}
   m_ConstrainProportionsScale: 0
   m_Children: []
