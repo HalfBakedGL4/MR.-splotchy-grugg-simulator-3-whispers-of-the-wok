@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{f0eb13c5-f1b9-4870-9b3f-ab1b81133925}">
+		<property name="name">
+			<value>GLoveAttract</value>
+		</property>
+		<relationship name="folder">
+			<destination>{cc9f2c4e-e430-4fa0-b6b8-5bc2166953b6}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{8e9cf771-a7fd-40e1-a574-696803179c90}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{8e9cf771-a7fd-40e1-a574-696803179c90}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
