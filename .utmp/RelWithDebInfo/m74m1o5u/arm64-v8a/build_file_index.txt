@@ -1,2 +1,0 @@
-D:\Unity Projects\Passthrough with Unity XR\MR.-splotchy-grugg-simulator-3-whispers-of-the-wok\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
-D:\Unity Projects\Passthrough with Unity XR\MR.-splotchy-grugg-simulator-3-whispers-of-the-wok\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt

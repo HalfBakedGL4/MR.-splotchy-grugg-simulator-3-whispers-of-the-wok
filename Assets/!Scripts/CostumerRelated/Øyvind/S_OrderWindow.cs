@@ -107,12 +107,13 @@ public class S_OrderWindow : NetworkBehaviour
 
     public void DeliverOrder(SelectEnterEventArgs args)
     {
-        GiveOrderToCostumer(args.interactableObject.transform.GetComponent<S_DishStatus>());
+        GiveOrderToCostumer(args.interactableObject.transform.gameObject.GetComponentInChildren<S_DishStatus>());
         RemoveDish(args.interactableObject.transform.gameObject);
     }
     
     private void GiveOrderToCostumer(S_DishStatus dish)
     {
+        Debug.Log("DishStatus:" + dish);
         var possibleTickets = new List<S_Ticket>();
         // Compare dish with every ticket
         foreach (var ticket in ticketsDictionary.Keys)

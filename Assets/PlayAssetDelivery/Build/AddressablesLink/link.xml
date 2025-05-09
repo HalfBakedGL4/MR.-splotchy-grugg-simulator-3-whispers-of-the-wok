@@ -1,6 +1,7 @@
 <linker>
   <assembly fullname="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="AlignmentManager" preserve="all" />
+    <type fullname="ColocationInputHandler" preserve="all" />
     <type fullname="ColocationManager" preserve="all" />
     <type fullname="Input.S_InputReader" preserve="all" />
     <type fullname="Networking.Shared.S_DontDisplayForOwner" preserve="all" />
@@ -19,9 +20,8 @@
     <type fullname="S_CustomerStateManager" preserve="all" />
     <type fullname="S_DishStatus" preserve="all" />
     <type fullname="S_FindPointsOnWalls" preserve="all" />
-    <type fullname="S_Food" preserve="all" />
     <type fullname="S_FryerActivater" preserve="all" />
-    <type fullname="S_Hammer" preserve="all" />
+    <type fullname="S_GameManager" preserve="all" />
     <type fullname="S_HardwarePart" preserve="all" />
     <type fullname="S_HoleManager" preserve="all" />
     <type fullname="S_HoleSpawner" preserve="all" />
@@ -37,6 +37,7 @@
     <type fullname="S_SpawnNetworkObject" preserve="all" />
     <type fullname="S_SpawnObjectOnClassification" preserve="all" />
     <type fullname="S_Ticket" preserve="all" />
+    <type fullname="S_TicketDetailGiver" preserve="all" />
     <type fullname="S_UIInteractor" preserve="all" />
     <type fullname="S_WallExplosion" preserve="all" />
     <type fullname="SO_RecipeBook" preserve="all" />
@@ -110,8 +111,6 @@
     <type fullname="UnityEngine.InputSystem.InputActionMap" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.InputSystem.InputActionProperty" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.InputSystem.InputBinding" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.InputSystem.InputControlScheme" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.InputSystem.InputControlScheme/DeviceRequirement" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Unity.RenderPipelines.Universal.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData" preserve="all" />
