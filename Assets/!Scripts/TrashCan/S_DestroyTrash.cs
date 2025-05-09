@@ -1,6 +1,7 @@
+using Fusion;
 using UnityEngine;
 
-public class S_DestroyTrash : MonoBehaviour
+public class S_DestroyTrash : NetworkBehaviour
 {
     private void OnCollisionEnter(Collision other)
     {
@@ -10,7 +11,7 @@ public class S_DestroyTrash : MonoBehaviour
         }
         else if(other.gameObject.TryGetComponent(out S_DishStatus dish))
         {
-            Destroy(dish);
+            Runner.Despawn(dish.GetComponent<NetworkObject>());
         }
     }
 }

@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 923771769656643282}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.52382743, y: 0.096, z: 7.22}
+  m_LocalPosition: {x: 0.52382743, y: 0, z: 2.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_ShowInteractableHoverMeshes: 1
   m_InteractableHoverMeshMaterial: {fileID: 2100000, guid: bdfeb958e81c3314bb189d54f3d4a3c1, type: 2}
   m_InteractableCantHoverMeshMaterial: {fileID: 2100000, guid: e9a9959fdc36a5745816974f582679e1, type: 2}
-  m_SocketActive: 1
+  m_SocketActive: 0
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
   m_HoverSocketSnapping: 0
@@ -184,7 +184,7 @@ Transform:
   m_GameObject: {fileID: 1013325601174863444}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.52382743, y: 0.096, z: 4.32}
+  m_LocalPosition: {x: 0.52382743, y: 0, z: 2.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_ShowInteractableHoverMeshes: 1
   m_InteractableHoverMeshMaterial: {fileID: 2100000, guid: bdfeb958e81c3314bb189d54f3d4a3c1, type: 2}
   m_InteractableCantHoverMeshMaterial: {fileID: 2100000, guid: e9a9959fdc36a5745816974f582679e1, type: 2}
-  m_SocketActive: 1
+  m_SocketActive: 0
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
   m_HoverSocketSnapping: 0
@@ -447,7 +447,7 @@ Transform:
   m_GameObject: {fileID: 1667322962161310281}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.52382743, y: 0.096, z: 2.58}
+  m_LocalPosition: {x: 0.52382743, y: 0, z: 2.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -512,7 +512,7 @@ MonoBehaviour:
   m_ShowInteractableHoverMeshes: 1
   m_InteractableHoverMeshMaterial: {fileID: 2100000, guid: bdfeb958e81c3314bb189d54f3d4a3c1, type: 2}
   m_InteractableCantHoverMeshMaterial: {fileID: 2100000, guid: e9a9959fdc36a5745816974f582679e1, type: 2}
-  m_SocketActive: 1
+  m_SocketActive: 0
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
   m_HoverSocketSnapping: 0
@@ -704,7 +704,7 @@ Transform:
   m_GameObject: {fileID: 2800620565668833662}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.52382743, y: 0.395, z: -0.932}
+  m_LocalPosition: {x: 0.52382743, y: 0.592, z: -1.119}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -911,7 +911,7 @@ MonoBehaviour:
   - {fileID: 4570457840398412570}
   - {fileID: 8710454314155209102}
   - {fileID: 3488259125174242280}
-  - {fileID: 4678510361785940270}
+  - {fileID: 5066085208127323807}
   - {fileID: 2654701938721133824}
   - {fileID: 8628536529974688027}
   - {fileID: 5675208572571643201}
@@ -952,8 +952,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aef7072f604bd243b83a7d2227ad039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  suckPoint: {fileID: 2723856422580926450}
   destroyTrash: {fileID: 5066085208127323807}
-  moveTrash: {fileID: 4678510361785940270}
+  moveTrash: {fileID: 3488259125174242280}
 --- !u!114 &3488259125174242280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -977,6 +978,12 @@ MonoBehaviour:
   - {fileID: 7363275899708560577}
   - {fileID: 3488955826991516669}
   - {fileID: 6057255254059398220}
+  - {fileID: 4279315692108039270}
+  - {fileID: 1283978241727709040}
+  - {fileID: 5041139578378631200}
+  - {fileID: 2741320103939853477}
+  - {fileID: 4658594093668780964}
+  - {fileID: 5781271145392352797}
 --- !u!1 &4943161338401965579
 GameObject:
   m_ObjectHideFlags: 0
@@ -1147,7 +1154,7 @@ Transform:
   m_GameObject: {fileID: 5616556842997787233}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.52382743, y: 0.096, z: 3.16}
+  m_LocalPosition: {x: 0.52382743, y: 0, z: 2.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1212,7 +1219,7 @@ MonoBehaviour:
   m_ShowInteractableHoverMeshes: 1
   m_InteractableHoverMeshMaterial: {fileID: 2100000, guid: bdfeb958e81c3314bb189d54f3d4a3c1, type: 2}
   m_InteractableCantHoverMeshMaterial: {fileID: 2100000, guid: e9a9959fdc36a5745816974f582679e1, type: 2}
-  m_SocketActive: 1
+  m_SocketActive: 0
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
   m_HoverSocketSnapping: 0
@@ -1268,7 +1275,7 @@ Transform:
   m_GameObject: {fileID: 5947977295704766920}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.52382743, y: 0.096, z: 5.48}
+  m_LocalPosition: {x: 0.52382743, y: 0, z: 2.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1333,7 +1340,7 @@ MonoBehaviour:
   m_ShowInteractableHoverMeshes: 1
   m_InteractableHoverMeshMaterial: {fileID: 2100000, guid: bdfeb958e81c3314bb189d54f3d4a3c1, type: 2}
   m_InteractableCantHoverMeshMaterial: {fileID: 2100000, guid: e9a9959fdc36a5745816974f582679e1, type: 2}
-  m_SocketActive: 1
+  m_SocketActive: 0
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
   m_HoverSocketSnapping: 0
@@ -1389,7 +1396,7 @@ Transform:
   m_GameObject: {fileID: 5998040506002172960}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.52382743, y: 0.096, z: 4.9}
+  m_LocalPosition: {x: 0.52382743, y: 0, z: 2.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1454,7 +1461,7 @@ MonoBehaviour:
   m_ShowInteractableHoverMeshes: 1
   m_InteractableHoverMeshMaterial: {fileID: 2100000, guid: bdfeb958e81c3314bb189d54f3d4a3c1, type: 2}
   m_InteractableCantHoverMeshMaterial: {fileID: 2100000, guid: e9a9959fdc36a5745816974f582679e1, type: 2}
-  m_SocketActive: 1
+  m_SocketActive: 0
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
   m_HoverSocketSnapping: 0
@@ -1491,7 +1498,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8589201461388232421}
-  - component: {fileID: 4678510361785940270}
   m_Layer: 0
   m_Name: Sockets
   m_TagString: Untagged
@@ -1524,29 +1530,6 @@ Transform:
   - {fileID: 7962168175392619559}
   m_Father: {fileID: 6671178031647338853}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4678510361785940270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6322446775973756601}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cade0e469093ea48b1d35ebfff17bfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 0.5
-  trashDestinations:
-  - {fileID: 2723856422580926450}
-  - {fileID: 6633303017338082147}
-  - {fileID: 2542186786741081914}
-  - {fileID: 3597959494007740432}
-  trashSockets:
-  - {fileID: 1469141804394664321}
-  - {fileID: 7363275899708560577}
-  - {fileID: 3488955826991516669}
-  - {fileID: 6057255254059398220}
 --- !u!1 &6607841009917737744
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,7 +1666,7 @@ Transform:
   m_GameObject: {fileID: 6723108711833781360}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.52382743, y: 0.096, z: 2}
+  m_LocalPosition: {x: 0.52382743, y: 0, z: 2.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1748,7 +1731,7 @@ MonoBehaviour:
   m_ShowInteractableHoverMeshes: 1
   m_InteractableHoverMeshMaterial: {fileID: 2100000, guid: bdfeb958e81c3314bb189d54f3d4a3c1, type: 2}
   m_InteractableCantHoverMeshMaterial: {fileID: 2100000, guid: e9a9959fdc36a5745816974f582679e1, type: 2}
-  m_SocketActive: 1
+  m_SocketActive: 0
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
   m_HoverSocketSnapping: 0
@@ -1921,7 +1904,7 @@ Transform:
   m_GameObject: {fileID: 7725519142178600958}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.52382743, y: 0.096, z: 3.74}
+  m_LocalPosition: {x: 0.52382743, y: 0, z: 2.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1986,7 +1969,7 @@ MonoBehaviour:
   m_ShowInteractableHoverMeshes: 1
   m_InteractableHoverMeshMaterial: {fileID: 2100000, guid: bdfeb958e81c3314bb189d54f3d4a3c1, type: 2}
   m_InteractableCantHoverMeshMaterial: {fileID: 2100000, guid: e9a9959fdc36a5745816974f582679e1, type: 2}
-  m_SocketActive: 1
+  m_SocketActive: 0
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
   m_HoverSocketSnapping: 0
@@ -2151,8 +2134,8 @@ Transform:
   m_GameObject: {fileID: 8666397292818867774}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.448, z: -0.421}
-  m_LocalScale: {x: 1.0590756, y: 0.9258029, z: 0.10228378}
+  m_LocalPosition: {x: 0, y: 0.448, z: -0.489}
+  m_LocalScale: {x: 1.0590756, y: 0.9258029, z: 0.38885227}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7868143498032354788}
@@ -2268,7 +2251,7 @@ Transform:
   m_GameObject: {fileID: 8702183189551458793}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.52382743, y: 0.208, z: 1.4260001}
+  m_LocalPosition: {x: 0.52382743, y: 0.238, z: 1.719}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2302,7 +2285,7 @@ Transform:
   m_GameObject: {fileID: 8836555432087444884}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.52382743, y: 0.096, z: 6.06}
+  m_LocalPosition: {x: 0.52382743, y: 0, z: 2.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2367,7 +2350,7 @@ MonoBehaviour:
   m_ShowInteractableHoverMeshes: 1
   m_InteractableHoverMeshMaterial: {fileID: 2100000, guid: bdfeb958e81c3314bb189d54f3d4a3c1, type: 2}
   m_InteractableCantHoverMeshMaterial: {fileID: 2100000, guid: e9a9959fdc36a5745816974f582679e1, type: 2}
-  m_SocketActive: 1
+  m_SocketActive: 0
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
   m_HoverSocketSnapping: 0
@@ -2423,7 +2406,7 @@ Transform:
   m_GameObject: {fileID: 8976793619906862319}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.52382743, y: 0.096, z: 6.64}
+  m_LocalPosition: {x: 0.52382743, y: 0, z: 2.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2488,7 +2471,7 @@ MonoBehaviour:
   m_ShowInteractableHoverMeshes: 1
   m_InteractableHoverMeshMaterial: {fileID: 2100000, guid: bdfeb958e81c3314bb189d54f3d4a3c1, type: 2}
   m_InteractableCantHoverMeshMaterial: {fileID: 2100000, guid: e9a9959fdc36a5745816974f582679e1, type: 2}
-  m_SocketActive: 1
+  m_SocketActive: 0
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
   m_HoverSocketSnapping: 0

@@ -27,6 +27,24 @@ public class S_MoveTrash : NetworkBehaviour
         {
             _currentDestination[i] = 0;
         }
+
+        PlaceSockets();
+    }
+
+    private void PlaceSockets()
+    {
+        var beltLength = Vector3.Distance(trashDestinations[0].position, trashDestinations[1].position) 
+                         + Vector3.Distance(trashDestinations[1].position, trashDestinations[2].position)
+                         + Vector3.Distance(trashDestinations[2].position, trashDestinations[3].position)
+                         + Vector3.Distance(trashDestinations[3].position, trashDestinations[0].position);
+        
+        var offset = beltLength / trashSockets.Length;
+        
+        for (int i = 0; i < trashSockets.Length; i++)
+        {
+            trashSockets[i].transform.position = new Vector3(trashSockets[0].transform.position.x,
+                trashSockets[0].transform.position.y, trashSockets[0].transform.position.z + offset * i);
+        }
     }
 
     public override void FixedUpdateNetwork()

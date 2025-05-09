@@ -655,7 +655,7 @@ PrefabInstance:
       objectReference: {fileID: 173175833}
     - target: {fileID: 5316215853475862061, guid: 16d0a31e62111be48815994228792d9a, type: 3}
       propertyPath: SortKey
-      value: 3518050876
+      value: 918691041
       objectReference: {fileID: 0}
     - target: {fileID: 5359521854802662126, guid: 16d0a31e62111be48815994228792d9a, type: 3}
       propertyPath: SortKey
@@ -834,7 +834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5464214638882273747, guid: 1fd7dc4e2738aaf4fbee7afd7338fd45, type: 3}
       propertyPath: SortKey
-      value: 2493524796
+      value: 4189132257
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -924,7 +924,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1339422403797316913, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
       propertyPath: SortKey
-      value: 441325581
+      value: 2136933042
       objectReference: {fileID: 0}
     - target: {fileID: 2816956934616625573, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
       propertyPath: m_Renderer
@@ -1099,7 +1099,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1339422403797316913, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
       propertyPath: SortKey
-      value: 3241521067
+      value: 642161232
       objectReference: {fileID: 0}
     - target: {fileID: 2816956934616625573, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
       propertyPath: m_Renderer
@@ -1306,7 +1306,7 @@ MonoBehaviour:
   m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SortKey: 3768788306
+  SortKey: 1169428471
   ObjectInterest: 1
   Flags: 262145
   NestedObjects: []
@@ -1385,7 +1385,7 @@ MonoBehaviour:
   m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SortKey: 1739157021
+  SortKey: 3434764482
   ObjectInterest: 1
   Flags: 131073
   NestedObjects: []
@@ -1415,7 +1415,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6704324917748013034, guid: 19eb3f79a96263743992872919600d57, type: 3}
       propertyPath: SortKey
-      value: 4291778819
+      value: 1692418984
       objectReference: {fileID: 0}
     - target: {fileID: 2012386090533404722, guid: 19eb3f79a96263743992872919600d57, type: 3}
       propertyPath: m_Name
@@ -1472,10 +1472,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4058729964456199870, guid: 19eb3f79a96263743992872919600d57, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19eb3f79a96263743992872919600d57, type: 3}
 --- !u!1001 &7627225569104416960
 PrefabInstance:
@@ -1487,7 +1484,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 781496819396082839, guid: 7e4225130453e544cb89d9d619d58bef, type: 3}
       propertyPath: SortKey
-      value: 3523765474
+      value: 924405639
       objectReference: {fileID: 0}
     - target: {fileID: 5439066145181431010, guid: 7e4225130453e544cb89d9d619d58bef, type: 3}
       propertyPath: m_Name
