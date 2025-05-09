@@ -13,7 +13,7 @@ public class S_Ticket : NetworkBehaviour
     [SerializeField] private GameObject prefab;
     [SerializeField] private Transform ticketSpawnPoint;
     [SerializeField] private S_TicketDetailGiver ticketDetailGiver;
-
+    [SerializeField] private TextMeshProUGUI ticketNumberText;
     
     private static int ticketNumber;
     
@@ -35,6 +35,12 @@ public class S_Ticket : NetworkBehaviour
         // Save the order and costumer who ordered so that they can be found via the ticket later
         _currentOrder = order;
         _costumerOrder = costumerOrder;
+        ticketNumberText.text = $"#{ticketNumber}";
+    }
+
+    public void DestroyTicketDetails()
+    {
+        Runner.Despawn(ticketDetailGiver.GetComponent<NetworkObject>());
     }
     
 
