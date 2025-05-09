@@ -30,6 +30,7 @@
     <type fullname="S_Interactor" preserve="all" />
     <type fullname="S_ItemSpawner" preserve="all" />
     <type fullname="S_OrderWindow" preserve="all" />
+    <type fullname="S_Plate" preserve="all" />
     <type fullname="S_PlayerSpawner" preserve="all" />
     <type fullname="S_RecipeDatabase" preserve="all" />
     <type fullname="S_RuntimeNavmeshBuilder" preserve="all" />

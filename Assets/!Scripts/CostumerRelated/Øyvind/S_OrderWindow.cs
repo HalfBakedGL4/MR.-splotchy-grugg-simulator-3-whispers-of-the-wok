@@ -107,8 +107,8 @@ public class S_OrderWindow : NetworkBehaviour
 
     public void DeliverOrder(SelectEnterEventArgs args)
     {
-        GiveOrderToCostumer(args.interactableObject.transform.gameObject.GetComponentInChildren<S_DishStatus>());
-        RemoveDish(args.interactableObject.transform.gameObject);
+        GiveOrderToCostumer(args.interactableObject.transform.gameObject.GetComponent<S_Plate>().dishStatus);
+        RemoveDish(args.interactableObject.transform.parent.gameObject);
     }
     
     private void GiveOrderToCostumer(S_DishStatus dish)
