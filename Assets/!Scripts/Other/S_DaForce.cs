@@ -7,9 +7,15 @@ using Input;
 
 public class S_DaForce : NetworkBehaviour
 {
-    
+    [Header("References")]
     [SerializeField] private GameObject toolPrefab;
-    [SerializeField] private float returnSpeed = 8f;
+    
+    [Header("Settings")]
+    [SerializeField] private float minPullDistanceCalculation = 1f;
+    [SerializeField] private float maxPullDistanceCalculation = 10f;
+    [SerializeField] private float speedMultiplier = 8f;
+    
+    private float _returnSpeed = 8f;
     
     private NetworkObject _tool;
     private Rigidbody _rigidbody;
@@ -65,6 +71,7 @@ public class S_DaForce : NetworkBehaviour
     
     private void UseForce()
     {
+        CalculateDistance();
         _canForcePull = true;
         // if (_tool == null) return;
         // 
@@ -101,6 +108,21 @@ public class S_DaForce : NetworkBehaviour
         // }
     }
 
+    private void CalculateDistance()
+    {
+        var distance = Vector3.Distance(_tool.transform.position, transform.position);
+        switch (distance)
+        {
+            case <= 1f:
+                distance = 1f;
+                break;
+            case >= 10f:
+                distance = 10f;
+                break;
+        }
+        _returnSpeed = distance * speedMultiplier;
+    }
+    
     public override void FixedUpdateNetwork()
     {
         base.FixedUpdateNetwork();
@@ -112,8 +134,8 @@ public class S_DaForce : NetworkBehaviour
         
         if (_grabButtonPressed && _toolButtonPressed)
         {
-            _tool.transform.position = Vector3.MoveTowards(_tool.transform.position, transform.position, Time.deltaTime * returnSpeed);
-            _tool.transform.rotation = Quaternion.RotateTowards(_tool.transform.rotation, transform.rotation, Time.deltaTime * returnSpeed * 17);
+            _tool.transform.position = Vector3.MoveTowards(_tool.transform.position, transform.position, Time.deltaTime * _returnSpeed);
+            _tool.transform.rotation = Quaternion.RotateTowards(_tool.transform.rotation, transform.rotation, Time.deltaTime * _returnSpeed * 17);
             if (_moving) return;
             _moving = true;
             _rigidbody.useGravity = false;
@@ -123,6 +145,7 @@ public class S_DaForce : NetworkBehaviour
             if (!_moving) return;
             _moving = false;
             _rigidbody.useGravity = true;
+            _canForcePull = false;
         }
     }
     
