@@ -94,6 +94,8 @@ public class S_OrderWindow : NetworkBehaviour
         ticketPlacements.Add(pos);
         // Remove used ticket
         ticketsDictionary.Remove(ticket);
+        // Destroy ticket details
+        ticket.DestroyTicketDetails();
         // Destroy ticket from scene
         Runner.Despawn(ticket.GetComponent<NetworkObject>());
 
