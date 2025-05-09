@@ -83,6 +83,10 @@
     <type fullname="Fusion.FusionBootstrapDebugGUI" preserve="all" />
     <type fullname="Fusion.RunnerEnableVisibility" preserve="all" />
   </assembly>
+  <assembly fullname="Meta.XR.BuildingBlocks, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Meta.XR.BuildingBlocks.BuildingBlock" preserve="all" />
+    <type fullname="Meta.XR.BuildingBlocks.InstallationRoutineCheckpoint" preserve="nothing" serialized="true" />
+  </assembly>
   <assembly fullname="Meta.XR.EnvironmentDepth, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="Meta.XR.EnvironmentDepth.EnvironmentDepthManager" preserve="all" />
   </assembly>
@@ -114,6 +118,8 @@
     <type fullname="UnityEngine.InputSystem.InputActionMap" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.InputSystem.InputActionProperty" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.InputSystem.InputBinding" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.InputSystem.InputControlScheme" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.InputSystem.InputControlScheme/DeviceRequirement" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Unity.RenderPipelines.Universal.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData" preserve="all" />
