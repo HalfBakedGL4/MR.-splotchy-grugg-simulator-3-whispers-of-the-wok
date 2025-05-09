@@ -174,7 +174,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 906869672}
-  - component: {fileID: 906869671}
+  - component: {fileID: 906869673}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -182,25 +182,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &906869671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 906869670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 331a5892f5639c744a3e051cd563adac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bgAudio:
-    Guid:
-      Data1: -439447282
-      Data2: 1247806964
-      Data3: 746203568
-      Data4: 2021655909
-    Path: event:/Glass
 --- !u!4 &906869672
 Transform:
   m_ObjectHideFlags: 0
@@ -216,6 +197,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &906869673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906869670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86dec002472611d42a6155fa94ba3429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playOnAwake: 1
+  audioToPlay:
+    Guid:
+      Data1: -439447282
+      Data2: 1247806964
+      Data3: 746203568
+      Data4: 2021655909
+    Path: event:/Glass
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
