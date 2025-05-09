@@ -1,5 +1,46 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &798705017282587598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5894068202125650778}
+  m_Layer: 0
+  m_Name: TrashSockets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5894068202125650778
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798705017282587598}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8547811083951865940}
+  - {fileID: 9047935038230816385}
+  - {fileID: 3119772413745604553}
+  - {fileID: 5443511291555607686}
+  - {fileID: 5122312524182115066}
+  - {fileID: 1146891974242896179}
+  - {fileID: 3537772192190356024}
+  - {fileID: 2403381118409332631}
+  - {fileID: 1965459663941475987}
+  - {fileID: 7962168175392619559}
+  m_Father: {fileID: 8589201461388232421}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &923771769656643282
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,7 +54,7 @@ GameObject:
   - component: {fileID: 5781271145392352797}
   - component: {fileID: 2458320591307885103}
   m_Layer: 0
-  m_Name: FoodSocket (9)
+  m_Name: TrashSocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +73,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8589201461388232421}
+  m_Father: {fileID: 5894068202125650778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &3119967027821694814
 BoxCollider:
@@ -154,7 +195,7 @@ Transform:
   - {fileID: 6633303017338082147}
   - {fileID: 2542186786741081914}
   - {fileID: 3597959494007740432}
-  m_Father: {fileID: 2118294944712669528}
+  m_Father: {fileID: 1869396044047273521}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1013325601174863444
 GameObject:
@@ -169,7 +210,7 @@ GameObject:
   - component: {fileID: 4279315692108039270}
   - component: {fileID: 6251239040961713252}
   m_Layer: 0
-  m_Name: FoodSocket (4)
+  m_Name: TrashSocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,7 +229,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8589201461388232421}
+  m_Father: {fileID: 5894068202125650778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1046144231609077176
 BoxCollider:
@@ -306,9 +347,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 7868143498032354788}
-  - {fileID: 3674322950420464078}
-  - {fileID: 8054056720752375056}
+  - {fileID: 1869396044047273521}
+  - {fileID: 1787419539689073610}
   m_Father: {fileID: 6671178031647338853}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1535627173329506739
@@ -432,7 +472,7 @@ GameObject:
   - component: {fileID: 7363275899708560577}
   - component: {fileID: 8628536529974688027}
   m_Layer: 0
-  m_Name: FoodSocket (1)
+  m_Name: TrashSocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -451,7 +491,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8589201461388232421}
+  m_Father: {fileID: 5894068202125650778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4255142175743979577
 BoxCollider:
@@ -600,7 +640,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.57, y: 1.288, z: 0.253}
-  m_LocalScale: {x: 0.9177527, y: 0.9177527, z: 0.1}
+  m_LocalScale: {x: 0.77173823, y: 0.77173823, z: 0.08409}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3674322950420464078}
@@ -734,7 +774,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3346235253009043698}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -744,7 +784,7 @@ Transform:
   - {fileID: 1567968775900259087}
   - {fileID: 5046244628066836107}
   - {fileID: 7128013472113347297}
-  m_Father: {fileID: 2118294944712669528}
+  m_Father: {fileID: 1869396044047273521}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3592580572181125871
 GameObject:
@@ -854,6 +894,40 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &4002931958447450845
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1869396044047273521}
+  m_Layer: 0
+  m_Name: TrashPart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1869396044047273521
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4002931958447450845}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7868143498032354788}
+  - {fileID: 3674322950420464078}
+  - {fileID: 8054056720752375056}
+  m_Father: {fileID: 2118294944712669528}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4553062457267069621
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,6 +1058,37 @@ MonoBehaviour:
   - {fileID: 2741320103939853477}
   - {fileID: 4658594093668780964}
   - {fileID: 5781271145392352797}
+--- !u!1 &4637893950465095863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1506819626632848304}
+  m_Layer: 0
+  m_Name: PlateSocket
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1506819626632848304
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4637893950465095863}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1948348666427737210}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4943161338401965579
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,7 +1113,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4943161338401965579}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1016,7 +1121,7 @@ Transform:
   - {fileID: 6466745518046600307}
   - {fileID: 7514717107767669821}
   - {fileID: 808213939129825735}
-  m_Father: {fileID: 2118294944712669528}
+  m_Father: {fileID: 1869396044047273521}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5364187743592060379
 GameObject:
@@ -1139,7 +1244,7 @@ GameObject:
   - component: {fileID: 3488955826991516669}
   - component: {fileID: 5675208572571643201}
   m_Layer: 0
-  m_Name: FoodSocket (2)
+  m_Name: TrashSocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1158,7 +1263,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8589201461388232421}
+  m_Father: {fileID: 5894068202125650778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8706848235103527439
 BoxCollider:
@@ -1260,7 +1365,7 @@ GameObject:
   - component: {fileID: 5041139578378631200}
   - component: {fileID: 3111060246214325235}
   m_Layer: 0
-  m_Name: FoodSocket (6)
+  m_Name: TrashSocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1279,7 +1384,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8589201461388232421}
+  m_Father: {fileID: 5894068202125650778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1364073174422068927
 BoxCollider:
@@ -1381,7 +1486,7 @@ GameObject:
   - component: {fileID: 1283978241727709040}
   - component: {fileID: 896760643411819910}
   m_Layer: 0
-  m_Name: FoodSocket (5)
+  m_Name: TrashSocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1400,7 +1505,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8589201461388232421}
+  m_Father: {fileID: 5894068202125650778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2984228600179408376
 BoxCollider:
@@ -1518,17 +1623,41 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8547811083951865940}
-  - {fileID: 9047935038230816385}
-  - {fileID: 3119772413745604553}
-  - {fileID: 5443511291555607686}
-  - {fileID: 5122312524182115066}
-  - {fileID: 1146891974242896179}
-  - {fileID: 3537772192190356024}
-  - {fileID: 2403381118409332631}
-  - {fileID: 1965459663941475987}
-  - {fileID: 7962168175392619559}
+  - {fileID: 1948348666427737210}
+  - {fileID: 5894068202125650778}
   m_Father: {fileID: 6671178031647338853}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6467418143122625585
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1948348666427737210}
+  m_Layer: 0
+  m_Name: PlateSockets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1948348666427737210
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6467418143122625585}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.526, y: 1.814, z: -0.55}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1506819626632848304}
+  m_Father: {fileID: 8589201461388232421}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6607841009917737744
 GameObject:
@@ -1558,8 +1687,8 @@ Transform:
   m_GameObject: {fileID: 6607841009917737744}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.535, y: 1.235, z: 0.253}
-  m_LocalScale: {x: 0.62877, y: 0.62877, z: 0.1}
+  m_LocalPosition: {x: -0.535, y: 1.219, z: 0.253}
+  m_LocalScale: {x: 0.5787513, y: 0.5787513, z: 0.092045}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3674322950420464078}
@@ -1651,7 +1780,7 @@ GameObject:
   - component: {fileID: 1469141804394664321}
   - component: {fileID: 2654701938721133824}
   m_Layer: 0
-  m_Name: FoodSocket
+  m_Name: TrashSocketFirst
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1670,7 +1799,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8589201461388232421}
+  m_Father: {fileID: 5894068202125650778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8568102387585904754
 BoxCollider:
@@ -1912,7 +2041,7 @@ GameObject:
   - component: {fileID: 6057255254059398220}
   - component: {fileID: 5772669035915267934}
   m_Layer: 0
-  m_Name: FoodSocket (3)
+  m_Name: TrashSocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1931,7 +2060,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8589201461388232421}
+  m_Father: {fileID: 5894068202125650778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6981703800947184568
 BoxCollider:
@@ -2293,7 +2422,7 @@ GameObject:
   - component: {fileID: 2741320103939853477}
   - component: {fileID: 8048376543592264076}
   m_Layer: 0
-  m_Name: FoodSocket (7)
+  m_Name: TrashSocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2312,7 +2441,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8589201461388232421}
+  m_Father: {fileID: 5894068202125650778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &5367414560269006268
 BoxCollider:
@@ -2401,6 +2530,37 @@ MonoBehaviour:
   SyncParent: 0
   _autoAOIOverride: 1
   DisableSharedModeInterpolation: 0
+--- !u!1 &8842384290128574812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1787419539689073610}
+  m_Layer: 0
+  m_Name: PlateRackPart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1787419539689073610
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8842384290128574812}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.38874725, y: 1.4128588, z: 0.18657765}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2118294944712669528}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8976793619906862319
 GameObject:
   m_ObjectHideFlags: 0
@@ -2414,7 +2574,7 @@ GameObject:
   - component: {fileID: 4658594093668780964}
   - component: {fileID: 2994340090000963466}
   m_Layer: 0
-  m_Name: FoodSocket (8)
+  m_Name: TrashSocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2433,7 +2593,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8589201461388232421}
+  m_Father: {fileID: 5894068202125650778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4807120396047860698
 BoxCollider:
