@@ -66,11 +66,18 @@ public class S_MoveTrash : NetworkBehaviour
                 _currentDestination[i] = (_currentDestination[i] + 1) % trashDestinations.Length;
 
                 if (_currentDestination[i] == 1)
-                    trashSockets[i].socketActive = true;
+                    RPC_ToggleSocketActive(i, true);
+
 
                 if (_currentDestination[i] == 2)
-                    trashSockets[i].socketActive = false;
+                    RPC_ToggleSocketActive(i, false);
             }
         }
+    }
+    
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    private void RPC_ToggleSocketActive(int i, bool toggle)
+    {
+        trashSockets[i].socketActive = toggle;
     }
 }
