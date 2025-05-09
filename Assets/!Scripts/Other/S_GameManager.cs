@@ -24,10 +24,14 @@ public class S_GameManager : NetworkBehaviour
     {
         if (currentFood.Count >= maxFood)
         {
+            /*
             if (instance != null && instance.HasStateAuthority)
             {
                 instance.RPC_FullFoodSpawn();
-            }
+            }*/
+            // Maybe we shouldn't check who does anything because it doesn't matter
+            instance.RPC_FullFoodSpawn();
+
             return null;
         }
 

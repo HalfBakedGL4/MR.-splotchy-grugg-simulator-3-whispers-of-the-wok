@@ -3,14 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class S_TrashCanManager : NetworkBehaviour
 {
     [SerializeField] private Transform suckPoint;
+    [SerializeField] private GameObject platePrefab;
 
     [Header("Child Scripts")]
     [SerializeField] private S_DestroyTrash destroyTrash;
     [SerializeField] private S_MoveTrash moveTrash;
+    [SerializeField] private S_PlateDispenser[] plateDispenserScripts;
 
     public override void Spawned()
     {
@@ -21,7 +24,13 @@ public class S_TrashCanManager : NetworkBehaviour
 
         // Add listener to event by the GameManager That calls CleanUpFloor
         S_GameManager.OnFoodListFull += CleanUpFloor;
+        foreach (var S_PlateDispense in plateDispenserScripts)
+        {
+            S_PlateDispense.OnPlateRemoved += AddNewPlate;
+            S_PlateDispense.FirstTimeSpawnPlate();
+        }
     }
+
 
     // Whenever Game Manager Food list is full the trash will try to clean up the scene
     // Moves any food on the floor to the trash can
@@ -70,8 +79,18 @@ public class S_TrashCanManager : NetworkBehaviour
         }
     }
 
+
+    private void AddNewPlate(Transform spawnPoint)
+    {
+        Runner.Spawn(platePrefab, spawnPoint.position, spawnPoint.rotation);
+    }
+    
     public virtual void OnDisable()
     {
         S_GameManager.OnFoodListFull -= CleanUpFloor;
+        foreach (var S_PlateDispense in plateDispenserScripts)
+        {
+            S_PlateDispense.OnPlateRemoved -= AddNewPlate;
+        }
     }
 }

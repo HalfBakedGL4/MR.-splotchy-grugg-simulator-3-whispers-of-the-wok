@@ -30,8 +30,8 @@ public class S_Cooker : NetworkBehaviour
     
     [SerializeField, Networked] private CookerState state { get; set; } = CookerState.Available;
 
-    private List<FoodType> foodCooking = new ();
-    private List<S_Food> foodScripts = new ();
+    [Networked] private List<FoodType> foodCooking { get; set; } = new ();
+    [Networked] private List<S_Food> foodScripts { get; set; } = new ();
 
     private S_DishStatus _currentDishStatus;
     private GameObject _spawnedDish;
