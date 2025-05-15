@@ -448,6 +448,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2118294944712669528}
+  - component: {fileID: 5311625461742731757}
   m_Layer: 0
   m_Name: Art
   m_TagString: Untagged
@@ -472,6 +473,28 @@ Transform:
   - {fileID: 1787419539689073610}
   m_Father: {fileID: 6671178031647338853}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &5311625461742731757
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158012393827696126}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8c0cf732c1aa4824bb530fd788e17822, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1535627173329506739
 GameObject:
   m_ObjectHideFlags: 0
@@ -2772,7 +2795,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 2.71, z: 0.18657765}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6197099045075710923}
   - {fileID: 8645672473057868338}
@@ -2994,16 +3017,28 @@ PrefabInstance:
       value: PlateDispenser (2)
       objectReference: {fileID: 0}
     - target: {fileID: 7982822621188615406, guid: a603278e4f5c8004cbc02bd5acfc2603, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982822621188615406, guid: a603278e4f5c8004cbc02bd5acfc2603, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982822621188615406, guid: a603278e4f5c8004cbc02bd5acfc2603, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982822621188615406, guid: a603278e4f5c8004cbc02bd5acfc2603, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7982822621188615406, guid: a603278e4f5c8004cbc02bd5acfc2603, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7479999
+      value: 1.1219997
       objectReference: {fileID: 0}
     - target: {fileID: 7982822621188615406, guid: a603278e4f5c8004cbc02bd5acfc2603, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.61057764
+      value: -0.9158665
       objectReference: {fileID: 0}
     - target: {fileID: 7982822621188615406, guid: a603278e4f5c8004cbc02bd5acfc2603, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3107,16 +3142,28 @@ PrefabInstance:
       value: PlateDispenser
       objectReference: {fileID: 0}
     - target: {fileID: 7982822621188615406, guid: a603278e4f5c8004cbc02bd5acfc2603, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982822621188615406, guid: a603278e4f5c8004cbc02bd5acfc2603, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982822621188615406, guid: a603278e4f5c8004cbc02bd5acfc2603, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982822621188615406, guid: a603278e4f5c8004cbc02bd5acfc2603, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.5
+      value: 2.2499995
       objectReference: {fileID: 0}
     - target: {fileID: 7982822621188615406, guid: a603278e4f5c8004cbc02bd5acfc2603, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7479999
+      value: 1.1219997
       objectReference: {fileID: 0}
     - target: {fileID: 7982822621188615406, guid: a603278e4f5c8004cbc02bd5acfc2603, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.61057764
+      value: -0.9158665
       objectReference: {fileID: 0}
     - target: {fileID: 7982822621188615406, guid: a603278e4f5c8004cbc02bd5acfc2603, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3207,16 +3254,28 @@ PrefabInstance:
       value: PlateDispenser (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7982822621188615406, guid: a603278e4f5c8004cbc02bd5acfc2603, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982822621188615406, guid: a603278e4f5c8004cbc02bd5acfc2603, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982822621188615406, guid: a603278e4f5c8004cbc02bd5acfc2603, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982822621188615406, guid: a603278e4f5c8004cbc02bd5acfc2603, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.5
+      value: -2.2499995
       objectReference: {fileID: 0}
     - target: {fileID: 7982822621188615406, guid: a603278e4f5c8004cbc02bd5acfc2603, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7479999
+      value: 1.1219997
       objectReference: {fileID: 0}
     - target: {fileID: 7982822621188615406, guid: a603278e4f5c8004cbc02bd5acfc2603, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.61057764
+      value: -0.9158665
       objectReference: {fileID: 0}
     - target: {fileID: 7982822621188615406, guid: a603278e4f5c8004cbc02bd5acfc2603, type: 3}
       propertyPath: m_LocalRotation.w

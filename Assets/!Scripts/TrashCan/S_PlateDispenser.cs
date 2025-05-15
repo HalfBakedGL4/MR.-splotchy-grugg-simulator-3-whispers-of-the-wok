@@ -30,7 +30,7 @@ public class S_PlateDispenser : NetworkBehaviour
             // Save Plate
             insertedPlate = plate.GetComponent<XRSocketInteractor>();
            
-            // Disable Plate Socket
+            // Disable the Plate's Socket
             insertedPlate.socketActive = false;
         }
     }
@@ -38,13 +38,12 @@ public class S_PlateDispenser : NetworkBehaviour
 
     public void PickUpPlate(SelectExitEventArgs args)
     {
-        // Enable Plate Socket
+        // Enable the Plate's Socket
         insertedPlate.socketActive = true;
         
         // Spawn New Plate
         if (HasStateAuthority)
         {
-
             RPC_OnPlateRemoved();
         }
     }
