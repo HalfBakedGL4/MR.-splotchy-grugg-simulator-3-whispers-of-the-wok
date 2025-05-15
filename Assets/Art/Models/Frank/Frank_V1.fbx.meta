@@ -3,7 +3,32 @@ guid: 615a8a3ad1ea96947855ddddd258eb59
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BottomPlate
+    second: {fileID: 2100000, guid: fdaa4a8bf982c4f469f9abaead56bc1e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: EngineMount
+    second: {fileID: 2100000, guid: 4c4b6dc55179b4245b918cf3e0c583ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth
+    second: {fileID: 2100000, guid: 4ea22a408f3dfd049a8bcc08b403febe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rail
+    second: {fileID: 2100000, guid: 03577dbe0f185b641a98e7d918ebdcaf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Teeth
+    second: {fileID: 2100000, guid: c0ccfcb2b17812446abdc467cc54e845, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
