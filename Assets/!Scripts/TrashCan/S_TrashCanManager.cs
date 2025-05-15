@@ -37,14 +37,23 @@ public class S_TrashCanManager : NetworkBehaviour
     private void CleanUpFloor()
     {
         var foodInScene = FindObjectsByType<S_Food>(FindObjectsSortMode.None);
+        var dishInScene = FindObjectsByType<S_DishStatus>(FindObjectsSortMode.None);
 
-        List<S_Food> foodOnFloor = new List<S_Food>();
+        List<GameObject> foodOnFloor = new List<GameObject>();
 
         foreach (var food in foodInScene)
         {
             if (food.transform.position.y < .3f)
             {
-                foodOnFloor.Add(food);
+                foodOnFloor.Add(food.gameObject);
+            }
+        }
+
+        foreach (var dish in dishInScene)
+        {
+            if (dish.transform.position.y < .3f)
+            {
+                foodOnFloor.Add(dish.gameObject);
             }
         }
 
@@ -52,7 +61,7 @@ public class S_TrashCanManager : NetworkBehaviour
         StartCoroutine(SuckFoodCoroutine(foodOnFloor));
     }
 
-    private IEnumerator SuckFoodCoroutine(List<S_Food> foodOnFloor)
+    private IEnumerator SuckFoodCoroutine(List<GameObject> foodOnFloor)
     {
         List<Rigidbody> foodRBs = new List<Rigidbody>();
 

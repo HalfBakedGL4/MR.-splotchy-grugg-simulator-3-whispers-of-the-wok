@@ -21,16 +21,19 @@ public class S_OpenDoor : NetworkBehaviour
 
     public void InteractWithDoor(SelectEnterEventArgs args)
     {
-
+        RpcToggleDoor();
+    }
+    
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    private void RpcToggleDoor()
+    {
         IsOpen = !IsOpen;
-        Debug.Log(IsOpen ? "opening door" : "closing door");
+        Debug.Log(IsOpen ? "Door opened" : "Door closed");
     }
 
     public override void FixedUpdateNetwork()
     {
         base.FixedUpdateNetwork();
-        // Only update door on authoritative instance to prevent conflict with NetworkTransform
-        if (!HasStateAuthority) return;
 
         float targetRotation = IsOpen ? endRotation : startRotation;
         currentYRotation = Mathf.LerpAngle(currentYRotation, targetRotation, Runner.DeltaTime * rotationSpeed);

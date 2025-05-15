@@ -73,7 +73,7 @@ public class S_GameManager : NetworkBehaviour
         instance.Runner.Despawn(toDestroy.GetComponent<NetworkObject>());
     }
     
-    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    [Rpc(RpcSources.All, RpcTargets.All)]
     private void RPC_FullFoodSpawn()
     {
         Debug.Log("Food list is full and needs to trash some food");
