@@ -37,7 +37,6 @@ public class S_UIButton : S_UIElement
             sprite.color = spriteColor;
         }
     }
-
     public virtual void OnPressedEnter(S_UIInteractor interactor)
     {
         interactor.hapticPlayer.SendHapticImpulse(interactor.hapicAmplitude, interactor.hapicDuration);
