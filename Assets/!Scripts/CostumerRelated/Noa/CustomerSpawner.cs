@@ -5,22 +5,21 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using Random = UnityEngine.Random;
 
-public class S_CostumerSpawner : NetworkBehaviour
+public class CustomerSpawner : NetworkBehaviour
 {
     [SerializeField] List<GameObject> costumerPrefabs; // Prefabs to instantiate on collision
     [SerializeField] private float lengthInFrontOfHole = .2f;
-    
+
     public void SpawnCostumer(Vector3 pos, ARPlane wall)
     {
         // Create costumer
         var costumerInstance = Runner.Spawn(costumerPrefabs[Random.Range(0, costumerPrefabs.Count)], pos);
 
-        
         // Spawn Customer behind window
         S_OrderWindow window = FindFirstObjectByType<S_OrderWindow>();
-        Vector3 behindOffset = -window.transform.forward * 2.0f; 
-        costumerInstance.transform.position = window.transform.position + behindOffset;
+        costumerInstance.transform.position = -window.transform.forward;
 
-        
+        // Place costumer in front of wall
+        costumerInstance.transform.position += costumerInstance.transform.forward * lengthInFrontOfHole;
     }
 }
