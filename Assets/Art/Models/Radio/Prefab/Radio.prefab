@@ -407,6 +407,7 @@ Transform:
   - {fileID: 2206580177751737810}
   - {fileID: 8996064050061059509}
   - {fileID: 2312741362331166955}
+  - {fileID: 6272984751497642560}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &3083794584333445966
@@ -1318,7 +1319,7 @@ GameObject:
   - component: {fileID: 6012340727002420420}
   - component: {fileID: 1485516907521710123}
   m_Layer: 0
-  m_Name: MarsBossFM (1)
+  m_Name: ChrishardFM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1792,3 +1793,65 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &5801945942232458667
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3093534023720731151}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 938f07cc1bbd1fd4aa913301e30e7e56, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.405
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 938f07cc1bbd1fd4aa913301e30e7e56, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 938f07cc1bbd1fd4aa913301e30e7e56, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.202
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 938f07cc1bbd1fd4aa913301e30e7e56, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.98433757
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 938f07cc1bbd1fd4aa913301e30e7e56, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.017594175
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 938f07cc1bbd1fd4aa913301e30e7e56, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.1753964
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 938f07cc1bbd1fd4aa913301e30e7e56, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0024612749
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 938f07cc1bbd1fd4aa913301e30e7e56, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 2.034
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 938f07cc1bbd1fd4aa913301e30e7e56, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 20.208
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 938f07cc1bbd1fd4aa913301e30e7e56, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0.076
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 938f07cc1bbd1fd4aa913301e30e7e56, type: 3}
+      propertyPath: m_Name
+      value: Antenna
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 938f07cc1bbd1fd4aa913301e30e7e56, type: 3}
+--- !u!4 &6272984751497642560 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 938f07cc1bbd1fd4aa913301e30e7e56, type: 3}
+  m_PrefabInstance: {fileID: 5801945942232458667}
+  m_PrefabAsset: {fileID: 0}
