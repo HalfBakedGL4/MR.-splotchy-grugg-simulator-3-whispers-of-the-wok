@@ -409,6 +409,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4762516720582898207, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: _GameState
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4911875166985053127, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
       propertyPath: m_Name
       value: World
@@ -584,6 +588,23 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5ed3d4522fe8ff47a111be7bc52009c, type: 3}
+--- !u!1 &1989754463 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8861899051137072810, guid: 5af324ff2a2d6534ab485d53985f5bc0, type: 3}
+  m_PrefabInstance: {fileID: 2130068695}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1989754467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989754463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa10029bd3e16c42a5443fcd5ae17ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2083739773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -672,7 +693,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 992043932031702050, guid: 5af324ff2a2d6534ab485d53985f5bc0, type: 3}
       propertyPath: PressedEnter.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 992043932031702050, guid: 5af324ff2a2d6534ab485d53985f5bc0, type: 3}
       propertyPath: PressedEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -688,7 +709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 992043932031702050, guid: 5af324ff2a2d6534ab485d53985f5bc0, type: 3}
       propertyPath: PressedEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TryUpdateGameState
+      value: ProgressGameState
       objectReference: {fileID: 0}
     - target: {fileID: 992043932031702050, guid: 5af324ff2a2d6534ab485d53985f5bc0, type: 3}
       propertyPath: PressedEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -738,6 +759,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3276953896013138640, guid: 5af324ff2a2d6534ab485d53985f5bc0, type: 3}
+      propertyPath: m_fontSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3276953896013138640, guid: 5af324ff2a2d6534ab485d53985f5bc0, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3276953896013138640, guid: 5af324ff2a2d6534ab485d53985f5bc0, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4636468166351579184, guid: 5af324ff2a2d6534ab485d53985f5bc0, type: 3}
       propertyPath: m_Name
       value: Screen
@@ -746,6 +779,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8861899051137072810, guid: 5af324ff2a2d6534ab485d53985f5bc0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1989754467}
     - targetCorrespondingSourceObject: {fileID: 8861899051137072810, guid: 5af324ff2a2d6534ab485d53985f5bc0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}

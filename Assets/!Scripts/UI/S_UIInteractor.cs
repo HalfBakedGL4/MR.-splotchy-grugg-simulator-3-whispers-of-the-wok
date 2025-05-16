@@ -72,21 +72,23 @@ public class S_UIInteractor : MonoBehaviour
 
     public void PressButton(InputInfo info)
     {
-        Debug.Log("[UIinteractor] pressing");
         if (!(hitting is S_UIButton)) return;
 
-        if (!info.context.started)
+        if (info.context.started)
         {
+            Debug.Log("[UIinteractor] pressing started");
             ((S_UIButton)hitting).OnPressedEnter(this);
         }
 
-        if (!info.context.performed)
+        if (info.context.performed)
         {
+            Debug.Log("[UIinteractor] pressing");
             ((S_UIButton)hitting).OnPressed(this);
         }
 
-        if (!info.context.canceled)
+        if (info.context.canceled)
         {
+            Debug.Log("[UIinteractor] pressing canceled");
             ((S_UIButton)hitting).OnPressedExit(this);
         }
     }

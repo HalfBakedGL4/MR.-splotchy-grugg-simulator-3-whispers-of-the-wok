@@ -4,35 +4,53 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using System.Threading.Tasks;
+using UnityEngine.Events;
+using NaughtyAttributes;
+using UnityEngine.Rendering;
 
 public enum GameState
 {
-    Prelude = 0,
-    Ongoing = 1,
-    Ending =  2
+    Intermission,
+    Starting,
+    Ongoing,
+    Ending
 }
 
 public class S_GameManager : NetworkBehaviour
 {
     public static S_GameManager instance;
 
-    [Networked, SerializeField] public GameState GameState { get; set; } 
-    [Networked, SerializeField] public float GameTime { get; set; } 
+    public static GameState CurrentGameState => instance.GameState;
+    [Networked, SerializeField] public GameState GameState { get; private set; }
 
-    public List<S_Food> currentFood { get; set; } = new List<S_Food>();
+    [Space]
+    public int startTime = 7;
+    [Networked, SerializeField] public float GameTime { get; private set; }
+
+    [Space]
+    public int startDelay = 5;
+    [Networked] float delay { get; set; } 
+
+    public List<S_Food> currentFood { get; private set; } = new List<S_Food>();
     public const int maxFood = 10;
     
     public static event Action OnFoodListFull;
 
     bool isLocal => Object && Object.HasStateAuthority;
 
-    private async void Start()
+    public override void Spawned()
     {
+        base.Spawned();
+
         instance = this;
 
-        await Task.Delay(10000);
 
-        TryUpdateGameState(GameState.Ongoing);
+        if (!isLocal) return;
+
+        GameTime = startTime * 60;
+        delay = startDelay;
+
+        ProgressGameState();
     }
     public override void FixedUpdateNetwork()
     {
@@ -42,17 +60,24 @@ public class S_GameManager : NetworkBehaviour
 
         switch (GameState)
         {
-            case GameState.Prelude:
+            case GameState.Intermission:
                 {
+                    Intermission();
+                    break;
+                }
+            case GameState.Starting:
+                {
+                    Starting();
                     break;
                 }
             case GameState.Ongoing:
                 {
-                    GameTime += Time.fixedDeltaTime;
+                    Ongoing();
                     break;
                 }
             case GameState.Ending:
                 {
+                    Ending();
                     break;
                 }
         }
@@ -119,36 +144,109 @@ public class S_GameManager : NetworkBehaviour
     }
     #endregion
 
-    public static void TryUpdateGameState(GameState state)
+    #region Game States
+    void Intermission()
     {
-        Debug.Log("[GameManager] updating game state: " + state);
-        instance.RPC_UpdateGameState(state);
+
     }
+
+    void Starting()
+    {
+        delay -= Time.fixedDeltaTime;
+
+        if (delay <= 0)
+        {
+            ProgressGameState();
+        }
+    }
+
+    void Ongoing()
+    {
+        GameTime -= Time.fixedDeltaTime;
+
+        if(GameTime <= 0)
+        {
+            ProgressGameState();
+        }
+    }
+
+    void Ending()
+    {
+        delay -= Time.fixedDeltaTime;
+
+        if (delay <= 0)
+        {
+            ProgressGameState();
+        }
+    }
+
+    public static string GetGameTime(int decimals = 0)
+    {
+        if(decimals > 0)
+        {
+            float f = MathF.Pow(10, decimals);
+            float value = Mathf.Round(instance.GameTime * f) / f;
+
+            string format = "0.";
+
+            for (int i = 0; i < decimals; i++)
+            {
+                format += "0";
+            }
+
+            return value.ToString(format);
+        }
+
+        return Mathf.Round(instance.GameTime).ToString();
+    }
+
+    public static void ProgressGameState()
+    {
+        GameState newGameState = (GameState)((int)instance.GameState + 1);
+
+        if ((int)newGameState > (int)GameState.Ending)
+            newGameState = 0;
+
+        Debug.Log("[GameManager] updating game state to: " + newGameState);
+        instance.RPC_UpdateGameState(newGameState);
+    }
+
+    public UnityEvent OnIntermission;
+    public UnityEvent OnStarting;
+    public UnityEvent OnOngoing;
+    public UnityEvent OnEnding;
 
     [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
     void RPC_UpdateGameState(GameState state)
     {
         if (GameState == state) return;
 
-        GameState = state;
-        Debug.Log("[GameManager] successfully updated game state: " + state);
-
-        switch (GameState)
+        switch (state)
         {
-            case GameState.Prelude:
+            case GameState.Intermission:
                 {
-                    GameTime = 0;
+                    delay = startDelay;
+                    break;
+                }
+            case GameState.Starting:
+                {
+                    GameTime = startTime * 60;
                     break;
                 }
             case GameState.Ongoing:
                 {
+                    delay = startDelay;
                     break;
                 }
             case GameState.Ending:
                 {
-                    GameTime = 0;
                     break;
                 }
         }
+
+        GameState = state;
+        Debug.Log("[GameManager] successfully updated game state to: " + state);
     }
+
+    #endregion
 }

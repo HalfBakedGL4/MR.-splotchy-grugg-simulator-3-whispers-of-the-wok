@@ -39,6 +39,8 @@ public class S_UIButton : S_UIElement
     }
     public virtual void OnPressedEnter(S_UIInteractor interactor)
     {
+        if (isPressed) return;
+
         interactor.hapticPlayer.SendHapticImpulse(interactor.hapicAmplitude, interactor.hapicDuration);
         isPressed = true;
         PressedEnter?.Invoke();
@@ -47,12 +49,16 @@ public class S_UIButton : S_UIElement
     }
     public virtual void OnPressed(S_UIInteractor interactor)
     {
+        if (!isPressed) return;
+
         Pressed?.Invoke();
 
         Debug.Log("[UIinteractor] Pressed");
     }
     public virtual void OnPressedExit(S_UIInteractor interactor)
     {
+        if (!isPressed) return;
+
         isPressed = false;
         PressedExit?.Invoke();
 
