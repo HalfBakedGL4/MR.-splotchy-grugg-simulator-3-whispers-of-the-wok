@@ -6,7 +6,6 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class S_PlateDispenser : NetworkBehaviour
 {
-    private XRSocketInteractor insertedPlate;
     
     [SerializeField] private Transform insertedPlateTransform;
     public event Action<Transform> OnPlateRemoved;
@@ -28,7 +27,7 @@ public class S_PlateDispenser : NetworkBehaviour
         if (args.interactorObject.transform.TryGetComponent(out S_Plate plate))
         {
             // Save Plate
-            insertedPlate = plate.GetComponent<XRSocketInteractor>();
+            var insertedPlate = plate.GetComponent<XRSocketInteractor>();
            
             // Disable the Plate's Socket
             insertedPlate.socketActive = false;
@@ -38,8 +37,15 @@ public class S_PlateDispenser : NetworkBehaviour
 
     public void PickUpPlate(SelectExitEventArgs args)
     {
-        // Enable the Plate's Socket
-        insertedPlate.socketActive = true;
+        // Check if plate
+        if (args.interactorObject.transform.TryGetComponent(out S_Plate plate))
+        {
+            // Save Plate
+            var insertedPlate = plate.GetComponent<XRSocketInteractor>();
+           
+            // Disable the Plate's Socket
+            insertedPlate.socketActive = true;
+        }
         
         // Spawn New Plate
         if (HasStateAuthority)

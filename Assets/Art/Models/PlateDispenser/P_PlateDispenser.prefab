@@ -180,8 +180,8 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_ShowInteractableHoverMeshes: 1
-  m_InteractableHoverMeshMaterial: {fileID: 0}
-  m_InteractableCantHoverMeshMaterial: {fileID: 0}
+  m_InteractableHoverMeshMaterial: {fileID: 2100000, guid: e9a9959fdc36a5745816974f582679e1, type: 2}
+  m_InteractableCantHoverMeshMaterial: {fileID: 2100000, guid: e9a9959fdc36a5745816974f582679e1, type: 2}
   m_SocketActive: 1
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 1942453043995819054}
   - component: {fileID: 8472179894512346364}
   m_Layer: 0
-  m_Name: PlateDispenser
+  m_Name: P_PlateDispenser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -241,7 +241,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4999998, y: 1.4999998, z: 1.4999998}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1390513255086983147}
@@ -289,6 +289,7 @@ GameObject:
   - component: {fileID: 8950878279081919753}
   - component: {fileID: 3629306995953543227}
   - component: {fileID: 2418671773734459487}
+  - component: {fileID: 1951521900642530657}
   m_Layer: 0
   m_Name: PlateBracket
   m_TagString: Untagged
@@ -364,3 +365,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1951521900642530657
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8049105601622969965}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7329611994771665262, guid: 14e591f5c8c2d254f8a3c255039a8c58, type: 3}

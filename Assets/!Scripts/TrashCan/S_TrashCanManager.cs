@@ -23,11 +23,12 @@ public class S_TrashCanManager : NetworkBehaviour
         moveTrash.enabled = true;
 
         // Add listener to event by the GameManager That calls CleanUpFloor
+        if (!HasStateAuthority) return;
         S_GameManager.OnFoodListFull += CleanUpFloor;
-        foreach (var S_PlateDispense in plateDispenserScripts)
+        foreach (var plateDispenser in plateDispenserScripts)
         {
-            S_PlateDispense.OnPlateRemoved += AddNewPlate;
-            S_PlateDispense.FirstTimeSpawnPlate();
+            plateDispenser.OnPlateRemoved += AddNewPlate;
+            plateDispenser.FirstTimeSpawnPlate();
         }
     }
 
@@ -63,19 +64,12 @@ public class S_TrashCanManager : NetworkBehaviour
 
     private IEnumerator SuckFoodCoroutine(List<GameObject> foodOnFloor)
     {
-        List<Rigidbody> foodRBs = new List<Rigidbody>();
-
-        foreach (var food in foodOnFloor)
-        {
-            foodRBs.Add(food.GetComponent<Rigidbody>());
-        }
+        List<Rigidbody> foodRBs = foodOnFloor.Select(food => food.GetComponent<Rigidbody>()).ToList();
 
         while (foodRBs.Count > 0)
         {
-            foreach (var food in foodRBs.ToList())
+            foreach (var food in foodRBs.ToList().Where(food => food))
             {
-                if (food == null) continue;
-
                 food.AddForce((suckPoint.position - food.transform.position).normalized * 5f);
 
                 if (Vector3.Distance(food.transform.position, suckPoint.position) < 0.1f)
@@ -96,10 +90,11 @@ public class S_TrashCanManager : NetworkBehaviour
     
     public virtual void OnDisable()
     {
+        if (!HasStateAuthority) { return; }
         S_GameManager.OnFoodListFull -= CleanUpFloor;
-        foreach (var S_PlateDispense in plateDispenserScripts)
+        foreach (var plateDispenser in plateDispenserScripts)
         {
-            S_PlateDispense.OnPlateRemoved -= AddNewPlate;
+            plateDispenser.OnPlateRemoved -= AddNewPlate;
         }
     }
 }
