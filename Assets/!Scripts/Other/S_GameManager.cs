@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 using UnityEngine.Events;
 using NaughtyAttributes;
 using UnityEngine.Rendering;
+using static Unity.Collections.Unicode;
 
 public enum GameState
 {
-    Offline,
     Intermission,
     Starting,
     Ongoing,
@@ -38,11 +38,12 @@ public class S_GameManager : NetworkBehaviour
     public static event Action OnFoodListFull;
 
     bool isLocal => Object && Object.HasStateAuthority;
+    public static bool isConnected => instance.Runner.IsInSession;
+    public static SessionInfo sessionInfo => instance.Runner.SessionInfo;
 
     private void Start()
     {
         instance = this;
-        gameState = GameState.Offline;
     }
 
     public override void Spawned()
@@ -88,6 +89,11 @@ public class S_GameManager : NetworkBehaviour
                     break;
                 }
         }
+
+        foreach (var item in currentFood)
+        {
+            Debug.Log("[GameManager] Food: " + item.GetFoodType());
+        }
     }
 
     #region Food
@@ -111,7 +117,7 @@ public class S_GameManager : NetworkBehaviour
     {
         S_Food newFood = null;
 
-        if (currentGameState == GameState.Offline)
+        if (!isConnected)
         {
             Debug.LogWarning("[GameManager] Do not spawn food while Offline.");
             return null;
@@ -217,7 +223,7 @@ public class S_GameManager : NetworkBehaviour
 
     public static void ProgressGameState()
     {
-        if(currentGameState == GameState.Offline)
+        if(!isConnected)
         {
             Debug.LogWarning("[GameManager] do not start the game while offline.");
             return;
