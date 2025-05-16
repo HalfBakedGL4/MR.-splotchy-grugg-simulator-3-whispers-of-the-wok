@@ -1,7 +1,7 @@
 using Fusion;
 using UnityEngine;
 
-public class S_SpawnNetworkObject : NetworkBehaviour
+public class S_SpawnBasketsInFryer : NetworkBehaviour
 {
     [SerializeField] private GameObject prefab;
     [SerializeField] private Transform[] SpawnPoints;

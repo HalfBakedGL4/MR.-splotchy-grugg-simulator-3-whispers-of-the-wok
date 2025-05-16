@@ -1012,7 +1012,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6998125248327271591, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.000000057567572
+      value: 0.000000057567586
       objectReference: {fileID: 0}
     - target: {fileID: 6998125248327271591, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1020,7 +1020,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6998125248327271591, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.000000028783754
+      value: 0.000000057567522
       objectReference: {fileID: 0}
     - target: {fileID: 7072311493323411411, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1040,7 +1040,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9188899828194750860, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00000008635132
+      value: 0.00000008635133
       objectReference: {fileID: 0}
     - target: {fileID: 9188899828194750860, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1048,7 +1048,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9188899828194750860, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.00000003777875
+      value: -0.000000008994975
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1187,7 +1187,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6998125248327271591, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00000014391894
+      value: 0.000000057567586
       objectReference: {fileID: 0}
     - target: {fileID: 6998125248327271591, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1195,15 +1195,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6998125248327271591, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.00000008635126
+      value: 0.000000057567522
       objectReference: {fileID: 0}
     - target: {fileID: 7072311493323411411, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00000011513505
+      value: 0.000000057567526
       objectReference: {fileID: 0}
     - target: {fileID: 7072311493323411411, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.00000011513517
+      value: -0.000000057567586
       objectReference: {fileID: 0}
     - target: {fileID: 7200728395727634709, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
       propertyPath: m_Name
@@ -1215,7 +1215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9188899828194750860, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00000011513511
+      value: 0.00000008635133
       objectReference: {fileID: 0}
     - target: {fileID: 9188899828194750860, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1223,7 +1223,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9188899828194750860, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.00000002158789
+      value: -0.000000008994975
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1380,6 +1380,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e1ffaf83ec52a54b8269aa5d02b4bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameState: 0
+  startTime: 7
+  _GameTime: 0
+  startDelay: 5
+  _currentFood: []
+  OnIntermission:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStarting:
+    m_PersistentCalls:
+      m_Calls: []
+  OnOngoing:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnding:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2143144786
 GameObject:
   m_ObjectHideFlags: 0

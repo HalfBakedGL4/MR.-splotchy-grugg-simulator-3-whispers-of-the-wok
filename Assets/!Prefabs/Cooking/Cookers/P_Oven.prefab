@@ -188,6 +188,7 @@ MonoBehaviour:
   m_FixedScale: {x: 1, y: 1, z: 1}
   m_TargetBoundsSize: {x: 1, y: 1, z: 1}
   targetTag: Food
+  noTag: 0
 --- !u!135 &1321027508302405015
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -310,6 +311,7 @@ MonoBehaviour:
   m_FixedScale: {x: 1, y: 1, z: 1}
   m_TargetBoundsSize: {x: 1, y: 1, z: 1}
   targetTag: Food
+  noTag: 0
 --- !u!1 &792819368613560531
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,6 +392,7 @@ MonoBehaviour:
   m_FixedScale: {x: 1, y: 1, z: 1}
   m_TargetBoundsSize: {x: 1, y: 1, z: 1}
   targetTag: Food
+  noTag: 0
 --- !u!135 &5107078082582296536
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -528,6 +531,7 @@ MonoBehaviour:
   m_FixedScale: {x: 1, y: 1, z: 1}
   m_TargetBoundsSize: {x: 1, y: 1, z: 1}
   targetTag: Food
+  noTag: 0
 --- !u!135 &1741552709551368959
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -646,13 +650,10 @@ MonoBehaviour:
   - {fileID: 864754570567581564}
   - {fileID: 5525538666247013377}
   dishSocket: {fileID: 4334128020496839631}
-  _state: 0
   underCookedTime: 10
   perfectlyCookedTime: 15
   overCookedTime: 20
   cookTimer: {fileID: 6866264321063802835}
-  __isAbleToStartCooking: 1
-  _timer: 0
 --- !u!114 &-3129658648468868885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -766,6 +767,7 @@ MonoBehaviour:
   m_FixedScale: {x: 1, y: 1, z: 1}
   m_TargetBoundsSize: {x: 1, y: 1, z: 1}
   targetTag: Food
+  noTag: 0
 --- !u!1 &3228509844579230896
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,6 +869,7 @@ MonoBehaviour:
   m_FixedScale: {x: 1, y: 1, z: 1}
   m_TargetBoundsSize: {x: 1, y: 1, z: 1}
   targetTag: Food
+  noTag: 0
 --- !u!1 &3398057815299356883
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,6 +950,7 @@ MonoBehaviour:
   m_FixedScale: {x: 1, y: 1, z: 1}
   m_TargetBoundsSize: {x: 1, y: 1, z: 1}
   targetTag: Dish
+  noTag: 0
 --- !u!135 &6618438916601578188
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1659,6 +1663,7 @@ MonoBehaviour:
   m_FixedScale: {x: 1, y: 1, z: 1}
   m_TargetBoundsSize: {x: 1, y: 1, z: 1}
   targetTag: Food
+  noTag: 0
 --- !u!1 &5909840140941645050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1739,6 +1744,7 @@ MonoBehaviour:
   m_FixedScale: {x: 1, y: 1, z: 1}
   m_TargetBoundsSize: {x: 1, y: 1, z: 1}
   targetTag: Food
+  noTag: 0
 --- !u!135 &4398768460934905984
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2077,6 +2083,7 @@ MonoBehaviour:
   m_FixedScale: {x: 1, y: 1, z: 1}
   m_TargetBoundsSize: {x: 1, y: 1, z: 1}
   targetTag: Dish
+  noTag: 0
 --- !u!1 &8731682332456347218
 GameObject:
   m_ObjectHideFlags: 0
