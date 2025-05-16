@@ -30,9 +30,9 @@ public class S_GameManager : NetworkBehaviour
 
     [Space]
     public int startDelay = 5;
-    [Networked] float delay { get; set; } 
+    [Networked] float delay { get; set; }
 
-    [Networked, SerializeField] public NetworkLinkedList<S_Food> currentFood { get; private set; } = new NetworkLinkedList<S_Food>();
+    [Networked, Capacity(maxFood)] public NetworkLinkedList<S_Food> currentFood => default;
     public const int maxFood = 10;
     
     public static event Action OnFoodListFull;
@@ -94,9 +94,23 @@ public class S_GameManager : NetworkBehaviour
     /// <summary>
     /// used to spawn food
     /// </summary>
-    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
-    public static S_Food RPC_SpawnFood(S_Food food, Vector3 position, Quaternion rotation)
+    public static S_Food TrySpawnFood(S_Food food, Vector3 position, Quaternion rotation)
     {
+        instance.SpawnFood(food, position, rotation);
+        return null;
+    }
+    /// <summary>
+    /// used to destroy food
+    /// </summary>
+    public static void TryDespawnFood(S_Food food)
+    {
+        instance.DespawnFood(food);
+    }
+
+    S_Food SpawnFood(S_Food food, Vector3 position, Quaternion rotation)
+    {
+        S_Food newFood = null;
+
         if (currentGameState == GameState.Offline)
         {
             Debug.LogWarning("[GameManager] Do not spawn food while Offline.");
@@ -108,7 +122,7 @@ public class S_GameManager : NetworkBehaviour
             return null;
         }
 
-        if (instance.currentFood.Count >= maxFood)
+        if (currentFood.Count >= maxFood)
         {
             /*
             if (instance != null && instance.HasStateAuthority)
@@ -116,32 +130,28 @@ public class S_GameManager : NetworkBehaviour
                 instance.RPC_FullFoodSpawn();
             }*/
             // Maybe we shouldn't check who does anything because it doesn't matter
+            // yes, good job
             instance.RPC_FullFoodSpawn();
 
             return null;
         }
 
-        S_Food instantiatedFood = instance.Runner.Spawn(food.GetComponent<NetworkObject>(), position, rotation).GetComponent<S_Food>();
+        newFood = Runner.Spawn(food.GetComponent<NetworkObject>(), position, rotation).GetComponent<S_Food>();
+        currentFood.Add(newFood);
 
-        if (instantiatedFood == null) return null;
-        instance.currentFood.Add(instantiatedFood);
-
-        return instantiatedFood;
+        return newFood;
     }
 
-    /// <summary>
-    /// used to destroy food
-    /// </summary>
-    public static void DespawnFood(S_Food food)
+    void DespawnFood(S_Food food)
     {
         S_Food toDestroy = food.GetComponent<S_Food>();
         if (toDestroy == null) return;
 
-        instance.currentFood.Remove(toDestroy);
-        instance.Runner.Despawn(toDestroy.GetComponent<NetworkObject>());
+        currentFood.Remove(toDestroy);
+        Runner.Despawn(toDestroy.GetComponent<NetworkObject>());
     }
-    
-    [Rpc(RpcSources.All, RpcTargets.All)]
+
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
     private void RPC_FullFoodSpawn()
     {
         Debug.Log("Food list is full and needs to trash some food");

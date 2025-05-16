@@ -12,6 +12,10 @@ public class S_DisplayGameTime : MonoBehaviour
 
     void Update()
     {
-        text.text = S_GameManager.GetGameTime();
+        text.text = S_GameManager.currentGameState.ToString();
+        if (S_GameManager.currentGameState == GameState.Ongoing)
+        {
+            text.text = S_GameManager.GetGameTime();
+        }
     }
 }

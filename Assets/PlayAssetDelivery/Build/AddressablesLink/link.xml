@@ -11,6 +11,7 @@
     <type fullname="S_Alien" preserve="all" />
     <type fullname="S_AnimateHandOnInput" preserve="all" />
     <type fullname="S_AttackState" preserve="all" />
+    <type fullname="S_ButtonPushed" preserve="all" />
     <type fullname="S_ChaseState" preserve="all" />
     <type fullname="S_ColorClassifications" preserve="all" />
     <type fullname="S_Cooker" preserve="all" />
@@ -19,10 +20,15 @@
     <type fullname="S_CostumerOrder" preserve="all" />
     <type fullname="S_CostumerSpawner" preserve="all" />
     <type fullname="S_CustomerStateManager" preserve="all" />
+    <type fullname="S_DestroyTrash" preserve="all" />
     <type fullname="S_DishStatus" preserve="all" />
     <type fullname="S_FindPointsOnWalls" preserve="all" />
+    <type fullname="S_Food" preserve="all" />
+    <type fullname="S_FoodDispenser" preserve="all" />
     <type fullname="S_FryerActivater" preserve="all" />
     <type fullname="S_GameManager" preserve="all" />
+    <type fullname="S_GruggJuice" preserve="all" />
+    <type fullname="S_GruggPot" preserve="all" />
     <type fullname="S_HardwarePart" preserve="all" />
     <type fullname="S_HoleManager" preserve="all" />
     <type fullname="S_HoleSpawner" preserve="all" />
@@ -30,17 +36,21 @@
     <type fullname="S_InfoScreen" preserve="all" />
     <type fullname="S_Interactor" preserve="all" />
     <type fullname="S_ItemSpawner" preserve="all" />
+    <type fullname="S_MoveTrash" preserve="all" />
     <type fullname="S_OpenDoor" preserve="all" />
     <type fullname="S_OrderWindow" preserve="all" />
     <type fullname="S_Plate" preserve="all" />
+    <type fullname="S_PlateDispenser" preserve="all" />
     <type fullname="S_PlayerSpawner" preserve="all" />
     <type fullname="S_RecipeDatabase" preserve="all" />
     <type fullname="S_RuntimeNavmeshBuilder" preserve="all" />
+    <type fullname="S_SocketMultipleTagInteractor" preserve="all" />
     <type fullname="S_SocketTagInteractor" preserve="all" />
     <type fullname="S_SpawnNetworkObject" preserve="all" />
     <type fullname="S_SpawnObjectOnClassification" preserve="all" />
     <type fullname="S_Ticket" preserve="all" />
     <type fullname="S_TicketDetailGiver" preserve="all" />
+    <type fullname="S_TrashCanManager" preserve="all" />
     <type fullname="S_UIInteractor" preserve="all" />
     <type fullname="S_WallExplosion" preserve="all" />
     <type fullname="SO_RecipeBook" preserve="all" />
@@ -83,16 +93,24 @@
     <type fullname="Fusion.FusionBootstrapDebugGUI" preserve="all" />
     <type fullname="Fusion.RunnerEnableVisibility" preserve="all" />
   </assembly>
+  <assembly fullname="Meta.XR.BuildingBlocks, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Meta.XR.BuildingBlocks.BuildingBlock" preserve="all" />
+    <type fullname="Meta.XR.BuildingBlocks.InstallationRoutineCheckpoint" preserve="nothing" serialized="true" />
+  </assembly>
   <assembly fullname="Meta.XR.EnvironmentDepth, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="Meta.XR.EnvironmentDepth.EnvironmentDepthManager" preserve="all" />
   </assembly>
   <assembly fullname="meta.xr.mrutilitykit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="Meta.XR.MRUtilityKit.AnchorPrefabSpawner" preserve="all" />
+    <type fullname="Meta.XR.MRUtilityKit.ImmersiveSceneDebugger" preserve="all" />
+    <type fullname="Meta.XR.MRUtilityKit.MRUK" preserve="all" />
     <type fullname="Meta.XR.MRUtilityKit.AnchorPrefabSpawner/AnchorPrefabGroup" preserve="nothing" serialized="true" />
+    <type fullname="Meta.XR.MRUtilityKit.MRUK/MRUKSettings" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Oculus.VR, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="OVRCameraRig" preserve="all" />
     <type fullname="OVRManager" preserve="all" />
+    <type fullname=".OVRAnchor/TrackerConfiguration" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
     <type fullname="UnityEngine.AddressableAssets.Addressables" preserve="all" />
@@ -114,6 +132,8 @@
     <type fullname="UnityEngine.InputSystem.InputActionMap" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.InputSystem.InputActionProperty" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.InputSystem.InputBinding" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.InputSystem.InputControlScheme" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.InputSystem.InputControlScheme/DeviceRequirement" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Unity.RenderPipelines.Universal.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData" preserve="all" />
@@ -148,10 +168,17 @@
   </assembly>
   <assembly fullname="Unity.XR.CoreUtils, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="Unity.XR.CoreUtils.XROrigin" preserve="all" />
+    <type fullname="Unity.XR.CoreUtils.ColorUnityEvent" preserve="nothing" serialized="true" />
+    <type fullname="Unity.XR.CoreUtils.Datums.AnimationCurveDatumProperty" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Unity.XR.Interaction.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Receiver.Rendering.ColorMaterialPropertyAffordanceReceiver" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Rendering.MaterialPropertyBlockHelper" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.State.XRInteractableAffordanceStateProvider" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Theme.Primitives.ColorAffordanceThemeDatum" preserve="all" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.Attachment.InteractionAttachController" preserve="all" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.Feedback.SimpleHapticFeedback" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Filtering.XRPokeFilter" preserve="all" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.Gaze.XRGazeAssistance" preserve="all" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.Inputs.Haptics.HapticImpulsePlayer" preserve="all" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.Inputs.InputActionManager" preserve="all" />
@@ -170,7 +197,12 @@
     <type fullname="UnityEngine.XR.Interaction.Toolkit.Locomotion.Turning.SnapTurnProvider" preserve="all" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.Locomotion.XRBodyTransformer" preserve="all" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.ActivateEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Theme.AffordanceThemeData`1" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Theme.Primitives.ColorAffordanceTheme" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Theme.Primitives.ColorAffordanceThemeDatumProperty" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.DeactivateEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Filtering.PokeThresholdData" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Filtering.PokeThresholdDatumProperty" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.FocusEnterEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.FocusExitEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.HoverEnterEvent" preserve="nothing" serialized="true" />
@@ -192,6 +224,7 @@
     <type fullname="UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets.ControllerInputActionManager" preserve="all" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets.DynamicMoveProvider" preserve="all" />
     <type fullname="UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets.GazeInputManager" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets.XRPokeFollowAffordance" preserve="all" />
   </assembly>
   <assembly fullname="UnityEngine.AIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.AI.NavMeshAgent" preserve="all" />
@@ -217,6 +250,7 @@
     <type fullname="UnityEngine.Sprite" preserve="all" />
     <type fullname="UnityEngine.Texture2D" preserve="all" />
     <type fullname="UnityEngine.Transform" preserve="all" />
+    <type fullname="UnityEngine.Color" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Events.ArgumentCache" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Events.PersistentCallGroup" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Events.PersistentListenerMode" preserve="nothing" serialized="true" />
