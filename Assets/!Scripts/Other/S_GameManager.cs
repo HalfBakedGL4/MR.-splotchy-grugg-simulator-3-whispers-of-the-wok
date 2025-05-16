@@ -110,10 +110,14 @@ public class S_GameManager : NetworkBehaviour
 
         if (instance.currentFood.Count >= maxFood)
         {
-            if (instance != null && instance.isLocal)
+            /*
+            if (instance != null && instance.HasStateAuthority)
             {
                 instance.RPC_FullFoodSpawn();
-            }
+            }*/
+            // Maybe we shouldn't check who does anything because it doesn't matter
+            instance.RPC_FullFoodSpawn();
+
             return null;
         }
 
@@ -137,7 +141,7 @@ public class S_GameManager : NetworkBehaviour
         instance.Runner.Despawn(toDestroy.GetComponent<NetworkObject>());
     }
     
-    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    [Rpc(RpcSources.All, RpcTargets.All)]
     private void RPC_FullFoodSpawn()
     {
         Debug.Log("Food list is full and needs to trash some food");
