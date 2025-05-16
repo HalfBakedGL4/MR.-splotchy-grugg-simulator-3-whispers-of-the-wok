@@ -1,10 +1,10 @@
 # ninja log v5
-17	1061	7690000864143383	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	1127825ebc134845
-22	1094	7690000864635543	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	dcbe9c8dedd1b53c
-9	1115	7690000864762787	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	1657a841e52616be
-29	1132	7690000864782881	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	e4e0e611b000a14
-34	1190	7690000865546759	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	1b9ec20b07484a31
-0	1230	7690000866008210	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	fa430ee6260c2afe
-14	1377	7690000867367902	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	53053bc87fdf34df
-4	1446	7690000868175074	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	a5ab003aa0f56baa
-1460	2363	7690000875846668	C:/Users/noasj/Documents/GitHub/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/o6u1x6j4/obj/arm64-v8a/libgame.so	a4f11f59751d0855
+29	1713	7691050396091802	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	1127825ebc134845
+45	1739	7691050396538358	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	dcbe9c8dedd1b53c
+76	1752	7691050396816829	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	e4e0e611b000a14
+21	1788	7691050396816829	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	1657a841e52616be
+66	1908	7691050398238615	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	1b9ec20b07484a31
+12	1959	7691050398939436	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	fa430ee6260c2afe
+54	2088	7691050400266463	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	53053bc87fdf34df
+1	2220	7691050401577333	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	a5ab003aa0f56baa
+2221	2386	7691050403225069	C:/Users/noasj/Documents/GitHub/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/o6u1x6j4/obj/arm64-v8a/libgame.so	a4f11f59751d0855

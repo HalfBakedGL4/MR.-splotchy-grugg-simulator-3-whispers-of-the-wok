@@ -476,6 +476,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2129920830723620675, guid: a5ed3d4522fe8ff47a111be7bc52009c, type: 3}
+      propertyPath: DefaultRoomName
+      value: SharedTestingInteractionsNoaErKul
+      objectReference: {fileID: 0}
     - target: {fileID: 6318377894881153437, guid: a5ed3d4522fe8ff47a111be7bc52009c, type: 3}
       propertyPath: m_Name
       value: Networking

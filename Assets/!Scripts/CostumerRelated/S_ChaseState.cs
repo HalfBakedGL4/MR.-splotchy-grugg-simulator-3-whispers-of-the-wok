@@ -22,6 +22,10 @@ public class S_ChaseState : S_State
             return this;
         }
     }
+    private void Awake()
+    {
+        
+    }
     IEnumerator Start()
     {
         yield return new WaitUntil(() => GetComponent<NavMeshSurface>() != null);

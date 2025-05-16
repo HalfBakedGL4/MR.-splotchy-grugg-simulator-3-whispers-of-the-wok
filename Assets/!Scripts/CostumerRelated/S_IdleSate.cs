@@ -12,29 +12,34 @@ public class S_IdleSate : S_State
     private void Start()
     {
         renderer = GetComponentInChildren<Renderer>();
+        Debug.Log("Customer making order");
         Invoke("MadeOrder", 5);
     }
 
+
     void MadeOrder()
     {
-        renderer.enabled = false;
+        //renderer.enabled = false;
+        Debug.Log("Customer made order");
         Invoke("Attack", 5);
     }
 
     void Attack()
     {
+        Debug.Log("Customer started chase state");
         // Enable renderer
-        // Need networking
-        renderer.enabled = true;
+        //renderer.enabled = true;
+
         // Set position to behind wall
         (ARPlane a ,Vector3 pointOnWall) = FindFirstObjectByType<S_FindPointsOnWalls>().GetRandomWallAndPoint();
+        Debug.Log("Spawning on wall: "+a.gameObject.name);
 
         pointOnWall.y = transform.localScale.y/2;
         transform.position = pointOnWall;
 
         // Spawn hole
         S_HoleSpawner holeSpawner = FindFirstObjectByType<S_HoleSpawner>();
-        holeSpawner.SpawnHole(pointOnWall, a.gameObject.transform.rotation);
+        holeSpawner.SpawnHole(pointOnWall, a.gameObject.transform.localRotation);
 
         // Swap state to chase
         canSeeThePlayer = true;

@@ -8,7 +8,6 @@
     <type fullname="Networking.Shared.S_LocalPlayer" preserve="all" />
     <type fullname="Networking.Shared.S_NetworkPlayer" preserve="all" />
     <type fullname="Rig" preserve="all" />
-    <type fullname="S_Alien" preserve="all" />
     <type fullname="S_AnimateHandOnInput" preserve="all" />
     <type fullname="S_AttackState" preserve="all" />
     <type fullname="S_ButtonPushed" preserve="all" />

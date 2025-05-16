@@ -47,6 +47,7 @@ public class S_CostumerManager : NetworkBehaviour
         var costumerPos = wallTuple.pointOnWall + wallTuple.wall.transform.position;
 
         costumerSpawner.SpawnCostumer(costumerPos, wallTuple.wall);
+
     }
 
 }
