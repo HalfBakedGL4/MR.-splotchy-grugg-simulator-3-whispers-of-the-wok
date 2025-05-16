@@ -16,13 +16,13 @@ namespace Extentions
             SharedLocalPlayer = 1,
             RecipeBook = 2,
             BurntFood = 3,
+            Networking = 4,
+            MR = 5,
+            World = 6,
         }
         public enum AddressableLabel
         {
-            SharedNetworkPlayer = 0,
-            SharedLocalPlayer = 1,
-            RecipeBook = 2,
-            BurntFood = 3,
+
         }
 
         public enum AddressableToLoad
@@ -44,7 +44,10 @@ namespace Extentions
                 { AddressableAsset.SharedNetworkPlayer, "SharedNetworkPlayer" },
                 { AddressableAsset.SharedLocalPlayer, "SharedLocalPlayer" },
                 { AddressableAsset.RecipeBook,  "RecipeBook" },
-                { AddressableAsset.BurntFood,  "BurntFood" }
+                { AddressableAsset.BurntFood,  "BurntFood" },
+                { AddressableAsset.Networking,  "Networking" },
+                { AddressableAsset.MR,  "MR" },
+                { AddressableAsset.World,  "World" }
             };
 
             /// <summary>

@@ -15,8 +15,23 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 4c284546592b23b47bb008fefefee8db
   m_SerializeEntries:
+  - m_GUID: 0a7e2e2b7e8404e41ba3a7356d9db80a
+    m_Address: World
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4343bad1faff2c34e9e4931583e3ecdb
+    m_Address: MR
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9fea2b54dbfa5cf4b9263dd6d792913a
     m_Address: RecipeBook
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5ed3d4522fe8ff47a111be7bc52009c
+    m_Address: Networking
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

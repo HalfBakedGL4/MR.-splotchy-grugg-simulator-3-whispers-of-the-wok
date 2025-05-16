@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4985485349489685525
 RectTransform:
   m_ObjectHideFlags: 0
@@ -446,9 +446,9 @@ Transform:
   m_GameObject: {fileID: 8560593145379878557}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4, y: 0.57, z: -0.57}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3673568438245823050}
   - {fileID: 3773865166043839150}
@@ -567,10 +567,34 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8476676519897970004}
+        m_TargetAssemblyTypeName: S_Cooker, Assembly-CSharp
+        m_MethodName: EnableFoodInBasket
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8476676519897970004}
+        m_TargetAssemblyTypeName: S_Cooker, Assembly-CSharp
+        m_MethodName: DisableFoodInBasket
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -785,7 +809,97 @@ MonoBehaviour:
   - {fileID: 7029694072356082777}
   dishSocket: {fileID: 5935610389449126565}
   _state: 0
+  underCookedTime: 10
+  perfectlyCookedTime: 20
+  overCookedTime: 30
+  cookTimer: {fileID: 968840830078755187}
+  __isAbleToStartCooking: 1
   _timer: 0
+--- !u!1001 &956324363989069927
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3511736406895139694}
+    m_Modifications:
+    - target: {fileID: 2524033725491458654, guid: 82e36614bc5e0c24d996375c7eaedc0b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.029293055
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524033725491458654, guid: 82e36614bc5e0c24d996375c7eaedc0b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.029293051
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524033725491458654, guid: 82e36614bc5e0c24d996375c7eaedc0b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.029293064
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524033725491458654, guid: 82e36614bc5e0c24d996375c7eaedc0b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524033725491458654, guid: 82e36614bc5e0c24d996375c7eaedc0b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1109
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524033725491458654, guid: 82e36614bc5e0c24d996375c7eaedc0b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.06285
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524033725491458654, guid: 82e36614bc5e0c24d996375c7eaedc0b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524033725491458654, guid: 82e36614bc5e0c24d996375c7eaedc0b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524033725491458654, guid: 82e36614bc5e0c24d996375c7eaedc0b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524033725491458654, guid: 82e36614bc5e0c24d996375c7eaedc0b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524033725491458654, guid: 82e36614bc5e0c24d996375c7eaedc0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524033725491458654, guid: 82e36614bc5e0c24d996375c7eaedc0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524033725491458654, guid: 82e36614bc5e0c24d996375c7eaedc0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6084061868350509526, guid: 82e36614bc5e0c24d996375c7eaedc0b, type: 3}
+      propertyPath: m_Name
+      value: Timer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 82e36614bc5e0c24d996375c7eaedc0b, type: 3}
+--- !u!114 &968840830078755187 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 15631117485052180, guid: 82e36614bc5e0c24d996375c7eaedc0b, type: 3}
+  m_PrefabInstance: {fileID: 956324363989069927}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e7a89b6121e1a4bb9b1a38ab9b90f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &3333403411517833785 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2524033725491458654, guid: 82e36614bc5e0c24d996375c7eaedc0b, type: 3}
+  m_PrefabInstance: {fileID: 956324363989069927}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3978517793052556421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -852,7 +966,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 24cee5c288c72a24d88286c49099734b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3333403411517833785}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24cee5c288c72a24d88286c49099734b, type: 3}
 --- !u!4 &3511736406895139694 stripped

@@ -29,9 +29,4 @@ public class Dish
     [Required]
     public GameObject resultPrefab; // The prefab to spawn
 
-    [Space]
-
-    public float underCookedTime = 10;
-    public float perfectlyCookedTime = 20;
-    public float overCookedTime = 30;
 }
