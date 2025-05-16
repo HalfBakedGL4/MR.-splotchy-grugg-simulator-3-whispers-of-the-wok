@@ -11,6 +11,7 @@ public class ColocationManager : NetworkBehaviour
     [SerializeField] private AlignmentManager alignmentManager;
 
     private Guid _sharedAnchorGroupId;
+    private bool _isAdvertising = false;
 
     public override void Spawned()
     {
@@ -34,6 +35,13 @@ public class ColocationManager : NetworkBehaviour
 
     private async void AdvertiseColocationSession()
     {
+        if (_isAdvertising)
+        {
+            Debug.Log("Colocation: Already advertising. Skipping... Creating a new Alignment Anchor");
+            CreateAndShareAlignmentAnchor();
+            return;
+        }
+
         try
         {
             var advertisementData = Encoding.UTF8.GetBytes("SharedSpatialAnchorSession");
@@ -41,6 +49,7 @@ public class ColocationManager : NetworkBehaviour
 
             if (startAdvertisementResult.Success)
             {
+                _isAdvertising = true;
                 _sharedAnchorGroupId = startAdvertisementResult.Value;
                 Debug.Log("Colocation: ADvertisement started successfully. UUID: " + _sharedAnchorGroupId);
                 CreateAndShareAlignmentAnchor();
