@@ -4,12 +4,13 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
-public class S_PlateDispenser : NetworkBehaviour
+public class S_PlateDispenser : NetworkBehaviour, IToggle
 {
     
     [SerializeField] private Transform insertedPlateTransform;
     public event Action<Transform> OnPlateRemoved;
 
+    [Networked] private bool isTurnedOn { get; set; }
 
     public void FirstTimeSpawnPlate()
     {
@@ -58,5 +59,10 @@ public class S_PlateDispenser : NetworkBehaviour
     private void RPC_OnPlateRemoved()
     {
         OnPlateRemoved?.Invoke(insertedPlateTransform);
+    }
+
+    public void SetApplicationActive(bool toggle)
+    {
+        isTurnedOn = toggle;
     }
 }

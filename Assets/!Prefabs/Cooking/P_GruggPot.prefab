@@ -367,6 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gruggJuiceCollider: {fileID: 3958319279577001797}
+  interactable: {fileID: 8477845921564920024}
 --- !u!114 &5464214638882273747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,6 +385,7 @@ MonoBehaviour:
   Flags: 131073
   NestedObjects: []
   NetworkedBehaviours:
+  - {fileID: 3229044161764529807}
   - {fileID: 3214850747704202974}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &3214850747704202974
@@ -918,6 +920,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7061671384639600787, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
   m_PrefabInstance: {fileID: 6352878072976151723}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8477845921564920024 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3282753595052891251, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
+  m_PrefabInstance: {fileID: 6352878072976151723}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7046373541655361201
 PrefabInstance:
   m_ObjectHideFlags: 0

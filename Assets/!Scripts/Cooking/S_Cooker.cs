@@ -2,13 +2,14 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using Fusion;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public enum CookerType
 {
     Oven,
     Fryer,
 }
-public class S_Cooker : NetworkBehaviour
+public class S_Cooker : NetworkBehaviour, IToggle
 {
     private enum CookerState
     {
@@ -24,6 +25,8 @@ public class S_Cooker : NetworkBehaviour
     [SerializeField] private S_SocketTagInteractor[] foodSockets;
     [SerializeField] private S_SocketTagInteractor dishSocket;
     
+    [Header("Interactable to turn On/Off")]
+    [SerializeField] private XRBaseInteractable[] interactable;
     [Networked] private CookerState state { get; set; } = CookerState.Available;
 
     private NetworkLinkedList<FoodType> _foodCooking = new ();
@@ -48,6 +51,8 @@ public class S_Cooker : NetworkBehaviour
     [Networked] private bool isAbleToStartCooking { get; set; } = true;
     bool isLocal => Object && Object.HasStateAuthority;
     [Networked] private float timer { get; set; }
+    
+    [Networked] private bool isTurnedOn { get; set; }
     private void Start()
     {
 
@@ -99,8 +104,7 @@ public class S_Cooker : NetworkBehaviour
         cookTimer.UpdateTimer(timer);
 
     }
-
-
+    
     private void AddFood(SelectEnterEventArgs args)
     {
         if (!isLocal) { return; }
@@ -351,6 +355,20 @@ public class S_Cooker : NetworkBehaviour
     void RPC_SetCookerState(CookerState state)
     {
         this.state = state;
+    }
+    
+    public void SetApplicationActive(bool toggle)
+    {
+        isTurnedOn = toggle;
+        foreach (var socket in foodSockets)
+        {
+            socket.socketActive = toggle;
+        }
+        dishSocket.socketActive = toggle;
+        foreach (var interact in interactable)
+        {
+            interact.enabled = toggle;
+        }
     }
 
     private void OnDestroy()

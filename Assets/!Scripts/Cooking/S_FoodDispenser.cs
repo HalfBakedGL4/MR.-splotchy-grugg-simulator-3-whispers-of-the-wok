@@ -1,14 +1,20 @@
 using System;
+using Fusion;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using Random = UnityEngine.Random;
 
-public class S_FoodDispenser : MonoBehaviour, IButtonObject
+public class S_FoodDispenser : NetworkBehaviour, IButtonObject, IToggle
 {
     [Header("Food Dispenser")]
     [SerializeField] private S_Food foodToDispense;
     [SerializeField] private float launchSpeed;
     [SerializeField] private float rotationSpeed;
+    [SerializeField] private XRBaseInteractable interactable;
+    
+    [Networked] private bool isTurnedOn { get; set; }
+
+    
     /*
     // These are all used as a visual to show what item would apear for debugging purposes
     // but then it stopped working so I left it in this state
@@ -54,5 +60,10 @@ public class S_FoodDispenser : MonoBehaviour, IButtonObject
             rb.angularVelocity = Random.insideUnitSphere * rotationSpeed;
         }
     }
-   
+
+    public void SetApplicationActive(bool toggle)
+    {
+        isTurnedOn = toggle;
+        interactable.enabled = toggle;
+    }
 }

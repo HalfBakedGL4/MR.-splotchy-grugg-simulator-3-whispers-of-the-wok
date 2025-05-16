@@ -5,22 +5,23 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class S_TrashCanManager : NetworkBehaviour
+public class S_TrashCanManager : NetworkBehaviour, IToggle
 {
     [SerializeField] private Transform suckPoint;
     [SerializeField] private GameObject platePrefab;
+    [SerializeField] private Animator anim;
 
     [Header("Child Scripts")]
     [SerializeField] private S_DestroyTrash destroyTrash;
     [SerializeField] private S_MoveTrash moveTrash;
     [SerializeField] private S_PlateDispenser[] plateDispenserScripts;
+    
+    [Networked] private bool isTurnedOn { get; set; }
+
 
     public override void Spawned()
     {
         base.Spawned();
-
-        destroyTrash.enabled = true;
-        moveTrash.enabled = true;
 
         // Add listener to event by the GameManager That calls CleanUpFloor
         if (!HasStateAuthority) return;
@@ -96,5 +97,13 @@ public class S_TrashCanManager : NetworkBehaviour
         {
             plateDispenser.OnPlateRemoved -= AddNewPlate;
         }
+    }
+
+    public void SetApplicationActive(bool toggle)
+    {
+        isTurnedOn = toggle;
+        destroyTrash.enabled = toggle;
+        moveTrash.enabled = toggle;
+        anim.enabled = toggle;   
     }
 }

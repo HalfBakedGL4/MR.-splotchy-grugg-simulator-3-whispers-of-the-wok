@@ -1211,6 +1211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suckPoint: {fileID: 2723856422580926450}
   platePrefab: {fileID: 910016782285851564, guid: 459924bd06c240046b2ad2aa276926eb, type: 3}
+  anim: {fileID: 5311625461742731757}
   destroyTrash: {fileID: 5066085208127323807}
   moveTrash: {fileID: 3488259125174242280}
   plateDispenserScripts:

@@ -1,9 +1,13 @@
 using System.Collections;
+using Fusion;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
-public class S_GruggPot : MonoBehaviour, IButtonObject
+public class S_GruggPot : NetworkBehaviour, IButtonObject, IToggle
 {
     [SerializeField] private GameObject gruggJuiceCollider;
+    [SerializeField] private XRBaseInteractable interactable;
+    [Networked] private bool isTurnedOn { get; set; }
 
     private bool isActive = false;
     private void Start()
@@ -28,5 +32,11 @@ public class S_GruggPot : MonoBehaviour, IButtonObject
         // Hides the Trigger for the GruggJuice
         isActive = false;
         gruggJuiceCollider.SetActive(false);
+    }
+
+    public void SetApplicationActive(bool toggle)
+    {
+        isTurnedOn = toggle;
+        interactable.enabled = toggle;
     }
 }
