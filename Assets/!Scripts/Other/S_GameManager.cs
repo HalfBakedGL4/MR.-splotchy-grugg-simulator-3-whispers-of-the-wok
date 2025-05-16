@@ -10,6 +10,7 @@ using UnityEngine.Rendering;
 
 public enum GameState
 {
+    Offline,
     Intermission,
     Starting,
     Ongoing,
@@ -20,8 +21,8 @@ public class S_GameManager : NetworkBehaviour
 {
     public static S_GameManager instance;
 
-    public static GameState CurrentGameState => instance.GameState;
-    [Networked, SerializeField] public GameState GameState { get; private set; }
+    public static GameState currentGameState => instance.gameState;
+    [Networked, SerializeField] public GameState gameState { get; private set; }
 
     [Space]
     public int startTime = 7;
@@ -31,34 +32,40 @@ public class S_GameManager : NetworkBehaviour
     public int startDelay = 5;
     [Networked] float delay { get; set; } 
 
-    public List<S_Food> currentFood { get; private set; } = new List<S_Food>();
+    [Networked, SerializeField] public NetworkLinkedList<S_Food> currentFood { get; private set; } = new NetworkLinkedList<S_Food>();
     public const int maxFood = 10;
     
     public static event Action OnFoodListFull;
 
     bool isLocal => Object && Object.HasStateAuthority;
 
+    private void Start()
+    {
+        instance = this;
+        gameState = GameState.Offline;
+    }
+
     public override void Spawned()
     {
         base.Spawned();
 
-        instance = this;
-
-
         if (!isLocal) return;
+
+        gameState = GameState.Intermission;
 
         GameTime = startTime * 60;
         delay = startDelay;
 
         ProgressGameState();
     }
+
     public override void FixedUpdateNetwork()
     {
         base.FixedUpdateNetwork();
 
         if (!isLocal) return;
 
-        switch (GameState)
+        switch (gameState)
         {
             case GameState.Intermission:
                 {
@@ -87,32 +94,26 @@ public class S_GameManager : NetworkBehaviour
     /// <summary>
     /// used to spawn food
     /// </summary>
-    public static S_Food SpawnFood(S_Food food, Vector3 position, Quaternion rotation)
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    public static S_Food RPC_SpawnFood(S_Food food, Vector3 position, Quaternion rotation)
     {
+        if (currentGameState == GameState.Offline)
+        {
+            Debug.LogWarning("[GameManager] Do not spawn food while Offline.");
+            return null;
+        }
+        if (currentGameState != GameState.Ongoing)
+        {
+            Debug.LogWarning("[GameManager] Do not spawn food while Game isn't running.");
+            return null;
+        }
+
         if (instance.currentFood.Count >= maxFood)
         {
-            if (instance != null && instance.HasStateAuthority)
+            if (instance != null && instance.isLocal)
             {
                 instance.RPC_FullFoodSpawn();
             }
-            return null;
-        }
-
-        if (food == null)
-        {
-            Debug.LogError("Oh No, No food");
-            return null;
-        }
-
-        if (instance == null)
-        {
-            Debug.LogError("Oh No, No game manager in scene");
-            return null;
-        }
-
-        if (instance.Runner == null)
-        {
-            Debug.LogError("Oh No, No runner");
             return null;
         }
 
@@ -202,15 +203,24 @@ public class S_GameManager : NetworkBehaviour
 
     public static void ProgressGameState()
     {
-        GameState newGameState = (GameState)((int)instance.GameState + 1);
+        if(currentGameState == GameState.Offline)
+        {
+            Debug.LogWarning("[GameManager] do not start the game while offline.");
+            return;
+        }
+
+        GameState newGameState = (GameState)((int)currentGameState + 1);
 
         if ((int)newGameState > (int)GameState.Ending)
-            newGameState = 0;
+            newGameState = GameState.Intermission;
 
         Debug.Log("[GameManager] updating game state to: " + newGameState);
         instance.RPC_UpdateGameState(newGameState);
     }
 
+    [HorizontalLine]
+    [InfoBox("The following is Master Client only: ")]
+    [Space]
     public UnityEvent OnIntermission;
     public UnityEvent OnStarting;
     public UnityEvent OnOngoing;
@@ -219,7 +229,7 @@ public class S_GameManager : NetworkBehaviour
     [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
     void RPC_UpdateGameState(GameState state)
     {
-        if (GameState == state) return;
+        if (gameState == state) return;
 
         switch (state)
         {
@@ -244,7 +254,7 @@ public class S_GameManager : NetworkBehaviour
                 }
         }
 
-        GameState = state;
+        gameState = state;
         Debug.Log("[GameManager] successfully updated game state to: " + state);
     }
 
