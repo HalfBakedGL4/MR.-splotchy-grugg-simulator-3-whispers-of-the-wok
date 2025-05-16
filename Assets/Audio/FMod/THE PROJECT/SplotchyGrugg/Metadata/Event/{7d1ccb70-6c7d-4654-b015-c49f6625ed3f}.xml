@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{7d1ccb70-6c7d-4654-b015-c49f6625ed3f}">
 		<property name="name">
-			<value>SttractGloveHammer</value>
+			<value>NOTFINISHEDSttractGloveHammer</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
