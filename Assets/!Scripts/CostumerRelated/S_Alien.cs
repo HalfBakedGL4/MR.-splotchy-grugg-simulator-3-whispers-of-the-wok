@@ -1,6 +1,9 @@
 using Meta.XR.MRUtilityKit;
+using NUnit.Framework;
 using Oculus.Interaction.Surfaces;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,9 +12,12 @@ public class S_Alien : MonoBehaviour
     public NavMeshAgent agent;
     public float speed = 1;
 
+    private List<S_Appliance> appliances;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     IEnumerator Start()
     {
+        appliances = GetComponents<S_Appliance>().ToList();
         yield return new WaitUntil(() => GetComponent<NavMeshSurface>() != null);
     }
 
@@ -22,7 +28,10 @@ public class S_Alien : MonoBehaviour
 
         if (agent.isOnNavMesh)
         {
-            Vector3 targetPosition = Camera.main.transform.position;
+            Vector3 targetPosition;
+            int x = Random.Range(0, appliances.Count - 1);
+
+            targetPosition = appliances[x].transform.position;
 
             agent.SetDestination(targetPosition);
             agent.speed = speed;

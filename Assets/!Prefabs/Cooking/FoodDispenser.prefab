@@ -149,6 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6210930264627343105}
   - component: {fileID: 9015507857893615363}
+  - component: {fileID: 1162325060220703413}
   m_Layer: 0
   m_Name: FoodDispenser
   m_TagString: Untagged
@@ -192,6 +193,18 @@ MonoBehaviour:
   rotationSpeed: 10
   hoverPoint: {fileID: 6618488212624715420}
   hoverItemSize: 0.1
+--- !u!114 &1162325060220703413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7200728395727634709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7064c472f2788d4c821d54286ee486d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8859719843715542414
 GameObject:
   m_ObjectHideFlags: 0
