@@ -19,6 +19,7 @@ public class S_ApplicationManager : NetworkBehaviour
             _toggles.Add(toggle);
     }
 
+    [ContextMenu("Disable Applications")]
     private void DisableApplications()
     {
         foreach (var toggle in _toggles)
@@ -27,6 +28,7 @@ public class S_ApplicationManager : NetworkBehaviour
         }
     }
 
+    [ContextMenu("Enable Applications")]
     private void EnableApplications()
     {
         foreach (var toggle in _toggles)

@@ -29,8 +29,8 @@ public class S_Cooker : NetworkBehaviour, IToggle
     [SerializeField] private XRBaseInteractable[] interactable;
     [Networked] private CookerState state { get; set; } = CookerState.Available;
 
-    private NetworkLinkedList<FoodType> _foodCooking = new ();
-    private NetworkLinkedList<S_Food> _foodScripts = new ();
+    private NetworkLinkedList<FoodType> _foodCooking;
+    private NetworkLinkedList<S_Food> _foodScripts;
 
     private S_DishStatus _currentDishStatus;
     private GameObject _spawnedDish;
@@ -58,6 +58,9 @@ public class S_Cooker : NetworkBehaviour, IToggle
         base.Spawned();
         
         ConnectToApplicationManager();
+        
+        _foodCooking = new NetworkLinkedList<FoodType>();
+        _foodScripts = new NetworkLinkedList<S_Food>();
 
         // Subscribe to foodSockets Events
         foreach (var foodSocket in foodSockets)
