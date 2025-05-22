@@ -29,8 +29,8 @@ public class S_Cooker : NetworkBehaviour, IToggle
     [SerializeField] private XRBaseInteractable[] interactable;
     [Networked] private CookerState state { get; set; } = CookerState.Available;
 
-    private NetworkLinkedList<FoodType> _foodCooking;
-    private NetworkLinkedList<S_Food> _foodScripts;
+    [Networked, Capacity(4)] private NetworkLinkedList<FoodType> _foodCooking => default;
+    [Networked, Capacity(4)] private NetworkLinkedList<S_Food> _foodScripts => default;
 
     private S_DishStatus _currentDishStatus;
     private GameObject _spawnedDish;
@@ -58,9 +58,6 @@ public class S_Cooker : NetworkBehaviour, IToggle
         base.Spawned();
         
         ConnectToApplicationManager();
-        
-        _foodCooking = new NetworkLinkedList<FoodType>();
-        _foodScripts = new NetworkLinkedList<S_Food>();
 
         // Subscribe to foodSockets Events
         foreach (var foodSocket in foodSockets)
@@ -85,6 +82,7 @@ public class S_Cooker : NetworkBehaviour, IToggle
         
         // Turn off Dish Socket, should only be used when dish is spawned
         dishSocket.socketActive = false;
+        
     }
 
     void Update()

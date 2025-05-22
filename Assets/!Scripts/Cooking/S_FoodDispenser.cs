@@ -11,7 +11,7 @@ public class S_FoodDispenser : NetworkBehaviour, IButtonObject, IToggle
     [SerializeField] private float launchSpeed;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private XRBaseInteractable interactable;
-    
+
     [Networked] private bool isTurnedOn { get; set; }
 
     
@@ -83,6 +83,6 @@ public class S_FoodDispenser : NetworkBehaviour, IButtonObject, IToggle
     {
         isTurnedOn = toggle;
         interactable.enabled = toggle;
-        print(name + " is turned on: " + toggle);
+        print(name + " is turned on: " + isTurnedOn);
     }
 }
