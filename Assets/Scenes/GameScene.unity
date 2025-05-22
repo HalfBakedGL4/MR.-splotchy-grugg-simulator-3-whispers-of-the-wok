@@ -333,6 +333,66 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: planeManager
+      value: 
+      objectReference: {fileID: 2083739774}
+    - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: spawnableStations.Array.data[0].name
+      value: Table
+      objectReference: {fileID: 0}
+    - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: spawnableStations.Array.data[1].name
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: spawnableStations.Array.data[0].stations.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: spawnableStations.Array.data[1].stations.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: spawnableStations.Array.data[0].stations.Array.data[2].amount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: spawnableStations.Array.data[0].stations.Array.data[3].amount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: spawnableStations.Array.data[1].stations.Array.data[1].amount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: spawnableStations.Array.data[0].stations.Array.data[2].toSpawn
+      value: 
+      objectReference: {fileID: 7200728395727634709, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
+    - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: spawnableStations.Array.data[0].stations.Array.data[3].toSpawn
+      value: 
+      objectReference: {fileID: 3892053843264737743, guid: 1fd7dc4e2738aaf4fbee7afd7338fd45, type: 3}
+    - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: spawnableStations.Array.data[1].stations.Array.data[1].toSpawn
+      value: 
+      objectReference: {fileID: 4553062457267069621, guid: 3bac285a1cb71c84bb9dfbcfdfc5b394, type: 3}
+    - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: spawnableStations.Array.data[1].stations.Array.data[1].maxHeight
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: spawnableStations.Array.data[1].stations.Array.data[1].eulerOffset.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: spawnableStations.Array.data[1].stations.Array.data[1].eulerOffset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: spawnableStations.Array.data[1].stations.Array.data[1].eulerOffset.z
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 4184649426864620437, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
       propertyPath: SortKey
       value: 3196166563
@@ -380,6 +440,18 @@ PrefabInstance:
     - target: {fileID: 4911875166985053127, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
       propertyPath: m_Name
       value: World
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448439885762660119, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: canOrder.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448439885762660119, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: 'canOrder.Array.data[1]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448439885762660119, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: 'canOrder.Array.data[2]'
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -853,6 +925,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5101698808175986029, guid: c348712bda248c246b8c49b3db54643f, type: 3}
     - target: {fileID: 8600024942964948797, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
+      propertyPath: LeftY.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600024942964948797, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
       propertyPath: RightA.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -898,6 +974,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
+--- !u!114 &2083739774 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2049683816127363178, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
+  m_PrefabInstance: {fileID: 2083739773}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2083739775 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 731723251012365205, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}

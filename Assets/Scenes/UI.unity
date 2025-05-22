@@ -419,7 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SortKey: 1411395303
+  SortKey: 0
   ObjectInterest: 1
   Flags: 131073
   NestedObjects: []
@@ -2656,7 +2656,7 @@ MonoBehaviour:
   m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SortKey: 3010676062
+  SortKey: 0
   ObjectInterest: 1
   Flags: 131073
   NestedObjects: []
@@ -3911,7 +3911,7 @@ MonoBehaviour:
   m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SortKey: 3990170552
+  SortKey: 0
   ObjectInterest: 1
   Flags: 131073
   NestedObjects: []

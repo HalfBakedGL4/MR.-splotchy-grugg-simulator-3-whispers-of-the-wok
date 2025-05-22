@@ -76,10 +76,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4455139161587672198, guid: 4b7dbc79a08ec9f439d8160581f1d324, type: 3}
       propertyPath: m_Name
-      value: Onion Variant
+      value: P_Onion Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4815739010710118726, guid: 4b7dbc79a08ec9f439d8160581f1d324, type: 3}
       propertyPath: foodType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815739010710118726, guid: 4b7dbc79a08ec9f439d8160581f1d324, type: 3}
+      propertyPath: _foodType
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4910213251074518333, guid: 4b7dbc79a08ec9f439d8160581f1d324, type: 3}

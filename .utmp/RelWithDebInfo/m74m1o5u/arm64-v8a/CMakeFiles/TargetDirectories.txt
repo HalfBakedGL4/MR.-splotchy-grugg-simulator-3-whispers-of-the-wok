@@ -1,5 +1,0 @@
-D:/Unity Projects/Passthrough with Unity XR/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/.utmp/RelWithDebInfo/m74m1o5u/arm64-v8a/CMakeFiles/edit_cache.dir
-D:/Unity Projects/Passthrough with Unity XR/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/.utmp/RelWithDebInfo/m74m1o5u/arm64-v8a/CMakeFiles/rebuild_cache.dir
-D:/Unity Projects/Passthrough with Unity XR/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/.utmp/RelWithDebInfo/m74m1o5u/arm64-v8a/GameActivity/CMakeFiles/game.dir
-D:/Unity Projects/Passthrough with Unity XR/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/.utmp/RelWithDebInfo/m74m1o5u/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
-D:/Unity Projects/Passthrough with Unity XR/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/.utmp/RelWithDebInfo/m74m1o5u/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir

@@ -211,10 +211,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ff77a7530168834ebd459e61d3744f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 2446296382763830541}
-  col: {fileID: -4780748143897151855}
+  isHovering: 0
   hoverColor: {r: 0.9, g: 0.9, b: 0.9, a: 1}
   pressedColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  isPressed: 0
   PressedEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -256,6 +256,7 @@ GameObject:
   - component: {fileID: 7203755555679110405}
   - component: {fileID: 5298603104069257224}
   - component: {fileID: 3276953896013138640}
+  - component: {fileID: 3977336695129014596}
   m_Layer: 0
   m_Name: text
   m_TagString: Untagged
@@ -374,10 +375,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 2.2
-  m_fontSizeBase: 36
+  m_fontSize: 2
+  m_fontSizeBase: 2
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 0
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -421,3 +422,15 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 5298603104069257224}
   m_maskType: 0
+--- !u!114 &3977336695129014596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8861899051137072810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa10029bd3e16c42a5443fcd5ae17ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
