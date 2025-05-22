@@ -18,16 +18,13 @@ public class Order
     public Sprite orderTutorial;
 
 }
-public class S_OrderWindow : NetworkBehaviour, IToggle
+public class S_OrderWindow : NetworkBehaviour
 {
     [SerializeField] private S_Ticket ticketPrefab;
     [SerializeField] private List<Transform> ticketPlacements;
     [Tooltip("All possible dishes for costumers to order, with the descriptive images of items ordered")]
     [SerializeField] private List<Order> orderTypes = new List<Order>();
     private List<(Order order, S_CostumerOrder costumerOrder)> orderOverload = new List<(Order, S_CostumerOrder)>();
-
-
-    [Networked] private bool isTurnedOn { get; set; }
     
     private Dictionary<S_Ticket, Transform> ticketsDictionary = new Dictionary<S_Ticket, Transform>();
 
@@ -155,10 +152,5 @@ public class S_OrderWindow : NetworkBehaviour, IToggle
     private void RemoveDish(GameObject dish)
     {
         Runner.Despawn(dish.GetComponent<NetworkObject>());
-    }
-
-    public void SetApplicationActive(bool toggle)
-    {
-        isTurnedOn = toggle;
     }
 }

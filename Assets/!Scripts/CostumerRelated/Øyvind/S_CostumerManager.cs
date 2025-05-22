@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 
-public class S_CostumerManager : NetworkBehaviour
+public class S_CostumerManager : NetworkBehaviour, IToggle
 {
     [Header("Scripts")]
     [SerializeField] private S_CostumerOrder costumerOrder;
@@ -13,7 +13,8 @@ public class S_CostumerManager : NetworkBehaviour
     [SerializeField] private S_HoleSpawner holeSpawner;
 
     private bool isLocal => Object && Object.HasStateAuthority;
-    
+    [Networked] private bool isTurnedOn { get; set; }
+  
     public override void Spawned()
     {
         base.Spawned();
@@ -26,6 +27,8 @@ public class S_CostumerManager : NetworkBehaviour
     
     private void Debuggings()
     {
+        if (!isTurnedOn) { return; }
+        
         // Find point on wall
         var wallTuple = FindAndStoreWallToBreak();
 
@@ -48,5 +51,11 @@ public class S_CostumerManager : NetworkBehaviour
 
         costumerSpawner.SpawnCostumer(costumerPos, wallTuple.wall);
     }
+    
+    public void SetApplicationActive(bool toggle)
+    {
+        isTurnedOn = toggle;
+    }
+
 
 }
