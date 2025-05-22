@@ -1,3 +1,4 @@
+using Fusion;
 using System;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
@@ -11,10 +12,10 @@ public enum FoodType
     Fish = 2,
     Bread = 3
 }
-public class S_Food : MonoBehaviour
+public class S_Food : NetworkBehaviour
 {
     
-    [SerializeField] private FoodType foodType;
+    [SerializeField, Networked] private FoodType foodType { get; set; }
     private XRGrabInteractable grabInteractable;
     
     private Collider coll;

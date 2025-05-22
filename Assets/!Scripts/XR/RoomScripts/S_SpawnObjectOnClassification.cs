@@ -13,7 +13,7 @@ public class Station
 
     public int amount;
 
-    public int maxHeight; //zero will do nothing
+    public float maxHeight; //zero will do nothing
     public Vector3 offset;
     public Vector3 eulerOffset;
 

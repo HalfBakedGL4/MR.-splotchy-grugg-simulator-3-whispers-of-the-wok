@@ -367,7 +367,7 @@ GameObject:
   - component: {fileID: 6450896892371885189}
   - component: {fileID: 2813029364104225378}
   - component: {fileID: 6822119568636653505}
-  - component: {fileID: 6296414655312412233}
+  - component: {fileID: 3221344087603514273}
   m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
@@ -421,7 +421,7 @@ MonoBehaviour:
   SyncParent: 0
   _autoAOIOverride: 1
   DisableSharedModeInterpolation: 0
---- !u!114 &6296414655312412233
+--- !u!114 &3221344087603514273
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -433,7 +433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f9ff5caa975cf4492f8c4330efad86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 610829861754878888, guid: 486f18d46d6f4474e897b40b9a7e348d, type: 3}
+  item: {fileID: 910016782285851564, guid: 459924bd06c240046b2ad2aa276926eb, type: 3}
 --- !u!1 &6814099746120680431
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +446,7 @@ GameObject:
   - component: {fileID: 7773054547496217731}
   - component: {fileID: 2032407206206816740}
   - component: {fileID: 7061299194469122700}
+  - component: {fileID: 91836136742171341}
   m_Layer: 0
   m_Name: Shared-NetworkPlayer
   m_TagString: Untagged
@@ -494,7 +495,7 @@ MonoBehaviour:
   - {fileID: 7996577955182783173}
   - {fileID: 2813029364104225378}
   - {fileID: 6822119568636653505}
-  - {fileID: 6296414655312412233}
+  - {fileID: 3221344087603514273}
   - {fileID: 387426432640405418}
   - {fileID: 8198567401433797707}
   ForceRemoteRenderTimeframe: 0
@@ -532,6 +533,60 @@ MonoBehaviour:
   head: {fileID: 712094256809249146}
   localPlayer: {fileID: 0}
   networkBehaviour: {fileID: 7773054547496217731}
+--- !u!114 &91836136742171341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6814099746120680431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10a6bdbd9ff42234a934a994af1b09bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RightJoystick:
+    m_PersistentCalls:
+      m_Calls: []
+  RightTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  RightGrip:
+    m_PersistentCalls:
+      m_Calls: []
+  RightA:
+    m_PersistentCalls:
+      m_Calls: []
+  RightB:
+    m_PersistentCalls:
+      m_Calls: []
+  LeftJoystick:
+    m_PersistentCalls:
+      m_Calls: []
+  LeftTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  LeftGrip:
+    m_PersistentCalls:
+      m_Calls: []
+  LeftX:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3221344087603514273}
+        m_TargetAssemblyTypeName: S_ItemSpawner, Assembly-CSharp
+        m_MethodName: SpawnItem
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  LeftY:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8689100458184367061
 GameObject:
   m_ObjectHideFlags: 0
