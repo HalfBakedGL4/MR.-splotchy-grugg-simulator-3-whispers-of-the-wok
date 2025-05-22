@@ -1,12 +1,8 @@
-using System;
 using Fusion;
-using System.Collections.Generic;
-using Unity.Mathematics;
-using UnityEngine;
-using System.Threading.Tasks;
-using UnityEngine.Events;
 using NaughtyAttributes;
-using UnityEngine.Rendering;
+using System;
+using UnityEngine;
+using UnityEngine.Events;
 
 public enum GameState
 {
@@ -21,8 +17,13 @@ public class S_GameManager : NetworkBehaviour
 {
     public static S_GameManager instance;
 
-    public static GameState currentGameState => instance.gameState;
-    [Networked, SerializeField] public GameState gameState { get; private set; }
+    public static GameState CurrentGameState
+    {
+        get { return !isConnected ? GameState.Offline : instance.gameState; }
+    }
+    [Networked, SerializeField] GameState gameState { get; set; }
+    [SerializeField, Min(1)] int playersRequired = 1;
+    [SerializeField] bool waitForPlayers = true;
 
     [Space]
     public int startTime = 7;
@@ -34,20 +35,22 @@ public class S_GameManager : NetworkBehaviour
 
     [Networked, Capacity(maxFood)] public NetworkLinkedList<S_Food> currentFood => default;
     public const int maxFood = 10;
-    
+
     public static event Action OnFoodListFull;
 
     bool isLocal => Object && Object.HasStateAuthority;
+    public static bool isConnected = false;
+    public static SessionInfo sessionInfo => instance.Runner.SessionInfo;
 
     private void Start()
     {
         instance = this;
-        gameState = GameState.Offline;
     }
-
     public override void Spawned()
     {
         base.Spawned();
+
+        isConnected = true;
 
         if (!isLocal) return;
 
@@ -55,8 +58,6 @@ public class S_GameManager : NetworkBehaviour
 
         GameTime = startTime * 60;
         delay = startDelay;
-
-        ProgressGameState();
     }
 
     public override void FixedUpdateNetwork()
@@ -88,6 +89,11 @@ public class S_GameManager : NetworkBehaviour
                     break;
                 }
         }
+
+        foreach (var item in currentFood)
+        {
+            Debug.Log("[GameManager] Food: " + item.GetFoodType());
+        }
     }
 
     #region Food
@@ -111,12 +117,12 @@ public class S_GameManager : NetworkBehaviour
     {
         S_Food newFood = null;
 
-        if (currentGameState == GameState.Offline)
+        if (CurrentGameState == GameState.Offline)
         {
             Debug.LogWarning("[GameManager] Do not spawn food while Offline.");
             return null;
         }
-        if (currentGameState != GameState.Ongoing)
+        if (CurrentGameState != GameState.Ongoing)
         {
             Debug.LogWarning("[GameManager] Do not spawn food while Game isn't running.");
             return null;
@@ -162,7 +168,16 @@ public class S_GameManager : NetworkBehaviour
     #region Game States
     void Intermission()
     {
+        if(!waitForPlayers)
+        {
+            ProgressGameState();
+            return;
+        }
 
+        if(sessionInfo.PlayerCount > playersRequired)
+        {
+            ProgressGameState();
+        }
     }
 
     void Starting()
@@ -179,7 +194,7 @@ public class S_GameManager : NetworkBehaviour
     {
         GameTime -= Time.fixedDeltaTime;
 
-        if(GameTime <= 0)
+        if (GameTime <= 0)
         {
             ProgressGameState();
         }
@@ -197,7 +212,7 @@ public class S_GameManager : NetworkBehaviour
 
     public static string GetGameTime(int decimals = 0)
     {
-        if(decimals > 0)
+        if (decimals > 0)
         {
             float f = MathF.Pow(10, decimals);
             float value = Mathf.Round(instance.GameTime * f) / f;
@@ -217,13 +232,13 @@ public class S_GameManager : NetworkBehaviour
 
     public static void ProgressGameState()
     {
-        if(currentGameState == GameState.Offline)
+        if (!isConnected)
         {
             Debug.LogWarning("[GameManager] do not start the game while offline.");
             return;
         }
 
-        GameState newGameState = (GameState)((int)currentGameState + 1);
+        GameState newGameState = (GameState)((int)CurrentGameState + 1);
 
         if ((int)newGameState > (int)GameState.Ending)
             newGameState = GameState.Intermission;
