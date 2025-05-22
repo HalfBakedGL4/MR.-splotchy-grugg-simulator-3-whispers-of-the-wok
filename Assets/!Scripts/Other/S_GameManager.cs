@@ -19,9 +19,11 @@ public class S_GameManager : NetworkBehaviour
 
     public static GameState CurrentGameState
     {
-        get { return isConnected ? GameState.Offline : instance.gameState; }
+        get { return !isConnected ? GameState.Offline : instance.gameState; }
     }
     [Networked, SerializeField] GameState gameState { get; set; }
+    [SerializeField, Min(1)] int playersRequired = 1;
+    [SerializeField] bool waitForPlayers = true;
 
     [Space]
     public int startTime = 7;
@@ -56,8 +58,6 @@ public class S_GameManager : NetworkBehaviour
 
         GameTime = startTime * 60;
         delay = startDelay;
-
-        ProgressGameState();
     }
 
     public override void FixedUpdateNetwork()
@@ -168,7 +168,16 @@ public class S_GameManager : NetworkBehaviour
     #region Game States
     void Intermission()
     {
+        if(!waitForPlayers)
+        {
+            ProgressGameState();
+            return;
+        }
 
+        if(sessionInfo.PlayerCount > playersRequired)
+        {
+            ProgressGameState();
+        }
     }
 
     void Starting()

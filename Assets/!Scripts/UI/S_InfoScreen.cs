@@ -8,6 +8,8 @@ public class S_InfoScreen : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(S_GameManager.CurrentGameState);
+
         connectionText.text = S_GameManager.CurrentGameState.ToString();
 
         if (S_GameManager.CurrentGameState != GameState.Offline)
