@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
@@ -39,6 +40,8 @@ public class S_FoodDispenser : MonoBehaviour, IButtonObject
         hoverItem.transform.Rotate(30 * t, 15 * t, 10 * t);
     }
     */
+
+    [Button("Dispense Food")]
     public void OnButtonPressed() // When button is pressed spawn and launch the selected food Item
     {
         var foodItem = S_GameManager.TrySpawnFood(foodToDispense, transform.position, Quaternion.identity);
