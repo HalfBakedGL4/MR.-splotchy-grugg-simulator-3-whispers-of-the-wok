@@ -47,6 +47,8 @@ public class S_FoodDispenser : NetworkBehaviour, IButtonObject, IToggle
     */
     public void OnButtonPressed() // When button is pressed spawn and launch the selected food Item
     {
+        if (!isTurnedOn) {return;}
+
         var foodItem = S_GameManager.TrySpawnFood(foodToDispense, transform.position, Quaternion.identity);
 
         if (foodItem == null) return;

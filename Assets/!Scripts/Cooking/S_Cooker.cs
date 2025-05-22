@@ -77,12 +77,14 @@ public class S_Cooker : NetworkBehaviour, IToggle
         
         cookTimer.SetAllTimers(underCookedTime, perfectlyCookedTime, overCookedTime);
         
-        // Turn off Dishsocket, should only be used when dish is spawned
+        // Turn off Dish Socket, should only be used when dish is spawned
         dishSocket.socketActive = false;
     }
 
     void Update()
     {
+        if (!isTurnedOn) {return;}
+        
         switch (state)
         {
             case CookerState.Available:
@@ -141,6 +143,7 @@ public class S_Cooker : NetworkBehaviour, IToggle
 
     public void InteractWithCooker()
     {
+        if (!isTurnedOn) {return;}
         print("Interacting with Cooker " + name);
         // Activate Cooker and start timer
         if (state == CookerState.Available && isAbleToStartCooking)

@@ -38,6 +38,8 @@ public class S_TrashCanManager : NetworkBehaviour, IToggle
     // Moves any food on the floor to the trash can
     private void CleanUpFloor()
     {
+        if (!isTurnedOn) {return;}
+        
         var foodInScene = FindObjectsByType<S_Food>(FindObjectsSortMode.None);
         var dishInScene = FindObjectsByType<S_DishStatus>(FindObjectsSortMode.None);
 
