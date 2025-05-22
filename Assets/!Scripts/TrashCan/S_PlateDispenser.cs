@@ -16,6 +16,21 @@ public class S_PlateDispenser : NetworkBehaviour, IToggle
 
     [Networked] private bool isTurnedOn { get; set; }
 
+    public override void Spawned()
+    {
+        base.Spawned();
+
+        ConnectToApplicationManager();
+    }
+    
+    public void ConnectToApplicationManager()
+    {
+        if (S_ApplicationManager.Instance != null)
+        {
+            S_ApplicationManager.Instance.RegisterToggle(this);
+        }
+    }
+
     public void FirstTimeSpawnPlate()
     {
         // Spawn New Plate
@@ -87,5 +102,6 @@ public class S_PlateDispenser : NetworkBehaviour, IToggle
         {
             plate.SetActive(toggle);
         }
+        print(name + " is turned on: " + toggle);
     }
 }

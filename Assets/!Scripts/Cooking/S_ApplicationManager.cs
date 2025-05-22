@@ -1,41 +1,22 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Fusion;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class S_ApplicationManager : NetworkBehaviour
 {
+    public static S_ApplicationManager Instance { get; private set; }
 
-    // private S_Cooker[] _cookers;
-    // private S_GruggPot[] _gruggPots;
-    // private S_FoodDispenser[] _foodDispensers;
-    // private S_PlateDispenser[] _plateDispensers;
-    // private S_TrashCanManager _trashCanManager;
+    private List<IToggle> _toggles = new List<IToggle>();
 
-    private IToggle[] _toggles;
-    public override void Spawned()
+    private void Awake()
     {
-        base.Spawned();
-        
-        _ = FindApplicationsInScene();
-        
-        
+        Instance = this;
     }
-    
-    private async Task FindApplicationsInScene()
-    {
-        await Task.Yield();
-        
-        // _cookers = FindObjectsByType<S_Cooker>(FindObjectsSortMode.None);
-        // _gruggPots = FindObjectsByType<S_GruggPot>(FindObjectsSortMode.None);
-        // _foodDispensers = FindObjectsByType<S_FoodDispenser>(FindObjectsSortMode.None);
-        // _plateDispensers = FindObjectsByType<S_PlateDispenser>(FindObjectsSortMode.None);
-        // _trashCanManager = FindAnyObjectByType<S_TrashCanManager>();
 
-        _toggles = (IToggle[])FindObjectsByType<NetworkBehaviour>(FindObjectsSortMode.None).OfType<IToggle>();
+    public void RegisterToggle(IToggle toggle)
+    {
+        if (!_toggles.Contains(toggle))
+            _toggles.Add(toggle);
     }
 
     private void DisableApplications()
@@ -44,15 +25,13 @@ public class S_ApplicationManager : NetworkBehaviour
         {
             toggle.SetApplicationActive(false);
         }
-        
     }
 
     private void EnableApplications()
     {
         foreach (var toggle in _toggles)
         {
-            toggle.SetApplicationActive(false);
+            toggle.SetApplicationActive(true);
         }
-        
     }
 }

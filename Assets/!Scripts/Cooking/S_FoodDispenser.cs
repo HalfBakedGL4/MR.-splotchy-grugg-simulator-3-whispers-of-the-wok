@@ -45,6 +45,14 @@ public class S_FoodDispenser : NetworkBehaviour, IButtonObject, IToggle
         hoverItem.transform.Rotate(30 * t, 15 * t, 10 * t);
     }
     */
+
+    public override void Spawned()
+    {
+        base.Spawned();
+
+        ConnectToApplicationManager();
+    }
+
     public void OnButtonPressed() // When button is pressed spawn and launch the selected food Item
     {
         if (!isTurnedOn) {return;}
@@ -62,10 +70,19 @@ public class S_FoodDispenser : NetworkBehaviour, IButtonObject, IToggle
             rb.angularVelocity = Random.insideUnitSphere * rotationSpeed;
         }
     }
+    
+    public void ConnectToApplicationManager()
+    {
+        if (S_ApplicationManager.Instance != null)
+        {
+            S_ApplicationManager.Instance.RegisterToggle(this);
+        }
+    }
 
     public void SetApplicationActive(bool toggle)
     {
         isTurnedOn = toggle;
         interactable.enabled = toggle;
+        print(name + " is turned on: " + toggle);
     }
 }

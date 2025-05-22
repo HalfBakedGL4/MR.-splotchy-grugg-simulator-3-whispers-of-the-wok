@@ -10,15 +10,19 @@ public class S_GruggPot : NetworkBehaviour, IButtonObject, IToggle
     [Networked] private bool isTurnedOn { get; set; }
 
     private bool isActive = false;
-    private void Start()
+    public override void Spawned()
     {
+        base.Spawned();
+        
+        ConnectToApplicationManager();
+        
         gruggJuiceCollider.SetActive(false);
     }
 
     // Whenever button is pressed, start spewing grugg
     public void OnButtonPressed()
     {
-        if (!isActive)
+        if (!isActive && isTurnedOn)
             StartCoroutine(ApplyGruggWindow());
     }
 
@@ -38,5 +42,16 @@ public class S_GruggPot : NetworkBehaviour, IButtonObject, IToggle
     {
         isTurnedOn = toggle;
         interactable.enabled = toggle;
+        
+        print(name + " is turned on: " + toggle);
+
+    }
+
+    public void ConnectToApplicationManager()
+    {
+        if (S_ApplicationManager.Instance != null)
+        {
+            S_ApplicationManager.Instance.RegisterToggle(this);
+        }
     }
 }

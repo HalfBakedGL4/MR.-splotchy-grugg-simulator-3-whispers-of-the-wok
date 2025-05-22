@@ -22,7 +22,8 @@ public class S_TrashCanManager : NetworkBehaviour, IToggle
     public override void Spawned()
     {
         base.Spawned();
-
+        
+        ConnectToApplicationManager();
         // Add listener to event by the GameManager That calls CleanUpFloor
         if (!HasStateAuthority) return;
         S_GameManager.OnFoodListFull += CleanUpFloor;
@@ -33,6 +34,13 @@ public class S_TrashCanManager : NetworkBehaviour, IToggle
         }
     }
 
+    public void ConnectToApplicationManager()
+    {
+        if (S_ApplicationManager.Instance != null)
+        {
+            S_ApplicationManager.Instance.RegisterToggle(this);
+        }
+    }
 
     // Whenever Game Manager Food list is full the trash will try to clean up the scene
     // Moves any food on the floor to the trash can
@@ -107,5 +115,8 @@ public class S_TrashCanManager : NetworkBehaviour, IToggle
         destroyTrash.enabled = toggle;
         moveTrash.enabled = toggle;
         anim.enabled = toggle;   
+        
+        print(name + " is turned on: " + toggle);
+
     }
 }

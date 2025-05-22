@@ -18,10 +18,20 @@ public class S_CostumerManager : NetworkBehaviour, IToggle
     public override void Spawned()
     {
         base.Spawned();
+        
+        ConnectToApplicationManager();
 
         if (isLocal)
         {
             InvokeRepeating(nameof(Debuggings), 10f, 45f);
+        }
+    }
+    
+    public void ConnectToApplicationManager()
+    {
+        if (S_ApplicationManager.Instance != null)
+        {
+            S_ApplicationManager.Instance.RegisterToggle(this);
         }
     }
     
@@ -55,6 +65,8 @@ public class S_CostumerManager : NetworkBehaviour, IToggle
     public void SetApplicationActive(bool toggle)
     {
         isTurnedOn = toggle;
+        print(name + " is turned on: " + toggle);
+
     }
 
 

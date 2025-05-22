@@ -53,8 +53,11 @@ public class S_Cooker : NetworkBehaviour, IToggle
     [Networked] private float timer { get; set; }
     
     [Networked] private bool isTurnedOn { get; set; }
-    private void Start()
+    public override void Spawned()
     {
+        base.Spawned();
+        
+        ConnectToApplicationManager();
 
         // Subscribe to foodSockets Events
         foreach (var foodSocket in foodSockets)
@@ -371,6 +374,16 @@ public class S_Cooker : NetworkBehaviour, IToggle
         foreach (var interact in interactable)
         {
             interact.enabled = toggle;
+        }
+        
+        print(name + " is turned on: " + toggle);
+
+    }
+    public void ConnectToApplicationManager()
+    {
+        if (S_ApplicationManager.Instance != null)
+        {
+            S_ApplicationManager.Instance.RegisterToggle(this);
         }
     }
 
