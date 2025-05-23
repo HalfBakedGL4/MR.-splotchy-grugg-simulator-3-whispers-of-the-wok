@@ -30,7 +30,7 @@ public class S_InfoScreen : MonoBehaviour
                 }
             case GameState.Ongoing:
                 {
-                    connectionText.text += "\n" + S_GameManager.GetGameTime();
+                    connectionText.text += "\n" + S_GameManager.currentGameTime.ToString("0");
                     break;
                 }
             case GameState.Ending:
