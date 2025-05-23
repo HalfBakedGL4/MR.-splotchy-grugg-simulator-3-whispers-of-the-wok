@@ -22,7 +22,7 @@ public class S_GameManager : NetworkBehaviour
         get { return !isConnected ? GameState.Offline : instance.gameState; }
     }
     [Networked, SerializeField] GameState gameState { get; set; }
-    [SerializeField, Min(1)] int playersRequired = 1;
+    [Min(1)] public int playersRequired = 1;
     [SerializeField] bool waitForPlayers = true;
 
     [Space]
@@ -31,7 +31,7 @@ public class S_GameManager : NetworkBehaviour
 
     [Space]
     public int startDelay = 5;
-    [Networked] float delay { get; set; }
+    [Networked, HideInInspector] public float delay { get; private set; }
 
     [Networked, Capacity(maxFood)] public NetworkLinkedList<S_Food> currentFood => default;
     public const int maxFood = 10;
@@ -59,10 +59,24 @@ public class S_GameManager : NetworkBehaviour
         GameTime = startTime * 60;
         delay = startDelay;
     }
+    public override void Despawned(NetworkRunner runner, bool hasState)
+    {
+        base.Despawned(runner, hasState);
+        isConnected = false;
+    }
 
     public override void FixedUpdateNetwork()
     {
         base.FixedUpdateNetwork();
+
+        string message = "";
+
+        foreach (var item in currentFood)
+        {
+            message += item.GetFoodType() + "\n";
+        }
+
+        Debug.Log("[GameManager] Food: " + message);
 
         if (!isLocal) return;
 
@@ -88,11 +102,6 @@ public class S_GameManager : NetworkBehaviour
                     Ending();
                     break;
                 }
-        }
-
-        foreach (var item in currentFood)
-        {
-            Debug.Log("[GameManager] Food: " + item.GetFoodType());
         }
     }
 
@@ -142,7 +151,7 @@ public class S_GameManager : NetworkBehaviour
             return null;
         }
 
-        newFood = Runner.Spawn(food.GetComponent<NetworkObject>(), position, rotation).GetComponent<S_Food>();
+        newFood = Runner.Spawn(food, position, rotation);
         currentFood.Add(newFood);
 
         return newFood;
@@ -157,7 +166,7 @@ public class S_GameManager : NetworkBehaviour
         Runner.Despawn(toDestroy.GetComponent<NetworkObject>());
     }
 
-    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    [Rpc(RpcSources.All, RpcTargets.All)]
     private void RPC_FullFoodSpawn()
     {
         Debug.Log("Food list is full and needs to trash some food");
@@ -174,7 +183,7 @@ public class S_GameManager : NetworkBehaviour
             return;
         }
 
-        if(sessionInfo.PlayerCount > playersRequired)
+        if(sessionInfo.PlayerCount >= playersRequired)
         {
             ProgressGameState();
         }

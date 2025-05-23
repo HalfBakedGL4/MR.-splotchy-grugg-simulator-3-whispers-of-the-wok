@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System;
 using Fusion;
 using UnityEngine;
@@ -52,6 +53,8 @@ public class S_FoodDispenser : NetworkBehaviour, IButtonObject, IToggle
 
         ConnectToApplicationManager();
     }
+
+    [Button("Dispense Food")]
 
     public void OnButtonPressed() // When button is pressed spawn and launch the selected food Item
     {
