@@ -25,7 +25,6 @@ public class S_InfoScreen : MonoBehaviour
                 }
             case GameState.Starting:
                 {
-                    connectionText.text += "\n" + S_GameManager.instance.delay.ToString("0");
                     break;
                 }
             case GameState.Ongoing:

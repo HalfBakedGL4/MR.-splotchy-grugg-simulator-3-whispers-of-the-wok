@@ -1,6 +1,8 @@
 using Fusion;
 using NaughtyAttributes;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
@@ -27,18 +29,16 @@ public class S_GameManager : NetworkBehaviour
     [Space]
 
     [Min(1)] public int playersRequired = 1;
+    [Networked] public bool ready { get; private set; }
     [SerializeField] bool waitForPlayers = true;
 
     [Space]
 
-    public int startTime = 7;
     public int startDelay = 5;
 
+    public int startTime = 7;
     public static float currentGameTime => instance.GameTime;
     [Networked] public float GameTime { get; private set; }
-    [Networked, HideInInspector] public float delay { get; private set; }
-
-    //[Space]
 
     [Networked, Capacity(maxFood)] public NetworkLinkedList<S_Food> currentFood => default;
     public const int maxFood = 10;
@@ -64,7 +64,6 @@ public class S_GameManager : NetworkBehaviour
         gameState = GameState.Intermission;
 
         GameTime = startTime * 60;
-        delay = startDelay;
     }
     public override void Despawned(NetworkRunner runner, bool hasState)
     {
@@ -183,6 +182,13 @@ public class S_GameManager : NetworkBehaviour
         Debug.Log("Food list is full and needs to trash some food");
         OnFoodListFull?.Invoke();
     }
+    void CleauUp()
+    {
+        for (int i = currentFood.Count; i <= 0; i++)
+        {
+            TryDespawnFood(currentFood[i]);
+        }
+    }
     #endregion
 
     #region Game States
@@ -190,24 +196,18 @@ public class S_GameManager : NetworkBehaviour
     {
         if(!waitForPlayers)
         {
-            StartGame();
+            ready = true;
             return;
         }
 
         if(sessionInfo.PlayerCount >= playersRequired)
         {
-            StartGame();
+            ready = true;
         }
     }
 
     void Starting()
     {
-        delay -= Time.fixedDeltaTime;
-
-        if (delay <= 0)
-        {
-            ProgressGameState();
-        }
     }
 
     void Ongoing()
@@ -222,27 +222,25 @@ public class S_GameManager : NetworkBehaviour
 
     void Ending()
     {
-        delay -= Time.fixedDeltaTime;
-
-        if (delay <= 0)
-        {
-            ProgressGameState();
-        }
     }
 
     public static void StartGame()
     {
-        if (CurrentGameState != GameState.Intermission) return;
+        if (CurrentGameState != GameState.Intermission && instance.ready) return;
 
         ProgressGameState();
     }
-    static void ProgressGameState()
+
+    static async void ProgressGameState(float t = 0)
     {
         if (!isConnected)
         {
             Debug.LogError("[GameManager] do not progress the game state while offline!");
             return;
         }
+
+        if(t > 0)
+            await Task.Delay(Mathf.RoundToInt(t * 1000));
 
         GameState newGameState = (GameState)((int)CurrentGameState + 1);
 
@@ -251,6 +249,7 @@ public class S_GameManager : NetworkBehaviour
 
         Debug.Log("[GameManager] updating game state to: " + newGameState);
         instance.RPC_UpdateGameState(newGameState);
+        return;
     }
 
     [HorizontalLine]
@@ -270,24 +269,27 @@ public class S_GameManager : NetworkBehaviour
         {
             case GameState.Intermission:
                 {
-                    delay = startDelay;
                     OnIntermission?.Invoke(this);
                     break;
                 }
             case GameState.Starting:
                 {
                     GameTime = startTime * 60;
+                    ProgressGameState(startDelay);
                     OnStarting?.Invoke(this);
                     break;
                 }
             case GameState.Ongoing:
                 {
-                    delay = startDelay;
                     OnOngoing?.Invoke(this);
                     break;
                 }
             case GameState.Ending:
                 {
+                    ProgressGameState(startDelay);
+
+                    CleauUp();
+
                     OnEnding?.Invoke(this);
                     break;
                 }
