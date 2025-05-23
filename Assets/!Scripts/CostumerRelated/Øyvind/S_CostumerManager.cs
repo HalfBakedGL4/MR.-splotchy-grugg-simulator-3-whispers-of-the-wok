@@ -3,6 +3,7 @@ using Fusion;
 using TMPro;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class S_CostumerManager : NetworkBehaviour, IToggle
 {
@@ -14,6 +15,7 @@ public class S_CostumerManager : NetworkBehaviour, IToggle
 
     private bool isLocal => Object && Object.HasStateAuthority;
     [Networked] private bool isTurnedOn { get; set; }
+        
   
     public override void Spawned()
     {
@@ -67,6 +69,13 @@ public class S_CostumerManager : NetworkBehaviour, IToggle
         isTurnedOn = toggle;
         print(name + " is turned on: " + toggle);
 
+        ToggleMovement(toggle);
+
+    }
+
+    public void ToggleMovement(bool toggle)
+    {
+        // Doesn't need to be grabbed
     }
 
 

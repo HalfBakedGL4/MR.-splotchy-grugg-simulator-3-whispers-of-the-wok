@@ -17,6 +17,7 @@ public class S_ApplicationManager : NetworkBehaviour
     {
         if (!_toggles.Contains(toggle))
             _toggles.Add(toggle);
+        print("Registered, " + toggle);
     }
 
     [ContextMenu("Disable Applications")]

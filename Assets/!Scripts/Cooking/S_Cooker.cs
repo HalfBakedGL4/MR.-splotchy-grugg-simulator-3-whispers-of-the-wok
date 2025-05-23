@@ -379,6 +379,20 @@ public class S_Cooker : NetworkBehaviour, IToggle
         
         print(name + " is turned on: " + toggle);
 
+        ToggleMovement(toggle);
+
+    }
+
+    private XRGrabInteractable _grabInteractable;
+    public void ToggleMovement(bool toggle)
+    {
+        if (_grabInteractable == null)
+        {
+            _grabInteractable = GetComponent<XRGrabInteractable>();
+        }
+        
+        // Is opposite of toggle because it needs to be on when everything is off
+        _grabInteractable.enabled = !toggle;
     }
     public void ConnectToApplicationManager()
     {

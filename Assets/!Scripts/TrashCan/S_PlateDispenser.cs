@@ -4,6 +4,7 @@ using Fusion;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class S_PlateDispenser : NetworkBehaviour, IToggle
@@ -31,7 +32,7 @@ public class S_PlateDispenser : NetworkBehaviour, IToggle
         }
     }
 
-    public void FirstTimeSpawnPlate()
+    public void SpawnPlateWhenEnabled()
     {
         // Spawn New Plate
         if (HasStateAuthority)
@@ -93,6 +94,11 @@ public class S_PlateDispenser : NetworkBehaviour, IToggle
     public void SetApplicationActive(bool toggle)
     {
         isTurnedOn = toggle;
+
+        if (toggle && plates.Count == 0)
+        {
+            SpawnPlateWhenEnabled();
+        }
         TogglePlateVisible(toggle);
     }
 
@@ -103,5 +109,12 @@ public class S_PlateDispenser : NetworkBehaviour, IToggle
             plate.SetActive(toggle);
         }
         print(name + " is turned on: " + toggle);
+        ToggleMovement(toggle);
+
+    }
+
+    public void ToggleMovement(bool toggle)
+    {
+        // Not in use
     }
 }

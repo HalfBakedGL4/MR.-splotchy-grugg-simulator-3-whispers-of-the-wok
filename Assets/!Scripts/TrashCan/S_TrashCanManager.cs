@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class S_TrashCanManager : NetworkBehaviour, IToggle
 {
@@ -30,7 +31,6 @@ public class S_TrashCanManager : NetworkBehaviour, IToggle
         foreach (var plateDispenser in plateDispenserScripts)
         {
             plateDispenser.OnPlateRemoved += AddNewPlate;
-            plateDispenser.FirstTimeSpawnPlate();
         }
     }
 
@@ -118,5 +118,19 @@ public class S_TrashCanManager : NetworkBehaviour, IToggle
         
         print(name + " is turned on: " + toggle);
 
+        ToggleMovement(toggle);
+
+    }
+
+    private XRGrabInteractable _grabInteractable;
+    public void ToggleMovement(bool toggle)
+    {
+        if (_grabInteractable == null)
+        {
+            _grabInteractable = GetComponent<XRGrabInteractable>();
+        }
+        
+        // Is opposite of toggle because it needs to be on when everything is off
+        _grabInteractable.enabled = !toggle;
     }
 }

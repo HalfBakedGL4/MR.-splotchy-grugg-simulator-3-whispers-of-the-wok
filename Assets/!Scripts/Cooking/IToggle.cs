@@ -6,5 +6,7 @@ public interface IToggle
 {
     void SetApplicationActive(bool toggle);
     
+    void ToggleMovement(bool toggle);
+    
     void ConnectToApplicationManager();
 }
