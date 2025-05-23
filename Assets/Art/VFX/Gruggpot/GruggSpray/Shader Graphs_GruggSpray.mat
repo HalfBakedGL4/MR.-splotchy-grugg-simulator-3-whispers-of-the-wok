@@ -47,13 +47,13 @@ Material:
     - _CastShadows: 1
     - _Cull: 2
     - _DstBlend: 10
-    - _FoamEdgeThickness: 0.05
+    - _FoamEdgeThickness: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ScrollSpeed: 1
     - _SineAmplitude: 0.2
     - _SineFrequency: 4
-    - _SphereRadius: 0.25
+    - _SphereRadius: 0.5
     - _SrcBlend: 5
     - _Surface: 1
     - _ZTest: 4
@@ -63,7 +63,7 @@ Material:
     - _FoamColour: {r: 0.64779866, g: 0.58980626, b: 0.19352466, a: 0}
     - _GruggColour: {r: 0.8050313, g: 0.7089066, b: 0.073414735, a: 0}
     - _GruggGrease: {r: 0.5220125, g: 0.50741494, b: 0.08043576, a: 0}
-    - _SpherePosition: {r: 0, g: 0, b: 0, a: 0}
+    - _SpherePosition: {r: -5.7423716, g: 1.0430001, b: -2.826574, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &5760299246204704811
