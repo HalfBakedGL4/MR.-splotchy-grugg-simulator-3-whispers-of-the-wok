@@ -44,6 +44,7 @@
     <type fullname="S_RuntimeNavmeshBuilder" preserve="all" />
     <type fullname="S_SocketMultipleTagInteractor" preserve="all" />
     <type fullname="S_SocketTagInteractor" preserve="all" />
+    <type fullname="S_SpawnCustomer" preserve="all" />
     <type fullname="S_SpawnNetworkObject" preserve="all" />
     <type fullname="S_SpawnObjectOnClassification" preserve="all" />
     <type fullname="S_Ticket" preserve="all" />

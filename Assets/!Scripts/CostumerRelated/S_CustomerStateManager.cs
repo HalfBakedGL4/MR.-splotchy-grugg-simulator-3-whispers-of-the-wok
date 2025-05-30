@@ -25,7 +25,6 @@ public class S_CustomerStateManager : MonoBehaviour
 
     private void SwitchToTheNextState(S_State nextState) 
     {
-        currentState.enabled = false;
         currentState = nextState;
     }
 }
