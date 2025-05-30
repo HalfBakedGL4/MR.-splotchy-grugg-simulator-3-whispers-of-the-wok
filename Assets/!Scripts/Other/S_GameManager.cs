@@ -188,7 +188,6 @@ public class S_GameManager : NetworkBehaviour
 
         for (int i = currentFood.Count - 1; i >= 0; i--)
         {
-            Debug.Log("[GameManager] Clean " + i);
             TryDespawnFood(currentFood[i]);
         }
     }
