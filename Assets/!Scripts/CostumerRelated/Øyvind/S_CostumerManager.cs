@@ -62,6 +62,7 @@ public class S_CostumerManager : NetworkBehaviour, IToggle
         var costumerPos = wallTuple.pointOnWall + wallTuple.wall.transform.position;
 
         costumerSpawner.SpawnCostumer(costumerPos, wallTuple.wall);
+
     }
     
     public void SetApplicationActive(bool toggle)

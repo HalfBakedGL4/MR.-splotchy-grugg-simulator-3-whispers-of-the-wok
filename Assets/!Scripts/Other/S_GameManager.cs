@@ -1,6 +1,9 @@
 using Fusion;
 using NaughtyAttributes;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -21,17 +24,21 @@ public class S_GameManager : NetworkBehaviour
     {
         get { return !isConnected ? GameState.Offline : instance.gameState; }
     }
-    [Networked, SerializeField] GameState gameState { get; set; }
+    [Networked] GameState gameState { get; set; }
+
+    [Space]
+
     [Min(1)] public int playersRequired = 1;
+    [Networked] public bool ready { get; private set; }
     [SerializeField] bool waitForPlayers = true;
 
     [Space]
-    public int startTime = 7;
-    [Networked, SerializeField] public float GameTime { get; private set; }
 
-    [Space]
     public int startDelay = 5;
-    [Networked, HideInInspector] public float delay { get; private set; }
+
+    public int startTime = 7;
+    public static float currentGameTime => instance.GameTime;
+    [Networked] public float GameTime { get; private set; }
 
     [Networked, Capacity(maxFood)] public NetworkLinkedList<S_Food> currentFood => default;
     public const int maxFood = 10;
@@ -57,7 +64,6 @@ public class S_GameManager : NetworkBehaviour
         gameState = GameState.Intermission;
 
         GameTime = startTime * 60;
-        delay = startDelay;
     }
     public override void Despawned(NetworkRunner runner, bool hasState)
     {
@@ -117,9 +123,9 @@ public class S_GameManager : NetworkBehaviour
     /// <summary>
     /// used to destroy food
     /// </summary>
-    public static void TryDespawnFood(S_Food food)
+    public static void TryDespawnFood(S_Food food, float t = 0)
     {
-        instance.DespawnFood(food);
+        instance.DespawnFood(food, t);
     }
 
     S_Food SpawnFood(S_Food food, Vector3 position, Quaternion rotation)
@@ -152,51 +158,52 @@ public class S_GameManager : NetworkBehaviour
         }
 
         newFood = Runner.Spawn(food, position, rotation);
-        currentFood.Add(newFood);
+
+        if(newFood != null)
+            currentFood.Add(newFood);
 
         return newFood;
     }
 
-    void DespawnFood(S_Food food)
+    async void DespawnFood(S_Food food, float t = 0)
     {
-        S_Food toDestroy = food.GetComponent<S_Food>();
-        if (toDestroy == null) return;
+        if(t > 0)
+            await Task.Delay(Mathf.RoundToInt(t * 1000));
 
-        currentFood.Remove(toDestroy);
-        Runner.Despawn(toDestroy.GetComponent<NetworkObject>());
+        if (food == null) return;
+
+        currentFood.Remove(food);
+        Runner.Despawn(food.Object);
     }
 
     [Rpc(RpcSources.All, RpcTargets.All)]
     private void RPC_FullFoodSpawn()
     {
-        Debug.Log("Food list is full and needs to trash some food");
+        Debug.Log("[GameManager] Food list is full and needs to trash some food");
         OnFoodListFull?.Invoke();
+    }
+    void CleauUp()
+    {
+        Debug.Log("[GameManager] CleanUp");
+
+        for (int i = currentFood.Count - 1; i >= 0; i--)
+        {
+            TryDespawnFood(currentFood[i]);
+        }
     }
     #endregion
 
     #region Game States
     void Intermission()
     {
-        if(!waitForPlayers)
+        if(!waitForPlayers || sessionInfo.PlayerCount >= playersRequired)
         {
-            ProgressGameState();
-            return;
-        }
-
-        if(sessionInfo.PlayerCount >= playersRequired)
-        {
-            ProgressGameState();
+            ready = true;
         }
     }
 
     void Starting()
     {
-        delay -= Time.fixedDeltaTime;
-
-        if (delay <= 0)
-        {
-            ProgressGameState();
-        }
     }
 
     void Ongoing()
@@ -211,41 +218,25 @@ public class S_GameManager : NetworkBehaviour
 
     void Ending()
     {
-        delay -= Time.fixedDeltaTime;
-
-        if (delay <= 0)
-        {
-            ProgressGameState();
-        }
     }
 
-    public static string GetGameTime(int decimals = 0)
+    public static void StartGame()
     {
-        if (decimals > 0)
-        {
-            float f = MathF.Pow(10, decimals);
-            float value = Mathf.Round(instance.GameTime * f) / f;
+        if (CurrentGameState != GameState.Intermission && instance.ready) return;
 
-            string format = "0.";
-
-            for (int i = 0; i < decimals; i++)
-            {
-                format += "0";
-            }
-
-            return value.ToString(format);
-        }
-
-        return Mathf.Round(instance.GameTime).ToString();
+        ProgressGameState();
     }
 
-    public static void ProgressGameState()
+    static async void ProgressGameState(float t = 0)
     {
         if (!isConnected)
         {
-            Debug.LogWarning("[GameManager] do not start the game while offline.");
+            Debug.LogError("[GameManager] do not progress the game state while offline!");
             return;
         }
+
+        if(t > 0)
+            await Task.Delay(Mathf.RoundToInt(t * 1000));
 
         GameState newGameState = (GameState)((int)CurrentGameState + 1);
 
@@ -254,15 +245,16 @@ public class S_GameManager : NetworkBehaviour
 
         Debug.Log("[GameManager] updating game state to: " + newGameState);
         instance.RPC_UpdateGameState(newGameState);
+        return;
     }
 
     [HorizontalLine]
     [InfoBox("The following is Master Client only: ")]
     [Space]
-    public UnityEvent OnIntermission;
-    public UnityEvent OnStarting;
-    public UnityEvent OnOngoing;
-    public UnityEvent OnEnding;
+    public UnityEvent<S_GameManager> OnIntermission;
+    public UnityEvent<S_GameManager> OnStarting;
+    public UnityEvent<S_GameManager> OnOngoing;
+    public UnityEvent<S_GameManager> OnEnding;
 
     [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
     void RPC_UpdateGameState(GameState state)
@@ -273,21 +265,28 @@ public class S_GameManager : NetworkBehaviour
         {
             case GameState.Intermission:
                 {
-                    delay = startDelay;
+                    OnIntermission?.Invoke(this);
                     break;
                 }
             case GameState.Starting:
                 {
                     GameTime = startTime * 60;
+                    ProgressGameState(startDelay);
+                    OnStarting?.Invoke(this);
                     break;
                 }
             case GameState.Ongoing:
                 {
-                    delay = startDelay;
+                    OnOngoing?.Invoke(this);
                     break;
                 }
             case GameState.Ending:
                 {
+                    ProgressGameState(startDelay);
+
+                    CleauUp();
+
+                    OnEnding?.Invoke(this);
                     break;
                 }
         }

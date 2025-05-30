@@ -22,6 +22,7 @@ public class S_ChaseState : S_State
             return this;
         }
     }
+  
     IEnumerator Start()
     {
         yield return new WaitUntil(() => GetComponent<NavMeshSurface>() != null);
