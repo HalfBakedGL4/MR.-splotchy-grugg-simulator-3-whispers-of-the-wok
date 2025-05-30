@@ -12,9 +12,30 @@ public class S_InfoScreen : MonoBehaviour
 
         connectionText.text = S_GameManager.CurrentGameState.ToString();
 
-        if (S_GameManager.CurrentGameState != GameState.Offline)
+        switch(S_GameManager.CurrentGameState)
         {
-            connectionText.text += "\n" + S_GameManager.sessionInfo.PlayerCount + "/" + S_GameManager.sessionInfo.MaxPlayers;
+            case GameState.Offline:
+                {
+                    break;
+                }
+            case GameState.Intermission:
+                {
+                    connectionText.text += "\n" + S_GameManager.sessionInfo.PlayerCount + "/" + S_GameManager.instance.playersRequired;
+                    break;
+                }
+            case GameState.Starting:
+                {
+                    break;
+                }
+            case GameState.Ongoing:
+                {
+                    connectionText.text += "\n" + S_GameManager.currentGameTime.ToString("0");
+                    break;
+                }
+            case GameState.Ending:
+                {
+                    break;
+                }
         }
     }
 }

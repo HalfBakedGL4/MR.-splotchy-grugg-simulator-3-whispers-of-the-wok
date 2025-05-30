@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
@@ -9,6 +10,14 @@ public class S_FoodDispenser : MonoBehaviour, IButtonObject
     [SerializeField] private S_Food foodToDispense;
     [SerializeField] private float launchSpeed;
     [SerializeField] private float rotationSpeed;
+
+    ParticleSystem effect;
+
+    private void Start()
+    {
+        effect = GetComponentInChildren<ParticleSystem>();
+    }
+
     /*
     // These are all used as a visual to show what item would apear for debugging purposes
     // but then it stopped working so I left it in this state
@@ -39,9 +48,12 @@ public class S_FoodDispenser : MonoBehaviour, IButtonObject
         hoverItem.transform.Rotate(30 * t, 15 * t, 10 * t);
     }
     */
+
+    [Button("Dispense Food")]
     public void OnButtonPressed() // When button is pressed spawn and launch the selected food Item
     {
         var foodItem = S_GameManager.TrySpawnFood(foodToDispense, transform.position, Quaternion.identity);
+        effect.Play();
 
         if (foodItem == null) return;
         
