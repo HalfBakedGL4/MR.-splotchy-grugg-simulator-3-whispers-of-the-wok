@@ -16233,7 +16233,7 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 0
+  m_UseDynamicAttach: 1
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
@@ -16786,7 +16786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7061671384639600787, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.04346206
+      value: 0.043462057
       objectReference: {fileID: 0}
     - target: {fileID: 7061671384639600787, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
       propertyPath: m_LocalPosition.z

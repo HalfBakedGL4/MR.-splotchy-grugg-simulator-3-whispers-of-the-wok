@@ -62,7 +62,11 @@ public class S_FoodDispenser : NetworkBehaviour, IButtonObject, IToggle
 
         var foodItem = S_GameManager.TrySpawnFood(foodToDispense, transform.position, Quaternion.identity);
 
-        if (foodItem == null) return;
+        if (foodItem == null)
+        {
+            Debug.LogError("FoodItem is null Food");
+            return;
+        }
         
         if (foodItem.TryGetComponent(out Rigidbody rb))
         {

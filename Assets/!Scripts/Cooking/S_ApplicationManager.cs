@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Fusion;
+using Input;
 using UnityEngine;
 
 public class S_ApplicationManager : NetworkBehaviour
@@ -21,8 +22,10 @@ public class S_ApplicationManager : NetworkBehaviour
     }
 
     [Networked] private bool isActive { get; set; }
-    public void Toggle()
+    public void Toggle(InputInfo info)
     {
+        if (!info.context.performed) return;
+        
         isActive = !isActive;
 
         if (isActive)   EnableApplications();

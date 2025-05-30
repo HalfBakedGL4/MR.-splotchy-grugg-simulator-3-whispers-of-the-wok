@@ -390,6 +390,7 @@ GameObject:
   - component: {fileID: -9036451107198088009}
   - component: {fileID: 6662199714560956182}
   - component: {fileID: 3603704624275508550}
+  - component: {fileID: 2106352102660392281}
   m_Layer: 0
   m_Name: P_Fryer
   m_TagString: Untagged
@@ -432,6 +433,7 @@ MonoBehaviour:
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: -9036451107198088009}
+  - {fileID: 2106352102660392281}
   - {fileID: 5242769937801963154}
   - {fileID: 6529360508854758563}
   - {fileID: 8139664800752465972}
@@ -556,7 +558,7 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 0
+  m_UseDynamicAttach: 1
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
@@ -604,6 +606,18 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
+--- !u!114 &2106352102660392281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5439066145181431010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a74e364e890f148b38ee195cabd07a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6352968397923060760
 GameObject:
   m_ObjectHideFlags: 0
