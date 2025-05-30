@@ -29,6 +29,13 @@ public class S_BasicToggle : NetworkBehaviour, IToggle
         _grabInteractable.enabled = !toggle;
     }
 
+    public override void Spawned()
+    {
+        base.Spawned();
+        
+        ConnectToApplicationManager();
+    }
+
     public void ConnectToApplicationManager()
     {
         if (S_ApplicationManager.Instance != null)

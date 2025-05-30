@@ -85,7 +85,6 @@ public class S_FoodDispenser : NetworkBehaviour, IButtonObject, IToggle
     public void SetApplicationActive(bool toggle)
     {
         isTurnedOn = toggle;
-        interactable.enabled = toggle;
         print(name + " is turned on: " + isTurnedOn);
         RPC_ToggleMovement(toggle);
 
@@ -95,12 +94,6 @@ public class S_FoodDispenser : NetworkBehaviour, IButtonObject, IToggle
     [Rpc(sources: RpcSources.All, targets: RpcTargets.All)]
     public void RPC_ToggleMovement(bool toggle)
     {
-        if (_grabInteractable == null)
-        {
-            _grabInteractable = GetComponent<XRGrabInteractable>();
-        }
-        
-        // Is opposite of toggle because it needs to be on when everything is off
-        _grabInteractable.enabled = !toggle;
+        interactable.enabled = toggle;
     }
 }

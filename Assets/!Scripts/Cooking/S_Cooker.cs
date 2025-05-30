@@ -367,15 +367,7 @@ public class S_Cooker : NetworkBehaviour, IToggle
     public void SetApplicationActive(bool toggle)
     {
         isTurnedOn = toggle;
-        foreach (var socket in foodSockets)
-        {
-            socket.socketActive = toggle;
-        }
-        dishSocket.socketActive = toggle;
-        foreach (var interact in interactable)
-        {
-            interact.enabled = toggle;
-        }
+        
         
         print(name + " is turned on: " + toggle);
 
@@ -387,12 +379,26 @@ public class S_Cooker : NetworkBehaviour, IToggle
     [Rpc(sources: RpcSources.All, targets: RpcTargets.All)]
     public void RPC_ToggleMovement(bool toggle)
     {
+        foreach (var socket in foodSockets)
+        {
+            socket.socketActive = toggle;
+        }
+        dishSocket.socketActive = toggle;
+        foreach (var interact in interactable)
+        {
+            interact.enabled = toggle;
+        }
+        
         if (_grabInteractable == null)
         {
             _grabInteractable = GetComponent<XRGrabInteractable>();
         }
         
         // Is opposite of toggle because it needs to be on when everything is off
+        if (cookerType == CookerType.Fryer)
+        {
+            return;
+        }
         _grabInteractable.enabled = !toggle;
     }
     public void ConnectToApplicationManager()

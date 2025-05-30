@@ -112,9 +112,7 @@ public class S_TrashCanManager : NetworkBehaviour, IToggle
     public void SetApplicationActive(bool toggle)
     {
         isTurnedOn = toggle;
-        destroyTrash.enabled = toggle;
-        moveTrash.enabled = toggle;
-        anim.enabled = toggle;   
+        
         
         print(name + " is turned on: " + toggle);
 
@@ -126,6 +124,10 @@ public class S_TrashCanManager : NetworkBehaviour, IToggle
     [Rpc(sources: RpcSources.All, targets: RpcTargets.All)]
     public void RPC_ToggleMovement(bool toggle)
     {
+        destroyTrash.enabled = toggle;
+        moveTrash.enabled = toggle;
+        anim.enabled = toggle;   
+        
         if (_grabInteractable == null)
         {
             _grabInteractable = GetComponent<XRGrabInteractable>();

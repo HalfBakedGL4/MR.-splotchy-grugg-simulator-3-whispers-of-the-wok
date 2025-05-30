@@ -41,7 +41,6 @@ public class S_GruggPot : NetworkBehaviour, IButtonObject, IToggle
     public void SetApplicationActive(bool toggle)
     {
         isTurnedOn = toggle;
-        interactable.enabled = toggle;
         
         print(name + " is turned on: " + toggle);
 
@@ -57,6 +56,8 @@ public class S_GruggPot : NetworkBehaviour, IButtonObject, IToggle
         {
             _grabInteractable = GetComponent<XRGrabInteractable>();
         }
+        interactable.enabled = toggle;
+
         
         // Is opposite of toggle because it needs to be on when everything is off
         _grabInteractable.enabled = !toggle;
