@@ -36,7 +36,7 @@ public class S_SpawnCustomer : NetworkBehaviour
         if (Physics.Raycast(ray, out RaycastHit raycast))
         {
 
-            Quaternion rot = Quaternion.Euler(0, raycast.transform.rotation.y, 0);
+            Quaternion rot = raycast.transform.rotation;
 
             CreatePortal(raycast.point, rot);
         }
@@ -45,8 +45,11 @@ public class S_SpawnCustomer : NetworkBehaviour
 
     void SpawnCustomer(Vector3 pos, Quaternion rot)
     {
-        rot.z = 90;
+        pos.y = 0.7f;
+        Runner.Spawn(customer, pos);
+        
+
         Runner.Spawn(hole, pos, rot);
-        Runner.Spawn(customer, pos, rot);
+        
     }
 }
