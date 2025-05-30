@@ -20,6 +20,16 @@ public class S_ApplicationManager : NetworkBehaviour
         print("Registered, " + toggle);
     }
 
+    [Networked] private bool isActive { get; set; }
+    public void Toggle()
+    {
+        isActive = !isActive;
+
+        if (isActive)   EnableApplications();
+        
+        else DisableApplications();
+    }
+
     [ContextMenu("Disable Applications")]
     private void DisableApplications()
     {
