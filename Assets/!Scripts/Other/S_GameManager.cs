@@ -29,7 +29,8 @@ public class S_GameManager : NetworkBehaviour
     [Space]
 
     [Min(1)] public int playersRequired = 1;
-    [Networked] public static bool ready { get; private set; }
+    public static bool ready => instance.Ready;
+    [Networked] bool Ready { get; set; }
     [SerializeField] bool waitForPlayers = true;
 
     [Space]
@@ -198,7 +199,7 @@ public class S_GameManager : NetworkBehaviour
     {
         if(!waitForPlayers || sessionInfo.PlayerCount >= playersRequired)
         {
-            ready = true;
+            Ready = true;
         }
     }
 
