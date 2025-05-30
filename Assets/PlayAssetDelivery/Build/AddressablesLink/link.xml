@@ -8,6 +8,7 @@
     <type fullname="Networking.Shared.S_LocalPlayer" preserve="all" />
     <type fullname="Networking.Shared.S_NetworkPlayer" preserve="all" />
     <type fullname="Rig" preserve="all" />
+    <type fullname="S_Alien" preserve="all" />
     <type fullname="S_AnimateHandOnInput" preserve="all" />
     <type fullname="S_AttackState" preserve="all" />
     <type fullname="S_ButtonPushed" preserve="all" />
@@ -36,7 +37,6 @@
     <type fullname="S_Interactor" preserve="all" />
     <type fullname="S_ItemSpawner" preserve="all" />
     <type fullname="S_MoveTrash" preserve="all" />
-    <type fullname="S_OpenDoor" preserve="all" />
     <type fullname="S_OrderWindow" preserve="all" />
     <type fullname="S_Plate" preserve="all" />
     <type fullname="S_PlateDispenser" preserve="all" />
@@ -262,6 +262,13 @@
     <type fullname="UnityEngine.GUISkin" preserve="all" />
     <type fullname="UnityEngine.GUISettings" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.GUIStyle" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.ParticleSystem" preserve="all" />
+    <type fullname="UnityEngine.ParticleSystemRenderer" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.Physics2DModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.CircleCollider2D" preserve="all" />
   </assembly>
   <assembly fullname="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.BoxCollider" preserve="all" />
