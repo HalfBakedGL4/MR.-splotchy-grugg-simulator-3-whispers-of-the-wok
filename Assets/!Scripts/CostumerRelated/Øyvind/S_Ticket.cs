@@ -10,12 +10,11 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class S_Ticket : NetworkBehaviour
 {
-    [SerializeField] private GameObject prefab;
     [SerializeField] private Transform ticketSpawnPoint;
     [SerializeField] private S_TicketDetailGiver ticketDetailGiver;
     [SerializeField] private TextMeshProUGUI ticketNumberText;
-    
-    private static int ticketNumber;
+
+    private static int _ticketNumber;
     
     bool isLocal => Object && Object.HasStateAuthority;
     
@@ -23,19 +22,19 @@ public class S_Ticket : NetworkBehaviour
     private S_CostumerOrder _costumerOrder;
     public void InitTicket(Order order, S_CostumerOrder costumerOrder)
     {
-        if (!isLocal) {return;}
+        if (isLocal)
+        {
+            ticketDetailGiver = Runner.Spawn(order.ticketPrefabVariant, ticketSpawnPoint.position, ticketSpawnPoint.rotation).GetComponent<S_TicketDetailGiver>();
+            //Number the ticket
+            _ticketNumber++;
+        }
         
-        ticketDetailGiver = Runner.Spawn(prefab, ticketSpawnPoint.position, ticketSpawnPoint.rotation).GetComponent<S_TicketDetailGiver>();
-        
-        //Number the ticket
-        ticketNumber++;
-        
-        ticketDetailGiver.InitTicket(order, ticketNumber);
+        ticketDetailGiver.InitTicket(_ticketNumber);
         
         // Save the order and costumer who ordered so that they can be found via the ticket later
         _currentOrder = order;
         _costumerOrder = costumerOrder;
-        ticketNumberText.text = $"#{ticketNumber}";
+        ticketNumberText.text = $"#{_ticketNumber}";
     }
 
     public void DestroyTicketDetails()
@@ -46,7 +45,7 @@ public class S_Ticket : NetworkBehaviour
 
     public int GetTicketNumber()
     {
-        return ticketNumber;
+        return _ticketNumber;
     }
 
     public (Order, S_CostumerOrder) GetOrderAndCostumer()
