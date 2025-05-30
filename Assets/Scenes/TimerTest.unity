@@ -411,7 +411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4762516720582898207, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
       propertyPath: startTime
-      value: 7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4762516720582898207, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
       propertyPath: _GameState

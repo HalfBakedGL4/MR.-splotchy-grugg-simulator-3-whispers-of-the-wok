@@ -179,13 +179,16 @@ public class S_GameManager : NetworkBehaviour
     [Rpc(RpcSources.All, RpcTargets.All)]
     private void RPC_FullFoodSpawn()
     {
-        Debug.Log("Food list is full and needs to trash some food");
+        Debug.Log("[GameManager] Food list is full and needs to trash some food");
         OnFoodListFull?.Invoke();
     }
     void CleauUp()
     {
-        for (int i = currentFood.Count; i <= 0; i++)
+        Debug.Log("[GameManager] CleanUp");
+
+        for (int i = currentFood.Count - 1; i >= 0; i--)
         {
+            Debug.Log("[GameManager] Clean " + i);
             TryDespawnFood(currentFood[i]);
         }
     }
