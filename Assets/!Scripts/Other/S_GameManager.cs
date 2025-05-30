@@ -194,13 +194,7 @@ public class S_GameManager : NetworkBehaviour
     #region Game States
     void Intermission()
     {
-        if(!waitForPlayers)
-        {
-            ready = true;
-            return;
-        }
-
-        if(sessionInfo.PlayerCount >= playersRequired)
+        if(!waitForPlayers || sessionInfo.PlayerCount >= playersRequired)
         {
             ready = true;
         }
