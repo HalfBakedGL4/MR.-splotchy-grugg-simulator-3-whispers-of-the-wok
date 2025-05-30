@@ -12,6 +12,7 @@ using Random = UnityEngine.Random;
 public class Order
 {
     public DishType nameOfDish;
+    public GameObject ticketPrefabVariant;
     public Sprite orderImage;
     public Sprite orderIngredients;
     public Sprite orderTools;
