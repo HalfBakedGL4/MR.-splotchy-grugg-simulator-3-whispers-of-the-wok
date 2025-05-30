@@ -10,6 +10,7 @@
     <type fullname="Rig" preserve="all" />
     <type fullname="S_Alien" preserve="all" />
     <type fullname="S_AnimateHandOnInput" preserve="all" />
+    <type fullname="S_Appliance" preserve="all" />
     <type fullname="S_AttackState" preserve="all" />
     <type fullname="S_ButtonPushed" preserve="all" />
     <type fullname="S_ChaseState" preserve="all" />

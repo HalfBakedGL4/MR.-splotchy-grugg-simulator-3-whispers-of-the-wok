@@ -1,3 +1,4 @@
+using Fusion;
 using Meta.XR.MRUtilityKit;
 using NUnit.Framework;
 using Oculus.Interaction.Surfaces;
@@ -7,22 +8,55 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class S_Alien : MonoBehaviour
+public class S_Alien : NetworkBehaviour
 {
     public NavMeshAgent agent;
     public float speed = 1;
 
     private List<S_Appliance> appliances;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    IEnumerator Start()
+    public override void Spawned()
     {
-        appliances = GetComponents<S_Appliance>().ToList();
-        yield return new WaitUntil(() => GetComponent<NavMeshSurface>() != null);
+        // Start coroutine manually since there's no automatic Start() in Fusion
+        StartCoroutine(InitializeAfterSpawn());
+    }
+
+    private IEnumerator InitializeAfterSpawn()
+    {
+        appliances = FindObjectsByType<S_Appliance>(FindObjectsSortMode.None).ToList();
+        if (appliances == null || appliances.Count == 0)
+        {
+            Debug.LogError("[Navmesh] No appliances found in the scene.");
+        }
+        yield return new WaitUntil(() => (GetComponent<NavMeshSurface>() != null && appliances != null));
     }
 
     // Update is called once per frame
     void Update()
+    {
+        if (appliances != null)
+        {
+            if (appliances.Count == 0)
+            {
+                Debug.LogError("[Navmesh] No appliances found in the scene.");
+                return;
+            }
+            if (agent.isOnNavMesh)
+            {
+                followAppliance();
+            }
+            else
+            {
+                Debug.LogError("[Navmesh] Navmesh Agent not attached to Navmesh Surface.");
+            }
+        }
+        else
+        {
+            Debug.LogError("[Navmesh] Appliances list is null or empty.");
+        }
+    }
+
+    void followAppliance()
     {
         if (Camera.main == null) return;
 
@@ -31,11 +65,18 @@ public class S_Alien : MonoBehaviour
             Vector3 targetPosition;
             int x = Random.Range(0, appliances.Count - 1);
 
+            if (x < 0 || x >= appliances.Count)
+            {
+                Debug.LogError("[Navmesh] Random index out of bounds: " + x);
+                return;
+            }
+
             targetPosition = appliances[x].transform.position;
 
             agent.SetDestination(targetPosition);
             agent.speed = speed;
-        } else
+        }
+        else
         {
             Debug.LogError("[Navmesh] Navmesh Agent not attached to Navmesh Surface.");
         }

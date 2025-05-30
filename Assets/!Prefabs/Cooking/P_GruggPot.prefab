@@ -328,6 +328,7 @@ GameObject:
   - component: {fileID: 3229044161764529807}
   - component: {fileID: 5464214638882273747}
   - component: {fileID: 3214850747704202974}
+  - component: {fileID: 7750475666938151492}
   m_Layer: 0
   m_Name: P_GruggPot
   m_TagString: Untagged
@@ -403,6 +404,18 @@ MonoBehaviour:
   SyncParent: 0
   _autoAOIOverride: 1
   DisableSharedModeInterpolation: 0
+--- !u!114 &7750475666938151492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3892053843264737743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7064c472f2788d4c821d54286ee486d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3958319279577001797
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,15 +845,15 @@ PrefabInstance:
       objectReference: {fileID: -5447036705194824928, guid: 5d965792e6012c04bbe2572fcfa2d511, type: 3}
     - target: {fileID: 7061671384639600787, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0000000019119677
+      value: -0.0000000016729718
       objectReference: {fileID: 0}
     - target: {fileID: 7061671384639600787, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.08999997
+      value: 0.08999995
       objectReference: {fileID: 0}
     - target: {fileID: 7061671384639600787, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.00000015678137
+      value: 0.00000008986249
       objectReference: {fileID: 0}
     - target: {fileID: 9213621254682700026, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
       propertyPath: m_LocalScale.x

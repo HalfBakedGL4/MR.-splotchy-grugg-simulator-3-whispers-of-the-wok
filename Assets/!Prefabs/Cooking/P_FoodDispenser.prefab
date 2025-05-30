@@ -1388,6 +1388,7 @@ GameObject:
   - component: {fileID: 6210930264627343105}
   - component: {fileID: -4956885486540946256}
   - component: {fileID: 1339422403797316913}
+  - component: {fileID: 964230221698322809}
   m_Layer: 0
   m_Name: P_FoodDispenser
   m_TagString: Untagged
@@ -1451,6 +1452,18 @@ MonoBehaviour:
   NetworkedBehaviours:
   - {fileID: -4956885486540946256}
   ForceRemoteRenderTimeframe: 0
+--- !u!114 &964230221698322809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7200728395727634709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7064c472f2788d4c821d54286ee486d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7879421924441811756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1927,7 +1940,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7061671384639600787, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.043462057
+      value: 0.04346206
       objectReference: {fileID: 0}
     - target: {fileID: 7061671384639600787, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
       propertyPath: m_LocalPosition.z

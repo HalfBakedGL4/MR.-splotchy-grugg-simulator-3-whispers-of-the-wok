@@ -1,0 +1,19 @@
+# ninja log v5
+45	1683	7702941600668849	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	646fb6b99dab30d0
+11	1716	7702941601034875	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	5665f6e5e7514140
+54	1837	7702941602177942	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	b141010207955d84
+37	1740	7702941601294400	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	aed3a4c004b1d147
+17	1928	7702941603119424	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	92fea62fd00f5035
+23	1824	7702941602056380	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	5545fd5c0d025269
+29	2115	7702941605050485	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	c1a95523139f6a77
+2314	3121	7702941615115880	C:/Users/fbuen/Documents/GitHub/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/303f5oh3/obj/arm64-v8a/libgame.so	16865c68657889ac
+5	2313	7702941606963523	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	2af6f15ca0650c5c
+30	1761	7702977177583217	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	646fb6b99dab30d0
+24	1785	7702977177861800	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	5665f6e5e7514140
+36	1825	7702977178243960	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	aed3a4c004b1d147
+17	1920	7702977179147071	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	5545fd5c0d025269
+52	1952	7702977179492227	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	b141010207955d84
+12	2041	7702977180433829	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	92fea62fd00f5035
+44	2241	7702977182432859	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	c1a95523139f6a77
+5	2421	7702977184241197	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	2af6f15ca0650c5c
+2421	2704	7702977187166306	C:/Users/fbuen/Documents/GitHub/MR.-splotchy-grugg-simulator-3-whispers-of-the-wok/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/303f5oh3/obj/arm64-v8a/libgame.so	16865c68657889ac
