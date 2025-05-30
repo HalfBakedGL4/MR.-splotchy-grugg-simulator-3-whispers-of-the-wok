@@ -1,6 +1,4 @@
 using Fusion;
-using Meta.XR.MRUtilityKit;
-using NUnit.Framework;
 using Oculus.Interaction.Surfaces;
 using System.Collections;
 using System.Collections.Generic;
@@ -43,7 +41,7 @@ public class S_Alien : NetworkBehaviour
             }
             if (agent.isOnNavMesh)
             {
-                followAppliance();
+                FollowAppliance();
             }
             else
             {
@@ -56,7 +54,7 @@ public class S_Alien : NetworkBehaviour
         }
     }
 
-    void followAppliance()
+    void FollowAppliance()
     {
         if (Camera.main == null) return;
 
@@ -64,12 +62,6 @@ public class S_Alien : NetworkBehaviour
         {
             Vector3 targetPosition;
             int x = Random.Range(0, appliances.Count - 1);
-
-            if (x < 0 || x >= appliances.Count)
-            {
-                Debug.LogError("[Navmesh] Random index out of bounds: " + x);
-                return;
-            }
 
             targetPosition = appliances[x].transform.position;
 
