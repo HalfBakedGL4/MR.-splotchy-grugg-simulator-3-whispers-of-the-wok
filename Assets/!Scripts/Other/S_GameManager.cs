@@ -221,11 +221,13 @@ public class S_GameManager : NetworkBehaviour
     {
     }
 
-    public static void StartGame()
+    public static bool StartGame()
     {
-        if (CurrentGameState != GameState.Intermission && ready) return;
+        if (CurrentGameState != GameState.Intermission && ready) return false;
 
         ProgressGameState();
+
+        return true;
     }
 
     static async void ProgressGameState(float t = 0)

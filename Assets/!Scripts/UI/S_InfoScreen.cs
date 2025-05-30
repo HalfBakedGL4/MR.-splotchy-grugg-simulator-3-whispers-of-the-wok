@@ -8,8 +8,6 @@ public class S_InfoScreen : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(S_GameManager.CurrentGameState);
-
         connectionText.text = S_GameManager.CurrentGameState.ToString();
 
         switch(S_GameManager.CurrentGameState)
@@ -36,7 +34,6 @@ public class S_InfoScreen : MonoBehaviour
                 }
             case GameState.Ongoing:
                 {
-                    connectionText.text = "";
                     break;
                 }
             case GameState.Ending:
