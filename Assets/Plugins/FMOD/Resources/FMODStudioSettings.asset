@@ -185,7 +185,14 @@ MonoBehaviour:
   Plugins: []
   MasterBanks:
   - Master
-  Banks: []
+  Banks:
+  - Appliance
+  - Character
+  - Enemys
+  - Food
+  - Music
+  - UI
+  - Utensils
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
