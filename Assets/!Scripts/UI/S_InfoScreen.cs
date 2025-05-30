@@ -4,25 +4,38 @@ using UnityEngine;
 
 public class S_InfoScreen : MonoBehaviour
 {
-    NetworkRunner runner;
     [SerializeField] TMP_Text connectionText;
-    [SerializeField] TMP_Text playerCount;
-
-    private void Start()
-    {
-        runner = FindFirstObjectByType<NetworkRunner>();
-    }
 
     private void Update()
     {
-        if (runner.SessionInfo.PlayerCount > 0)
+        Debug.Log(S_GameManager.CurrentGameState);
+
+        connectionText.text = S_GameManager.CurrentGameState.ToString();
+
+        switch(S_GameManager.CurrentGameState)
         {
-            connectionText.text = "You are connected!";
-            playerCount.text = runner.SessionInfo.PlayerCount + "/" + runner.SessionInfo.MaxPlayers;
-        } else
-        {
-            connectionText.text = "You are not connected.";
-            playerCount.text = "0/5";
+            case GameState.Offline:
+                {
+                    break;
+                }
+            case GameState.Intermission:
+                {
+                    connectionText.text += "\n" + S_GameManager.sessionInfo.PlayerCount + "/" + S_GameManager.instance.playersRequired;
+                    break;
+                }
+            case GameState.Starting:
+                {
+                    break;
+                }
+            case GameState.Ongoing:
+                {
+                    connectionText.text += "\n" + S_GameManager.currentGameTime.ToString("0");
+                    break;
+                }
+            case GameState.Ending:
+                {
+                    break;
+                }
         }
     }
 }

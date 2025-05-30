@@ -46,6 +46,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e1ffaf83ec52a54b8269aa5d02b4bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playersRequired: 2
+  waitForPlayers: 1
+  startTime: 7
+  startDelay: 5
+  _GameTime: 0
+  _delay: 0
+  _currentFood: []
+  OnIntermission:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStarting:
+    m_PersistentCalls:
+      m_Calls: []
+  OnOngoing:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnding:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4184649426864620437
 MonoBehaviour:
   m_ObjectHideFlags: 0

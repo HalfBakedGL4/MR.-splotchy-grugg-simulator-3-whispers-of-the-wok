@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using Fusion;
-using Extentions.Addressable;
-using TMPro;
-using Unity.VisualScripting;
 
 public enum CookerType
 {
@@ -28,10 +24,10 @@ public class S_Cooker : NetworkBehaviour
     [SerializeField] private S_SocketTagInteractor[] foodSockets;
     [SerializeField] private S_SocketTagInteractor dishSocket;
     
-    [SerializeField, Networked] private CookerState state { get; set; } = CookerState.Available;
+    [Networked] private CookerState state { get; set; } = CookerState.Available;
 
-    private List<FoodType> foodCooking = new ();
-    private List<S_Food> foodScripts = new ();
+    private NetworkLinkedList<FoodType> _foodCooking = new ();
+    private NetworkLinkedList<S_Food> _foodScripts = new ();
 
     private S_DishStatus _currentDishStatus;
     private GameObject _spawnedDish;
@@ -45,14 +41,14 @@ public class S_Cooker : NetworkBehaviour
     
     [SerializeField] private S_CookTimer cookTimer;
 
-    private float savedUnderCookedTime;
-    private float savedPerfectlyCookedTime;
-    private float savedOverCookedTime;
+    private float _savedUnderCookedTime;
+    private float _savedPerfectlyCookedTime;
+    private float _savedOverCookedTime;
     
-    [SerializeField, Networked] private bool _isAbleToStartCooking { get; set; } = true;
+    [Networked] private bool isAbleToStartCooking { get; set; } = true;
     bool isLocal => Object && Object.HasStateAuthority;
-    [SerializeField, Networked] private float timer { get; set; }
-    private async void Start()
+    [Networked] private float timer { get; set; }
+    private void Start()
     {
 
         // Subscribe to foodSockets Events
@@ -70,15 +66,14 @@ public class S_Cooker : NetworkBehaviour
         }
         
         // Just storing the values to increase for Oven
-        savedUnderCookedTime = underCookedTime;
-        savedPerfectlyCookedTime = perfectlyCookedTime;
-        savedOverCookedTime = overCookedTime;
+        _savedUnderCookedTime = underCookedTime;
+        _savedPerfectlyCookedTime = perfectlyCookedTime;
+        _savedOverCookedTime = overCookedTime;
         
         cookTimer.SetAllTimers(underCookedTime, perfectlyCookedTime, overCookedTime);
         
         // Turn off Dishsocket, should only be used when dish is spawned
         dishSocket.socketActive = false;
-
     }
 
     void Update()
@@ -91,11 +86,11 @@ public class S_Cooker : NetworkBehaviour
                 if (isLocal)
                 {
                     timer += Time.deltaTime;
-                }
-
-                if (cookerType == CookerType.Oven)
-                {
-                    SetDishStatus();
+                    
+                    if (cookerType == CookerType.Oven)
+                    {
+                        SetDishStatus();
+                    }
                 }
                 break;
             case CookerState.Finished:
@@ -108,16 +103,17 @@ public class S_Cooker : NetworkBehaviour
 
     private void AddFood(SelectEnterEventArgs args)
     {
+        if (!isLocal) { return; }
         // Add food from food list
         if (args.interactableObject.transform.TryGetComponent(out S_Food food)) {
-            foodCooking.Add(food.GetFoodType());
-            foodScripts.Add(food);
+            _foodCooking.Add(food.GetFoodType());
+            _foodScripts.Add(food);
             // When the first ingredient is added start the cooker if possible
-            if (foodCooking.Count == 1)
+            if (_foodCooking.Count == 1)
             {
                 InteractWithCooker();
             }
-            else if (foodCooking.Count > 1)
+            else if (_foodCooking.Count > 1)
             {
                 AddTime();
             }
@@ -126,10 +122,11 @@ public class S_Cooker : NetworkBehaviour
 
     private void RemoveFood(SelectExitEventArgs args)
     {
+        if (!isLocal) { return; }
         // Remove food from food list
         if (args.interactableObject.transform.TryGetComponent(out S_Food food)){
-            foodCooking.Remove(food.GetFoodType());
-            foodScripts.Remove(food);
+            _foodCooking.Remove(food.GetFoodType());
+            _foodScripts.Remove(food);
         }
     }
     
@@ -142,12 +139,12 @@ public class S_Cooker : NetworkBehaviour
     {
         print("Interacting with Cooker " + name);
         // Activate Cooker and start timer
-        if (state == CookerState.Available && _isAbleToStartCooking)
+        if (state == CookerState.Available && isAbleToStartCooking)
         {
             timer = 0.0f;
             cookTimer.TimerToggle(true);
             // Turn off colliders so they can't be picked up while cooking
-            foreach (var foodScript in foodScripts)
+            foreach (var foodScript in _foodScripts)
             {
                 foodScript.ToggleColliders();
             }
@@ -217,28 +214,24 @@ public class S_Cooker : NetworkBehaviour
 
     private Dish GetDish() //Looks through the RecipeBook to see if any dish is created from those ingredients
     {
-        var dishInfo = S_RecipeDatabase.FindMatchingRecipe(foodCooking, cookerType);
+        var listFoodCooking = _foodCooking.ToList();
+        var dishInfo = S_RecipeDatabase.FindMatchingRecipe(listFoodCooking, cookerType);
         
-        if (dishInfo != null)
-        {
-            return dishInfo;
-        }
-        
-        return null;
+        return dishInfo;
     }
 
     
     private void CleanCooker()  // Moves items in cooker under the stage. possible to use object pooling.
     {
-        S_Food[] foodList = foodScripts.ToArray();
+        S_Food[] foodList = _foodScripts.ToArray();
         foreach (var foodScript in foodList)
         {
             foodScript.Toggle();
             foodScript.transform.position = new Vector3(0,-10,0);
-            S_GameManager.DespawnFood(foodScript);
+            S_GameManager.TryDespawnFood(foodScript);
         }
 
-        foodScripts.Clear();
+        _foodScripts.Clear();
     }
 
     #region OvenSpecifics
@@ -288,9 +281,9 @@ public class S_Cooker : NetworkBehaviour
         {
             _currentDishStatus = null;
 
-            underCookedTime = savedUnderCookedTime;
-            perfectlyCookedTime = savedPerfectlyCookedTime;
-            overCookedTime = savedOverCookedTime;
+            underCookedTime = _savedUnderCookedTime;
+            perfectlyCookedTime = _savedPerfectlyCookedTime;
+            overCookedTime = _savedOverCookedTime;
             
             cookTimer.TimerToggle(false);
             
@@ -315,7 +308,7 @@ public class S_Cooker : NetworkBehaviour
     {
         RPC_SetCookerAbleToCook(true);
         
-        if (foodCooking.Count > 0)
+        if (_foodCooking.Count > 0)
         {
             InteractWithCooker();
         }
@@ -328,26 +321,28 @@ public class S_Cooker : NetworkBehaviour
     // If the basket has something in it and is let go the items inside will be disabled so that there won't be any collider issues
     public void DisableFoodInBasket(SelectExitEventArgs args = null)
     {
-        if (foodScripts.Count == 1)
-        {  
-            foodScripts[0].ToggleColliders(false);
-        }
+        RPC_SetFoodColliderToggle(false);
     }
 
     // When picked up items then are enabled again to be able to pick them up
     public void EnableFoodInBasket(SelectEnterEventArgs args = null)
     {
-        if (foodScripts.Count == 1)
+        RPC_SetFoodColliderToggle(true);
+    }
+
+    [Rpc(sources: RpcSources.All, targets: RpcTargets.All)]
+    void RPC_SetFoodColliderToggle(bool toggle)
+    {
+        if (_foodScripts.Count == 1)
         {  
-            foodScripts[0].ToggleColliders(true);
+            _foodScripts[0].ToggleColliders(toggle);
         }
     }
     
-    
-    [Rpc(sources: RpcSources.All, targets: RpcTargets.StateAuthority)]
+    [Rpc(sources: RpcSources.All, targets: RpcTargets.All)]
     void RPC_SetCookerAbleToCook(bool isActive)
     {
-        _isAbleToStartCooking = isActive;
+        isAbleToStartCooking = isActive;
     }
 
     #endregion

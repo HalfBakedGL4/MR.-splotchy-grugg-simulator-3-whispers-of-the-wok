@@ -15,6 +15,10 @@ public class S_UIInteractor : MonoBehaviour
     [Range(0, 1)] public float hapicAmplitude = .3f;
     [Range(0, 1)] public float hapicDuration = .1f;
 
+    [Space]
+
+    [SerializeField] GameObject indicator;
+
 
     LayerMask uiLayer = 32;
 
@@ -35,15 +39,14 @@ public class S_UIInteractor : MonoBehaviour
         bool hit = Physics.SphereCast(uiRay, radius, out uiHit, length, uiLayer);
         Debug.Log(S_InputReader.instance);
 
-        if (hit && hitting == null)
-        {
-            if (uiHit.collider.TryGetComponent(out S_UIElement element))
-            {
-                element.OnHoverEnter(this);
-                hitting = element;
+        uiHit.collider.TryGetComponent(out S_UIElement element);
 
-                S_InputReader.instance.RightA.AddListener(PressButton);
-            }
+        if (hit && hitting == null && element != null)
+        {
+            element.OnHoverEnter(this);
+            hitting = element;
+
+            S_InputReader.instance.RightA.AddListener(PressButton);
         }
 
         if (!hit && hitting != null)
@@ -54,39 +57,45 @@ public class S_UIInteractor : MonoBehaviour
             S_InputReader.instance.RightA.RemoveListener(PressButton);
         }
 
-        if (hit)
+        if (hit && element != null)
         {
-            if (uiHit.collider.TryGetComponent(out S_UIElement element))
+            if (element != hitting)
             {
-                if (element != hitting)
-                {
-                    hitting.OnHoverExit(this);
-                }
-
-                hitting = element;
-
-                element.OnHover(this);
+                hitting.OnHoverExit(this);
             }
+
+            hitting = element;
+
+            indicator.SetActive(true);
+            indicator.transform.position = uiHit.point;
+
+            element.OnHover(this);
+        } 
+        else
+        {
+            indicator.SetActive(false);
         }
     }
 
     public void PressButton(InputInfo info)
     {
-        Debug.Log("[UIinteractor] pressing");
         if (!(hitting is S_UIButton)) return;
 
-        if (!info.context.started)
+        if (info.context.started)
         {
+            Debug.Log("[UIinteractor] pressing started");
             ((S_UIButton)hitting).OnPressedEnter(this);
         }
 
-        if (!info.context.performed)
+        if (info.context.performed)
         {
+            Debug.Log("[UIinteractor] pressing");
             ((S_UIButton)hitting).OnPressed(this);
         }
 
-        if (!info.context.canceled)
+        if (info.context.canceled)
         {
+            Debug.Log("[UIinteractor] pressing canceled");
             ((S_UIButton)hitting).OnPressedExit(this);
         }
     }
