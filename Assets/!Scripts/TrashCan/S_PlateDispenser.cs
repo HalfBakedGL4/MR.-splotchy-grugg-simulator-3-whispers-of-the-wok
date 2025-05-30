@@ -109,11 +109,11 @@ public class S_PlateDispenser : NetworkBehaviour, IToggle
             plate.SetActive(toggle);
         }
         print(name + " is turned on: " + toggle);
-        ToggleMovement(toggle);
 
     }
 
-    public void ToggleMovement(bool toggle)
+    [Rpc(sources: RpcSources.All, targets: RpcTargets.All)]
+    public void RPC_ToggleMovement(bool toggle)
     {
         // Not in use
     }

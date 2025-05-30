@@ -69,11 +69,11 @@ public class S_CostumerManager : NetworkBehaviour, IToggle
         isTurnedOn = toggle;
         print(name + " is turned on: " + toggle);
 
-        ToggleMovement(toggle);
 
     }
 
-    public void ToggleMovement(bool toggle)
+    [Rpc(sources: RpcSources.All, targets: RpcTargets.All)]
+    public void RPC_ToggleMovement(bool toggle)
     {
         // Doesn't need to be grabbed
     }

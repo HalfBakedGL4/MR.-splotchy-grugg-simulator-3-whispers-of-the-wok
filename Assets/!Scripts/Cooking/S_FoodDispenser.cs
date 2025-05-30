@@ -87,12 +87,13 @@ public class S_FoodDispenser : NetworkBehaviour, IButtonObject, IToggle
         isTurnedOn = toggle;
         interactable.enabled = toggle;
         print(name + " is turned on: " + isTurnedOn);
-        ToggleMovement(toggle);
+        RPC_ToggleMovement(toggle);
 
     }
 
     private XRGrabInteractable _grabInteractable;
-    public void ToggleMovement(bool toggle)
+    [Rpc(sources: RpcSources.All, targets: RpcTargets.All)]
+    public void RPC_ToggleMovement(bool toggle)
     {
         if (_grabInteractable == null)
         {

@@ -45,12 +45,13 @@ public class S_GruggPot : NetworkBehaviour, IButtonObject, IToggle
         
         print(name + " is turned on: " + toggle);
 
-        ToggleMovement(toggle);
+        RPC_ToggleMovement(toggle);
 
     }
 
     private XRGrabInteractable _grabInteractable;
-    public void ToggleMovement(bool toggle)
+    [Rpc(sources: RpcSources.All, targets: RpcTargets.All)]
+    public void RPC_ToggleMovement(bool toggle)
     {
         if (_grabInteractable == null)
         {

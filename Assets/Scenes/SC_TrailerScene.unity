@@ -461,6 +461,10 @@ PrefabInstance:
       propertyPath: 'canOrder.Array.data[2]'
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7639012007907812246, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
