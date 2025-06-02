@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{c6659786-dcbb-4bec-99a1-db8dc16fa368}">
+		<property name="assetPath">
+			<value>Charcter/Glove/GlovePull.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.5160090702947846</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{902fe79b-b09c-4602-bffe-ed5f2e407c00}</destination>
+		</relationship>
+	</object>
+</objects>

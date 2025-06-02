@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{6b1206c2-ebee-42f8-a733-0be28049d257}">
+		<property name="name">
+			<value>OvenStages</value>
+		</property>
+		<relationship name="folder">
+			<destination>{cc9f2c4e-e430-4fa0-b6b8-5bc2166953b6}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{e11baaf9-8ca7-4a73-8a63-d9abd679b4e2}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{e11baaf9-8ca7-4a73-8a63-d9abd679b4e2}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>Oevn1</value>
+			<value>Oven2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{76242d14-878d-481a-91d3-a4e6bc6b5e74}">
+		<property name="name">
+			<value>OvenProg</value>
+		</property>
+		<relationship name="folder">
+			<destination>{cc9f2c4e-e430-4fa0-b6b8-5bc2166953b6}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{bb02f741-b7e6-47e2-9c91-35d2a48528fa}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{bb02f741-b7e6-47e2-9c91-35d2a48528fa}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>11</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

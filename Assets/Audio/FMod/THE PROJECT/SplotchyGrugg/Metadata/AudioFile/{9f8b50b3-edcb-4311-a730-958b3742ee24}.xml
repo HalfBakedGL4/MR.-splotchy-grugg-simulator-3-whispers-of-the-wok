@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{9f8b50b3-edcb-4311-a730-958b3742ee24}">
+		<property name="assetPath">
+			<value>TEST/SplotchyGRugg.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>50</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{902fe79b-b09c-4602-bffe-ed5f2e407c00}</destination>
+		</relationship>
+	</object>
+</objects>
