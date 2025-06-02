@@ -118,6 +118,7 @@ public class S_GameManager : NetworkBehaviour
     /// </summary>
     public static S_Food TrySpawnFood(S_Food food, Vector3 position, Quaternion rotation)
     {
+        Debug.Log("[GameManager] try spawn Food");
         return instance.SpawnFood(food, position, rotation);
     }
     /// <summary>
@@ -161,6 +162,8 @@ public class S_GameManager : NetworkBehaviour
 
         if(newFood != null)
             currentFood.Add(newFood);
+
+        Debug.Log("[GameManager] successfully spawned food");
 
         return newFood;
     }

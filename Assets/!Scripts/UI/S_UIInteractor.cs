@@ -39,16 +39,6 @@ public class S_UIInteractor : MonoBehaviour
         bool hit = Physics.SphereCast(uiRay, radius, out uiHit, length, uiLayer);
         Debug.Log(S_InputReader.instance);
 
-        uiHit.collider.TryGetComponent(out S_UIElement element);
-
-        if (hit && hitting == null && element != null)
-        {
-            element.OnHoverEnter(this);
-            hitting = element;
-
-            S_InputReader.instance.RightA.AddListener(PressButton);
-        }
-
         if (!hit && hitting != null)
         {
             hitting.OnHoverExit(this);
@@ -57,8 +47,18 @@ public class S_UIInteractor : MonoBehaviour
             S_InputReader.instance.RightA.RemoveListener(PressButton);
         }
 
-        if (hit && element != null)
+        if (hit)
         {
+            uiHit.collider.TryGetComponent(out S_UIElement element);
+
+            if (hitting == null)
+            {
+                element.OnHoverEnter(this);
+                hitting = element;
+
+                S_InputReader.instance.RightA.AddListener(PressButton);
+            }
+
             if (element != hitting)
             {
                 hitting.OnHoverExit(this);
