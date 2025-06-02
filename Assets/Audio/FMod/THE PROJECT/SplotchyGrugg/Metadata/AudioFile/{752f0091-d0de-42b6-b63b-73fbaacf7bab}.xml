@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{752f0091-d0de-42b6-b63b-73fbaacf7bab}">
+		<property name="assetPath">
+			<value>Food/Onion/Cooking Knife Cut 1.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.9853061224489796</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{902fe79b-b09c-4602-bffe-ed5f2e407c00}</destination>
+		</relationship>
+	</object>
+</objects>
