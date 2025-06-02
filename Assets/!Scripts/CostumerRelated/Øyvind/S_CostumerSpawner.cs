@@ -21,8 +21,8 @@ public class S_CostumerSpawner : NetworkBehaviour
         costumerInstance.transform.parent = null;
 
         // Spawn Customer behind window
-        //S_OrderWindow window = FindFirstObjectByType<S_OrderWindow>();
-        //costumerInstance.transform.position = -window.transform.forward * 2;
+        S_OrderWindow window = FindFirstObjectByType<S_OrderWindow>();
+        costumerInstance.transform.position = -window.transform.forward * 2;
 
         // Place costumer in front of wall
         //costumerInstance.transform.position += costumerInstance.transform.forward * lengthInFrontOfHole;
