@@ -15,6 +15,7 @@
     <type fullname="S_ChaseState" preserve="all" />
     <type fullname="S_ColorClassifications" preserve="all" />
     <type fullname="S_Cooker" preserve="all" />
+    <type fullname="S_CookTimer" preserve="all" />
     <type fullname="S_CostumerManager" preserve="all" />
     <type fullname="S_CostumerOrder" preserve="all" />
     <type fullname="S_CostumerSpawner" preserve="all" />
@@ -44,6 +45,7 @@
     <type fullname="S_RuntimeNavmeshBuilder" preserve="all" />
     <type fullname="S_SocketMultipleTagInteractor" preserve="all" />
     <type fullname="S_SocketTagInteractor" preserve="all" />
+    <type fullname="S_SpawnNetworkObject" preserve="all" />
     <type fullname="S_SpawnObjectOnClassification" preserve="all" />
     <type fullname="S_StartGame" preserve="all" />
     <type fullname="S_Ticket" preserve="all" />
@@ -241,7 +243,6 @@
     <type fullname="UnityEngine.Mesh" preserve="all" />
     <type fullname="UnityEngine.MeshFilter" preserve="all" />
     <type fullname="UnityEngine.MeshRenderer" preserve="all" />
-    <type fullname="UnityEngine.MonoBehaviour" preserve="all" />
     <type fullname="UnityEngine.Object" preserve="all" />
     <type fullname="UnityEngine.RectTransform" preserve="all" />
     <type fullname="UnityEngine.Rendering.SortingGroup" preserve="all" />
