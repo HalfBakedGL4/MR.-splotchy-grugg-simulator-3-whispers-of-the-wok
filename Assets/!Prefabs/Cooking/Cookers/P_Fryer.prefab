@@ -305,7 +305,7 @@ Transform:
   m_GameObject: {fileID: 1596475994362330732}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2, y: 0.274, z: 0}
+  m_LocalPosition: {x: -0.2, y: 0.399, z: -0.088}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -408,7 +408,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 34897907719478801}
@@ -946,7 +946,7 @@ Transform:
   m_GameObject: {fileID: 7352197383503710397}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.274, z: 0}
+  m_LocalPosition: {x: 0, y: 0.399, z: -0.088}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1122,7 +1122,7 @@ Transform:
   m_GameObject: {fileID: 8727087883106583326}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2, y: 0.274, z: 0}
+  m_LocalPosition: {x: 0.2, y: 0.399, z: -0.088}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1222,6 +1222,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4689134947620238683}
     m_Modifications:
+    - target: {fileID: 1667991731980939745, guid: fef74b77953d6c64fb092517b6223b65, type: 3}
+      propertyPath: m_InteractableHoverMeshMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: bdfeb958e81c3314bb189d54f3d4a3c1, type: 2}
+    - target: {fileID: 1667991731980939745, guid: fef74b77953d6c64fb092517b6223b65, type: 3}
+      propertyPath: m_InteractableCantHoverMeshMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: e9a9959fdc36a5745816974f582679e1, type: 2}
     - target: {fileID: 4231900037197556370, guid: fef74b77953d6c64fb092517b6223b65, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.2
@@ -1361,6 +1369,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4689134947620238683}
     m_Modifications:
+    - target: {fileID: 1667991731980939745, guid: fef74b77953d6c64fb092517b6223b65, type: 3}
+      propertyPath: m_InteractableHoverMeshMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: bdfeb958e81c3314bb189d54f3d4a3c1, type: 2}
+    - target: {fileID: 1667991731980939745, guid: fef74b77953d6c64fb092517b6223b65, type: 3}
+      propertyPath: m_InteractableCantHoverMeshMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: e9a9959fdc36a5745816974f582679e1, type: 2}
     - target: {fileID: 4231900037197556370, guid: fef74b77953d6c64fb092517b6223b65, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
