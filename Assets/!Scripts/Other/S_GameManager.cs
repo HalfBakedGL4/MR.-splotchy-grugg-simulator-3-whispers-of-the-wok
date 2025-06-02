@@ -76,14 +76,14 @@ public class S_GameManager : NetworkBehaviour
     {
         base.FixedUpdateNetwork();
 
-        string message = "";
+        //string message = "";
 
-        foreach (var item in currentFood)
-        {
-            message += item.GetFoodType() + "\n";
-        }
+        //foreach (var item in currentFood)
+        //{
+        //    message += item.GetFoodType() + "\n";
+        //}
 
-        Debug.Log("[GameManager] Food: " + message);
+        //Debug.Log("[GameManager] Food: " + message);
 
         if (!isLocal) return;
 
