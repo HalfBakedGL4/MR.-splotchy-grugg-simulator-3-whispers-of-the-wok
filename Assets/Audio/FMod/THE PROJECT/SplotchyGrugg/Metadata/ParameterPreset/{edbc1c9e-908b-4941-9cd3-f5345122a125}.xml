@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{edbc1c9e-908b-4941-9cd3-f5345122a125}">
+		<property name="name">
+			<value>MidEQ</value>
+		</property>
+		<relationship name="folder">
+			<destination>{cc9f2c4e-e430-4fa0-b6b8-5bc2166953b6}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{f6be2727-2cfa-4a56-a045-04257599966f}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{f6be2727-2cfa-4a56-a045-04257599966f}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
