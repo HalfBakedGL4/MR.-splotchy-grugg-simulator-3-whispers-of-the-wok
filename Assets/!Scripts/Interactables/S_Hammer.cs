@@ -17,7 +17,7 @@ public class S_Hammer : NetworkBehaviour
     //For testing
     [SerializeField] Image fillImage;
 
-    public void Start()
+    public override void Spawned()
     {
         Debug.Log("Spawned");
         rb = GetComponent<Rigidbody>();
