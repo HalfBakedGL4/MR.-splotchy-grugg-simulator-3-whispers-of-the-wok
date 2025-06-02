@@ -29,7 +29,8 @@ public class S_GameManager : NetworkBehaviour
     [Space]
 
     [Min(1)] public int playersRequired = 1;
-    [Networked] public bool ready { get; private set; }
+    public static bool ready => instance.Ready;
+    [Networked] bool Ready { get; set; }
     [SerializeField] bool waitForPlayers = true;
 
     [Space]
@@ -197,7 +198,7 @@ public class S_GameManager : NetworkBehaviour
     {
         if(!waitForPlayers || sessionInfo.PlayerCount >= playersRequired)
         {
-            ready = true;
+            Ready = true;
         }
     }
 
@@ -219,11 +220,13 @@ public class S_GameManager : NetworkBehaviour
     {
     }
 
-    public static void StartGame()
+    public static bool StartGame()
     {
-        if (CurrentGameState != GameState.Intermission && instance.ready) return;
+        if (CurrentGameState != GameState.Intermission && ready) return false;
 
         ProgressGameState();
+
+        return true;
     }
 
     static async void ProgressGameState(float t = 0)

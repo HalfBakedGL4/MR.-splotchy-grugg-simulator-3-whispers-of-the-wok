@@ -9,13 +9,13 @@ public class S_TicketDetailGiver : NetworkBehaviour
 {
     [SerializeField] private InputActionProperty leftInputAction;
     [SerializeField] private InputActionProperty rightInputAction;
-    
+
     [SerializeField] private TextMeshProUGUI ticketNumberText;
-    
-    [SerializeField] private Image orderImage;
-    [SerializeField] private Image orderIngredients;
-    [SerializeField] private Image orderTools;
-    [SerializeField] private Image orderTutorial;
+
+    //[SerializeField] private Image orderImage;
+    //[SerializeField] private Image orderIngredients;
+    //[SerializeField] private Image orderTools;
+    //[SerializeField] private Image orderTutorial;
 
     [SerializeField] private GameObject page1;
     [SerializeField] private GameObject page2;
@@ -24,17 +24,17 @@ public class S_TicketDetailGiver : NetworkBehaviour
     private bool _isLeft = false;
     private bool _swappedPage = false;
     
-    public void InitTicket(Order order, int ticketID)
+    public void InitTicket(int ticketID)
     {
         //Number the ticket
         
         ticketNumberText.text = $"#{ticketID}";
         
         // Put images on ticket
-        orderImage.sprite = order.orderImage;
-        orderIngredients.sprite = order.orderIngredients;
-        orderTools.sprite = order.orderTools;
-        orderTutorial.sprite = order.orderTutorial;
+        //orderImage.sprite = order.orderImage;
+        //orderIngredients.sprite = order.orderIngredients;
+        //orderTools.sprite = order.orderTools;
+        //orderTutorial.sprite = order.orderTutorial;
         
         
     }

@@ -8,8 +8,6 @@ public class S_InfoScreen : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(S_GameManager.CurrentGameState);
-
         connectionText.text = S_GameManager.CurrentGameState.ToString();
 
         switch(S_GameManager.CurrentGameState)
@@ -20,7 +18,14 @@ public class S_InfoScreen : MonoBehaviour
                 }
             case GameState.Intermission:
                 {
-                    connectionText.text += "\n" + S_GameManager.sessionInfo.PlayerCount + "/" + S_GameManager.instance.playersRequired;
+                    if(!S_GameManager.ready)
+                    {
+                        connectionText.text = S_GameManager.sessionInfo.PlayerCount + "/" + S_GameManager.instance.playersRequired;
+                    } else
+                    {
+                        connectionText.text = "Ready!";
+                    }
+
                     break;
                 }
             case GameState.Starting:
@@ -29,7 +34,6 @@ public class S_InfoScreen : MonoBehaviour
                 }
             case GameState.Ongoing:
                 {
-                    connectionText.text += "\n" + S_GameManager.currentGameTime.ToString("0");
                     break;
                 }
             case GameState.Ending:

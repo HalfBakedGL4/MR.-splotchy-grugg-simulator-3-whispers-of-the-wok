@@ -1,6 +1,7 @@
 using Fusion;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -74,7 +75,7 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
     }
 
     // Needs to be referenced in the editor in ARPlaneManager
-    public void PlaceObjectOnPlane(TrackableCollection<ARPlane> changes)
+    public async void PlaceObjectOnPlane(TrackableCollection<ARPlane> changes)
     {
         foreach (var spawnableStation in spawnableStations)
         {
@@ -88,6 +89,8 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
 
                     if (spawnableStation.toPlaceOn.HasFlag(surface.classifications)) //checking if the classifications match
                     {
+                        Debug.Log("[Spawn Objects] try spawn " + station.toSpawn + " on " + surface.classifications);
+
                         //getting the appropriate position and rotation
                         Vector3 position = surface.transform.position + station.offset;
                         Quaternion rotation = Quaternion.Euler(surface.transform.eulerAngles + station.eulerOffset);
@@ -102,14 +105,22 @@ public class S_SpawnObjectOnClassification : NetworkBehaviour
                         }
 
                         //spawning the object
-                        Runner.Spawn(station.toSpawn, position, rotation);
+                        NetworkObject obj = Runner.Spawn(station.toSpawn, position, rotation);
 
-                        Debug.Log("[Spawn Objects] spawned " + station.toSpawn + " on " + surface.classifications);
+                        if(obj != null)
+                        {
+                            Debug.Log("[Spawn Objects] successfully spawned " + station.toSpawn + " on " + surface.classifications);
+                        } else
+                        {
+                            Debug.Log("[Spawn Objects] failed to spawn " + station.toSpawn + " on " + surface.classifications);
+                        }
 
-                        station.amount--;
+                            station.amount--;
 
                         if(station.amount <= 0)
                             station.spawnedAllInstances = true;
+
+                        await Task.Delay(1000);
 
                         break;
                     }
