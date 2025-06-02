@@ -818,8 +818,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4390563183650917393}
   - {fileID: 998507574450010468}
@@ -871,19 +871,19 @@ MonoBehaviour:
   - {fileID: 6549408184306184643}
   orderTypes:
   - nameOfDish: 2
-    ticketPrefabVariant: {fileID: 0}
+    ticketPrefabVariant: {fileID: 1602429628497752747, guid: 01d7a8d0b6262d34bbef483564e3b72f, type: 3}
     orderImage: {fileID: 21300000, guid: dc2f4b262d388cc46b5f9115409b5835, type: 3}
     orderIngredients: {fileID: 21300000, guid: 641c12671329fed4a9bb978666890ba7, type: 3}
     orderTools: {fileID: 21300000, guid: f44bedea604c98b41bda1e441af24570, type: 3}
     orderTutorial: {fileID: 21300000, guid: 4c12c9cc126abab4f9daa8b10378db53, type: 3}
   - nameOfDish: 4
-    ticketPrefabVariant: {fileID: 0}
+    ticketPrefabVariant: {fileID: 1102359997404753861, guid: 4a5a6cb3620045d4993b6c98d9be743d, type: 3}
     orderImage: {fileID: 21300000, guid: b53a6f5413a27f94992e8524104d7486, type: 3}
     orderIngredients: {fileID: 21300000, guid: b0e5b261a7b38f4469177e532e242ce0, type: 3}
     orderTools: {fileID: 21300000, guid: 1efd8e9161739f94aa23ec22a8e988c2, type: 3}
     orderTutorial: {fileID: 21300000, guid: 53826f171e1c13645be0faec9493c292, type: 3}
   - nameOfDish: 1
-    ticketPrefabVariant: {fileID: 0}
+    ticketPrefabVariant: {fileID: 167999767075790857, guid: 2574f2d4f25c5974383eef1f31a9d104, type: 3}
     orderImage: {fileID: 21300000, guid: e524b3c2362c9b34bb764314b4a3c5e7, type: 3}
     orderIngredients: {fileID: 21300000, guid: a3ccea55b6eecd64c8933d24d4b62f54, type: 3}
     orderTools: {fileID: 21300000, guid: 79c96643f5f23ee4fa2ac35ee774a4d8, type: 3}
@@ -1726,15 +1726,15 @@ PrefabInstance:
       objectReference: {fileID: 3005108346274408367}
     - target: {fileID: 7061671384639600787, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00000016002943
+      value: 0.00000016002946
       objectReference: {fileID: 0}
     - target: {fileID: 7061671384639600787, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.08054556
+      value: 0.05369707
       objectReference: {fileID: 0}
     - target: {fileID: 7061671384639600787, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0000004267458
+      value: -0.0000003200593
       objectReference: {fileID: 0}
     - target: {fileID: 9213621254682700026, guid: ad845c1a41f3e2849a1748daa75be28d, type: 3}
       propertyPath: m_LocalPosition.x

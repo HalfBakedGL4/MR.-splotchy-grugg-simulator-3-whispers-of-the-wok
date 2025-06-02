@@ -7,8 +7,6 @@ public class S_StartGame : MonoBehaviour, IButtonObject
     [SerializeField] Transform Shutter;
     [SerializeField, Min(1)] float shutterOpenCloseTime;
 
-    Vector3 shutterEndPos = Vector3.up;
-
     [Button]
     public void OnButtonPressed()
     {
@@ -35,7 +33,7 @@ public class S_StartGame : MonoBehaviour, IButtonObject
             {
                 yield return new WaitForEndOfFrame();
                 opening += Time.deltaTime / shutterOpenCloseTime;
-                Shutter.localPosition = Vector3.Lerp(Vector3.zero, shutterEndPos, opening);
+                Shutter.localPosition = Vector3.Lerp(Vector3.zero, Vector3.up, opening);
             }
         } 
         else
@@ -45,7 +43,7 @@ public class S_StartGame : MonoBehaviour, IButtonObject
             {
                 yield return new WaitForEndOfFrame();
                 opening += Time.deltaTime / shutterOpenCloseTime;
-                Shutter.localPosition = Vector3.Lerp(shutterEndPos, Vector3.zero, opening);
+                Shutter.localPosition = Vector3.Lerp(Vector3.up, Vector3.zero, opening);
             }
         }
 

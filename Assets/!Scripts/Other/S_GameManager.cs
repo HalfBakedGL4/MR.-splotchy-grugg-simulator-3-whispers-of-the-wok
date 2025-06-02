@@ -76,14 +76,14 @@ public class S_GameManager : NetworkBehaviour
     {
         base.FixedUpdateNetwork();
 
-        string message = "";
+        //string message = "";
 
-        foreach (var item in currentFood)
-        {
-            message += item.GetFoodType() + "\n";
-        }
+        //foreach (var item in currentFood)
+        //{
+        //    message += item.GetFoodType() + "\n";
+        //}
 
-        Debug.Log("[GameManager] Food: " + message);
+        //Debug.Log("[GameManager] Food: " + message);
 
         if (!isLocal) return;
 
@@ -118,8 +118,7 @@ public class S_GameManager : NetworkBehaviour
     /// </summary>
     public static S_Food TrySpawnFood(S_Food food, Vector3 position, Quaternion rotation)
     {
-        instance.SpawnFood(food, position, rotation);
-        return null;
+        return instance.SpawnFood(food, position, rotation);
     }
     /// <summary>
     /// used to destroy food
