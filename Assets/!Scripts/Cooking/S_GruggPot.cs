@@ -9,14 +9,14 @@ public class S_GruggPot : NetworkBehaviour, IButtonObject, IToggle
     [SerializeField] private XRBaseInteractable interactable;
     [Networked] private bool isTurnedOn { get; set; }
 
-    private bool isActive = false;
+    [Networked] private bool isActive { get; set; }
     public override void Spawned()
     {
         base.Spawned();
         
         ConnectToApplicationManager();
         
-        gruggJuiceCollider.SetActive(false);
+        RPC_GruggColliderActive(false);
     }
 
     // Whenever button is pressed, start spewing grugg
@@ -25,19 +25,25 @@ public class S_GruggPot : NetworkBehaviour, IButtonObject, IToggle
         if (!isActive && isTurnedOn)
             StartCoroutine(ApplyGruggWindow());
     }
-
+    
     private IEnumerator ApplyGruggWindow()
     {
         // GruggJuice Trigger is made visible and can add the Grugg to dish
         isActive = true;
-        gruggJuiceCollider.SetActive(true);
+        RPC_GruggColliderActive(true);
         // Should add VFX and SFX here
         yield return new WaitForSeconds(2f);
         // Hides the Trigger for the GruggJuice
         isActive = false;
-        gruggJuiceCollider.SetActive(false);
+        RPC_GruggColliderActive(false);
     }
 
+    [Rpc(sources: RpcSources.All, targets: RpcTargets.All)]
+    private void RPC_GruggColliderActive(bool toggle)
+    {
+        gruggJuiceCollider.SetActive(toggle);
+    }
+    
     public void SetApplicationActive(bool toggle)
     {
         isTurnedOn = toggle;
