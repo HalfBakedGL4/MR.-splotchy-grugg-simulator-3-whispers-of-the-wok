@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using Fusion;
 using Input;
@@ -13,6 +15,22 @@ public class S_ApplicationManager : NetworkBehaviour
     {
         Instance = this;
     }
+
+    public override void Spawned()
+    {
+        base.Spawned();
+        
+        StartCoroutine(DebuggingTurnOnonplay());
+        // For DEBUGGING today
+        
+    }
+
+    private IEnumerator DebuggingTurnOnonplay()
+    {
+        yield return new WaitForSeconds(2.0f);
+        EnableApplications();
+    }
+        
 
     public void RegisterToggle(IToggle toggle)
     {

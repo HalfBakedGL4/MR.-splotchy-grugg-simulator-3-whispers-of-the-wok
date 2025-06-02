@@ -785,8 +785,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.9955083, z: -0.09467432, w: 0}
   m_LocalPosition: {x: 0, y: 1.338, z: 6.07}
-  m_LocalScale: {x: 1, y: 0.59897184, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.29948592, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6671178031647338853}
   m_LocalEulerAnglesHint: {x: 10.865, y: 180, z: 0}
@@ -798,7 +798,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699893819537674346}
   serializedVersion: 8
-  lengthInSec: 1
+  lengthInSec: 8
   simulationSpeed: 3.5
   stopAction: 0
   cullingMode: 0
@@ -807,7 +807,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -6169,8 +6169,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2118294944712669528}
   - {fileID: 8589201461388232421}
@@ -6248,6 +6248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   suckPoint: {fileID: 2723856422580926450}
+  suckForce: 10
   platePrefab: {fileID: 910016782285851564, guid: 459924bd06c240046b2ad2aa276926eb, type: 3}
   anim: {fileID: 5311625461742731757}
   destroyTrash: {fileID: 5066085208127323807}
@@ -6256,6 +6257,10 @@ MonoBehaviour:
   - {fileID: 5574067550789925849}
   - {fileID: 7827270541945319968}
   - {fileID: 2435533728726363896}
+  trashParticles:
+  - {fileID: 2423834102453219139}
+  - {fileID: 3002191399484758004}
+  - {fileID: 2900694189765426063}
 --- !u!114 &3488259125174242280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7226,8 +7231,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0.53, z: 6.07}
-  m_LocalScale: {x: 1, y: 0.5989718, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.2994859, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6671178031647338853}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -7239,7 +7244,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6622945372986914212}
   serializedVersion: 8
-  lengthInSec: 1
+  lengthInSec: 8
   simulationSpeed: 3.5
   stopAction: 0
   cullingMode: 0
@@ -7248,7 +7253,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -12607,8 +12612,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.9984835, z: 0.05505247, w: 0}
   m_LocalPosition: {x: 0, y: -0.17300001, z: 6.07}
-  m_LocalScale: {x: 1, y: 0.59897184, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.29948592, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6671178031647338853}
   m_LocalEulerAnglesHint: {x: -6.312, y: 180, z: 0}
@@ -12620,7 +12625,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8055633711820426260}
   serializedVersion: 8
-  lengthInSec: 1
+  lengthInSec: 8
   simulationSpeed: 3.5
   stopAction: 0
   cullingMode: 0
@@ -12629,7 +12634,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -17616,7 +17621,7 @@ Transform:
   m_GameObject: {fileID: 8702183189551458793}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.52382743, y: 0.32, z: 0.525}
+  m_LocalPosition: {x: 0.52382743, y: 0.564, z: 0.525}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

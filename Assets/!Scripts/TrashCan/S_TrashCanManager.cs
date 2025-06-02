@@ -3,12 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class S_TrashCanManager : NetworkBehaviour, IToggle
 {
     [SerializeField] private Transform suckPoint;
+    [SerializeField] private float suckForce = 10.0f;
     [SerializeField] private GameObject platePrefab;
     [SerializeField] private Animator anim;
 
@@ -17,7 +17,12 @@ public class S_TrashCanManager : NetworkBehaviour, IToggle
     [SerializeField] private S_MoveTrash moveTrash;
     [SerializeField] private S_PlateDispenser[] plateDispenserScripts;
     
+    [Header("Particle Effects")]
+    [SerializeField] private List<ParticleSystem> trashParticles;
+    
     [Networked] private bool isTurnedOn { get; set; }
+
+    bool isLocal => Object && Object.HasStateAuthority;
 
 
     public override void Spawned()
@@ -46,7 +51,7 @@ public class S_TrashCanManager : NetworkBehaviour, IToggle
     // Moves any food on the floor to the trash can
     private void CleanUpFloor()
     {
-        if (!isTurnedOn) {return;}
+        if (!isTurnedOn || !isLocal) {return;}
         
         var foodInScene = FindObjectsByType<S_Food>(FindObjectsSortMode.None);
         var dishInScene = FindObjectsByType<S_DishStatus>(FindObjectsSortMode.None);
@@ -70,9 +75,19 @@ public class S_TrashCanManager : NetworkBehaviour, IToggle
         }
 
         // Make food on floor move towards suckPoint to be deleted
+        RPC_StartSucking();
         StartCoroutine(SuckFoodCoroutine(foodOnFloor));
+
     }
 
+    [Rpc(sources: RpcSources.StateAuthority, targets: RpcTargets.All)]
+    private void RPC_StartSucking()
+    {
+        foreach (var particle in trashParticles)
+        {
+            particle.Play();
+        }
+    }
     private IEnumerator SuckFoodCoroutine(List<GameObject> foodOnFloor)
     {
         List<Rigidbody> foodRBs = foodOnFloor.Select(food => food.GetComponent<Rigidbody>()).ToList();
@@ -81,7 +96,7 @@ public class S_TrashCanManager : NetworkBehaviour, IToggle
         {
             foreach (var food in foodRBs.ToList().Where(food => food))
             {
-                food.AddForce((suckPoint.position - food.transform.position).normalized * 5f);
+                food.AddForce((suckPoint.position - food.transform.position).normalized * suckForce);
 
                 if (Vector3.Distance(food.transform.position, suckPoint.position) < 0.1f)
                 {
