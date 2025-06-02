@@ -65,11 +65,7 @@ MonoBehaviour:
   Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-<<<<<<< HEAD
-  lastModified: 638844708994196077
-=======
   lastModified: 638830094247954096
->>>>>>> origin/FMod
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -89,11 +85,7 @@ MonoBehaviour:
   Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-<<<<<<< HEAD
-  lastModified: 638844708994219172
-=======
   lastModified: 638830094247979216
->>>>>>> origin/FMod
   FileSizes:
   - Name: Desktop
     Value: 1382
@@ -148,11 +140,7 @@ MonoBehaviour:
   - {fileID: -6386715786150375349}
   StringsBanks:
   - {fileID: -4948234000095023022}
-<<<<<<< HEAD
-  cacheTime: 638844708994219172
-=======
   cacheTime: 638830094306142602
->>>>>>> origin/FMod
   cacheVersion: 131624
 --- !u!114 &773075711897763831
 MonoBehaviour:
