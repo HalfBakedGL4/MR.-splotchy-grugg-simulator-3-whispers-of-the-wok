@@ -22,10 +22,10 @@ public class S_Alien : MonoBehaviour
 
         if (agent.isOnNavMesh)
         {
-            /*Vector3 targetPosition = Camera.main.transform.position;
+            Vector3 targetPosition = Camera.main.transform.position;
 
             agent.SetDestination(targetPosition);
-            agent.speed = speed;*/
+            agent.speed = speed;
         } else
         {
             Debug.LogError("[Navmesh] Navmesh Agent not attached to Navmesh Surface.");

@@ -1,20 +1,28 @@
 using System.Collections;
+using Fusion;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
-public class S_GruggPot : MonoBehaviour, IButtonObject
+public class S_GruggPot : NetworkBehaviour, IButtonObject, IToggle
 {
     [SerializeField] private GameObject gruggJuiceCollider;
+    [SerializeField] private XRBaseInteractable interactable;
+    [Networked] private bool isTurnedOn { get; set; }
 
     private bool isActive = false;
-    private void Start()
+    public override void Spawned()
     {
+        base.Spawned();
+        
+        ConnectToApplicationManager();
+        
         gruggJuiceCollider.SetActive(false);
     }
 
     // Whenever button is pressed, start spewing grugg
     public void OnButtonPressed()
     {
-        if (!isActive)
+        if (!isActive && isTurnedOn)
             StartCoroutine(ApplyGruggWindow());
     }
 
@@ -28,5 +36,38 @@ public class S_GruggPot : MonoBehaviour, IButtonObject
         // Hides the Trigger for the GruggJuice
         isActive = false;
         gruggJuiceCollider.SetActive(false);
+    }
+
+    public void SetApplicationActive(bool toggle)
+    {
+        isTurnedOn = toggle;
+        
+        print(name + " is turned on: " + toggle);
+
+        RPC_ToggleMovement(toggle);
+
+    }
+
+    private XRGrabInteractable _grabInteractable;
+    [Rpc(sources: RpcSources.All, targets: RpcTargets.All)]
+    public void RPC_ToggleMovement(bool toggle)
+    {
+        if (_grabInteractable == null)
+        {
+            _grabInteractable = GetComponent<XRGrabInteractable>();
+        }
+        interactable.enabled = toggle;
+
+        
+        // Is opposite of toggle because it needs to be on when everything is off
+        _grabInteractable.enabled = !toggle;
+    }
+
+    public void ConnectToApplicationManager()
+    {
+        if (S_ApplicationManager.Instance != null)
+        {
+            S_ApplicationManager.Instance.RegisterToggle(this);
+        }
     }
 }
