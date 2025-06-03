@@ -245,7 +245,7 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_ShowInteractableHoverMeshes: 1
-  m_InteractableHoverMeshMaterial: {fileID: 2100000, guid: bdfeb958e81c3314bb189d54f3d4a3c1, type: 2}
+  m_InteractableHoverMeshMaterial: {fileID: 2100000, guid: e9a9959fdc36a5745816974f582679e1, type: 2}
   m_InteractableCantHoverMeshMaterial: {fileID: 2100000, guid: e9a9959fdc36a5745816974f582679e1, type: 2}
   m_SocketActive: 1
   m_InteractableHoverScale: 1
