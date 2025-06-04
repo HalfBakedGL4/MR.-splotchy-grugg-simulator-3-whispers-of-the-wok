@@ -29,6 +29,7 @@
     <type fullname="S_GameManager" preserve="all" />
     <type fullname="S_GruggJuice" preserve="all" />
     <type fullname="S_GruggPot" preserve="all" />
+    <type fullname="S_Hammer" preserve="all" />
     <type fullname="S_HardwarePart" preserve="all" />
     <type fullname="S_HoleManager" preserve="all" />
     <type fullname="S_HoleSpawner" preserve="all" />

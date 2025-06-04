@@ -22,7 +22,7 @@ public class S_IdleSate : S_State
     {
         renderer.enabled = false;
         Debug.Log("Customer made order");
-        Invoke("Attack", 5);
+        Invoke("Attack", 25);
     }
 
     void Attack()

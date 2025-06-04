@@ -272,7 +272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallMultiplier: 1
   enemyMultiplier: 1
-  _charge: 0
+  _charge: 0.3
   fillImage: {fileID: 6910178886965919672}
 --- !u!65 &6594369578696204996
 BoxCollider:
@@ -313,6 +313,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 861809427380688173, guid: 22b4f0ed2bf00f24489321e0366165b1, type: 3}
       propertyPath: 'NetworkedBehaviours.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2172995968954182430}
+    - target: {fileID: 861809427380688173, guid: 22b4f0ed2bf00f24489321e0366165b1, type: 3}
+      propertyPath: 'NetworkedBehaviours.Array.data[2]'
       value: 
       objectReference: {fileID: 2172995968954182430}
     - target: {fileID: 3990303696344069797, guid: 22b4f0ed2bf00f24489321e0366165b1, type: 3}
