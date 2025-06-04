@@ -368,9 +368,9 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: S_FryerActivater, Assembly-CSharp
-        m_MethodName: FryerLiftedOutOfOil
+      - m_Target: {fileID: 5294074824563115260}
+        m_TargetAssemblyTypeName: S_Plate, Assembly-CSharp
+        m_MethodName: UnplateFood
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
