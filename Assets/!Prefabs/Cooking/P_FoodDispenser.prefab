@@ -16319,7 +16319,7 @@ Transform:
   m_GameObject: {fileID: 7879421924441811756}
   serializedVersion: 2
   m_LocalRotation: {x: -0.14479142, y: -0, z: -0, w: 0.9894622}
-  m_LocalPosition: {x: 0.239, y: 0.219, z: 0.107}
+  m_LocalPosition: {x: 0.239, y: 0.231, z: 0.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16339,7 +16339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodToDispense: {fileID: 8838173536849041710, guid: 15a9df953c19fc04399e52a454e0389f, type: 3}
-  launchSpeed: 2
+  launchSpeed: 10
   rotationSpeed: 45
   interactable: {fileID: 3290814527742683955}
 --- !u!1 &8113687841787916565
@@ -16487,7 +16487,7 @@ Transform:
   m_GameObject: {fileID: 8710530137186193269}
   serializedVersion: 2
   m_LocalRotation: {x: -0.13444804, y: -0, z: -0, w: 0.99092066}
-  m_LocalPosition: {x: -0.005, y: 0.237, z: 0.103}
+  m_LocalPosition: {x: -0.005, y: 0.24900001, z: 0.136}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16507,7 +16507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodToDispense: {fileID: 7184869932161336017, guid: e1b0ef59760462f439b86bd0e007b54b, type: 3}
-  launchSpeed: 2
+  launchSpeed: 10
   rotationSpeed: 45
   interactable: {fileID: 3461913518470223212}
 --- !u!1 &8759584452105121207
@@ -16536,7 +16536,7 @@ Transform:
   m_GameObject: {fileID: 8759584452105121207}
   serializedVersion: 2
   m_LocalRotation: {x: -0.2493754, y: -0, z: -0, w: 0.9684069}
-  m_LocalPosition: {x: -0.24, y: 0.265, z: 0.087}
+  m_LocalPosition: {x: -0.24, y: 0.27699998, z: 0.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16556,7 +16556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodToDispense: {fileID: 5809053682801831640, guid: 0310795c2f100a34cbb6f8090fda5e3d, type: 3}
-  launchSpeed: 2
+  launchSpeed: 10
   rotationSpeed: 45
   interactable: {fileID: 3355430625669881927}
 --- !u!1 &8782577149790394468
