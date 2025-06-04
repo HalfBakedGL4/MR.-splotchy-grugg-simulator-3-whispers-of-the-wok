@@ -23,6 +23,11 @@ public class S_ApplicationManager : NetworkBehaviour
         print("Registered, " + toggle);
     }
 
+    public void StartApplicationsForGame()
+    {
+        EnableApplications();
+    }
+
     [Networked] private bool isActive { get; set; }
     public void Toggle(InputInfo info)
     {
