@@ -14,6 +14,9 @@ public class S_Ticket : NetworkBehaviour
     [SerializeField] private S_TicketDetailGiver ticketDetailGiver;
     [SerializeField] private TextMeshProUGUI ticketNumberText;
 
+    [Networked, OnChangedRender(nameof(InitializeTicketNumber))]
+    public int TicketNumber { get; set; }
+    
     private static int _ticketNumber;
     
     bool isLocal => Object && Object.HasStateAuthority;
@@ -27,25 +30,33 @@ public class S_Ticket : NetworkBehaviour
             ticketDetailGiver = Runner.Spawn(order.ticketPrefabVariant, ticketSpawnPoint.position, ticketSpawnPoint.rotation).GetComponent<S_TicketDetailGiver>();
             //Number the ticket
             _ticketNumber++;
+            TicketNumber = _ticketNumber;
         }
+        //TicketNumber = ticketNumber;
         
         ticketDetailGiver.InitTicket(_ticketNumber);
         
         // Save the order and costumer who ordered so that they can be found via the ticket later
         _currentOrder = order;
         _costumerOrder = costumerOrder;
-        ticketNumberText.text = $"#{_ticketNumber}";
+        ticketNumberText.text = $"#{TicketNumber}";
+    }
+
+    private void InitializeTicketNumber()
+    {
+        Debug.Log("I don't know if this even works.");
     }
 
     public void DestroyTicketDetails()
     {
+        if (!isLocal) return;
         Runner.Despawn(ticketDetailGiver.GetComponent<NetworkObject>());
     }
     
 
     public int GetTicketNumber()
     {
-        return _ticketNumber;
+        return TicketNumber;
     }
 
     public (Order, S_CostumerOrder) GetOrderAndCostumer()

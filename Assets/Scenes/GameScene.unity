@@ -374,17 +374,25 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: spawnableStations.Array.data[0].stations.Array.data[0].toSpawn
+      value: 
+      objectReference: {fileID: 825229848008208359, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
+    - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: spawnableStations.Array.data[0].stations.Array.data[1].toSpawn
+      value: 
+      objectReference: {fileID: 5439066145181431010, guid: 7e4225130453e544cb89d9d619d58bef, type: 3}
+    - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
       propertyPath: spawnableStations.Array.data[0].stations.Array.data[2].toSpawn
       value: 
-      objectReference: {fileID: 7200728395727634709, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
+      objectReference: {fileID: 2012386090533404722, guid: 19eb3f79a96263743992872919600d57, type: 3}
     - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
       propertyPath: spawnableStations.Array.data[0].stations.Array.data[3].toSpawn
       value: 
-      objectReference: {fileID: 3892053843264737743, guid: 1fd7dc4e2738aaf4fbee7afd7338fd45, type: 3}
+      objectReference: {fileID: 7200728395727634709, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
     - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
       propertyPath: spawnableStations.Array.data[0].stations.Array.data[4].toSpawn
       value: 
-      objectReference: {fileID: 825229848008208359, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
+      objectReference: {fileID: 3892053843264737743, guid: 1fd7dc4e2738aaf4fbee7afd7338fd45, type: 3}
     - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
       propertyPath: spawnableStations.Array.data[1].stations.Array.data[1].toSpawn
       value: 
