@@ -2456,7 +2456,7 @@ MonoBehaviour:
   AutoClients: 2
   ClientStartDelay: 1
   ServerPort: 0
-  DefaultRoomName: SharedTestingInteractions
+  DefaultRoomName: SharedTestingUI
   InitialScenePath: 
   _currentStage: 0
   AutoConnectVirtualInstances: 1
@@ -2540,17 +2540,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: SwitchPlanetTXT
       objectReference: {fileID: 0}
+    - target: {fileID: 4073861419363954604, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073861419363954604, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073861419363954604, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073861419363954604, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6709251092197856324, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.56453866
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6709251092197856324, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2054858
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6709251092197856324, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.6407394
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6709251092197856324, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2585,6 +2601,14 @@ PrefabInstance:
       value: PlayToUnlock
       objectReference: {fileID: 0}
     - target: {fileID: 7812791540110458333, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901829385930266341, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647778023131097477, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}

@@ -46,6 +46,8 @@ public class S_MenuLever : MonoBehaviour
         rotatePosX = Mathf.Clamp(rotatePosX - 360, -amountToMove, amountToMove) + 360;
 
         lever.transform.localEulerAngles = new Vector3(rotatePosX - 360, 0, 0);
+
+        StartCoroutine(S_SettingsMenu.UpdateSelectedPlanet((Planet)((rotatePosX - 360) / 20)));
     }
 
     void OnTriggerExit(Collider other)
