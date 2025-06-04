@@ -40,7 +40,7 @@ public class S_IdleSate : S_State
 
         // Spawn hole
         S_HoleSpawner holeSpawner = FindFirstObjectByType<S_HoleSpawner>();
-        holeSpawner.SpawnHole(pointOnWall, a.transform.localRotation);
+        holeSpawner.SpawnHole(pointOnWall, a.transform.rotation);
 
         // Swap state to chase
         canSeeThePlayer = true;
