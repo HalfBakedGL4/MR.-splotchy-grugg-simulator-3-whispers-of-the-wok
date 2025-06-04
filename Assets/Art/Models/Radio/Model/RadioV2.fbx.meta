@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7a63ae36851fe144ca0f9f25e787776f
+guid: 3260bcfa488ebb64f89f5118f4184c70
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -22,7 +22,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: ConeMount.001
+      name: ConeMount_001
     second: {fileID: 2100000, guid: d0e0b8f1a1539634fb3ce215afeee7c9, type: 2}
   - first:
       type: UnityEngine:Material
@@ -42,7 +42,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: HandleBracket.001
+      name: HandleBracket_001
     second: {fileID: 2100000, guid: c5a6e83c4259e884791848680b26c9ed, type: 2}
   - first:
       type: UnityEngine:Material
@@ -128,7 +128,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.2
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -183,14 +183,14 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.2
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
