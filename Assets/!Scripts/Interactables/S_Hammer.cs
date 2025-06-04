@@ -19,6 +19,7 @@ public class S_Hammer : NetworkBehaviour
 
     public void Start()
     {
+        charge = 0.1f;
         Debug.Log("Spawned");
         rb = GetComponent<Rigidbody>();
         if (!IsLocalNetworkRig) enabled = false;
@@ -26,13 +27,13 @@ public class S_Hammer : NetworkBehaviour
         runner = FindFirstObjectByType<NetworkRunner>();
     }
 
-    private void Update()
+    public override void FixedUpdateNetwork()
     {
         Debug.Log("Hammer charge is: "+charge);
         fillImage.fillAmount = charge;
-        if (!Object.HasStateAuthority) return;
+        //if (!Object.HasStateAuthority) return;
         if(charge > 1) return;
-        charge = charge+4*Time.deltaTime;
+        charge = charge+0.5f*Time.deltaTime;
         
     }
 

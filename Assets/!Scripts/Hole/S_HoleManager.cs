@@ -26,7 +26,7 @@ public class S_HoleManager : NetworkBehaviour
     {
         if (other.gameObject.CompareTag("Finish"))
         {
-            if(!runner.IsSharedModeMasterClient) return;
+            //if(!runner.IsSharedModeMasterClient) return;
             RPCHammerHit(0.4f);
         }
     }

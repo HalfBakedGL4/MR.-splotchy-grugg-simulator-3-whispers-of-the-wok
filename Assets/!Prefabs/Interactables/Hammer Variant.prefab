@@ -225,6 +225,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -259972160606440404, guid: 7493819b845416e45a6e2a17e8eda787, type: 3}
+      propertyPath: m_TagString
+      value: Finish
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7493819b845416e45a6e2a17e8eda787, type: 3}
       propertyPath: m_Name
       value: Hammer13
