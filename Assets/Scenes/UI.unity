@@ -2169,10 +2169,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4922624519068481145, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 55
-      objectReference: {fileID: 0}
     - target: {fileID: 5914218168018401880, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2213,45 +2209,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6420217098066176350, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      propertyPath: m_Cameras.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6420217098066176350, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      propertyPath: m_RenderPostProcessing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6420217098066176350, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      propertyPath: 'm_Cameras.Array.data[0]'
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7225380768329135335, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
       propertyPath: m_Name
       value: Shared-LocalPlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 7225380768329135335, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7335614726308319071, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      propertyPath: length
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7335614726308319071, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      propertyPath: hapicDuration
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7335614726308319071, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      propertyPath: hapicAmplitude
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8455747855692244314, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      propertyPath: hapicDuration
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8455747855692244314, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      propertyPath: hapicAmplitude
-      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2532,30 +2492,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SettingsMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 1335178989161610125, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
-      propertyPath: m_Name
-      value: NotPlayed
-      objectReference: {fileID: 0}
-    - target: {fileID: 1587380037168728019, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
-      propertyPath: m_Name
-      value: SwitchPlanetTXT
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073861419363954604, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073861419363954604, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073861419363954604, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073861419363954604, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6709251092197856324, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2594,22 +2530,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6709251092197856324, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7131527422566616006, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
-      propertyPath: m_Name
-      value: PlayToUnlock
-      objectReference: {fileID: 0}
-    - target: {fileID: 7812791540110458333, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7901829385930266341, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8647778023131097477, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

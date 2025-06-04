@@ -6,7 +6,7 @@ using UnityEngine;
 public enum Planet
 {
     CyberPlanet = -1,
-    None = 0,
+    Pluto = 0,
     Saturn = 1
 }
 
@@ -15,7 +15,9 @@ public class S_SettingsMenu : MonoBehaviour
     public static S_SettingsMenu instance;
 
     [SerializeField] Planet _currentPlanet;
-    public static Planet currentPlanet = Planet.None;
+    public AnimationCurve xAxis;
+
+    public static Planet currentPlanet = Planet.Pluto;
     public SerializableDictionary<Planet, GameObject> planets;
 
     static Vector3 defaultPos { get; } = new Vector3(0, 0.6f, 1.5f);
@@ -30,6 +32,9 @@ public class S_SettingsMenu : MonoBehaviour
     private void Update()
     {
         _currentPlanet = currentPlanet;
+
+        if(instance.planets[currentPlanet] != null)
+            instance.planets[currentPlanet].transform.Rotate(0, 10 * Time.deltaTime, 0);
     }
 
     public static IEnumerator UpdateSelectedPlanet(Planet planet)
@@ -58,12 +63,18 @@ public class S_SettingsMenu : MonoBehaviour
             {
                 current.transform.localPosition = Vector3.Lerp(defaultPos, displayPos, t);
                 current.transform.localScale = Vector3.Lerp(defaultScale, displayScale, t);
+                current.transform.localPosition += new Vector3(instance.xAxis.Evaluate(t), 0, 0);
+
+                current.transform.Rotate(0, 30 * Time.deltaTime, 0);
             }
 
             if(previous != null)
             {
                 previous.transform.localPosition = Vector3.Lerp(displayPos, defaultPos, t);
                 previous.transform.localScale = Vector3.Lerp(displayScale, defaultScale, t);
+                previous.transform.localPosition += new Vector3(-instance.xAxis.Evaluate(t), 0, 0);
+
+                previous.transform.Rotate(0, 30 * Time.deltaTime, 0);
             }
         }
         if (previous != null)
