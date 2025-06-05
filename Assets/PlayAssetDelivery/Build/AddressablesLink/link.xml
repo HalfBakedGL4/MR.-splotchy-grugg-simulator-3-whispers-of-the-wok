@@ -10,7 +10,9 @@
     <type fullname="Rig" preserve="all" />
     <type fullname="S_Alien" preserve="all" />
     <type fullname="S_AnimateHandOnInput" preserve="all" />
+    <type fullname="S_ApplicationManager" preserve="all" />
     <type fullname="S_AttackState" preserve="all" />
+    <type fullname="S_BasicToggle" preserve="all" />
     <type fullname="S_ButtonPushed" preserve="all" />
     <type fullname="S_ChaseState" preserve="all" />
     <type fullname="S_ColorClassifications" preserve="all" />
@@ -39,15 +41,19 @@
     <type fullname="S_Interactor" preserve="all" />
     <type fullname="S_ItemSpawner" preserve="all" />
     <type fullname="S_MoveTrash" preserve="all" />
+    <type fullname="S_OpenDoor" preserve="all" />
     <type fullname="S_OrderWindow" preserve="all" />
     <type fullname="S_Plate" preserve="all" />
     <type fullname="S_PlateDispenser" preserve="all" />
     <type fullname="S_PlayerSpawner" preserve="all" />
     <type fullname="S_RecipeDatabase" preserve="all" />
     <type fullname="S_RuntimeNavmeshBuilder" preserve="all" />
+    <type fullname="S_SetTextOffline" preserve="all" />
+    <type fullname="S_SetTicketDetailTextOffline" preserve="all" />
     <type fullname="S_SocketMultipleTagInteractor" preserve="all" />
     <type fullname="S_SocketTagInteractor" preserve="all" />
-    <type fullname="S_SpawnNetworkObject" preserve="all" />
+    <type fullname="S_SpawnBasketsInFryer" preserve="all" />
+    <type fullname="S_SpawnCustomer" preserve="all" />
     <type fullname="S_SpawnObjectOnClassification" preserve="all" />
     <type fullname="S_StartGame" preserve="all" />
     <type fullname="S_Ticket" preserve="all" />
@@ -68,6 +74,7 @@
     <type fullname="FMODUnity.StudioListener" preserve="all" />
     <type fullname="FMOD.GUID" preserve="nothing" serialized="true" />
     <type fullname="FMODUnity.EventReference" preserve="nothing" serialized="true" />
+    <type fullname="FMODUnity.ParamRef" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Fusion.Runtime, Version=2.0.4.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="Fusion.NetworkEvents" preserve="all" />
@@ -273,9 +280,6 @@
   <assembly fullname="UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.ParticleSystem" preserve="all" />
     <type fullname="UnityEngine.ParticleSystemRenderer" preserve="all" />
-  </assembly>
-  <assembly fullname="UnityEngine.Physics2DModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-    <type fullname="UnityEngine.CircleCollider2D" preserve="all" />
   </assembly>
   <assembly fullname="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.BoxCollider" preserve="all" />

@@ -337,6 +337,22 @@ PrefabInstance:
       propertyPath: multiHoleFix
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1375659409922778496, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: Flags
+      value: 262145
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375659409922778496, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: SortKey
+      value: 3788092789
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375659409922778496, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: NetworkedBehaviours.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375659409922778496, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: 'NetworkedBehaviours.Array.data[0]'
+      value: 
+      objectReference: {fileID: 538838340}
     - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
       propertyPath: planeManager
       value: 
@@ -348,6 +364,10 @@ PrefabInstance:
     - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
       propertyPath: spawnableStations.Array.data[1].name
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: spawnableStations.Array.data[1].toPlaceOn
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
       propertyPath: spawnableStations.Array.data[0].stations.Array.size
@@ -486,6 +506,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+--- !u!114 &538838340 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 508911771630065833, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+  m_PrefabInstance: {fileID: 538838339}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef2ef8037fa24bc45b447168516d2b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &651728803
 GameObject:
   m_ObjectHideFlags: 0

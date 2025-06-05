@@ -164,8 +164,6 @@ public class S_Cooker : NetworkBehaviour, IToggle
                 foodScript.ToggleColliders();
             }
 
-            StartCooking?.Invoke();
-
             SetCookerState(CookerState.Cooking);
         }
         // Stop Cooker and empty food items inside
@@ -173,8 +171,6 @@ public class S_Cooker : NetworkBehaviour, IToggle
         {
             _currentDishStatus = SpawnDish();
             cookTimer.TimerToggle(false);
-
-            StoppedCooking?.Invoke();
 
             SetCookerState(CookerState.Available);
         }
@@ -369,6 +365,22 @@ public class S_Cooker : NetworkBehaviour, IToggle
     //no need to be rpc because cookerstate is a networked variable
     void SetCookerState(CookerState state)
     {
+        Debug.Log("[Fryer] " + state);
+
+        switch (state)
+        {
+            case CookerState.Cooking:
+                {
+                    StartCooking?.Invoke();
+                    break;
+                }
+            case CookerState.Available:
+                {
+                    StoppedCooking?.Invoke();
+                    break;
+                }
+        }
+
         this.state = state;
     }
     

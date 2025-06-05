@@ -30,6 +30,7 @@ public class S_GameManager : NetworkBehaviour
     public static bool ready => instance.Ready;
     [Networked] bool Ready { get; set; }
     [SerializeField] bool waitForPlayers = true;
+    [SerializeField] bool autoStart = false;
 
     [Space]
 
@@ -197,6 +198,13 @@ public class S_GameManager : NetworkBehaviour
     #region Game States
     void Intermission()
     {
+        if(autoStart)
+        {
+            Ready = true;
+            StartGame();
+            return;
+        }
+
         if(!waitForPlayers || sessionInfo.PlayerCount >= playersRequired)
         {
             Ready = true;
