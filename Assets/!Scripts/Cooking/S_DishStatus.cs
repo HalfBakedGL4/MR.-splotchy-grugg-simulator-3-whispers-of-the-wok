@@ -1,4 +1,5 @@
 using System;
+using Fusion;
 using UnityEngine;
 
 [Flags]
@@ -17,10 +18,10 @@ public class S_DishStatus : MonoBehaviour
     /// Status to see how cooked the dish is
     /// Used to save stuff on the dish that could be used to determine score. E.g. how cooked, has grugg
     /// </summary>
-    private DishStatus currentDishStatus = DishStatus.UnCooked;
+    [Networked] private DishStatus currentDishStatus { get; set; } = DishStatus.UnCooked;
 
-    private bool isGrugged = false;
-    
+    [Networked] private bool isGrugged { get; set; } = false;
+
     [SerializeField] private DishType typeOfDish;
 
     public void ChangeStatus(DishStatus newStatus)

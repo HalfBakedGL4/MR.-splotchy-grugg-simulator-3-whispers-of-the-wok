@@ -18,12 +18,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1339422403797316913, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
       propertyPath: NetworkedBehaviours.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1339422403797316913, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
       propertyPath: 'NetworkedBehaviours.Array.data[0]'
       value: 
       objectReference: {fileID: 819830647138959624}
+    - target: {fileID: 1339422403797316913, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
+      propertyPath: 'NetworkedBehaviours.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2062459756718640323}
+    - target: {fileID: 1339422403797316913, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
+      propertyPath: 'NetworkedBehaviours.Array.data[3]'
+      value: 
+      objectReference: {fileID: 5938366193342330498}
+    - target: {fileID: 1339422403797316913, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
+      propertyPath: 'NetworkedBehaviours.Array.data[4]'
+      value: 
+      objectReference: {fileID: 5938366193342330498}
     - target: {fileID: 6210930264627343105, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.78921676
@@ -126,5 +138,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2062459756718640323 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3227481625751357819, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
+  m_PrefabInstance: {fileID: 3482695697474667960}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf7fb4ba235f835409da99f910b331aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5938366193342330498 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7078627134488048442, guid: dbd79e38f96bace4489966c3ab1c944f, type: 3}
+  m_PrefabInstance: {fileID: 3482695697474667960}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf7fb4ba235f835409da99f910b331aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

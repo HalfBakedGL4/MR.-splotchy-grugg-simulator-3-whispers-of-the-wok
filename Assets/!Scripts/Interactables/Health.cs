@@ -1,21 +1,19 @@
-using Unity.VisualScripting;
-using System.Collections;
+using Fusion;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 [RequireComponent(typeof(Rigidbody))]
-public class Health : MonoBehaviour
+public class Health : NetworkBehaviour
 {
     /*[SerializeField] float coolDown; // in seconds
     bool coolDownEnabled = false;*/
 
     //[SerializeField] int state; List
 
-    [SerializeField] float health, maxHealth = 3;
+    [SerializeField] private float  maxHealth = 3;
 
-    Rigidbody rb;
+    [Networked] private float health { get; set; }
 
     [SerializeField] FloatingHealthBar healthBar;
 
@@ -27,16 +25,18 @@ public class Health : MonoBehaviour
     public UnityEvent OnChop;
 
     //int currentChild = 2;
-    GameObject child;
+    private GameObject _child;
 
     private void Awake() 
     {
-        rb = GetComponent<Rigidbody>();
         healthBar = GetComponentInChildren<FloatingHealthBar>();
     }
+    
 
-    private void Start() 
+    public override void Spawned()
     {
+        base.Spawned();
+        
         health = maxHealth;
     }
 
@@ -88,15 +88,18 @@ public class Health : MonoBehaviour
     {
         if (health <= 0) 
         {
-            Destroy(gameObject);
+            Runner.Despawn(gameObject.GetComponent<NetworkObject>());
         }
     }
 
     public void Damage(float damageAmount) 
     {
         OnDamage?.Invoke();
-
+        
         UpdateHealth(-damageAmount);
+        
+        Debug.LogWarning("Damage called \nCurrent Health: " + health);
+
         CheckDeath();
     }
 
@@ -108,17 +111,17 @@ public class Health : MonoBehaviour
 
         for (int i = 0; i < transform.childCount; i++) 
         {
-            child = transform.GetChild(i).gameObject;
-            if (child == col.gameObject)
+            _child = transform.GetChild(i).gameObject;
+            if (_child == col.gameObject)
             {
                 break;
             }
         }
 
         //child = transform.GetChild(transform.childCount-1).gameObject;
-        child.AddComponent<Rigidbody>();
-        child.AddComponent<XRGrabInteractable>();
-        child.transform.parent = null;
+        _child.AddComponent<Rigidbody>();
+        _child.AddComponent<XRGrabInteractable>();
+        _child.transform.parent = null;
 
 
         /*if (currentChild == 0)

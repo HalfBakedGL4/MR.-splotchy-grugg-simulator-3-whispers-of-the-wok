@@ -17,7 +17,7 @@ public class S_Hammer : NetworkBehaviour
     //For testing
     [SerializeField] Image fillImage;
 
-    public void Start()
+    public override void Spawned()
     {
         Debug.Log("Spawned");
         rb = GetComponent<Rigidbody>();
@@ -29,27 +29,28 @@ public class S_Hammer : NetworkBehaviour
     private void Update()
     {
         Debug.Log("Hammer charge is: "+charge);
+        fillImage.fillAmount = charge;
         if (!Object.HasStateAuthority) return;
         if(charge > 1) return;
-        charge += 4*Time.deltaTime;
+        charge = charge+4*Time.deltaTime;
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(!Object.HasStateAuthority) return;
-        if (transform.parent != null)
+        //if(!Object.HasStateAuthority) return;
+
+        if(other.TryGetComponent(out S_HoleManager holemanager))
         {
-            if(other.TryGetComponent(out S_HoleManager holemanager))
-            {
-                holemanager.RPCHammerHit(charge * wallMultiplier);
-                charge = 0;
-                Debug.Log("Hammer hit hole");
-            }
-            if (other.gameObject.CompareTag("Enemy"))
-            {
-                DealDamage(Mathf.Clamp(charge, 0, 1), other.gameObject);
-            }
+            holemanager.RPCHammerHit(charge * wallMultiplier);
+            charge = 0;
+            Debug.Log("Hammer hit hole");
         }
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            DealDamage(Mathf.Clamp(charge, 0, 1), other.gameObject);
+        }
+        
         Debug.Log("Changing Charge level");
         
     }
@@ -65,7 +66,7 @@ public class S_Hammer : NetworkBehaviour
     void NetworkUpdateVisuals()
     {
         Debug.Log("trying to Update Visuals for hammer");
-        fillImage.fillAmount = charge;
+        //fillImage.fillAmount = charge;
         Debug.Log("Update Visuals for hammer");
         // Update visuals for all players here
     }

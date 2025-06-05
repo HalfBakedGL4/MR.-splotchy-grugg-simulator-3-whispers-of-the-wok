@@ -2,13 +2,15 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using Fusion;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEngine.Events;
 
 public enum CookerType
 {
     Oven,
     Fryer,
 }
-public class S_Cooker : NetworkBehaviour
+public class S_Cooker : NetworkBehaviour, IToggle
 {
     private enum CookerState
     {
@@ -24,10 +26,12 @@ public class S_Cooker : NetworkBehaviour
     [SerializeField] private S_SocketTagInteractor[] foodSockets;
     [SerializeField] private S_SocketTagInteractor dishSocket;
     
+    [Header("Interactable to turn On/Off")]
+    [SerializeField] private XRBaseInteractable[] interactable;
     [Networked] private CookerState state { get; set; } = CookerState.Available;
 
-    private NetworkLinkedList<FoodType> _foodCooking = new ();
-    private NetworkLinkedList<S_Food> _foodScripts = new ();
+    [Networked, Capacity(4)] private NetworkLinkedList<FoodType> _foodCooking => default;
+    [Networked, Capacity(4)] private NetworkLinkedList<S_Food> _foodScripts => default;
 
     private S_DishStatus _currentDishStatus;
     private GameObject _spawnedDish;
@@ -48,8 +52,16 @@ public class S_Cooker : NetworkBehaviour
     [Networked] private bool isAbleToStartCooking { get; set; } = true;
     bool isLocal => Object && Object.HasStateAuthority;
     [Networked] private float timer { get; set; }
-    private void Start()
+    
+    [Networked] private bool isTurnedOn { get; set; }
+
+    public UnityEvent StartCooking;
+    public UnityEvent StoppedCooking;
+    public override void Spawned()
     {
+        base.Spawned();
+        
+        ConnectToApplicationManager();
 
         // Subscribe to foodSockets Events
         foreach (var foodSocket in foodSockets)
@@ -72,12 +84,15 @@ public class S_Cooker : NetworkBehaviour
         
         cookTimer.SetAllTimers(underCookedTime, perfectlyCookedTime, overCookedTime);
         
-        // Turn off Dishsocket, should only be used when dish is spawned
+        // Turn off Dish Socket, should only be used when dish is spawned
         dishSocket.socketActive = false;
+        
     }
 
     void Update()
     {
+        if (!isTurnedOn) {return;}
+        
         switch (state)
         {
             case CookerState.Available:
@@ -99,8 +114,7 @@ public class S_Cooker : NetworkBehaviour
         cookTimer.UpdateTimer(timer);
 
     }
-
-
+    
     private void AddFood(SelectEnterEventArgs args)
     {
         if (!isLocal) { return; }
@@ -137,6 +151,7 @@ public class S_Cooker : NetworkBehaviour
 
     public void InteractWithCooker()
     {
+        if (!isTurnedOn) {return;}
         print("Interacting with Cooker " + name);
         // Activate Cooker and start timer
         if (state == CookerState.Available && isAbleToStartCooking)
@@ -148,8 +163,8 @@ public class S_Cooker : NetworkBehaviour
             {
                 foodScript.ToggleColliders();
             }
-            RPC_SetCookerState(CookerState.Cooking);
-            
+
+            SetCookerState(CookerState.Cooking);
         }
         // Stop Cooker and empty food items inside
         else if (state == CookerState.Cooking)
@@ -157,7 +172,7 @@ public class S_Cooker : NetworkBehaviour
             _currentDishStatus = SpawnDish();
             cookTimer.TimerToggle(false);
 
-            RPC_SetCookerState(CookerState.Available);
+            SetCookerState(CookerState.Available);
         }
     }
 
@@ -295,7 +310,7 @@ public class S_Cooker : NetworkBehaviour
             
             dishSocket.socketActive = false;
             
-            RPC_SetCookerState(CookerState.Available);
+            SetCookerState(CookerState.Available);
         }
     }
     #endregion
@@ -347,10 +362,71 @@ public class S_Cooker : NetworkBehaviour
 
     #endregion
 
-    [Rpc(sources: RpcSources.All, targets: RpcTargets.StateAuthority)]
-    void RPC_SetCookerState(CookerState state)
+    //no need to be rpc because cookerstate is a networked variable
+    void SetCookerState(CookerState state)
     {
+        Debug.Log("[Fryer] " + state);
+
+        switch (state)
+        {
+            case CookerState.Cooking:
+                {
+                    StartCooking?.Invoke();
+                    break;
+                }
+            case CookerState.Available:
+                {
+                    StoppedCooking?.Invoke();
+                    break;
+                }
+        }
+
         this.state = state;
+    }
+    
+    public void SetApplicationActive(bool toggle)
+    {
+        isTurnedOn = toggle;
+        
+        
+        print(name + " is turned on: " + toggle);
+
+        RPC_ToggleMovement(toggle);
+
+    }
+
+    private XRGrabInteractable _grabInteractable;
+    [Rpc(sources: RpcSources.All, targets: RpcTargets.All)]
+    public void RPC_ToggleMovement(bool toggle)
+    {
+        foreach (var socket in foodSockets)
+        {
+            socket.socketActive = toggle;
+        }
+        dishSocket.socketActive = toggle;
+        foreach (var interact in interactable)
+        {
+            interact.enabled = toggle;
+        }
+        
+        if (_grabInteractable == null)
+        {
+            _grabInteractable = GetComponent<XRGrabInteractable>();
+        }
+        
+        // Is opposite of toggle because it needs to be on when everything is off
+        if (cookerType == CookerType.Fryer)
+        {
+            return;
+        }
+        _grabInteractable.enabled = !toggle;
+    }
+    public void ConnectToApplicationManager()
+    {
+        if (S_ApplicationManager.Instance != null)
+        {
+            S_ApplicationManager.Instance.RegisterToggle(this);
+        }
     }
 
     private void OnDestroy()

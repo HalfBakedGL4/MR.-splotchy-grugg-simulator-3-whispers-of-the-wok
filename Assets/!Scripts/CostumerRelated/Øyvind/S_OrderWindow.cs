@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 using Random = UnityEngine.Random;
 
@@ -26,9 +27,10 @@ public class S_OrderWindow : NetworkBehaviour
     [Tooltip("All possible dishes for costumers to order, with the descriptive images of items ordered")]
     [SerializeField] private List<Order> orderTypes = new List<Order>();
     private List<(Order order, S_CostumerOrder costumerOrder)> orderOverload = new List<(Order, S_CostumerOrder)>();
-
-
+    
     private Dictionary<S_Ticket, Transform> ticketsDictionary = new Dictionary<S_Ticket, Transform>();
+
+    public UnityEvent TicketAdded;
 
     // Costumer will request a Dish
     public S_Ticket MakeOrder(DishType dish, S_CostumerOrder costumer)
@@ -80,6 +82,8 @@ public class S_OrderWindow : NetworkBehaviour
 
         // Initiate ticket giving it the corresponding visuals to complete it
         ticket.InitTicket(order, costumer);
+
+        TicketAdded?.Invoke();
 
         // Ticket is returned to the costumer so the costumer know which ticket they own
         return ticket;

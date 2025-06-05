@@ -1,0 +1,361 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SpaceGramps_AM
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: GlobTrans
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_B_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_B_Ctrl/Knee_B_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_B_Ctrl/Knee_B_Ctrl/Tip_B_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_B_Ctrl/Knee_B_Ctrl/Tip_B_Ctrl/Inner_B_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_B_Ctrl/Knee_B_Ctrl/Tip_B_Ctrl/Middle_B_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_B_Ctrl/Knee_B_Ctrl/Tip_B_Ctrl/Side_1_B_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_B_Ctrl/Knee_B_Ctrl/Tip_B_Ctrl/Side_2_B_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_F_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_F_Ctrl/Knee_F_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_F_Ctrl/Knee_F_Ctrl/Tip_F_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_F_Ctrl/Knee_F_Ctrl/Tip_F_Ctrl/Inner_F_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_F_Ctrl/Knee_F_Ctrl/Tip_F_Ctrl/Middle_F_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_F_Ctrl/Knee_F_Ctrl/Tip_F_Ctrl/Side_1_F_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_F_Ctrl/Knee_F_Ctrl/Tip_F_Ctrl/Side_2_F_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_L_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_L_Ctrl/Knee_L_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_L_Ctrl/Knee_L_Ctrl/Tip_L_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_L_Ctrl/Knee_L_Ctrl/Tip_L_Ctrl/Inner_L_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_L_Ctrl/Knee_L_Ctrl/Tip_L_Ctrl/Middle_L_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_L_Ctrl/Knee_L_Ctrl/Tip_L_Ctrl/Side_1_L_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_L_Ctrl/Knee_L_Ctrl/Tip_L_Ctrl/Side_2_L_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_R_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_R_Ctrl/Knee_R_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_R_Ctrl/Knee_R_Ctrl/Tip_R_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_R_Ctrl/Knee_R_Ctrl/Tip_R_Ctrl/Inner_R_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_R_Ctrl/Knee_R_Ctrl/Tip_R_Ctrl/Middle_R_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_R_Ctrl/Knee_R_Ctrl/Tip_R_Ctrl/Side_1_R_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Pelvis_Ctrl/Hip_R_Ctrl/Knee_R_Ctrl/Tip_R_Ctrl/Side_2_R_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Eye_L_1_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Eye_L_1_Ctrl/Eye_L_1_Lo_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Eye_L_1_Ctrl/Eye_L_1_Up_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Eye_L_2_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Eye_L_2_Ctrl/Eye_L_2_Lo_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Eye_L_2_Ctrl/Eye_L_2_Up_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Eye_L_3_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Eye_L_3_Ctrl/Eye_L_3_Lo_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Eye_L_3_Ctrl/Eye_L_3_Up__End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Eye_R_1_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Eye_R_1_Ctrl/Eye_R_1_Lo_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Eye_R_1_Ctrl/Eye_R_1_Up_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Eye_R_2_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Eye_R_2_Ctrl/Eye_R_2_Lo_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Eye_R_2_Ctrl/Eye_R_2_Up_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Eye_R_3_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Eye_R_3_Ctrl/Eye_R_3_Lo_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Eye_R_3_Ctrl/Eye_R_3_Up_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Head_Top_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Jaw_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Jaw_Ctrl/Chelicerae_L_1_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Jaw_Ctrl/Chelicerae_L_1_Ctrl/Chelicerae_L_2_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Jaw_Ctrl/Chelicerae_L_1_Ctrl/Chelicerae_L_2_Ctrl/Chelicerae_L_3_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Jaw_Ctrl/Chelicerae_L_1_Ctrl/Chelicerae_L_2_Ctrl/Chelicerae_L_3_Ctrl/Chelicerae_L_4_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Jaw_Ctrl/Chelicerae_L_1_Ctrl/Chelicerae_L_2_Ctrl/Chelicerae_L_3_Ctrl/Chelicerae_L_4_Ctrl/Chelicerae_L_5_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Jaw_Ctrl/Chelicerae_L_1_Ctrl/Chelicerae_L_2_Ctrl/Chelicerae_L_3_Ctrl/Chelicerae_L_4_Ctrl/Chelicerae_L_5_Ctrl/Chelicerae_L_6_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Jaw_Ctrl/Chelicerae_L_1_Ctrl/Chelicerae_L_2_Ctrl/Chelicerae_L_3_Ctrl/Chelicerae_L_4_Ctrl/Chelicerae_L_5_Ctrl/Chelicerae_L_6_Ctrl/Chelicerae_L_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Jaw_Ctrl/Chelicerae_R_1_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Jaw_Ctrl/Chelicerae_R_1_Ctrl/Chelicerae_R_2_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Jaw_Ctrl/Chelicerae_R_1_Ctrl/Chelicerae_R_2_Ctrl/Chelicerae_R_3_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Jaw_Ctrl/Chelicerae_R_1_Ctrl/Chelicerae_R_2_Ctrl/Chelicerae_R_3_Ctrl/Chelicerae_R_4_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Jaw_Ctrl/Chelicerae_R_1_Ctrl/Chelicerae_R_2_Ctrl/Chelicerae_R_3_Ctrl/Chelicerae_R_4_Ctrl/Chelicerae_R_5_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Jaw_Ctrl/Chelicerae_R_1_Ctrl/Chelicerae_R_2_Ctrl/Chelicerae_R_3_Ctrl/Chelicerae_R_4_Ctrl/Chelicerae_R_5_Ctrl/Chelicerae_R_6_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Jaw_Ctrl/Chelicerae_R_1_Ctrl/Chelicerae_R_2_Ctrl/Chelicerae_R_3_Ctrl/Chelicerae_R_4_Ctrl/Chelicerae_R_5_Ctrl/Chelicerae_R_6_Ctrl/Chelicerae_R_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Neck_Ctrl/Neck_Top_Ctrl/Head_Base_Rotation_loc/Head_Ctrl/Jaw_Ctrl/Jaw_End
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Scapula_L_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Scapula_L_Ctrl/Shoulder_L_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Scapula_L_Ctrl/Shoulder_L_Ctrl/Elbow_L_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Scapula_R_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Scapula_R_Ctrl/Shoulder_R_Ctrl
+    m_Weight: 1
+  - m_Path: GlobTrans/Root_Ctrl/Spine_1_Ctrl/Spine_2_Ctrl/Spine_3_Ctrl/Spine_Top_Ctrl/Chest_Ctrl/Scapula_R_Ctrl/Shoulder_R_Ctrl/Elbow_R_Ctrl
+    m_Weight: 1
+  - m_Path: Master_Anim
+    m_Weight: 1
+  - m_Path: Master_Anim/Drill_Anim
+    m_Weight: 1
+  - m_Path: Master_Anim/Hip_Anim
+    m_Weight: 1
+  - m_Path: Master_Anim/Torso_Anim
+    m_Weight: 1
+  - m_Path: Master_Anim/Torso_Anim/Chest_Anim
+    m_Weight: 1
+  - m_Path: Master_Anim/Torso_Anim/Chest_Anim/Head_Anim
+    m_Weight: 1
+  - m_Path: Master_Anim/Torso_Anim/Chest_Anim/Head_Anim/Chelicerae_L_Anim
+    m_Weight: 1
+  - m_Path: Master_Anim/Torso_Anim/Chest_Anim/Head_Anim/Chelicerae_L_Anim/Chelicerae_L_2_Anim
+    m_Weight: 1
+  - m_Path: Master_Anim/Torso_Anim/Chest_Anim/Head_Anim/Chelicerae_R_Anim
+    m_Weight: 1
+  - m_Path: Master_Anim/Torso_Anim/Chest_Anim/Head_Anim/Chelicerae_R_Anim/Chelicerae_R_2_Anim
+    m_Weight: 1
+  - m_Path: Master_Anim/Torso_Anim/Chest_Anim/Head_Anim/Glasses_Eyes_Anim
+    m_Weight: 1
+  - m_Path: Skin_Grp
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_B_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_B_Skin/Knee_B_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_B_Skin/Knee_B_Skin/Tip_B_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_B_Skin/Knee_B_Skin/Tip_B_Skin/Inner_B_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_B_Skin/Knee_B_Skin/Tip_B_Skin/Middle_B_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_B_Skin/Knee_B_Skin/Tip_B_Skin/Side_1_B_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_B_Skin/Knee_B_Skin/Tip_B_Skin/Side_2_B_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_F_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_F_Skin/Knee_F_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_F_Skin/Knee_F_Skin/Tip_F_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_F_Skin/Knee_F_Skin/Tip_F_Skin/Inner_F_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_F_Skin/Knee_F_Skin/Tip_F_Skin/Middle_F_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_F_Skin/Knee_F_Skin/Tip_F_Skin/Side_1_F_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_F_Skin/Knee_F_Skin/Tip_F_Skin/Side_2_F_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_L_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_L_Skin/Knee_L_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_L_Skin/Knee_L_Skin/Tip_L_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_L_Skin/Knee_L_Skin/Tip_L_Skin/Inner_L_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_L_Skin/Knee_L_Skin/Tip_L_Skin/Middle_L_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_L_Skin/Knee_L_Skin/Tip_L_Skin/Side_1_L_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_L_Skin/Knee_L_Skin/Tip_L_Skin/Side_2_L_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_R_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_R_Skin/Knee_R_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_R_Skin/Knee_R_Skin/Tip_R_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_R_Skin/Knee_R_Skin/Tip_R_Skin/Inner_R_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_R_Skin/Knee_R_Skin/Tip_R_Skin/Middle_R_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_R_Skin/Knee_R_Skin/Tip_R_Skin/Side_1_R_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Pelvis_Skin/Hip_R_Skin/Knee_R_Skin/Tip_R_Skin/Side_2_R_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Eye_L_3_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Eye_L_3_Skin/Eye_L_3_Lo_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Eye_L_3_Skin/Eye_L_3_Up_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Eye_R_1_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Eye_R_1_Skin/Eye_R_1_Lo_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Eye_R_1_Skin/Eye_R_1_Up_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Eye_R_1_Skin1
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Eye_R_1_Skin1/Eye_L_1_Lo_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Eye_R_1_Skin1/Eye_L_1_Up_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Eye_R_2_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Eye_R_2_Skin/Eye_R_2_Lo__End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Eye_R_2_Skin/Eye_R_2_Up__End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Eye_R_2_Skin1
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Eye_R_2_Skin1/Eye_R_2_Lo__End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Eye_R_2_Skin1/Eye_R_2_Up__End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Eye_R_2_Skin3
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Eye_R_2_Skin3/Eye_L_2_Lo_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Eye_R_2_Skin3/Eye_L_2_Up_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Head_Top_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Jaw_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Jaw_Skin/Chelicerae_L_1_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Jaw_Skin/Chelicerae_L_1_Skin/Chelicerae_L_2_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Jaw_Skin/Chelicerae_L_1_Skin/Chelicerae_L_2_Skin/Chelicerae_L_3_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Jaw_Skin/Chelicerae_L_1_Skin/Chelicerae_L_2_Skin/Chelicerae_L_3_Skin/Chelicerae_L_4_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Jaw_Skin/Chelicerae_L_1_Skin/Chelicerae_L_2_Skin/Chelicerae_L_3_Skin/Chelicerae_L_4_Skin/Chelicerae_L_5_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Jaw_Skin/Chelicerae_L_1_Skin/Chelicerae_L_2_Skin/Chelicerae_L_3_Skin/Chelicerae_L_4_Skin/Chelicerae_L_5_Skin/Chelicerae_L_6_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Jaw_Skin/Chelicerae_L_1_Skin/Chelicerae_L_2_Skin/Chelicerae_L_3_Skin/Chelicerae_L_4_Skin/Chelicerae_L_5_Skin/Chelicerae_L_6_Skin/Chelicerae_L_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Jaw_Skin/Chelicerae_R_1_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Jaw_Skin/Chelicerae_R_1_Skin/Chelicerae_R_2_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Jaw_Skin/Chelicerae_R_1_Skin/Chelicerae_R_2_Skin/Chelicerae_R_3_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Jaw_Skin/Chelicerae_R_1_Skin/Chelicerae_R_2_Skin/Chelicerae_R_3_Skin/Chelicerae_R_4_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Jaw_Skin/Chelicerae_R_1_Skin/Chelicerae_R_2_Skin/Chelicerae_R_3_Skin/Chelicerae_R_4_Skin/Chelicerae_R_5_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Jaw_Skin/Chelicerae_R_1_Skin/Chelicerae_R_2_Skin/Chelicerae_R_3_Skin/Chelicerae_R_4_Skin/Chelicerae_R_5_Skin/Chelicerae_R_6_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Jaw_Skin/Chelicerae_R_1_Skin/Chelicerae_R_2_Skin/Chelicerae_R_3_Skin/Chelicerae_R_4_Skin/Chelicerae_R_5_Skin/Chelicerae_R_6_Skin/Chelicerae_R_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Neck_Skin/Neck_Top_Skin/Head_Base_Rotation_loc/Head_Skin/Jaw_Skin/Jaw_End
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Scapula_L_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Scapula_L_Skin/Shoulder_L_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Scapula_L_Skin/Shoulder_L_Skin/Elbow_L_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Scapula_R_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Scapula_R_Skin/Shoulder_R_Skin
+    m_Weight: 1
+  - m_Path: Skin_Grp/Root_Skin/Spine_1_Skin/Spine_2_Skin/Spine_3_Skin/Spine_Top_Skin/Chest_Skin/Scapula_R_Skin/Shoulder_R_Skin/Elbow_R_Skin
+    m_Weight: 1
+  - m_Path: SpaceGrampsBody
+    m_Weight: 1

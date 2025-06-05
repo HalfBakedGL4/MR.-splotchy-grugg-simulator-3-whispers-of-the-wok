@@ -1,8 +1,6 @@
 using Fusion;
 using NaughtyAttributes;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
@@ -32,6 +30,7 @@ public class S_GameManager : NetworkBehaviour
     public static bool ready => instance.Ready;
     [Networked] bool Ready { get; set; }
     [SerializeField] bool waitForPlayers = true;
+    [SerializeField] bool autoStart = false;
 
     [Space]
 
@@ -132,7 +131,7 @@ public class S_GameManager : NetworkBehaviour
     S_Food SpawnFood(S_Food food, Vector3 position, Quaternion rotation)
     {
         S_Food newFood = null;
-
+/*
         if (CurrentGameState == GameState.Offline)
         {
             Debug.LogWarning("[GameManager] Do not spawn food while Offline.");
@@ -142,7 +141,7 @@ public class S_GameManager : NetworkBehaviour
         {
             Debug.LogWarning("[GameManager] Do not spawn food while Game isn't running.");
             return null;
-        }
+        }*/
 
         if (currentFood.Count >= maxFood)
         {
@@ -199,6 +198,13 @@ public class S_GameManager : NetworkBehaviour
     #region Game States
     void Intermission()
     {
+        if(autoStart)
+        {
+            Ready = true;
+            StartGame();
+            return;
+        }
+
         if(!waitForPlayers || sessionInfo.PlayerCount >= playersRequired)
         {
             Ready = true;

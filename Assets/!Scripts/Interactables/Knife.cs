@@ -1,37 +1,48 @@
 using UnityEngine;
 using System.Collections;
+using Fusion;
 
-public class Knife : MonoBehaviour
+public class Knife : NetworkBehaviour
 {
     private GameObject objectWithDamageScript;
 
-    float countDown = 2f;
-    bool isDamaged; 
+    private bool isLocal => Object && Object.HasStateAuthority;
+
+    float countDown = 0.2f;
+    [Networked] private bool isDamaged { get; set; }
+    
 
     private void OnTriggerEnter(Collider col)
     {
-        if (isDamaged) return; 
+        if (!isLocal) return;
 
-        if (col.tag == "Vegetable") 
+        if (col.CompareTag("Vegetable")) 
         {
-            StartCoroutine(Timer());
+            if (isDamaged) return; 
+
 
             objectWithDamageScript = col.transform.parent.gameObject;
             
-            if (objectWithDamageScript.TryGetComponent<Health>(out Health health))
+            if (objectWithDamageScript.TryGetComponent(out Health health))
                 health.ChopObject(col);
         }
-        if (col.tag == "Customer") 
+        
+        if (col.CompareTag("Customer")) 
         {
+            if (isDamaged) return; 
+
             objectWithDamageScript = col.gameObject;
             objectWithDamageScript.GetComponent<Health>().Damage(1);
+            Debug.LogWarning("\n" + name + " hit Customer: " + col.gameObject.name);
         }
+        
+        StartCoroutine(Timer());
+
     }
 
     
     IEnumerator Timer()
     {
-        Debug.Log("LOLO");
         isDamaged = true;
         yield return new WaitForSeconds(countDown);
         isDamaged = false;

@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 7260553563802116100}
   - component: {fileID: 4020992127102166501}
   - component: {fileID: 8419958004247738199}
+  - component: {fileID: 1252289514944469651}
   m_Layer: 0
   m_Name: TicketNumber
   m_TagString: Untagged
@@ -224,6 +225,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1252289514944469651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100634845009836710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ad82b5a142fb549bbeccec0d75f16d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberText: {fileID: 8419958004247738199}
+  ticketDetail: {fileID: 833553542793432622}
 --- !u!1 &647602109866329447
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,9 +1256,6 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -5529010338870892084, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   ticketNumberText: {fileID: 8419958004247738199}
-  orderImage: {fileID: 4505597589300174732}
-  orderIngredients: {fileID: 1565960020690774641}
-  orderTools: {fileID: 6274971157077253179}
-  orderTutorial: {fileID: 5527382960531941715}
   page1: {fileID: 1847914085222213996}
   page2: {fileID: 1595334422126377975}
+  _TicketID: 0

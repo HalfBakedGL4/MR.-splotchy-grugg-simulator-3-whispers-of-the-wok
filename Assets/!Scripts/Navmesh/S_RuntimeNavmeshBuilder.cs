@@ -14,19 +14,12 @@ public class S_RuntimeNavmeshBuilder : MonoBehaviour
     void Start()
     {
         navmeshSurface = GetComponent<NavMeshSurface>();
-        //yield return new WaitUntil(() => MRUK.Instance != null);
         MRUK.Instance.RegisterSceneLoadedCallback(BuildNavmesh);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void BuildNavmesh()
     {
-        Debug.Log("[NavmeshSurface] in BuildNavMesh() ... ");
+        Debug.Log("[NavmeshSurface] in BuildNavMesh() ...");
         StartCoroutine(BuildNavmeshRoutine());
     }
 
