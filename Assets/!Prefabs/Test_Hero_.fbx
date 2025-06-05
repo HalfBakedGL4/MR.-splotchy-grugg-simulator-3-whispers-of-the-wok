@@ -1,0 +1,633 @@
+; FBX 7.7.0 project file
+; ----------------------------------------------------
+
+FBXHeaderExtension:  {
+	FBXHeaderVersion: 1004
+	FBXVersion: 7700
+	CreationTimeStamp:  {
+		Version: 1000
+		Year: 2025
+		Month: 5
+		Day: 15
+		Hour: 14
+		Minute: 32
+		Second: 41
+		Millisecond: 320
+	}
+	Creator: "FBX SDK/FBX Plugins version 2020.3.6"
+	OtherFlags:  {
+		TCDefinition: 127
+	}
+	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
+		Type: "UserData"
+		Version: 100
+		MetaData:  {
+			Version: 100
+			Title: ""
+			Subject: ""
+			Author: ""
+			Keywords: ""
+			Revision: ""
+			Comment: ""
+		}
+		Properties70:  {
+			P: "DocumentUrl", "KString", "Url", "", "C:\Users\fbuen\Desktop\CG-Art\M5-Unity\donekitten\Test_Hero_.fbx"
+			P: "SrcDocumentUrl", "KString", "Url", "", "C:\Users\fbuen\Desktop\CG-Art\M5-Unity\donekitten\Test_Hero_.fbx"
+			P: "Original", "Compound", "", ""
+			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
+			P: "Original|ApplicationName", "KString", "", "", "Maya"
+			P: "Original|ApplicationVersion", "KString", "", "", "2025"
+			P: "Original|DateTime_GMT", "DateTime", "", "", "15/05/2025 12:32:41.319"
+			P: "Original|FileName", "KString", "", "", "C:\Users\fbuen\Desktop\CG-Art\M5-Unity\donekitten\Test_Hero_.fbx"
+			P: "LastSaved", "Compound", "", ""
+			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
+			P: "LastSaved|ApplicationName", "KString", "", "", "Maya"
+			P: "LastSaved|ApplicationVersion", "KString", "", "", "2025"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "15/05/2025 12:32:41.319"
+			P: "Original|ApplicationActiveProject", "KString", "", "", "C:\Users\fbuen\Desktop\CG-Art\M5-Unity"
+			P: "Original|ApplicationNativeFile", "KString", "", "", "C:\Users\fbuen\Desktop\CG-Art\M5-Unity\KittenAnimations.ma"
+		}
+	}
+}
+GlobalSettings:  {
+	Version: 1000
+	Properties70:  {
+		P: "UpAxis", "int", "Integer", "",1
+		P: "UpAxisSign", "int", "Integer", "",1
+		P: "FrontAxis", "int", "Integer", "",2
+		P: "FrontAxisSign", "int", "Integer", "",1
+		P: "CoordAxis", "int", "Integer", "",0
+		P: "CoordAxisSign", "int", "Integer", "",1
+		P: "OriginalUpAxis", "int", "Integer", "",1
+		P: "OriginalUpAxisSign", "int", "Integer", "",1
+		P: "UnitScaleFactor", "double", "Number", "",1
+		P: "OriginalUnitScaleFactor", "double", "Number", "",1
+		P: "AmbientColor", "ColorRGB", "Color", "",0,0,0
+		P: "DefaultCamera", "KString", "", "", "Producer Perspective"
+		P: "TimeMode", "enum", "", "",11
+		P: "TimeProtocol", "enum", "", "",2
+		P: "SnapOnFrameMode", "enum", "", "",0
+		P: "TimeSpanStart", "KTime", "Time", "",0
+		P: "TimeSpanStop", "KTime", "Time", "",38488465000
+		P: "CustomFrameRate", "double", "Number", "",-1
+		P: "TimeMarker", "Compound", "", ""
+		P: "CurrentTimeMarker", "int", "Integer", "",-1
+	}
+}
+
+; Documents Description
+;------------------------------------------------------------------
+
+Documents:  {
+	Count: 1
+	Document: 1707172678848, "", "Scene" {
+		Properties70:  {
+			P: "SourceObject", "object", "", ""
+			P: "ActiveAnimStackName", "KString", "", "", "Take 001"
+		}
+		RootNode: 0
+	}
+}
+
+; Document References
+;------------------------------------------------------------------
+
+References:  {
+}
+
+; Object definitions
+;------------------------------------------------------------------
+
+Definitions:  {
+	Version: 100
+	Count: 31
+	ObjectType: "GlobalSettings" {
+		Count: 1
+	}
+	ObjectType: "NodeAttribute" {
+		Count: 13
+		PropertyTemplate: "FbxSkeleton" {
+			Properties70:  {
+				P: "Color", "ColorRGB", "Color", "",0.8,0.8,0.8
+				P: "Size", "double", "Number", "",100
+				P: "LimbLength", "double", "Number", "H",1
+			}
+		}
+	}
+	ObjectType: "Model" {
+		Count: 14
+		PropertyTemplate: "FbxNode" {
+			Properties70:  {
+				P: "QuaternionInterpolate", "enum", "", "",0
+				P: "RotationOffset", "Vector3D", "Vector", "",0,0,0
+				P: "RotationPivot", "Vector3D", "Vector", "",0,0,0
+				P: "ScalingOffset", "Vector3D", "Vector", "",0,0,0
+				P: "ScalingPivot", "Vector3D", "Vector", "",0,0,0
+				P: "TranslationActive", "bool", "", "",0
+				P: "TranslationMin", "Vector3D", "Vector", "",0,0,0
+				P: "TranslationMax", "Vector3D", "Vector", "",0,0,0
+				P: "TranslationMinX", "bool", "", "",0
+				P: "TranslationMinY", "bool", "", "",0
+				P: "TranslationMinZ", "bool", "", "",0
+				P: "TranslationMaxX", "bool", "", "",0
+				P: "TranslationMaxY", "bool", "", "",0
+				P: "TranslationMaxZ", "bool", "", "",0
+				P: "RotationOrder", "enum", "", "",0
+				P: "RotationSpaceForLimitOnly", "bool", "", "",0
+				P: "RotationStiffnessX", "double", "Number", "",0
+				P: "RotationStiffnessY", "double", "Number", "",0
+				P: "RotationStiffnessZ", "double", "Number", "",0
+				P: "AxisLen", "double", "Number", "",10
+				P: "PreRotation", "Vector3D", "Vector", "",0,0,0
+				P: "PostRotation", "Vector3D", "Vector", "",0,0,0
+				P: "RotationActive", "bool", "", "",0
+				P: "RotationMin", "Vector3D", "Vector", "",0,0,0
+				P: "RotationMax", "Vector3D", "Vector", "",0,0,0
+				P: "RotationMinX", "bool", "", "",0
+				P: "RotationMinY", "bool", "", "",0
+				P: "RotationMinZ", "bool", "", "",0
+				P: "RotationMaxX", "bool", "", "",0
+				P: "RotationMaxY", "bool", "", "",0
+				P: "RotationMaxZ", "bool", "", "",0
+				P: "InheritType", "enum", "", "",0
+				P: "ScalingActive", "bool", "", "",0
+				P: "ScalingMin", "Vector3D", "Vector", "",0,0,0
+				P: "ScalingMax", "Vector3D", "Vector", "",1,1,1
+				P: "ScalingMinX", "bool", "", "",0
+				P: "ScalingMinY", "bool", "", "",0
+				P: "ScalingMinZ", "bool", "", "",0
+				P: "ScalingMaxX", "bool", "", "",0
+				P: "ScalingMaxY", "bool", "", "",0
+				P: "ScalingMaxZ", "bool", "", "",0
+				P: "GeometricTranslation", "Vector3D", "Vector", "",0,0,0
+				P: "GeometricRotation", "Vector3D", "Vector", "",0,0,0
+				P: "GeometricScaling", "Vector3D", "Vector", "",1,1,1
+				P: "MinDampRangeX", "double", "Number", "",0
+				P: "MinDampRangeY", "double", "Number", "",0
+				P: "MinDampRangeZ", "double", "Number", "",0
+				P: "MaxDampRangeX", "double", "Number", "",0
+				P: "MaxDampRangeY", "double", "Number", "",0
+				P: "MaxDampRangeZ", "double", "Number", "",0
+				P: "MinDampStrengthX", "double", "Number", "",0
+				P: "MinDampStrengthY", "double", "Number", "",0
+				P: "MinDampStrengthZ", "double", "Number", "",0
+				P: "MaxDampStrengthX", "double", "Number", "",0
+				P: "MaxDampStrengthY", "double", "Number", "",0
+				P: "MaxDampStrengthZ", "double", "Number", "",0
+				P: "PreferedAngleX", "double", "Number", "",0
+				P: "PreferedAngleY", "double", "Number", "",0
+				P: "PreferedAngleZ", "double", "Number", "",0
+				P: "LookAtProperty", "object", "", ""
+				P: "UpVectorProperty", "object", "", ""
+				P: "Show", "bool", "", "",1
+				P: "NegativePercentShapeSupport", "bool", "", "",1
+				P: "DefaultAttributeIndex", "int", "Integer", "",-1
+				P: "Freeze", "bool", "", "",0
+				P: "LODBox", "bool", "", "",0
+				P: "Lcl Translation", "Lcl Translation", "", "A",0,0,0
+				P: "Lcl Rotation", "Lcl Rotation", "", "A",0,0,0
+				P: "Lcl Scaling", "Lcl Scaling", "", "A",1,1,1
+				P: "Visibility", "Visibility", "", "A",1
+				P: "Visibility Inheritance", "Visibility Inheritance", "", "",1
+			}
+		}
+	}
+	ObjectType: "Geometry" {
+		Count: 1
+		PropertyTemplate: "FbxNurbsCurve" {
+			Properties70:  {
+				P: "Color", "ColorRGB", "Color", "",0.8,0.8,0.8
+				P: "BBoxMin", "Vector3D", "Vector", "",0,0,0
+				P: "BBoxMax", "Vector3D", "Vector", "",0,0,0
+				P: "Primary Visibility", "bool", "", "",1
+				P: "Casts Shadows", "bool", "", "",1
+				P: "Receive Shadows", "bool", "", "",1
+			}
+		}
+	}
+	ObjectType: "CollectionExclusive" {
+		Count: 2
+		PropertyTemplate: "FbxDisplayLayer" {
+			Properties70:  {
+				P: "Color", "ColorRGB", "Color", "",0.8,0.8,0.8
+				P: "Show", "bool", "", "",1
+				P: "Freeze", "bool", "", "",0
+				P: "LODBox", "bool", "", "",0
+			}
+		}
+	}
+}
+
+; Object properties
+;------------------------------------------------------------------
+
+Objects:  {
+	NodeAttribute: 1708997222384, "NodeAttribute::", "LimbNode" {
+		Properties70:  {
+			P: "Size", "double", "Number", "",27.0114942528736
+		}
+		TypeFlags: "Skeleton"
+	}
+	Geometry: 1704980306912, "Geometry::", "NurbsCurve" {
+		GeometryVersion: 124
+		Type: "NurbsCurve"
+		NurbsCurveVersion: 100
+		Order: 4
+		Dimension: 3
+		Form: "Periodic"
+		Rational: 0
+		Points: *48 {
+			a: 11.5142035923426,1.22116792236759e-15,-19.9431856306295,1,-6.52801136866053e-15,1.41008325740934e-15,-23.0284071846852,1,-11.5142035923426,1.2211679223676e-15,-19.9431856306295,1,-19.9431856306295,7.05041628704668e-16,-11.5142035923426,1,-23.0284071846852,4.63746541445006e-31,-7.57355576755493e-15,1,-19.9431856306295,-7.05041628704667e-16,11.5142035923426,1,-11.5142035923426,-1.2211679223676e-15,19.9431856306295,1,-1.45357871232249e-14,-1.41008325740933e-15,23.0284071846852,1,11.5142035923426,-1.2211679223676e-15,19.9431856306295,1,19.9431856306295,-7.05041628704668e-16,11.5142035923426,1,23.0284071846852,-1.32954537600058e-30,2.17131237663995e-14,1,19.9431856306295,7.05041628704667e-16,-11.5142035923426,1
+		} 
+		KnotVector: *19 {
+			a: -3,-2,-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
+		} 
+	}
+	NodeAttribute: 1708660681088, "NodeAttribute::", "Null" {
+		Properties70:  {
+			P: "Look", "enum", "", "",0
+		}
+		TypeFlags: "Null"
+	}
+	NodeAttribute: 1708660678448, "NodeAttribute::", "Null" {
+		TypeFlags: "Null"
+	}
+	NodeAttribute: 1708660678800, "NodeAttribute::", "Null" {
+		TypeFlags: "Null"
+	}
+	NodeAttribute: 1709235032288, "NodeAttribute::FireKitten_back", "Camera" {
+		Properties70:  {
+			P: "Position", "Vector", "", "A",0,0,-1027.25945796483
+			P: "InterestPosition", "Vector", "", "A",-1.22476926382727e-13,0,-27.159457964828
+			P: "BackgroundColor", "Color", "", "A",0,0,0
+			P: "AspectWidth", "double", "Number", "",960
+			P: "AspectHeight", "double", "Number", "",540
+			P: "FilmWidth", "double", "Number", "",1.41732
+			P: "FilmHeight", "double", "Number", "",0.94488
+			P: "FilmAspectRatio", "double", "Number", "",1.5
+			P: "ApertureMode", "enum", "", "",3
+			P: "GateFit", "enum", "", "",2
+			P: "FocalLength", "Number", "", "A",35
+			P: "NearPlane", "double", "Number", "",0.1
+			P: "FarPlane", "double", "Number", "",10000
+			P: "AutoComputeClipPanes", "bool", "", "",1
+			P: "CameraProjectionType", "enum", "", "",1
+			P: "FocusDistance", "double", "Number", "",5
+		}
+		TypeFlags: "Camera"
+		GeometryVersion: 124
+		Position: 0,0,-1027.25945796483
+		Up: 0,1,0
+		LookAt: -1.22476926382727e-13,0,-27.159457964828
+		ShowInfoOnMoving: 1
+		ShowAudio: 0
+		AudioColor: 0,1,0
+		CameraOrthoZoom: 1
+	}
+	NodeAttribute: 1708660684432, "NodeAttribute::", "Null" {
+		Properties70:  {
+			P: "Look", "enum", "", "",0
+		}
+		TypeFlags: "Null"
+	}
+	NodeAttribute: 1708660683552, "NodeAttribute::", "Null" {
+		Properties70:  {
+			P: "Look", "enum", "", "",0
+		}
+		TypeFlags: "Null"
+	}
+	NodeAttribute: 1708660683376, "NodeAttribute::", "Null" {
+		Properties70:  {
+			P: "Look", "enum", "", "",0
+		}
+		TypeFlags: "Null"
+	}
+	NodeAttribute: 1708997217968, "NodeAttribute::", "LimbNode" {
+		Properties70:  {
+			P: "Size", "double", "Number", "",50
+		}
+		TypeFlags: "Skeleton"
+	}
+	NodeAttribute: 1708660679328, "NodeAttribute::", "Null" {
+		Properties70:  {
+			P: "Look", "enum", "", "",0
+		}
+		TypeFlags: "Null"
+	}
+	NodeAttribute: 1708997219888, "NodeAttribute::", "LimbNode" {
+		TypeFlags: "Skeleton"
+	}
+	NodeAttribute: 1708660683728, "NodeAttribute::", "Null" {
+		Properties70:  {
+			P: "Look", "enum", "", "",0
+		}
+		TypeFlags: "Null"
+	}
+	NodeAttribute: 1708660687072, "NodeAttribute::", "Null" {
+		Properties70:  {
+			P: "Look", "enum", "", "",0
+		}
+		TypeFlags: "Null"
+	}
+	Model: 1704944428752, "Model::FireKitten_Spine_jnt1", "LimbNode" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "PreRotation", "Vector3D", "Vector", "",0,0,90
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",1.23259516440783e-32,33.3733215332031,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-1.61282830603858e-06,7.84356370801328,5.91363764068976e-06
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1704944424112, "Model::FireKitten_Master_Kitten", "NurbsCurve" {
+		Version: 232
+		Properties70:  {
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Scaling", "Lcl Scaling", "", "AL7",1,1,1
+			P: "Red", "Integer", "", "A+U",8,8,8
+			P: "Blue", "Integer", "", "A+U",6,6,6
+			P: "Yellow", "Integer", "", "A+U",17,17,17
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1704944431072, "Model::FireKitten_Global_Grp", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1704944463552, "Model::FireKitten_Arm_R_Loc", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-15.9257368530311,61.9336855670038,0.835174323743173
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",197.495511541728,181.022225375609,179.677798565041
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1704943325472, "Model::FireKitten_Arm_L_Loc", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",16.1550367019291,61.5830983598447,1.94830517407109
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",17.4892400227968,-1.69112172164437,-0.524882520677039
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1704943330112, "Model::FireKitten_back", "Camera" {
+		Version: 232
+		Properties70:  {
+			P: "PostRotation", "Vector3D", "Vector", "",0,-90,0
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,0,-1027.25945796483
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",0,180,0
+			P: "Visibility", "Visibility", "", "A",0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1704943332432, "Model::FireKitten_IconsAnim_AnimRoate2", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationPivot", "Vector3D", "Vector", "",0.212397741007978,-1.22587654052896,-1.74091066392018
+			P: "ScalingPivot", "Vector3D", "Vector", "",0.212397741007978,-1.22587654052896,-1.74091066392018
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,0,2.42816193544939
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1704791192528, "Model::FireKitten_Body_Mesh_Grp", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1704791201808, "Model::FireKitten_Glasses_Space_GRP", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationPivot", "Vector3D", "Vector", "",2.77198116346646e-17,83.507194519043,18.0472450256348
+			P: "ScalingPivot", "Vector3D", "Vector", "",2.77198116346646e-17,83.507194519043,18.0472450256348
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-0.347269016430555,-6.14697595937746,8.04710668022176
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",10.1045491804063,-1.06171227772841,-0.100633872111372
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1704791194848, "Model::FireKitten_Hips_result_Jnt", "LimbNode" {
+		Version: 232
+		Properties70:  {
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",2
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,33.3733224945625,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",2.77804351431472,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1704943322560, "Model::FireKitten_locator1", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",44.8893947353707,0,-46.2714757628985
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1704943694976, "Model::FireKitten_Root_Master", "LimbNode" {
+		Version: 232
+		Properties70:  {
+			P: "PreRotation", "Vector3D", "Vector", "",0,0,90
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1704944955424, "Model::FireKitten_Offest_Attach_L_Here", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationPivot", "Vector3D", "Vector", "",-50.9515151977539,55.8626231108759,0.0738658159971237
+			P: "ScalingPivot", "Vector3D", "Vector", "",-50.9515151977539,55.8626231108759,0.0738658159971237
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",35.0415159979706,-22.994112498231,-3.87830143320212
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",13.8144645227462,17.9971246060678,81.0221353392428
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1704943233808, "Model::FireKitten_Offset_Attach_L_Here", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationPivot", "Vector3D", "Vector", "",50.9150924682617,56.8702490150556,-1.01861536502838
+			P: "ScalingPivot", "Vector3D", "Vector", "",50.9150924682617,56.8702490150556,-1.01861536502838
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-35.1741019631964,-21.4572735220232,19.3241930753844
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",0.582480705605618,-54.7450600355559,-75.870349508199
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	CollectionExclusive: 1708997216048, "DisplayLayer::FireKitten_ControlRig_DL", "DisplayLayer" {
+	}
+	CollectionExclusive: 1708997216432, "DisplayLayer::FireKitten_ScondSkin_DL", "DisplayLayer" {
+		Properties70:  {
+			P: "Color", "ColorRGB", "Color", "",1,1,0
+		}
+	}
+}
+
+; Object connections
+;------------------------------------------------------------------
+
+Connections:  {
+	
+	;Model::FireKitten_Spine_jnt1, Model::RootNode
+	C: "OO",1704944428752,0
+	
+	;Model::FireKitten_Master_Kitten, Model::RootNode
+	C: "OO",1704944424112,0
+	
+	;Model::FireKitten_Global_Grp, Model::RootNode
+	C: "OO",1704944431072,0
+	
+	;Model::FireKitten_Arm_R_Loc, Model::RootNode
+	C: "OO",1704944463552,0
+	
+	;Model::FireKitten_Arm_L_Loc, Model::RootNode
+	C: "OO",1704943325472,0
+	
+	;Model::FireKitten_back, Model::RootNode
+	C: "OO",1704943330112,0
+	
+	;Model::FireKitten_IconsAnim_AnimRoate2, Model::RootNode
+	C: "OO",1704943332432,0
+	
+	;Model::FireKitten_Body_Mesh_Grp, Model::RootNode
+	C: "OO",1704791192528,0
+	
+	;Model::FireKitten_Glasses_Space_GRP, Model::RootNode
+	C: "OO",1704791201808,0
+	
+	;Model::FireKitten_Hips_result_Jnt, Model::RootNode
+	C: "OO",1704791194848,0
+	
+	;Model::FireKitten_locator1, Model::RootNode
+	C: "OO",1704943322560,0
+	
+	;Model::FireKitten_Root_Master, Model::RootNode
+	C: "OO",1704943694976,0
+	
+	;Model::FireKitten_Offest_Attach_L_Here, Model::RootNode
+	C: "OO",1704944955424,0
+	
+	;Model::FireKitten_Offset_Attach_L_Here, Model::RootNode
+	C: "OO",1704943233808,0
+	
+	;NodeAttribute::, Model::FireKitten_Spine_jnt1
+	C: "OO",1708997222384,1704944428752
+	
+	;Geometry::, Model::FireKitten_Master_Kitten
+	C: "OO",1704980306912,1704944424112
+	
+	;NodeAttribute::, Model::FireKitten_Global_Grp
+	C: "OO",1708660681088,1704944431072
+	
+	;NodeAttribute::, Model::FireKitten_Arm_R_Loc
+	C: "OO",1708660678448,1704944463552
+	
+	;NodeAttribute::, Model::FireKitten_Arm_L_Loc
+	C: "OO",1708660678800,1704943325472
+	
+	;NodeAttribute::FireKitten_back, Model::FireKitten_back
+	C: "OO",1709235032288,1704943330112
+	
+	;NodeAttribute::, Model::FireKitten_IconsAnim_AnimRoate2
+	C: "OO",1708660684432,1704943332432
+	
+	;NodeAttribute::, Model::FireKitten_Body_Mesh_Grp
+	C: "OO",1708660683552,1704791192528
+	
+	;NodeAttribute::, Model::FireKitten_Glasses_Space_GRP
+	C: "OO",1708660683376,1704791201808
+	
+	;NodeAttribute::, Model::FireKitten_Hips_result_Jnt
+	C: "OO",1708997217968,1704791194848
+	
+	;NodeAttribute::, Model::FireKitten_locator1
+	C: "OO",1708660679328,1704943322560
+	
+	;NodeAttribute::, Model::FireKitten_Root_Master
+	C: "OO",1708997219888,1704943694976
+	
+	;NodeAttribute::, Model::FireKitten_Offest_Attach_L_Here
+	C: "OO",1708660683728,1704944955424
+	
+	;NodeAttribute::, Model::FireKitten_Offset_Attach_L_Here
+	C: "OO",1708660687072,1704943233808
+	
+	;Model::FireKitten_Spine_jnt1, DisplayLayer::FireKitten_ControlRig_DL
+	C: "OO",1704944428752,1708997216048
+	
+	;Model::FireKitten_Master_Kitten, DisplayLayer::FireKitten_ControlRig_DL
+	C: "OO",1704944424112,1708997216048
+	
+	;Model::FireKitten_Arm_L_Loc, DisplayLayer::FireKitten_ControlRig_DL
+	C: "OO",1704943325472,1708997216048
+	
+	;Model::FireKitten_Hips_result_Jnt, DisplayLayer::FireKitten_ControlRig_DL
+	C: "OO",1704791194848,1708997216048
+	
+	;Model::FireKitten_Root_Master, DisplayLayer::FireKitten_ScondSkin_DL
+	C: "OO",1704943694976,1708997216432
+}
