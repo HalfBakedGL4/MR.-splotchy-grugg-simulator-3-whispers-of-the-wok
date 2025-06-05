@@ -192,7 +192,7 @@ MonoBehaviour:
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
   m_Handle: {fileID: 219484915419481541}
-  m_Value: 0.724
+  m_Value: 0.7
   m_ClampedMotion: 1
   m_MaxAngle: 90
   m_MinAngle: -90
@@ -779,7 +779,7 @@ MonoBehaviour:
   NonRigidbodyVelocity: 0
   Params:
   - Name: Volume
-    Value: 0.798
+    Value: 0.7
   - Name: HighEQ
     Value: 0.7
   - Name: LowEQ
@@ -870,7 +870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SortKey: 2515240860
   ObjectInterest: 1
-  Flags: 262145
+  Flags: 524289
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 3894266450124525154}
@@ -1600,7 +1600,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4767100107646272150}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.3446429, z: 0, w: 0.9387339}
+  m_LocalRotation: {x: 0, y: 0.30901697, z: 0, w: 0.95105654}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
