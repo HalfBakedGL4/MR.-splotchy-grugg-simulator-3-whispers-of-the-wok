@@ -174,6 +174,8 @@ public class S_Cooker : NetworkBehaviour, IToggle
             _currentDishStatus = SpawnDish();
             cookTimer.TimerToggle(false);
 
+            StoppedCooking?.Invoke();
+
             SetCookerState(CookerState.Available);
         }
     }
