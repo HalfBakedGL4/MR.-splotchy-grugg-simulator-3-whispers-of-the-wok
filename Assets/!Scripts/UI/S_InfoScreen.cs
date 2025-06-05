@@ -34,6 +34,7 @@ public class S_InfoScreen : MonoBehaviour
                 }
             case GameState.Ongoing:
                 {
+                    connectionText.text = "Time Left: " + S_GameManager.currentGameTime;
                     break;
                 }
             case GameState.Ending:
