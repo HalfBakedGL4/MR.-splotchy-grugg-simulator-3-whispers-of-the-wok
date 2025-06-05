@@ -22,6 +22,8 @@ public class Order
 }
 public class S_OrderWindow : NetworkBehaviour
 {
+    public static S_OrderWindow instance;
+
     [SerializeField] private S_Ticket ticketPrefab;
     [SerializeField] private List<Transform> ticketPlacements;
     [Tooltip("All possible dishes for costumers to order, with the descriptive images of items ordered")]
@@ -31,6 +33,11 @@ public class S_OrderWindow : NetworkBehaviour
     private Dictionary<S_Ticket, Transform> ticketsDictionary = new Dictionary<S_Ticket, Transform>();
 
     public UnityEvent TicketAdded;
+
+    private void Start()
+    {
+        instance = this;
+    }
 
     // Costumer will request a Dish
     public S_Ticket MakeOrder(DishType dish, S_CostumerOrder costumer)
@@ -89,24 +96,24 @@ public class S_OrderWindow : NetworkBehaviour
         return ticket;
     }
 
-    public void RemoveTicket(S_Ticket ticket)
+    public static void RemoveTicket(S_Ticket ticket)
     {
         // Find through Dictionary
-        var pos = ticketsDictionary[ticket];
+        var pos = instance.ticketsDictionary[ticket];
         // Add position back to List
-        ticketPlacements.Add(pos);
+        instance.ticketPlacements.Add(pos);
         // Remove used ticket
-        ticketsDictionary.Remove(ticket);
+        instance.ticketsDictionary.Remove(ticket);
         // Destroy ticket details
         ticket.DestroyTicketDetails();
         // Destroy ticket from scene
-        Runner.Despawn(ticket.GetComponent<NetworkObject>());
+        instance.Runner.Despawn(ticket.GetComponent<NetworkObject>());
 
-        if (orderOverload.Count > 0)
+        if (instance.orderOverload.Count > 0)
         {
-            var ticketInstance = AddTicket(orderOverload[0].order, orderOverload[0].costumerOrder);
-            orderOverload[0].costumerOrder.ConnecTicket(ticketInstance);
-            orderOverload.RemoveAt(0);
+            var ticketInstance = instance.AddTicket(instance.orderOverload[0].order, instance.orderOverload[0].costumerOrder);
+            instance.orderOverload[0].costumerOrder.ConnecTicket(ticketInstance);
+            instance.orderOverload.RemoveAt(0);
         }
     }
 

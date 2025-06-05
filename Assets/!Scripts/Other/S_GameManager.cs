@@ -1,6 +1,7 @@
 using Fusion;
 using NaughtyAttributes;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
@@ -116,6 +117,21 @@ public class S_GameManager : NetworkBehaviour
         }
     }
 
+    void CleauUp()
+    {
+        Debug.Log("[GameManager] CleanUp");
+
+        for (int i = currentFood.Count - 1; i >= 0; i--)
+        {
+            TryDespawnFood(currentFood[i]);
+        }
+
+        foreach (KeyValuePair<S_Ticket, S_CostumerOrder> item in ticketCustomers)
+        {
+            DespawnCustomer(item.Key);
+        }
+    }
+
     #region Food
     /// <summary>
     /// used to spawn food
@@ -189,15 +205,6 @@ public class S_GameManager : NetworkBehaviour
         Debug.Log("[GameManager] Food list is full and needs to trash some food");
         OnFoodListFull?.Invoke();
     }
-    void CleauUp()
-    {
-        Debug.Log("[GameManager] CleanUp");
-
-        for (int i = currentFood.Count - 1; i >= 0; i--)
-        {
-            TryDespawnFood(currentFood[i]);
-        }
-    }
     #endregion
     #region Customer
 
@@ -228,11 +235,14 @@ public class S_GameManager : NetworkBehaviour
 
     public static void TryDespawnCustomer(S_Ticket ticket)
     {
-
+        instance.DespawnCustomer(ticket);
     }
     void DespawnCustomer(S_Ticket ticket)
     {
         Runner.Despawn(ticketCustomers[ticket].Object);
+
+        S_OrderWindow.RemoveTicket(ticket);
+
         ticketCustomers.Remove(ticket);
     }
 
