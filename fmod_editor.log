@@ -7,7 +7,8 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x4000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 0000017D38133D48 isAsync 0 updatePeriod 0.02
+[WRN] OutputWASAPI::mixerThread                : Starvation detected in WASAPI output buffer!
+[LOG] AsyncManager::init                       : manager 0000017D5AA98608 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -16,108 +17,5 @@
 [LOG] Manager::init                            : done.
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
-[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
-[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
-[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
-[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
-[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
-[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
-[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 594528
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 13664
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000006B356FEF38
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF90F805B90
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF90F805B50
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF90F805C70
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF90F805D30
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000017EAF76B438
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='FryerLoop2', format=5, channels=2, frequency=48000, lengthbytes=36672, lengthpcm=140484, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.043823.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 594528
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 13664
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000006B356FEF38
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF90F805B90
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF90F805B50
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF90F805C70
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF90F805D30
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000017EAF76B438
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='FryerLoop5', format=5, channels=2, frequency=48000, lengthbytes=129792, lengthpcm=472711, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.055817.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 594528
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 13664
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000006B356FEF38
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF90F805B90
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF90F805B50
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF90F805C70
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF90F805D30
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000017EAF76B438
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='FryerLoop3', format=5, channels=2, frequency=48000, lengthbytes=96640, lengthpcm=373904, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.032684.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 594528
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 13664
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000006B356FEF38
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF90F805B90
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF90F805B50
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF90F805C70
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF90F805D30
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000017EAF76B438
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='FryerLoop4', format=5, channels=2, frequency=48000, lengthbytes=92288, lengthpcm=315549, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.097382.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 594528
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 13664
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000006B356FEF38
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF90F805B90
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF90F805B50
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF90F805C70
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF90F805D30
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000017EAF76B438
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='FryerLoop1', format=5, channels=2, frequency=48000, lengthbytes=55456, lengthpcm=224774, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.018982.
-[LOG] SoundI::release                          :  (0000017E6DF6D478)
-[LOG] SoundI::release                          :     FryerLoop3 (0000017E72BB0478)
-[LOG] SoundI::release                          :  (0000017E6DF6E898)
-[LOG] SoundI::release                          :     FryerLoop2 (0000017E72BBAA38)
-[LOG] SoundI::release                          :  (0000017E6DF6D308)
-[LOG] SoundI::release                          :     FryerLoop5 (0000017E72BBAD78)
-[LOG] SoundI::release                          :  (0000017E6DF6EA08)
-[LOG] SoundI::release                          :     FryerLoop4 (0000017E72BAEDB8)
-[LOG] SoundI::release                          :  (0000017E6DF6D5E8)
-[LOG] SoundI::release                          :     FryerLoop1 (0000017E72BAD3B8)
-[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
-[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
-[LOG] LiveUpdate::release                      : 
-[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
-[LOG] Thread::callback                         : FMOD stream thread finished.
-[LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] SystemI::close                           : Closed.
