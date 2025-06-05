@@ -164,7 +164,7 @@ public class S_Cooker : NetworkBehaviour, IToggle
                 foodScript.ToggleColliders();
             }
 
-            SetCookerState(CookerState.Cooking);
+            RPC_SetCookerState(CookerState.Cooking);
         }
         // Stop Cooker and empty food items inside
         else if (state == CookerState.Cooking)
@@ -172,7 +172,7 @@ public class S_Cooker : NetworkBehaviour, IToggle
             _currentDishStatus = SpawnDish();
             cookTimer.TimerToggle(false);
 
-            SetCookerState(CookerState.Available);
+            RPC_SetCookerState(CookerState.Available);
         }
     }
 
@@ -310,7 +310,7 @@ public class S_Cooker : NetworkBehaviour, IToggle
             
             dishSocket.socketActive = false;
             
-            SetCookerState(CookerState.Available);
+            RPC_SetCookerState(CookerState.Available);
         }
     }
     #endregion
@@ -361,8 +361,8 @@ public class S_Cooker : NetworkBehaviour, IToggle
     }
 
     #endregion
-
-    void SetCookerState(CookerState state)
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    void RPC_SetCookerState(CookerState state)
     {
         Debug.Log("[Cooker] " + state);
         this.state = state;
