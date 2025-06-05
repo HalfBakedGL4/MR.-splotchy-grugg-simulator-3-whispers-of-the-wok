@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Threading.Tasks;
-using Extentions.Networking;
 using UnityEngine;
 using Fusion;
 using Input;
@@ -19,8 +17,11 @@ public class S_DaForce : NetworkBehaviour
     
     private NetworkObject _tool;
     private Rigidbody _rigidbody;
+    
 
     private bool _moving;
+
+    private bool IsLocal => Object && Object.HasStateAuthority;
     
     // Bool to see if the grab button is pressed
     private bool _grabButtonPressed;
@@ -29,6 +30,17 @@ public class S_DaForce : NetworkBehaviour
 
     private bool _canForcePull;
     
+    
+
+    // private void GrabTool()
+    // {
+    //     if (!_interactor) return;
+    //     if (!_tool) return;
+    //     if (_tool.TryGetComponent(out NetworkObject tool) && _tool.TryGetComponent(out IXRSelectInteractable interactable))
+    //     {
+    //         _interactor.TrySelect(tool, interactable);
+    //     }
+    // }
     
     public void ChangeGrabButtonState(InputInfo info)
     {
@@ -149,12 +161,13 @@ public class S_DaForce : NetworkBehaviour
         }
     }
     
-    private async void SpawnTool()
+    private void SpawnTool()
     {
         if(_tool != null) return;
-        _tool = Runner.Spawn(toolPrefab, transform.position, Quaternion.identity);
+        if (!IsLocal) return;
+        _tool = Runner.Spawn(toolPrefab, transform.position, Quaternion.identity, Runner.LocalPlayer);
         _rigidbody = _tool.GetComponent<Rigidbody>();
-        await Shared.GainStateAuthority(_tool);
+        // await Shared.GainStateAuthority(_tool);
         // _tool.transform.SetParent(transform);
         // _tool.transform.localPosition = Vector3.zero;
         // _tool.transform.localRotation = Quaternion.identity;

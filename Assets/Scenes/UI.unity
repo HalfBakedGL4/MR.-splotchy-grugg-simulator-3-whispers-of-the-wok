@@ -2169,10 +2169,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4922624519068481145, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 55
-      objectReference: {fileID: 0}
     - target: {fileID: 5914218168018401880, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2213,54 +2209,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6420217098066176350, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      propertyPath: m_Cameras.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6420217098066176350, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      propertyPath: m_RenderPostProcessing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6420217098066176350, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      propertyPath: 'm_Cameras.Array.data[0]'
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7225380768329135335, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
       propertyPath: m_Name
       value: Shared-LocalPlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 7225380768329135335, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7335614726308319071, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      propertyPath: length
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7335614726308319071, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      propertyPath: hapicDuration
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7335614726308319071, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      propertyPath: hapicAmplitude
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8455747855692244314, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      propertyPath: hapicDuration
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8455747855692244314, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      propertyPath: hapicAmplitude
-      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2846391589684802325, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 8535558052538984893, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
@@ -2459,7 +2416,7 @@ MonoBehaviour:
   AutoClients: 2
   ClientStartDelay: 1
   ServerPort: 0
-  DefaultRoomName: SharedTestingInteractions
+  DefaultRoomName: SharedTestingUI
   InitialScenePath: 
   _currentStage: 0
   AutoConnectVirtualInstances: 1
@@ -2527,21 +2484,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 619478121167233715, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
+      propertyPath: SortKey
+      value: 2980201211
+      objectReference: {fileID: 0}
     - target: {fileID: 825229848008208359, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
       propertyPath: m_Name
       value: SettingsMenu
       objectReference: {fileID: 0}
     - target: {fileID: 6709251092197856324, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.56453866
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6709251092197856324, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2054858
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6709251092197856324, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.6407394
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6709251092197856324, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2569,6 +2530,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6709251092197856324, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632330196048797200, guid: 42cf174ba194cdd49860803fdb4d1ea7, type: 3}
+      propertyPath: _currentPlanet
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
