@@ -42,8 +42,10 @@
     <type fullname="S_Plate" preserve="all" />
     <type fullname="S_PlateDispenser" preserve="all" />
     <type fullname="S_PlayerSpawner" preserve="all" />
+    <type fullname="S_RadioController" preserve="all" />
     <type fullname="S_RecipeDatabase" preserve="all" />
     <type fullname="S_RuntimeNavmeshBuilder" preserve="all" />
+    <type fullname="S_SetTextOffline" preserve="all" />
     <type fullname="S_SocketMultipleTagInteractor" preserve="all" />
     <type fullname="S_SocketTagInteractor" preserve="all" />
     <type fullname="S_SpawnNetworkObject" preserve="all" />
@@ -55,18 +57,21 @@
     <type fullname="S_UIInteractor" preserve="all" />
     <type fullname="S_WallExplosion" preserve="all" />
     <type fullname="SO_RecipeBook" preserve="all" />
+    <type fullname="Unity.XRContent.Interaction.S_Knob" preserve="all" />
     <type fullname="Verpha.HierarchyDesigner.HierarchyDesignerFolder" preserve="all" />
     <type fullname=".Dish" preserve="nothing" serialized="true" />
     <type fullname=".Order" preserve="nothing" serialized="true" />
     <type fullname=".SpawnableStation" preserve="nothing" serialized="true" />
     <type fullname=".Station" preserve="nothing" serialized="true" />
     <type fullname="Input.InputInfo" preserve="nothing" serialized="true" />
+    <type fullname="Unity.XRContent.Interaction.S_Knob/ValueChangeEvent" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="FMODUnity, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="FMODUnity.StudioEventEmitter" preserve="all" />
     <type fullname="FMODUnity.StudioListener" preserve="all" />
     <type fullname="FMOD.GUID" preserve="nothing" serialized="true" />
     <type fullname="FMODUnity.EventReference" preserve="nothing" serialized="true" />
+    <type fullname="FMODUnity.ParamRef" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Fusion.Runtime, Version=2.0.4.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="Fusion.NetworkEvents" preserve="all" />
