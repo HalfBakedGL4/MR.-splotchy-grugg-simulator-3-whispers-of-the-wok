@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2154300a0563474485e14c052e77bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodType: 0
+  _foodType: 0
 --- !u!114 &8743598295992371745 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 726061048958046649, guid: 22b4f0ed2bf00f24489321e0366165b1, type: 3}

@@ -1,6 +1,70 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8786698432825329412
+--- !u!114 &-8893963072958689686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Radio/HighEQ
+  m_EditorClassIdentifier: 
+  Name: HighEQ
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2940839204
+    data2: 214769678
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-8864268020566464938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/Music.bank
+  Name: Music
+  StudioPath: bank:/Music
+  lastModified: 638844769575525810
+  FileSizes:
+  - Name: Desktop
+    Value: 3379968
+  Exists: 1
+--- !u!114 &-8645573944665687724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/UI.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/UI.bank
+  Name: UI
+  StudioPath: bank:/UI
+  lastModified: 638844768646260316
+  FileSizes:
+  - Name: Desktop
+    Value: 494
+  Exists: 1
+--- !u!114 &-8423445368850059594
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26,7 +90,7 @@ MonoBehaviour:
   - Oevn1
   - Oven2
   Exists: 1
---- !u!114 &-8338508118024555810
+--- !u!114 &-6386715786150375349
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -35,22 +99,70 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/FryerProgression/FryerProg
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
   m_EditorClassIdentifier: 
-  Name: FryerProg
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 2407823420
-    data2: 3231009979
-  Type: 0
-  IsGlobal: 0
-  Labels: []
+  Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638844768646235234
+  FileSizes:
+  - Name: Desktop
+    Value: 1036
   Exists: 1
---- !u!114 &-6614940012260489344
+--- !u!114 &-4948234000095023022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638844769575232746
+  FileSizes:
+  - Name: Desktop
+    Value: 1972
+  Exists: 1
+--- !u!114 &-3846585431969682816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Radio/Radio
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Radio/Radio
+  Guid:
+    Data1: 1514018878
+    Data2: 1321288712
+    Data3: 175256722
+    Data4: 1971977462
+  Banks:
+  - {fileID: -8864268020566464938}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -2927483732230890199}
+  - {fileID: 7081964891779327485}
+  - {fileID: -8893963072958689686}
+  - {fileID: 7184575552474484466}
+  - {fileID: 4071101413126211754}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2927483732230890199
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,7 +186,7 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
---- !u!114 &-6386715786150375349
+--- !u!114 &-2762752158762342396
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -84,17 +196,73 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
+  m_Name: bank:/Character.bank
   m_EditorClassIdentifier: 
-  Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638847126535786996
+  Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/Character.bank
+  Name: Character
+  StudioPath: bank:/Character
+  lastModified: 638844769574925122
   FileSizes:
   - Name: Desktop
-    Value: 1036
+    Value: 90016
   Exists: 1
---- !u!114 &-4948234000095023022
+--- !u!114 &-2740558244035864313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/KitchenAppliances/Fryer/FryerProgression
+  m_EditorClassIdentifier: 
+  Path: event:/KitchenAppliances/Fryer/FryerProgression
+  Guid:
+    Data1: -205459042
+    Data2: 1264770699
+    Data3: -133812038
+    Data4: -1152557214
+  Banks:
+  - {fileID: -1605463418304956283}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 9132245128513053395}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2724794577592715444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/KitchenAppliances/Oven/TryingSomethingOut/TheOven
+  m_EditorClassIdentifier: 
+  Path: event:/KitchenAppliances/Oven/TryingSomethingOut/TheOven
+  Guid:
+    Data1: 1216369281
+    Data2: 1131029858
+    Data3: -2136412740
+    Data4: -1130127279
+  Banks:
+  - {fileID: -1605463418304956283}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -8423445368850059594}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 20379
+--- !u!114 &-1605463418304956283
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,17 +272,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
+  m_Name: bank:/Appliance.bank
   m_EditorClassIdentifier: 
-  Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638847126535905851
+  Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/Appliance.bank
+  Name: Appliance
+  StudioPath: bank:/Appliance
+  lastModified: 638844769574813572
   FileSizes:
   - Name: Desktop
-    Value: 1972
+    Value: 608192
   Exists: 1
---- !u!114 &-4530475891670207660
+--- !u!114 &-767893292738115173
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,75 +292,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Radio/MidEQ
+  m_Name: parameter:/NOTFINISHEDSttractGloveHammer/GLoveAttract
   m_EditorClassIdentifier: 
-  Name: MidEQ
+  Name: GLoveAttract
   StudioPath: 
   Min: 0
   Max: 1
   Default: 0
   ID:
-    data1: 3853293923
-    data2: 4041811795
+    data1: 347729043
+    data2: 2002343379
   Type: 0
   IsGlobal: 0
   Labels: []
   Exists: 1
---- !u!114 &-4166361657278364004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Enemys/WallBreaky
-  m_EditorClassIdentifier: 
-  Path: event:/Enemys/WallBreaky
-  Guid:
-    Data1: 1099111927
-    Data2: 1117842144
-    Data3: 626153397
-    Data4: 744638924
-  Banks:
-  - {fileID: 773075711897763831}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &-3687430297310352247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/KitchenAppliances/TicketWindow/NewOrder
-  m_EditorClassIdentifier: 
-  Path: event:/KitchenAppliances/TicketWindow/NewOrder
-  Guid:
-    Data1: -1508647459
-    Data2: 1341361673
-    Data3: 1697134212
-    Data4: 177733143
-  Banks:
-  - {fileID: 6988847004162971465}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &-1018090098918487563
+--- !u!114 &-500985300684282388
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,17 +316,130 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Music.bank
+  m_Name: bank:/Utensils.bank
   m_EditorClassIdentifier: 
-  Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/Music.bank
-  Name: Music
-  StudioPath: bank:/Music
-  lastModified: 638847126536380227
+  Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/Utensils.bank
+  Name: Utensils
+  StudioPath: bank:/Utensils
+  lastModified: 638844768646275359
   FileSizes:
   - Name: Desktop
-    Value: 3379968
+    Value: 494
   Exists: 1
---- !u!114 &-859248727524150375
+--- !u!114 &-500272628664373699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Food.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/Food.bank
+  Name: Food
+  StudioPath: bank:/Food
+  lastModified: 638844769575143339
+  FileSizes:
+  - Name: Desktop
+    Value: 92352
+  Exists: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: -4948234000095023022}
+  - {fileID: -6386715786150375349}
+  - {fileID: -1605463418304956283}
+  - {fileID: -2762752158762342396}
+  - {fileID: 9156337478688540923}
+  - {fileID: -500272628664373699}
+  - {fileID: -8864268020566464938}
+  - {fileID: -8645573944665687724}
+  - {fileID: -500985300684282388}
+  EditorEvents:
+  - {fileID: -2724794577592715444}
+  - {fileID: -2740558244035864313}
+  - {fileID: 4144406542471867766}
+  - {fileID: 1762571237022588251}
+  - {fileID: 8692246506096213768}
+  - {fileID: 9077828368054084851}
+  - {fileID: 2778841927160157265}
+  - {fileID: -3846585431969682816}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: -6386715786150375349}
+  StringsBanks:
+  - {fileID: -4948234000095023022}
+  cacheTime: 638844769575525810
+  cacheVersion: 131624
+--- !u!114 &1762571237022588251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Character/Glove/NOTFINISHEDSttractGloveHammer
+  m_EditorClassIdentifier: 
+  Path: event:/Character/Glove/NOTFINISHEDSttractGloveHammer
+  Guid:
+    Data1: 2099039088
+    Data2: 1179937917
+    Data3: -1614539344
+    Data4: 1072506214
+  Banks:
+  - {fileID: -2762752158762342396}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -767893292738115173}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &2778841927160157265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Food/Bread/AliveBread scream when cut sound
+  m_EditorClassIdentifier: 
+  Path: event:/Food/Bread/AliveBread scream when cut sound
+  Guid:
+    Data1: 2044387796
+    Data2: 1198007333
+    Data3: -230480738
+    Data4: 1075063673
+  Banks:
+  - {fileID: -500272628664373699}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1098
+--- !u!114 &4071101413126211754
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -236,129 +463,7 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
-  m_Name: FMODStudioCache
-  m_EditorClassIdentifier: 
-  EditorBanks:
-  - {fileID: -4948234000095023022}
-  - {fileID: -6386715786150375349}
-  - {fileID: 6988847004162971465}
-  - {fileID: 1222640987775937603}
-  - {fileID: 773075711897763831}
-  - {fileID: 8560824689270878462}
-  - {fileID: -1018090098918487563}
-  - {fileID: 1442318630145016775}
-  - {fileID: 8304323155383702914}
-  EditorEvents:
-  - {fileID: 3350334831243353854}
-  - {fileID: 5833661001914544287}
-  - {fileID: -3687430297310352247}
-  - {fileID: 7510094080411437459}
-  - {fileID: -4166361657278364004}
-  - {fileID: 5037203281537424210}
-  - {fileID: 2003526364250194391}
-  - {fileID: 4371551296758396930}
-  EditorParameters: []
-  MasterBanks:
-  - {fileID: -6386715786150375349}
-  StringsBanks:
-  - {fileID: -4948234000095023022}
-  cacheTime: 638847126536425695
-  cacheVersion: 131624
---- !u!114 &773075711897763831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Enemys.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/Enemys.bank
-  Name: Enemys
-  StudioPath: bank:/Enemys
-  lastModified: 638847126535612543
-  FileSizes:
-  - Name: Desktop
-    Value: 25024
-  Exists: 1
---- !u!114 &1215484796749552371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Radio/HighEQ
-  m_EditorClassIdentifier: 
-  Name: HighEQ
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 2940839204
-    data2: 214769678
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
---- !u!114 &1222640987775937603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Character.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/Character.bank
-  Name: Character
-  StudioPath: bank:/Character
-  lastModified: 638847126535465826
-  FileSizes:
-  - Name: Desktop
-    Value: 90016
-  Exists: 1
---- !u!114 &1442318630145016775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/UI.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/UI.bank
-  Name: UI
-  StudioPath: bank:/UI
-  lastModified: 638847126536415723
-  FileSizes:
-  - Name: Desktop
-    Value: 494
-  Exists: 1
---- !u!114 &2003526364250194391
+--- !u!114 &4144406542471867766
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -368,24 +473,48 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Food/Bread/AliveBread scream when cut sound
+  m_Name: event:/KitchenAppliances/TicketWindow/NewOrder
   m_EditorClassIdentifier: 
-  Path: event:/Food/Bread/AliveBread scream when cut sound
+  Path: event:/KitchenAppliances/TicketWindow/NewOrder
   Guid:
-    Data1: 2044387796
-    Data2: 1198007333
-    Data3: -230480738
-    Data4: 1075063673
+    Data1: -1508647459
+    Data2: 1341361673
+    Data3: 1697134212
+    Data4: 177733143
   Banks:
-  - {fileID: 8560824689270878462}
+  - {fileID: -1605463418304956283}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1098
---- !u!114 &2704585910069807365
+  Length: 0
+--- !u!114 &7081964891779327485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Radio/MidEQ
+  m_EditorClassIdentifier: 
+  Name: MidEQ
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3853293923
+    data2: 4041811795
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &7184575552474484466
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -409,7 +538,7 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
---- !u!114 &3350334831243353854
+--- !u!114 &8692246506096213768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -419,57 +548,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/KitchenAppliances/Oven/TryingSomethingOut/TheOven
+  m_Name: event:/Enemys/WallBreaky
   m_EditorClassIdentifier: 
-  Path: event:/KitchenAppliances/Oven/TryingSomethingOut/TheOven
+  Path: event:/Enemys/WallBreaky
   Guid:
-    Data1: 1216369281
-    Data2: 1131029858
-    Data3: -2136412740
-    Data4: -1130127279
+    Data1: 1099111927
+    Data2: 1117842144
+    Data3: 626153397
+    Data4: 744638924
   Banks:
-  - {fileID: 6988847004162971465}
+  - {fileID: 9156337478688540923}
   IsStream: 0
   Is3D: 1
-  IsOneShot: 0
-  Parameters:
-  - {fileID: -8786698432825329412}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 20379
---- !u!114 &4371551296758396930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Music/Radio/Radio
-  m_EditorClassIdentifier: 
-  Path: event:/Music/Radio/Radio
-  Guid:
-    Data1: 1514018878
-    Data2: 1321288712
-    Data3: 175256722
-    Data4: 1971977462
-  Banks:
-  - {fileID: -1018090098918487563}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: -6614940012260489344}
-  - {fileID: -4530475891670207660}
-  - {fileID: 1215484796749552371}
-  - {fileID: 2704585910069807365}
-  - {fileID: -859248727524150375}
+  IsOneShot: 1
+  Parameters: []
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &5037203281537424210
+--- !u!114 &9077828368054084851
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -488,7 +584,7 @@ MonoBehaviour:
     Data3: -685187418
     Data4: 1324280956
   Banks:
-  - {fileID: 8560824689270878462}
+  - {fileID: -500272628664373699}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -496,123 +592,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1718
---- !u!114 &5833661001914544287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/KitchenAppliances/Fryer/FryerProgression
-  m_EditorClassIdentifier: 
-  Path: event:/KitchenAppliances/Fryer/FryerProgression
-  Guid:
-    Data1: -205459042
-    Data2: 1264770699
-    Data3: -133812038
-    Data4: -1152557214
-  Banks:
-  - {fileID: 6988847004162971465}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 0
-  Parameters:
-  - {fileID: -8338508118024555810}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &6988847004162971465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Appliance.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/Appliance.bank
-  Name: Appliance
-  StudioPath: bank:/Appliance
-  lastModified: 638847126535292824
-  FileSizes:
-  - Name: Desktop
-    Value: 608192
-  Exists: 1
---- !u!114 &7510094080411437459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Character/Glove/NOTFINISHEDSttractGloveHammer
-  m_EditorClassIdentifier: 
-  Path: event:/Character/Glove/NOTFINISHEDSttractGloveHammer
-  Guid:
-    Data1: 2099039088
-    Data2: 1179937917
-    Data3: -1614539344
-    Data4: 1072506214
-  Banks:
-  - {fileID: 1222640987775937603}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 9031072818376935968}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &8304323155383702914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Utensils.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/Utensils.bank
-  Name: Utensils
-  StudioPath: bank:/Utensils
-  lastModified: 638847126536425695
-  FileSizes:
-  - Name: Desktop
-    Value: 494
-  Exists: 1
---- !u!114 &8560824689270878462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Food.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/Food.bank
-  Name: Food
-  StudioPath: bank:/Food
-  lastModified: 638847126535765887
-  FileSizes:
-  - Name: Desktop
-    Value: 92352
-  Exists: 1
---- !u!114 &9031072818376935968
+--- !u!114 &9132245128513053395
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -622,17 +602,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/NOTFINISHEDSttractGloveHammer/GLoveAttract
+  m_Name: parameter:/FryerProgression/FryerProg
   m_EditorClassIdentifier: 
-  Name: GLoveAttract
+  Name: FryerProg
   StudioPath: 
   Min: 0
   Max: 1
   Default: 0
   ID:
-    data1: 347729043
-    data2: 2002343379
+    data1: 2407823420
+    data2: 3231009979
   Type: 0
   IsGlobal: 0
   Labels: []
+  Exists: 1
+--- !u!114 &9156337478688540923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Enemys.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/Enemys.bank
+  Name: Enemys
+  StudioPath: bank:/Enemys
+  lastModified: 638844769575026526
+  FileSizes:
+  - Name: Desktop
+    Value: 25024
   Exists: 1
