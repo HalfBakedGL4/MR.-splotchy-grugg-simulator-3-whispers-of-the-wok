@@ -13,7 +13,7 @@ public class S_CostumerSpawner : NetworkBehaviour
     public S_CostumerOrder SpawnCostumer(Vector3 pos, ARPlane wall)
     {
         // Create costumer
-        var costumerInstance = Runner.Spawn(costumerPrefabs[Random.Range(0, costumerPrefabs.Count)], pos);
+        var costumerInstance = S_GameManager.TrySpawnCustomer(costumerPrefabs[Random.Range(0, costumerPrefabs.Count)].GetComponent<S_CostumerOrder>(), pos, Quaternion.identity);
 
         // Make costumer child of wall to change its rotation compared to the wall and then release it from custody
         costumerInstance.transform.parent = wall.transform;

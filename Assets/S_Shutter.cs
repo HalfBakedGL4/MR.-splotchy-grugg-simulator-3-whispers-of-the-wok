@@ -8,31 +8,30 @@ public class S_Shutter : MonoBehaviour
 
     private void Update()
     {
-
-        switch(S_GameManager.CurrentGameState )
+        switch (S_GameManager.CurrentGameState )
         {
             case GameState.Starting:
                 {
                     if (!isOpen)
-                        MoveShutter(true);
+                        StartCoroutine(MoveShutter(true));
                     break;
                 }
             case GameState.Ongoing:
                 {
                     if (!isOpen)
-                        MoveShutter(true);
+                        StartCoroutine(MoveShutter(true));
                     break;
                 }
             case GameState.Ending:
                 {
                     if (isOpen)
-                        MoveShutter(false);
+                        StartCoroutine(MoveShutter(false));
                     break;
                 }
             case GameState.Intermission:
                 {
                     if (isOpen)
-                        MoveShutter(false);
+                        StartCoroutine(MoveShutter(false));
                     break;
                 }
         }

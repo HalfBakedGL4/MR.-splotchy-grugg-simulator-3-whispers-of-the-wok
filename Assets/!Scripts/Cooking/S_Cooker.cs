@@ -362,12 +362,12 @@ public class S_Cooker : NetworkBehaviour, IToggle
 
     #endregion
 
-    //no need to be rpc because cookerstate is a networked variable
     void SetCookerState(CookerState state)
     {
-        Debug.Log("[Fryer] " + state);
+        Debug.Log("[Cooker] " + state);
+        this.state = state;
 
-        switch (state)
+        switch (this.state)
         {
             case CookerState.Cooking:
                 {
@@ -381,7 +381,6 @@ public class S_Cooker : NetworkBehaviour, IToggle
                 }
         }
 
-        this.state = state;
     }
     
     public void SetApplicationActive(bool toggle)

@@ -1,7 +1,6 @@
 <linker>
   <assembly fullname="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="AlignmentManager" preserve="all" />
-    <type fullname="ColocationInputHandler" preserve="all" />
     <type fullname="ColocationManager" preserve="all" />
     <type fullname="Health" preserve="all" />
     <type fullname="Input.S_InputReader" preserve="all" />
@@ -9,11 +8,13 @@
     <type fullname="Networking.Shared.S_LocalPlayer" preserve="all" />
     <type fullname="Networking.Shared.S_NetworkPlayer" preserve="all" />
     <type fullname="Rig" preserve="all" />
+    <type fullname="S_Alien" preserve="all" />
     <type fullname="S_AnimateHandOnInput" preserve="all" />
     <type fullname="S_Appliance" preserve="all" />
     <type fullname="S_ApplicationManager" preserve="all" />
     <type fullname="S_AttackState" preserve="all" />
     <type fullname="S_AudioPlayer" preserve="all" />
+    <type fullname="S_BasicToggle" preserve="all" />
     <type fullname="S_ButtonPushed" preserve="all" />
     <type fullname="S_ChaseState" preserve="all" />
     <type fullname="S_ColorClassifications" preserve="all" />
@@ -53,6 +54,7 @@
     <type fullname="S_RuntimeNavmeshBuilder" preserve="all" />
     <type fullname="S_SetTextOffline" preserve="all" />
     <type fullname="S_SetTicketDetailTextOffline" preserve="all" />
+    <type fullname="S_Shutter" preserve="all" />
     <type fullname="S_SocketMultipleTagInteractor" preserve="all" />
     <type fullname="S_SocketTagInteractor" preserve="all" />
     <type fullname="S_SpawnBasketsInFryer" preserve="all" />
@@ -101,6 +103,7 @@
     <type fullname="Fusion.NetworkEvents/ShutdownEvent" preserve="nothing" serialized="true" />
     <type fullname="Fusion.NetworkEvents/SimulationMessageEvent" preserve="nothing" serialized="true" />
     <type fullname="Fusion.NetworkObjectGuid" preserve="nothing" serialized="true" />
+    <type fullname="Fusion.SerializableDictionary`2" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Fusion.Unity, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="Fusion.FusionBootstrap" preserve="all" />
@@ -259,6 +262,7 @@
     <type fullname="UnityEngine.Mesh" preserve="all" />
     <type fullname="UnityEngine.MeshFilter" preserve="all" />
     <type fullname="UnityEngine.MeshRenderer" preserve="all" />
+    <type fullname="UnityEngine.MonoBehaviour" preserve="all" />
     <type fullname="UnityEngine.Object" preserve="all" />
     <type fullname="UnityEngine.RectTransform" preserve="all" />
     <type fullname="UnityEngine.Rendering.SortingGroup" preserve="all" />
