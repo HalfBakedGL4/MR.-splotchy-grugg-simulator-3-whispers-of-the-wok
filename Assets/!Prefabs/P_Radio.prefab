@@ -95,7 +95,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6189279645037447899}
-  - component: {fileID: 2770232296274641548}
+  - component: {fileID: 5596748262456773115}
   m_Layer: 0
   m_Name: Knob1
   m_TagString: Untagged
@@ -119,7 +119,7 @@ Transform:
   - {fileID: 219484915419481541}
   m_Father: {fileID: 4275641758488272604}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &2770232296274641548
+--- !u!114 &5596748262456773115
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 195565544386518624}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec5fb8a4309629040b66ace17193d114, type: 3}
+  m_Script: {fileID: 11500000, guid: be28cdc84b6f97541ac6adc23899620c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
   m_Handle: {fileID: 219484915419481541}
-  m_Value: 0.7
+  m_Value: 0.5
   m_ClampedMotion: 1
   m_MaxAngle: 90
   m_MinAngle: -90
@@ -214,6 +214,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  netObj: {fileID: 526062899036201798}
 --- !u!1 &451056459665576866
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,7 +780,7 @@ MonoBehaviour:
   NonRigidbodyVelocity: 0
   Params:
   - Name: Volume
-    Value: 0.7
+    Value: 0.2
   - Name: HighEQ
     Value: 0.7
   - Name: LowEQ
@@ -1602,7 +1603,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4767100107646272150}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.30901697, z: 0, w: 0.95105654}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1684,7 +1685,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5683326946981123477}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.026700346, z: 0, w: 0.9996435}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2334,7 +2335,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6525209432086634585}
-  - component: {fileID: 1330823449762943256}
+  - component: {fileID: 5143788763951257432}
   m_Layer: 0
   m_Name: Knob2
   m_TagString: Untagged
@@ -2358,7 +2359,7 @@ Transform:
   - {fileID: 8924488885881061545}
   m_Father: {fileID: 4275641758488272604}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &1330823449762943256
+--- !u!114 &5143788763951257432
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2367,7 +2368,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7529687255716635906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec5fb8a4309629040b66ace17193d114, type: 3}
+  m_Script: {fileID: 11500000, guid: be28cdc84b6f97541ac6adc23899620c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -2431,7 +2432,7 @@ MonoBehaviour:
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
   m_Handle: {fileID: 8924488885881061545}
-  m_Value: 0.483
+  m_Value: 0.5
   m_ClampedMotion: 1
   m_MaxAngle: 90
   m_MinAngle: -90
@@ -2453,6 +2454,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  netObj: {fileID: 0}
 --- !u!1 &7849684565663344436
 GameObject:
   m_ObjectHideFlags: 0
