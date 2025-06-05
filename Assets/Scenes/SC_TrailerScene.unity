@@ -545,7 +545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SortKey: 2686945593
   ObjectInterest: 1
-  Flags: 1
+  Flags: 262145
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 498116738}
@@ -606,7 +606,7 @@ PrefabInstance:
     - target: {fileID: 1375659409922778496, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
       propertyPath: 'NetworkedBehaviours.Array.data[0]'
       value: 
-      objectReference: {fileID: 538838340}
+      objectReference: {fileID: 0}
     - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -780,21 +780,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2528836092927357728, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
---- !u!114 &538838340 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 508911771630065833, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
-  m_PrefabInstance: {fileID: 538838339}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef2ef8037fa24bc45b447168516d2b6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &571370423 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5242769937801963154, guid: 7e4225130453e544cb89d9d619d58bef, type: 3}
@@ -861,6 +851,10 @@ PrefabInstance:
     - target: {fileID: 5703780673332992089, guid: edcbf12189a9ee44193ee84ed75b801c, type: 3}
       propertyPath: m_Name
       value: KnifeVariant (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281579509584559910, guid: edcbf12189a9ee44193ee84ed75b801c, type: 3}
+      propertyPath: SortKey
+      value: 3311702100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1383,6 +1377,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KnifeVariant
       objectReference: {fileID: 0}
+    - target: {fileID: 7281579509584559910, guid: edcbf12189a9ee44193ee84ed75b801c, type: 3}
+      propertyPath: SortKey
+      value: 768106586
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1443,6 +1441,10 @@ PrefabInstance:
     - target: {fileID: 5703780673332992089, guid: edcbf12189a9ee44193ee84ed75b801c, type: 3}
       propertyPath: m_Name
       value: KnifeVariant (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281579509584559910, guid: edcbf12189a9ee44193ee84ed75b801c, type: 3}
+      propertyPath: SortKey
+      value: 2054417408
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1584,7 +1586,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2129920830723620675, guid: a5ed3d4522fe8ff47a111be7bc52009c, type: 3}
       propertyPath: DefaultRoomName
-      value: TrailerScene0122
+      value: TrailerScenes
       objectReference: {fileID: 0}
     - target: {fileID: 4378791079597312931, guid: a5ed3d4522fe8ff47a111be7bc52009c, type: 3}
       propertyPath: SortKey
@@ -1954,6 +1956,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5076564909985567263, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5509214853639079006, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -2088,7 +2094,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8600024942964948797, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
       propertyPath: LeftX.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8600024942964948797, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
       propertyPath: LeftY.m_PersistentCalls.m_Calls.Array.size
@@ -2108,7 +2114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8600024942964948797, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
       propertyPath: LeftX.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8600024942964948797, guid: ee05e279d61d3cf43900dd860e63af8b, type: 3}
       propertyPath: LeftY.m_PersistentCalls.m_Calls.Array.data[0].m_Mode

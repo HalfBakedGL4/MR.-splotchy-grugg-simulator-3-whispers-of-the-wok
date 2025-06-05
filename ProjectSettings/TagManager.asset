@@ -14,7 +14,7 @@ TagManager:
   - Hole
   - FryingBasket
   - Enemy
-  - LocalPlayer
+  - Customer
   layers:
   - Default
   - TransparentFX

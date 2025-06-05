@@ -232,10 +232,10 @@ PrefabInstance:
       addedObject: {fileID: 291579582970568527}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: baa21f4d05ba669489570ae5772b30a4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -1392019751901422959}
+      addedObject: {fileID: 8653240865727137295}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: baa21f4d05ba669489570ae5772b30a4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2886533153439150243}
+      addedObject: {fileID: 3803711198113579355}
   m_SourcePrefab: {fileID: 100100000, guid: baa21f4d05ba669489570ae5772b30a4, type: 3}
 --- !u!1 &4806582880924609926 stripped
 GameObject:
@@ -426,7 +426,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c751eb5a65e0dc4282602ac4909a993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-1392019751901422959
+--- !u!114 &8653240865727137295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4806582880924609926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SortKey: 1400656511
+  ObjectInterest: 1
+  Flags: 262145
+  NestedObjects: []
+  NetworkedBehaviours:
+  - {fileID: 291579582970568527}
+  - {fileID: 3803711198113579355}
+  ForceRemoteRenderTimeframe: 0
+--- !u!114 &3803711198113579355
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -443,25 +463,6 @@ MonoBehaviour:
   SyncParent: 0
   _autoAOIOverride: 1
   DisableSharedModeInterpolation: 0
---- !u!114 &2886533153439150243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4806582880924609926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SortKey: 970769847
-  ObjectInterest: 1
-  Flags: 262145
-  NestedObjects: []
-  NetworkedBehaviours:
-  - {fileID: -1392019751901422959}
-  ForceRemoteRenderTimeframe: 0
 --- !u!4 &5332183916739327804 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: baa21f4d05ba669489570ae5772b30a4, type: 3}
