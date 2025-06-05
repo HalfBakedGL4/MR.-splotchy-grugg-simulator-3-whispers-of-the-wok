@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{5ec4e8ac-1c38-455c-90d8-d9e46f8f668f}">
+		<property name="assetPath">
+			<value>Music/Songs/freakytrankradio - Intro 150BPM.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>6.4208333333333334</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{902fe79b-b09c-4602-bffe-ed5f2e407c00}</destination>
+		</relationship>
+	</object>
+</objects>
