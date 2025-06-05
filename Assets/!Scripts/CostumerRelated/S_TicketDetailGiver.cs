@@ -23,7 +23,7 @@ public class S_TicketDetailGiver : NetworkBehaviour
     private bool IsLocal => Object && Object.HasStateAuthority;
     
     [Networked]
-    public int TicketID { get; set; }
+    private int TicketID { get; set; }
     
     private bool _isHeld = false;
     private bool _isLeft = false;
