@@ -1,8 +1,5 @@
-using Unity.VisualScripting;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 [RequireComponent(typeof(Rigidbody))]

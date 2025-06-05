@@ -22,49 +22,50 @@ public class S_CookTimer : MonoBehaviour
 
     public void UpdateTimer(float currentTime)
     {
-        float degreePerSec;
-        var speed = rotationSpeed * Time.deltaTime;
-        if (_isCooking)
+        float totalTime = _overCookedTime;
+        float totalDegrees = 155f;
+
+        float segment1End = _underCookedTime;        // Ends at 80°
+        float segment2End = _perfectlyCookedTime;    // Ends at 113°
+        float segment3End = _overCookedTime;         // Ends at 135°
+        float burntEnd = _overCookedTime + 3f;      // Ends at 155° (optional extra buffer)
+
+        float targetAngle = 0f;
+
+        if (currentTime <= segment1End)
         {
-            // Timer on blue (from 0 to 80) Under Cooked
-            if (currentTime < _underCookedTime)
-            {
-                var targetDegree = 80.0f;
-                degreePerSec = targetDegree / _underCookedTime;
-            }
-            // Timer on green (from 80 to 113) Perfectly Cooked
-            else if (currentTime < _perfectlyCookedTime)
-            {
-                var targetDegree = 113.0f;
-                degreePerSec = targetDegree / _perfectlyCookedTime;
-            }
-            // Timer on yellow (from 113 to 135) Overcooked
-            else if (currentTime < _overCookedTime)
-            {
-                var targetDegree = 135.0f;
-                degreePerSec = targetDegree / _overCookedTime;
-            }
-            // Timer on red (from 135 to 155) Burnt
-            else
-            {
-                var targetDegree = 155.0f;
-                degreePerSec = targetDegree / _overCookedTime;
-            }
+            // 0° to 80°
+            float t = currentTime / segment1End;
+            targetAngle = Mathf.Lerp(0f, 80f, t);
+        }
+        else if (currentTime <= segment2End)
+        {
+            // 80° to 113°
+            float t = (currentTime - segment1End) / (segment2End - segment1End);
+            targetAngle = Mathf.Lerp(80f, 113f, t);
+        }
+        else if (currentTime <= segment3End)
+        {
+            // 113° to 135°
+            float t = (currentTime - segment2End) / (segment3End - segment2End);
+            targetAngle = Mathf.Lerp(113f, 135f, t);
         }
         else
         {
-            // Timer goes towards 0
-            degreePerSec = 0;
+            // 135° to 155° (burnt)
+            float t = Mathf.Clamp01((currentTime - segment3End) / (burntEnd - segment3End));
+            targetAngle = Mathf.Lerp(135f, 155f, t);
         }
+        if (!_isCooking)
+            targetAngle = 0.0f;
 
-        var targetRotation = currentTime * degreePerSec;
-        targetRotation = Mathf.Clamp(targetRotation, 0, 155);
-        
-        var lerpAngle = Mathf.LerpAngle(timerDial.transform.localEulerAngles.y, targetRotation, speed);
+        // Smoothly animate toward the target rotation
+        float currentY = timerDial.transform.localEulerAngles.y;
+        float smoothAngle = Mathf.LerpAngle(currentY, targetAngle, rotationSpeed * Time.deltaTime);
 
-        timerDial.transform.localEulerAngles = new Vector3(0, lerpAngle, 0);
-
+        timerDial.transform.localEulerAngles = new Vector3(0, smoothAngle, 0);
     }
+
 
     public void TimerToggle(bool toggle)
     {

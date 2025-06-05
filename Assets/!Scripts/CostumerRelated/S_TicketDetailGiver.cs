@@ -19,6 +19,11 @@ public class S_TicketDetailGiver : NetworkBehaviour
 
     [SerializeField] private GameObject page1;
     [SerializeField] private GameObject page2;
+
+    private bool IsLocal => Object && Object.HasStateAuthority;
+    
+    [Networked]
+    public int TicketID { get; set; }
     
     private bool _isHeld = false;
     private bool _isLeft = false;
@@ -27,8 +32,10 @@ public class S_TicketDetailGiver : NetworkBehaviour
     public void InitTicket(int ticketID)
     {
         //Number the ticket
-        
-        ticketNumberText.text = $"#{ticketID}";
+        if (IsLocal)
+        {
+            TicketID = ticketID;
+        }
         
         // Put images on ticket
         //orderImage.sprite = order.orderImage;
@@ -37,6 +44,11 @@ public class S_TicketDetailGiver : NetworkBehaviour
         //orderTutorial.sprite = order.orderTutorial;
         
         
+    }
+
+    public int GetTicketID()
+    {
+        return TicketID;
     }
     
     public void TicketHeld(SelectEnterEventArgs args)

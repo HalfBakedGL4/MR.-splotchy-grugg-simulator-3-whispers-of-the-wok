@@ -39,11 +39,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4432444045817315134}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1da17d8f5ae66784d80a7f3daefb4a0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chaseState: {fileID: 0}
   attackState: {fileID: 0}
   isInAttackRange: 0
 --- !u!1 &4701672788957824271
@@ -85,12 +86,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4701672788957824271}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 609d145871d60dd45a46fa14e30eb28f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 6484323083719718465}
   attackState: {fileID: 1093233784836864257}
+  speed: 1
   isInAttackRange: 0
 --- !u!1 &4833009073551206878
 GameObject:
@@ -172,6 +175,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseState: {fileID: 6822858282367681618}
   canSeeThePlayer: 0
+  parentObj: {fileID: 1569034952356095297}
+  renderer: {fileID: 7142475330000205292}
+  foodWaitingTime: 5
+  material: {fileID: 2926557707537190794, guid: f396e3429a4864fc2ad497cb3ce5fe2c, type: 3}
 --- !u!1001 &1803477418788673552
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -244,9 +251,6 @@ PrefabInstance:
       addedObject: {fileID: 5446019726657840300}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ab6450d6d6c4cf349b0ad0510281ca5e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 755465467267309264}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ab6450d6d6c4cf349b0ad0510281ca5e, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 5409647990907958457}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ab6450d6d6c4cf349b0ad0510281ca5e, type: 3}
       insertIndex: -1
@@ -278,21 +282,10 @@ MonoBehaviour:
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 5409647990907958457}
+  - {fileID: 788021527426289782}
+  - {fileID: 6822858282367681618}
+  - {fileID: 1093233784836864257}
   ForceRemoteRenderTimeframe: 0
---- !u!114 &755465467267309264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1569034952356095297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45a59a9dd2260214bb0c99a9257dbe26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 6484323083719718465}
-  speed: 1
 --- !u!114 &5409647990907958457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,5 +341,10 @@ MonoBehaviour:
 --- !u!4 &2201561294634172411 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ab6450d6d6c4cf349b0ad0510281ca5e, type: 3}
+  m_PrefabInstance: {fileID: 1803477418788673552}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7142475330000205292 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -425565630206218756, guid: ab6450d6d6c4cf349b0ad0510281ca5e, type: 3}
   m_PrefabInstance: {fileID: 1803477418788673552}
   m_PrefabAsset: {fileID: 0}

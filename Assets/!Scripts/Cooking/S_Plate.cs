@@ -9,8 +9,14 @@ public class S_Plate : MonoBehaviour
 
     public void PlateFood(SelectEnterEventArgs args)
     {
+        
         dishStatus = args.interactableObject.transform.GetComponent<S_DishStatus>();
         food = args.interactableObject.transform.gameObject;
+    }
+
+    public void UnplateFood(SelectExitEventArgs args) 
+    {
+        
     }
 
     private void OnDestroy()

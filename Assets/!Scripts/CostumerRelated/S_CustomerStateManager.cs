@@ -17,6 +17,8 @@ public class S_CustomerStateManager : MonoBehaviour
 
         if (nextState != null) 
         {
+            Debug.Log("Customer changed state to: " + nextState.name);
+            nextState.enabled = true;
             SwitchToTheNextState(nextState);
         }
     }
