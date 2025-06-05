@@ -889,6 +889,21 @@ MonoBehaviour:
     orderIngredients: {fileID: 21300000, guid: a3ccea55b6eecd64c8933d24d4b62f54, type: 3}
     orderTools: {fileID: 21300000, guid: 79c96643f5f23ee4fa2ac35ee774a4d8, type: 3}
     orderTutorial: {fileID: 21300000, guid: bfa49c56377b5784fa128e0b4ff86d69, type: 3}
+  TicketAdded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3332930496461966746}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1694133620938066648
 MonoBehaviour:
   m_ObjectHideFlags: 0
