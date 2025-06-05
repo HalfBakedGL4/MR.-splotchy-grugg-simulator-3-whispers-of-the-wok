@@ -57,6 +57,8 @@ MonoBehaviour:
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 6402467744382679462}
+  - {fileID: 7632330196048797200}
+  - {fileID: 1467066742965758808}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &6402467744382679462
 MonoBehaviour:
@@ -120,13 +122,14 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  currentPlanet: 0
+  _currentPlanet: 0
   planets:
     m_keys: 00000000ffffffff01000000
     m_values:
     - {fileID: 4234826261403627616}
     - {fileID: 8647778023131097477}
     - {fileID: 7901829385930266341}
+  planetName: {fileID: 7178882661131221019}
 --- !u!1 &1335178989161610125
 GameObject:
   m_ObjectHideFlags: 0
@@ -2984,11 +2987,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2933289416007198771, guid: bbcffc30b0634674c8f9ff007d1a898b, type: 3}
       propertyPath: m_Name
-      value: CyberPlanet
+      value: Albondiga
       objectReference: {fileID: 0}
     - target: {fileID: 2933289416007198771, guid: bbcffc30b0634674c8f9ff007d1a898b, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196377333072438725, guid: bbcffc30b0634674c8f9ff007d1a898b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196377333072438725, guid: bbcffc30b0634674c8f9ff007d1a898b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196377333072438725, guid: bbcffc30b0634674c8f9ff007d1a898b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196377333072438725, guid: bbcffc30b0634674c8f9ff007d1a898b, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7511850272075181594, guid: bbcffc30b0634674c8f9ff007d1a898b, type: 3}
       propertyPath: m_LocalScale.x
@@ -3131,15 +3150,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8946338618056224169, guid: 216985f3ca155fb449e8018a551a1787, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.3
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 8946338618056224169, guid: 216985f3ca155fb449e8018a551a1787, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 8946338618056224169, guid: 216985f3ca155fb449e8018a551a1787, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.3
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
