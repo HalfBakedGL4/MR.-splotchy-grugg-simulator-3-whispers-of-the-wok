@@ -1,3 +1,4 @@
+using Extentions.Networking;
 using Fusion;
 using System.Collections;
 using Unity.VisualScripting;
@@ -12,8 +13,13 @@ public class S_MenuLever : NetworkBehaviour
     const int amountToMove = 20;
 
 
-    void OnTriggerEnter(Collider other)
+    async void OnTriggerEnter(Collider other)
     {
+        AuthorityResult result = await Shared.GainStateAuthority(Object);
+
+        if (result == AuthorityResult.Failure)
+            return;
+
         if (hasHappened) return;
 
         Debug.Log("[Lever] Move");
@@ -34,10 +40,11 @@ public class S_MenuLever : NetworkBehaviour
             Debug.Log("[Lever] Entered from the LEFT");
         }
 
+
         RPC_TryMoveLever(moveLeft);
     }
 
-    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
     void RPC_TryMoveLever(NetworkBool moveLeft)
     {
         StartCoroutine(MoveLever(moveLeft));
