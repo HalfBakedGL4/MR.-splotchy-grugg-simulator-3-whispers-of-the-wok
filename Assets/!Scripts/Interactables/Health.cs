@@ -12,7 +12,6 @@ public class Health : MonoBehaviour
 
     [SerializeField] float health, maxHealth = 3;
 
-    Rigidbody rb;
 
     [SerializeField] FloatingHealthBar healthBar;
 
@@ -28,7 +27,6 @@ public class Health : MonoBehaviour
 
     private void Awake() 
     {
-        rb = GetComponent<Rigidbody>();
         healthBar = GetComponentInChildren<FloatingHealthBar>();
     }
 
