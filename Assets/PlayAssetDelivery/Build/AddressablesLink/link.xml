@@ -61,7 +61,11 @@
     <type fullname="Input.InputInfo" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="FMODUnity, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="FMODUnity.StudioEventEmitter" preserve="all" />
     <type fullname="FMODUnity.StudioListener" preserve="all" />
+    <type fullname="FMOD.GUID" preserve="nothing" serialized="true" />
+    <type fullname="FMODUnity.EventReference" preserve="nothing" serialized="true" />
+    <type fullname="FMODUnity.ParamRef" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Fusion.Runtime, Version=2.0.4.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="Fusion.NetworkEvents" preserve="all" />
