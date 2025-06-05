@@ -8,15 +8,12 @@ public class S_MenuLever : MonoBehaviour
 
     bool hasHappened;
 
-    [SerializeField] Vector3 rotatePos;
+    const int amountToMove = 20;
 
-    private void Start()
-    {
-        rotatePos = lever.transform.eulerAngles;
-    }
 
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log("[Lever] Move");
         Vector3 toPlayer = (other.transform.position - transform.position).normalized;
         Vector3 right = transform.forward;
 
@@ -25,12 +22,12 @@ public class S_MenuLever : MonoBehaviour
         if (dot > 0)
         {
             moveLeft = false;
-            Debug.Log("Entered from the RIGHT");
+            Debug.Log("[Lever] Entered from the RIGHT");
         }
         else
         {
             moveLeft = true;
-            Debug.Log("Entered from the LEFT");
+            Debug.Log("[Lever] Entered from the LEFT");
         }
 
         if(!hasHappened)
@@ -42,19 +39,13 @@ public class S_MenuLever : MonoBehaviour
 
     void MoveLever()
     {
-        Debug.Log(rotatePos);
-        if ((rotatePos.x <= 310 && moveLeft) || (rotatePos.x >= 130 && !moveLeft))
-        {
-            Debug.Log("can't do that");
-            return;
-        }
-        else
-        {
-            Vector3 amountToMove = new Vector3(20f, 0f, 0f);
+        float rotatePosX = lever.transform.localEulerAngles.x +  360;
 
-            rotatePos += moveLeft ? amountToMove : -amountToMove;
-            lever.transform.eulerAngles = rotatePos;
-        }
+        rotatePosX += moveLeft ? amountToMove : -amountToMove;
+
+        rotatePosX = Mathf.Clamp(rotatePosX - 360, -amountToMove, amountToMove) + 360;
+
+        lever.transform.localEulerAngles = new Vector3(rotatePosX - 360, 0, 0);
     }
 
     void OnTriggerExit(Collider other)
