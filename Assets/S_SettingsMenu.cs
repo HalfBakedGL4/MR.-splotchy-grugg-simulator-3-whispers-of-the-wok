@@ -41,7 +41,7 @@ public class S_SettingsMenu : NetworkBehaviour
             instance.planets[currentPlanet].transform.Rotate(0, 10 * Time.deltaTime, 0);
     }
 
-    [Rpc(RpcSources.All, RpcTargets.All)]
+    //[Rpc(RpcSources.All, RpcTargets.All)]
     public IEnumerator UpdateSelectedPlanet(Planet planet)
     {
         GameObject current = instance.planets[planet];
