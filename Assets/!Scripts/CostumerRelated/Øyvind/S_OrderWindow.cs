@@ -34,10 +34,11 @@ public class S_OrderWindow : NetworkBehaviour
 
     public UnityEvent TicketAdded;
 
-    private void Start()
+    public override void Spawned()
     {
+        base.Spawned();
         instance = this;
-    }
+    } 
 
     // Costumer will request a Dish
     public S_Ticket MakeOrder(DishType dish, S_CostumerOrder costumer)
