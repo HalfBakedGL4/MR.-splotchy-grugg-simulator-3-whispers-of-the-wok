@@ -48,7 +48,7 @@ public class S_MenuLever : MonoBehaviour
 
         lever.transform.localEulerAngles = new Vector3(rotatePosX - 360, 0, 0);
 
-        yield return StartCoroutine(S_SettingsMenu.UpdateSelectedPlanet((Planet)((rotatePosX - 360) / 20)));
+        yield return StartCoroutine(S_SettingsMenu.instance.UpdateSelectedPlanet((Planet)((rotatePosX - 360) / 20)));
 
         hasHappened = false;
     }

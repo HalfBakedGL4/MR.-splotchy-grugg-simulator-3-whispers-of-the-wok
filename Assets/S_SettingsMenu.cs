@@ -1,3 +1,4 @@
+using Fusion;
 using NaughtyAttributes;
 using System.Collections;
 using Unity.VisualScripting;
@@ -10,14 +11,13 @@ public enum Planet
     Saturn = 1
 }
 
-public class S_SettingsMenu : MonoBehaviour
+public class S_SettingsMenu : NetworkBehaviour
 {
     public static S_SettingsMenu instance;
 
-    [SerializeField] Planet _currentPlanet;
     public AnimationCurve xAxis;
 
-    static Planet currentPlanet;
+    [SerializeField] Planet currentPlanet;
     public SerializableDictionary<Planet, GameObject> planets;
 
     static Vector3 defaultPos { get; } = new Vector3(0, 0.6f, 1.5f);
@@ -31,21 +31,18 @@ public class S_SettingsMenu : MonoBehaviour
     }
     private void Start()
     {
-        currentPlanet = _currentPlanet;
-
         planets[currentPlanet].transform.localPosition = displayPos;
         planets[currentPlanet].transform.localScale = displayScale;
         planets[currentPlanet].SetActive(true);
     }
     private void Update()
     {
-        _currentPlanet = currentPlanet;
-
         if(instance.planets[currentPlanet] != null)
             instance.planets[currentPlanet].transform.Rotate(0, 10 * Time.deltaTime, 0);
     }
 
-    public static IEnumerator UpdateSelectedPlanet(Planet planet)
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    public IEnumerator UpdateSelectedPlanet(Planet planet)
     {
         GameObject current = instance.planets[planet];
         GameObject previous = instance.planets[currentPlanet];
@@ -81,7 +78,7 @@ public class S_SettingsMenu : MonoBehaviour
             previous.SetActive(false);
     }
 
-    static void MoveForwards(GameObject current, float t)
+    void MoveForwards(GameObject current, float t)
     {
         current.transform.localPosition = Vector3.Lerp(defaultPos, displayPos, t);
         current.transform.localScale = Vector3.Lerp(defaultScale, displayScale, t);
@@ -89,7 +86,7 @@ public class S_SettingsMenu : MonoBehaviour
 
         current.transform.Rotate(0, 30 * Time.deltaTime, 0);
     }
-    static void MoveBack(GameObject previous, float t)
+    void MoveBack(GameObject previous, float t)
     {
         previous.transform.localPosition = Vector3.Lerp(displayPos, defaultPos, t);
         previous.transform.localScale = Vector3.Lerp(displayScale, defaultScale, t);
