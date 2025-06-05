@@ -70,7 +70,7 @@ MonoBehaviour:
   Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638847262612870325
+  lastModified: 638847277580301687
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -144,7 +144,7 @@ MonoBehaviour:
   Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638847262612885442
+  lastModified: 638847277580311644
   FileSizes:
   - Name: Desktop
     Value: 1972
@@ -188,7 +188,7 @@ MonoBehaviour:
   Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 638847262613078571
+  lastModified: 638847277580490098
   FileSizes:
   - Name: Desktop
     Value: 494
@@ -235,7 +235,7 @@ MonoBehaviour:
   Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/Enemys.bank
   Name: Enemys
   StudioPath: bank:/Enemys
-  lastModified: 638847262612839962
+  lastModified: 638847277580276494
   FileSizes:
   - Name: Desktop
     Value: 25024
@@ -279,7 +279,7 @@ MonoBehaviour:
   Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638847262613063385
+  lastModified: 638847277580484983
   FileSizes:
   - Name: Desktop
     Value: 3379968
@@ -320,7 +320,7 @@ MonoBehaviour:
   - {fileID: -6386715786150375349}
   StringsBanks:
   - {fileID: -4948234000095023022}
-  cacheTime: 638847262613078571
+  cacheTime: 638847277580500301
   cacheVersion: 131624
 --- !u!114 &2764686037842300356
 MonoBehaviour:
@@ -435,7 +435,7 @@ MonoBehaviour:
   Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/Food.bank
   Name: Food
   StudioPath: bank:/Food
-  lastModified: 638847262612870325
+  lastModified: 638847277580291565
   FileSizes:
   - Name: Desktop
     Value: 92352
@@ -479,7 +479,7 @@ MonoBehaviour:
   Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/Utensils.bank
   Name: Utensils
   StudioPath: bank:/Utensils
-  lastModified: 638847262613078571
+  lastModified: 638847277580500301
   FileSizes:
   - Name: Desktop
     Value: 494
@@ -499,7 +499,7 @@ MonoBehaviour:
   Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/Appliance.bank
   Name: Appliance
   StudioPath: bank:/Appliance
-  lastModified: 638847262612808756
+  lastModified: 638847277580246376
   FileSizes:
   - Name: Desktop
     Value: 608192
@@ -579,7 +579,7 @@ MonoBehaviour:
   Path: Assets/Audio/FMod/THE PROJECT/SplotchyGrugg/Build/Desktop/Character.bank
   Name: Character
   StudioPath: bank:/Character
-  lastModified: 638847262612839962
+  lastModified: 638847277580266572
   FileSizes:
   - Name: Desktop
     Value: 90016
