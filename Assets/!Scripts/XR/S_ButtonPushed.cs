@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -22,7 +23,7 @@ public class S_ButtonPushed : MonoBehaviour
             Debug.LogError("Did not find IButtonObject on " + objectWithIButtonObject.name);
         }
     }
-
+    [Button]
     private void ToggleButton()
     {
         connectedToButton.OnButtonPressed();

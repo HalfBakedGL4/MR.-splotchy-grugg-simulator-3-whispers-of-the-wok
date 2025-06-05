@@ -337,6 +337,22 @@ PrefabInstance:
       propertyPath: SortKey
       value: 2950188768
       objectReference: {fileID: 0}
+    - target: {fileID: 1375659409922778496, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: Flags
+      value: 262145
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375659409922778496, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: SortKey
+      value: 1241438094
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375659409922778496, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: NetworkedBehaviours.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375659409922778496, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: 'NetworkedBehaviours.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1918204311}
     - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
       propertyPath: planeManager
       value: 
@@ -368,6 +384,10 @@ PrefabInstance:
     - target: {fileID: 4184649426864620437, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
       propertyPath: SortKey
       value: 649511868
+      objectReference: {fileID: 0}
+    - target: {fileID: 4184649426864620437, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: NetworkedBehaviours.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4715554866060898460, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -410,6 +430,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4762516720582898207, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: autoStart
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4762516720582898207, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
       propertyPath: startTime
       value: 1
       objectReference: {fileID: 0}
@@ -423,7 +447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4762516720582898207, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
       propertyPath: waitForPlayers
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4762516720582898207, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
       propertyPath: playersRequired
@@ -760,7 +784,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1610778550458200487, guid: fff54c2ebb177374a80aacd97af28aaa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3000001
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 1610778550458200487, guid: fff54c2ebb177374a80aacd97af28aaa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -801,6 +825,14 @@ PrefabInstance:
     - target: {fileID: 6204165479665365500, guid: fff54c2ebb177374a80aacd97af28aaa, type: 3}
       propertyPath: shutterOpenCloseTime
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6999779615991454640, guid: fff54c2ebb177374a80aacd97af28aaa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.00000010668625
+      objectReference: {fileID: 0}
+    - target: {fileID: 6999779615991454640, guid: fff54c2ebb177374a80aacd97af28aaa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.053696986
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -898,6 +930,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Shutter: {fileID: 0}
   shutterOpenCloseTime: 0
+--- !u!114 &1918204311 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 508911771630065833, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+  m_PrefabInstance: {fileID: 538838339}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef2ef8037fa24bc45b447168516d2b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2083739773
 PrefabInstance:
   m_ObjectHideFlags: 0
