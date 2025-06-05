@@ -1,4 +1,6 @@
+using Fusion;
 using System.Collections;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -33,7 +35,14 @@ public class S_MenuLever : MonoBehaviour
             Debug.Log("[Lever] Entered from the LEFT");
         }
 
-        StartCoroutine(MoveLever());
+
+        TryMoveLever();
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    void TryMoveLever()
+    {
+        MoveLever();
     }
 
     IEnumerator MoveLever()
@@ -48,7 +57,7 @@ public class S_MenuLever : MonoBehaviour
 
         lever.transform.localEulerAngles = new Vector3(rotatePosX - 360, 0, 0);
 
-        yield return StartCoroutine(S_SettingsMenu.UpdateSelectedPlanet((Planet)((rotatePosX - 360) / 20)));
+        yield return StartCoroutine(S_SettingsMenu.instance.UpdateSelectedPlanet( (Planet)((rotatePosX - 360) / 20) ));
 
         hasHappened = false;
     }

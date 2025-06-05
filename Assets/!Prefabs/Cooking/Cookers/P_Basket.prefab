@@ -425,11 +425,13 @@ GameObject:
   - component: {fileID: 1344172417785593885}
   - component: {fileID: 442047604037942417}
   - component: {fileID: 2749932272156345593}
-  - component: {fileID: 8476676519897970004}
   - component: {fileID: 900382155151677466}
   - component: {fileID: 47949332945215160}
   - component: {fileID: 7742486964671397294}
   - component: {fileID: 569601601430762151}
+  - component: {fileID: 8476676519897970004}
+  - component: {fileID: 578449631332688063}
+  - component: {fileID: 3495159796701678825}
   m_Layer: 0
   m_Name: P_Basket
   m_TagString: FryingBasket
@@ -666,27 +668,6 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
---- !u!114 &8476676519897970004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8560593145379878557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 355efc9e8ae596c47840a70e9019eb11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cookerType: 1
-  foodSockets:
-  - {fileID: 7029694072356082777}
-  dishSocket: {fileID: 5935610389449126565}
-  interactable: []
-  underCookedTime: 10
-  perfectlyCookedTime: 20
-  overCookedTime: 30
-  cookTimer: {fileID: 968840830078755187}
 --- !u!65 &900382155151677466
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -771,6 +752,123 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.06, y: 0.08, z: 0.54}
   m_Center: {x: 0.15, y: -0.11, z: 0.55}
+--- !u!114 &8476676519897970004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8560593145379878557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355efc9e8ae596c47840a70e9019eb11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cookerType: 1
+  foodSockets:
+  - {fileID: 7029694072356082777}
+  dishSocket: {fileID: 5935610389449126565}
+  interactable: []
+  underCookedTime: 10
+  perfectlyCookedTime: 20
+  overCookedTime: 30
+  cookTimer: {fileID: 968840830078755187}
+  StartCooking:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 578449631332688063}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  StoppedCooking:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 578449631332688063}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &578449631332688063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8560593145379878557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -205459042
+      Data2: 1264770699
+      Data3: -133812038
+      Data4: -1152557214
+    Path: event:/KitchenAppliances/Fryer/FryerProgression
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params:
+  - Name: FryerProg
+    Value: 1
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &3495159796701678825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8560593145379878557}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86dec002472611d42a6155fa94ba3429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -205459042
+      Data2: 1264770699
+      Data3: -133812038
+      Data4: -1152557214
+    Path: event:/KitchenAppliances/Fryer/FryerProgression
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params:
+  - Name: FryerProg
+    Value: 1
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
 --- !u!1001 &956324363989069927
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -87,7 +87,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14350d047f81a4845a11313f1f20f016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentPlanet: 0
   xAxis:
     serializedVersion: 2
     m_Curve:
@@ -121,6 +120,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  currentPlanet: 0
   planets:
     m_keys: 00000000ffffffff01000000
     m_values:

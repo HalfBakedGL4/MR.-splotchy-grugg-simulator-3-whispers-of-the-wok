@@ -30,6 +30,7 @@ public class S_GameManager : NetworkBehaviour
     public static bool ready => instance.Ready;
     [Networked] bool Ready { get; set; }
     [SerializeField] bool waitForPlayers = true;
+    [SerializeField] bool autoStart = false;
 
     [Space]
 
@@ -116,6 +117,7 @@ public class S_GameManager : NetworkBehaviour
     /// </summary>
     public static S_Food TrySpawnFood(S_Food food, Vector3 position, Quaternion rotation)
     {
+        Debug.Log("[GameManager] try spawn Food");
         return instance.SpawnFood(food, position, rotation);
     }
     /// <summary>
@@ -160,6 +162,8 @@ public class S_GameManager : NetworkBehaviour
         if(newFood != null)
             currentFood.Add(newFood);
 
+        Debug.Log("[GameManager] successfully spawned food");
+
         return newFood;
     }
 
@@ -194,6 +198,13 @@ public class S_GameManager : NetworkBehaviour
     #region Game States
     void Intermission()
     {
+        if(autoStart)
+        {
+            Ready = true;
+            StartGame();
+            return;
+        }
+
         if(!waitForPlayers || sessionInfo.PlayerCount >= playersRequired)
         {
             Ready = true;

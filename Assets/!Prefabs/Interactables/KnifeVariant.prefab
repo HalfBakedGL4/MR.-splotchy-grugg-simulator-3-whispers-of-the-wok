@@ -13,6 +13,14 @@ PrefabInstance:
       value: 1920608556
       objectReference: {fileID: 0}
     - target: {fileID: 861809427380688173, guid: 22b4f0ed2bf00f24489321e0366165b1, type: 3}
+      propertyPath: NestedObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 861809427380688173, guid: 22b4f0ed2bf00f24489321e0366165b1, type: 3}
+      propertyPath: 'NestedObjects.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3824725794192837002}
+    - target: {fileID: 861809427380688173, guid: 22b4f0ed2bf00f24489321e0366165b1, type: 3}
       propertyPath: NetworkedBehaviours.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -121,6 +129,14 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2886533153439150243, guid: a0a0f719aa31e91488c23741d0761921, type: 3}
+      propertyPath: SortKey
+      value: 1712053540
+      objectReference: {fileID: 0}
+    - target: {fileID: 2886533153439150243, guid: a0a0f719aa31e91488c23741d0761921, type: 3}
+      propertyPath: NetworkedBehaviours.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3326267355350609707, guid: a0a0f719aa31e91488c23741d0761921, type: 3}
       propertyPath: m_UseGravity
       value: 0
@@ -179,6 +195,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0a0f719aa31e91488c23741d0761921, type: 3}
+--- !u!114 &3824725794192837002 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2886533153439150243, guid: a0a0f719aa31e91488c23741d0761921, type: 3}
+  m_PrefabInstance: {fileID: 2097306629509986601}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6117181599207378453 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5332183916739327804, guid: a0a0f719aa31e91488c23741d0761921, type: 3}

@@ -796,6 +796,7 @@ GameObject:
   - component: {fileID: 64954712190795161}
   - component: {fileID: 2266349842765232060}
   - component: {fileID: 1694133620938066648}
+  - component: {fileID: 3332930496461966746}
   m_Layer: 0
   m_Name: OrderWindow
   m_TagString: Untagged
@@ -888,6 +889,21 @@ MonoBehaviour:
     orderIngredients: {fileID: 21300000, guid: a3ccea55b6eecd64c8933d24d4b62f54, type: 3}
     orderTools: {fileID: 21300000, guid: 79c96643f5f23ee4fa2ac35ee774a4d8, type: 3}
     orderTutorial: {fileID: 21300000, guid: bfa49c56377b5784fa128e0b4ff86d69, type: 3}
+  TicketAdded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3332930496461966746}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1694133620938066648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -905,6 +921,37 @@ MonoBehaviour:
   SyncParent: 0
   _autoAOIOverride: 1
   DisableSharedModeInterpolation: 0
+--- !u!114 &3332930496461966746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3824072423694789037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1508647459
+      Data2: 1341361673
+      Data3: 1697134212
+      Data4: 177733143
+    Path: event:/KitchenAppliances/TicketWindow/NewOrder
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &4423759678789587568
 GameObject:
   m_ObjectHideFlags: 0

@@ -1007,6 +1007,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7b0cb2a3253f5c04ca367a21dcb5e400, type: 3}
       insertIndex: -1
       addedObject: {fileID: -4855331834214666279}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7b0cb2a3253f5c04ca367a21dcb5e400, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -6308746332032308824}
   m_SourcePrefab: {fileID: 100100000, guid: 7b0cb2a3253f5c04ca367a21dcb5e400, type: 3}
 --- !u!4 &8220171206987474729 stripped
 Transform:
@@ -1117,3 +1120,34 @@ MonoBehaviour:
   SyncParent: 0
   _autoAOIOverride: 1
   DisableSharedModeInterpolation: 0
+--- !u!114 &-6308746332032308824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8743803021790657939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1099111927
+      Data2: 1117842144
+      Data3: 626153397
+      Data4: 744638924
+    Path: event:/Enemys/WallBreaky
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
