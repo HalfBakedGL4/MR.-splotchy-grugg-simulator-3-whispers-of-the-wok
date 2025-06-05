@@ -531,6 +531,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shared-LocalPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 7587488022083453592, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
+      propertyPath: m_TagString
+      value: LocalPlayer
+      objectReference: {fileID: 0}
     - target: {fileID: 7672166926862457964, guid: 3cda395f34d89254cb7916b4d6ae5ebb, type: 3}
       propertyPath: m_CurveVisualObject
       value: 
