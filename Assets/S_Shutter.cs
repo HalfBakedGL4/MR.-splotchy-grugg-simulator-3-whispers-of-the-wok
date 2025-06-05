@@ -1,32 +1,43 @@
-using Fusion;
-using NaughtyAttributes;
 using System.Collections;
 using UnityEngine;
 
-public class S_Shutter : NetworkBehaviour, IButtonObject
+public class S_Shutter : MonoBehaviour
 {
-    [SerializeField] Transform Shutter;
     [SerializeField, Min(1)] float shutterOpenCloseTime;
+    bool isOpen;
 
-    public void OnButtonPressed()
+    private void Update()
     {
-        if(S_GameManager.StartGame())
+
+        switch(S_GameManager.CurrentGameState )
         {
-            RPC_MoveShutter(true);
-            S_GameManager.instance.OnEnding.AddListener(CloseShutter);
+            case GameState.Starting:
+                {
+                    if (!isOpen)
+                        MoveShutter(true);
+                    break;
+                }
+            case GameState.Ongoing:
+                {
+                    if (!isOpen)
+                        MoveShutter(true);
+                    break;
+                }
+            case GameState.Ending:
+                {
+                    if (isOpen)
+                        MoveShutter(false);
+                    break;
+                }
+            case GameState.Intermission:
+                {
+                    if (isOpen)
+                        MoveShutter(false);
+                    break;
+                }
         }
     }
-    void CloseShutter(S_GameManager gameManager)
-    {
-        RPC_MoveShutter(false);
-        S_GameManager.instance.OnEnding.RemoveListener(CloseShutter);
-    }
 
-    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
-    void RPC_MoveShutter(NetworkBool open)
-    {
-        StartCoroutine(MoveShutter(open));
-    }
 
     IEnumerator MoveShutter(bool open)
     {
@@ -34,26 +45,27 @@ public class S_Shutter : NetworkBehaviour, IButtonObject
 
         if (open)
         {
+            isOpen = true;
             Debug.Log("[Shutter] opening");
             while (opening < 1)
             {
                 yield return new WaitForEndOfFrame();
                 opening += Time.deltaTime / shutterOpenCloseTime;
-                Shutter.localPosition = Vector3.Lerp(Vector3.zero, Vector3.up, opening);
+                transform.localPosition = Vector3.Lerp(Vector3.zero, Vector3.up, opening);
             }
-        } 
+        }
         else
         {
+            isOpen = false;
             Debug.Log("[Shutter] closing");
             while (opening < 1)
             {
                 yield return new WaitForEndOfFrame();
                 opening += Time.deltaTime / shutterOpenCloseTime;
-                Shutter.localPosition = Vector3.Lerp(Vector3.up, Vector3.zero, opening);
+                transform.localPosition = Vector3.Lerp(Vector3.up, Vector3.zero, opening);
             }
         }
 
 
     }
-
 }
