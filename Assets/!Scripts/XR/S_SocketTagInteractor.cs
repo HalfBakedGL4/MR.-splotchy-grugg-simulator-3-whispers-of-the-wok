@@ -6,14 +6,14 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 public class S_SocketTagInteractor : XRSocketInteractor // Derives from built in code, but adds option to specify tag
 {
     [SerializeField] private string targetTag;
-    [SerializeField] private string rejectTag;
+    [SerializeField] private bool checkForDish;
     [SerializeField] private bool noTag;
 
 
     public override bool CanHover(IXRHoverInteractable interactable)
     {
-        if(!TryGetComponent<S_Food>(out S_Food food)||!TryGetComponent<S_DishStatus>(out S_DishStatus s)) return false;
-        if(interactable.transform.TryGetComponent(out NetworkObject netwObj))
+        if (checkForDish) return CheckForDish();
+        if (interactable.transform.TryGetComponent(out NetworkObject netwObj))
         {
             if (!netwObj.HasStateAuthority)
                 return default;
@@ -28,7 +28,7 @@ public class S_SocketTagInteractor : XRSocketInteractor // Derives from built in
 
     public override bool CanSelect(IXRSelectInteractable interactable)
     {
-        if (!TryGetComponent<S_Food>(out S_Food food) || !TryGetComponent<S_DishStatus>(out S_DishStatus s)) return false;
+        if (checkForDish) return CheckForDish();
         if (interactable.transform.TryGetComponent(out NetworkObject netwObj))
         {
             if (!netwObj.HasStateAuthority)
@@ -40,5 +40,11 @@ public class S_SocketTagInteractor : XRSocketInteractor // Derives from built in
         }
 
         return base.CanSelect(interactable) && interactable.transform.CompareTag(targetTag);
+    }
+
+    bool CheckForDish()
+    {
+        if (!TryGetComponent<S_Food>(out S_Food food) || !TryGetComponent<S_DishStatus>(out S_DishStatus s)) return false;
+        else return true;
     }
 }
