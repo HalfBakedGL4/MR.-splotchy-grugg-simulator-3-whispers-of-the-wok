@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4548156235145857229
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3232171016038211470}
+  m_Layer: 0
+  m_Name: AttachmentPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3232171016038211470
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4548156235145857229}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9111816699618295134}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6306600999082782870
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,6 +354,10 @@ PrefabInstance:
       propertyPath: 'NetworkedBehaviours.Array.data[2]'
       value: 
       objectReference: {fileID: 2172995968954182430}
+    - target: {fileID: 1641222388295224047, guid: 22b4f0ed2bf00f24489321e0366165b1, type: 3}
+      propertyPath: m_AttachTransform
+      value: 
+      objectReference: {fileID: 3232171016038211470}
     - target: {fileID: 3990303696344069797, guid: 22b4f0ed2bf00f24489321e0366165b1, type: 3}
       propertyPath: m_Size.x
       value: 0.1
@@ -397,6 +432,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4079872096204683752, guid: 22b4f0ed2bf00f24489321e0366165b1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3801300844121078620}
+    - targetCorrespondingSourceObject: {fileID: 4079872096204683752, guid: 22b4f0ed2bf00f24489321e0366165b1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3232171016038211470}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22b4f0ed2bf00f24489321e0366165b1, type: 3}
 --- !u!4 &9111816699618295134 stripped

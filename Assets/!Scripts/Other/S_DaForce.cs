@@ -72,8 +72,15 @@ public class S_DaForce : NetworkBehaviour
     
     private void UpdatePull()
     {
-        if (!_grabButtonPressed || !_toolButtonPressed || transform.childCount > 1){ return; }
-        if (_tool == null)
+        if (!_grabButtonPressed || !_toolButtonPressed || transform.childCount > 1)
+        {
+            if (!_tool) return;
+            _moving = false;
+            _rigidbody.useGravity = true;
+            _canForcePull = false;
+            return;
+        }
+        if (!_tool)
         {
             SpawnTool();
             return;
@@ -123,23 +130,26 @@ public class S_DaForce : NetworkBehaviour
     private void CalculateDistance()
     {
         var distance = Vector3.Distance(_tool.transform.position, transform.position);
-        switch (distance)
+        if (distance <= minPullDistanceCalculation)
         {
-            case <= 1f:
-                distance = 1f;
-                break;
-            case >= 10f:
-                distance = 10f;
-                break;
+            distance = minPullDistanceCalculation;
         }
+        else if (distance >= maxPullDistanceCalculation)
+        { 
+            distance = maxPullDistanceCalculation;
+        }
+
         _returnSpeed = distance * speedMultiplier;
     }
     
     public override void FixedUpdateNetwork()
     {
         base.FixedUpdateNetwork();
-        if (_tool == null) return;
         
+        // Check if the tool is null or not
+        if (!_tool) return;
+        
+        // See if the player has something in their hand already
         if (transform.childCount > 1) return;
         
         if (!_canForcePull) return;
@@ -163,7 +173,7 @@ public class S_DaForce : NetworkBehaviour
     
     private void SpawnTool()
     {
-        if(_tool != null) return;
+        if(_tool) return;
         if (!IsLocal) return;
         _tool = Runner.Spawn(toolPrefab, transform.position, Quaternion.identity, Runner.LocalPlayer);
         _rigidbody = _tool.GetComponent<Rigidbody>();
