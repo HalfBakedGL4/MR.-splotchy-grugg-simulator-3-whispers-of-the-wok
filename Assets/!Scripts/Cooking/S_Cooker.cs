@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using Fusion;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEngine.Events;
 
 public enum CookerType
 {
@@ -53,6 +54,9 @@ public class S_Cooker : NetworkBehaviour, IToggle
     [Networked] private float timer { get; set; }
     
     [Networked] private bool isTurnedOn { get; set; }
+
+    public UnityEvent StartCooking;
+    public UnityEvent StoppedCooking;
     public override void Spawned()
     {
         base.Spawned();
@@ -159,8 +163,8 @@ public class S_Cooker : NetworkBehaviour, IToggle
             {
                 foodScript.ToggleColliders();
             }
-            RPC_SetCookerState(CookerState.Cooking);
-            
+
+            SetCookerState(CookerState.Cooking);
         }
         // Stop Cooker and empty food items inside
         else if (state == CookerState.Cooking)
@@ -168,7 +172,7 @@ public class S_Cooker : NetworkBehaviour, IToggle
             _currentDishStatus = SpawnDish();
             cookTimer.TimerToggle(false);
 
-            RPC_SetCookerState(CookerState.Available);
+            SetCookerState(CookerState.Available);
         }
     }
 
@@ -306,7 +310,7 @@ public class S_Cooker : NetworkBehaviour, IToggle
             
             dishSocket.socketActive = false;
             
-            RPC_SetCookerState(CookerState.Available);
+            SetCookerState(CookerState.Available);
         }
     }
     #endregion
@@ -358,9 +362,25 @@ public class S_Cooker : NetworkBehaviour, IToggle
 
     #endregion
 
-    [Rpc(sources: RpcSources.All, targets: RpcTargets.StateAuthority)]
-    void RPC_SetCookerState(CookerState state)
+    //no need to be rpc because cookerstate is a networked variable
+    void SetCookerState(CookerState state)
     {
+        Debug.Log("[Fryer] " + state);
+
+        switch (state)
+        {
+            case CookerState.Cooking:
+                {
+                    StartCooking?.Invoke();
+                    break;
+                }
+            case CookerState.Available:
+                {
+                    StoppedCooking?.Invoke();
+                    break;
+                }
+        }
+
         this.state = state;
     }
     
