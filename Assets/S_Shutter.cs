@@ -1,25 +1,31 @@
+using Fusion;
 using NaughtyAttributes;
 using System.Collections;
 using UnityEngine;
 
-public class S_StartGame : MonoBehaviour, IButtonObject
+public class S_Shutter : NetworkBehaviour, IButtonObject
 {
     [SerializeField] Transform Shutter;
     [SerializeField, Min(1)] float shutterOpenCloseTime;
 
-    [Button]
     public void OnButtonPressed()
     {
         if(S_GameManager.StartGame())
         {
-            StartCoroutine(MoveShutter(true));
+            RPC_MoveShutter(true);
             S_GameManager.instance.OnEnding.AddListener(CloseShutter);
         }
     }
     void CloseShutter(S_GameManager gameManager)
     {
-        StartCoroutine(MoveShutter(false));
+        RPC_MoveShutter(false);
         S_GameManager.instance.OnEnding.RemoveListener(CloseShutter);
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    void RPC_MoveShutter(NetworkBool open)
+    {
+        StartCoroutine(MoveShutter(open));
     }
 
     IEnumerator MoveShutter(bool open)
@@ -28,7 +34,7 @@ public class S_StartGame : MonoBehaviour, IButtonObject
 
         if (open)
         {
-            Debug.Log("[GameStartButton] opening");
+            Debug.Log("[Shutter] opening");
             while (opening < 1)
             {
                 yield return new WaitForEndOfFrame();
@@ -38,7 +44,7 @@ public class S_StartGame : MonoBehaviour, IButtonObject
         } 
         else
         {
-            Debug.Log("[GameStartButton] closing");
+            Debug.Log("[Shutter] closing");
             while (opening < 1)
             {
                 yield return new WaitForEndOfFrame();

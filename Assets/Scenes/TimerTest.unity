@@ -784,7 +784,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1610778550458200487, guid: fff54c2ebb177374a80aacd97af28aaa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3000001
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 1610778550458200487, guid: fff54c2ebb177374a80aacd97af28aaa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -825,6 +825,14 @@ PrefabInstance:
     - target: {fileID: 6204165479665365500, guid: fff54c2ebb177374a80aacd97af28aaa, type: 3}
       propertyPath: shutterOpenCloseTime
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6999779615991454640, guid: fff54c2ebb177374a80aacd97af28aaa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.00000010668625
+      objectReference: {fileID: 0}
+    - target: {fileID: 6999779615991454640, guid: fff54c2ebb177374a80aacd97af28aaa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.053696986
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
