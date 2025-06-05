@@ -1,17 +1,19 @@
+using Fusion;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 [RequireComponent(typeof(Rigidbody))]
-public class Health : MonoBehaviour
+public class Health : NetworkBehaviour
 {
     /*[SerializeField] float coolDown; // in seconds
     bool coolDownEnabled = false;*/
 
     //[SerializeField] int state; List
 
-    [SerializeField] float health, maxHealth = 3;
+    [SerializeField] private float  maxHealth = 3;
 
+    [Networked] private float health { get; set; }
 
     [SerializeField] FloatingHealthBar healthBar;
 
@@ -29,9 +31,12 @@ public class Health : MonoBehaviour
     {
         healthBar = GetComponentInChildren<FloatingHealthBar>();
     }
+    
 
-    private void Start() 
+    public override void Spawned()
     {
+        base.Spawned();
+        
         health = maxHealth;
     }
 
@@ -83,15 +88,18 @@ public class Health : MonoBehaviour
     {
         if (health <= 0) 
         {
-            Destroy(gameObject);
+            Runner.Despawn(gameObject.GetComponent<NetworkObject>());
         }
     }
 
     public void Damage(float damageAmount) 
     {
         OnDamage?.Invoke();
-
+        
         UpdateHealth(-damageAmount);
+        
+        Debug.LogWarning("Damage called \nCurrent Health: " + health);
+
         CheckDeath();
     }
 
