@@ -1,6 +1,7 @@
 using Fusion;
 using NaughtyAttributes;
 using System.Collections;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -41,8 +42,8 @@ public class S_SettingsMenu : NetworkBehaviour
             instance.planets[currentPlanet].transform.Rotate(0, 10 * Time.deltaTime, 0);
     }
 
-    //[Rpc(RpcSources.All, RpcTargets.All)]
-    public IEnumerator UpdateSelectedPlanet(Planet planet)
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    public async Task UpdateSelectedPlanet(Planet planet)
     {
         GameObject current = instance.planets[planet];
         GameObject previous = instance.planets[currentPlanet];
@@ -58,7 +59,7 @@ public class S_SettingsMenu : NetworkBehaviour
 
         while(t < 1)
         {
-            yield return new WaitForEndOfFrame();
+            await Task.Delay(Mathf.RoundToInt(Time.deltaTime * 1000));
 
             t += Time.deltaTime;
 

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ public class S_MenuLever : MonoBehaviour
     const int amountToMove = 20;
 
 
-    void OnTriggerEnter(Collider other)
+    async void OnTriggerEnter(Collider other)
     {
         if (hasHappened) return;
 
@@ -33,10 +34,10 @@ public class S_MenuLever : MonoBehaviour
             Debug.Log("[Lever] Entered from the LEFT");
         }
 
-        StartCoroutine(MoveLever());
+        MoveLever();
     }
 
-    IEnumerator MoveLever()
+    async void MoveLever()
     {
         hasHappened = true;
 
@@ -48,7 +49,7 @@ public class S_MenuLever : MonoBehaviour
 
         lever.transform.localEulerAngles = new Vector3(rotatePosX - 360, 0, 0);
 
-        yield return StartCoroutine(S_SettingsMenu.instance.UpdateSelectedPlanet((Planet)((rotatePosX - 360) / 20)));
+        await S_SettingsMenu.instance.UpdateSelectedPlanet( (Planet)((rotatePosX - 360) / 20) );
 
         hasHappened = false;
     }
