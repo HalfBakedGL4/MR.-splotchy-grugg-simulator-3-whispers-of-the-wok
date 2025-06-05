@@ -34,6 +34,9 @@
 		<relationship name="parameters">
 			<destination>{a8e99d04-faa6-4006-9275-4d28240379bb}</destination>
 		</relationship>
+		<relationship name="banks">
+			<destination>{79ce59a7-0181-4842-9d75-d9c7b808ea78}</destination>
+		</relationship>
 	</object>
 	<object class="EventMixer" id="{9b96b77b-e81e-41bb-b6f8-bee9569f0f3c}">
 		<relationship name="masterBus">
@@ -105,8 +108,11 @@
 	</object>
 	<object class="MixerBusPanner" id="{dd7e9102-bd07-467a-84b3-a4cc3f5cf57d}" />
 	<object class="SingleSound" id="{b44d35ef-c060-4475-92c2-fb441cb03c0f}">
+		<property name="start">
+			<value>0.0099999997764825821</value>
+		</property>
 		<property name="length">
-			<value>0.25</value>
+			<value>0.24000000022351711</value>
 		</property>
 		<property name="looping">
 			<value>true</value>
