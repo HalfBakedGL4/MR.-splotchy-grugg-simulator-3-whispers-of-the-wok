@@ -76,7 +76,7 @@ public class S_DaForce : NetworkBehaviour
         {
             if (!_tool) return;
             _moving = false;
-            _rigidbody.useGravity = true;
+            _rigidbody.isKinematic = false;
             _canForcePull = false;
             return;
         }
@@ -160,13 +160,13 @@ public class S_DaForce : NetworkBehaviour
             _tool.transform.rotation = Quaternion.RotateTowards(_tool.transform.rotation, transform.rotation, Time.deltaTime * _returnSpeed * 17);
             if (_moving) return;
             _moving = true;
-            _rigidbody.useGravity = false;
+            _rigidbody.isKinematic = true;
         }
         else
         {
             if (!_moving) return;
             _moving = false;
-            _rigidbody.useGravity = true;
+            _rigidbody.isKinematic = false;
             _canForcePull = false;
         }
     }
