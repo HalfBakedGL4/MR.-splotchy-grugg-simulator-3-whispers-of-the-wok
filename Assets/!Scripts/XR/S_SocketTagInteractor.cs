@@ -43,7 +43,7 @@ public class S_SocketTagInteractor : XRSocketInteractor // Derives from built in
 
     bool CheckForDish(IXRSelectInteractable interactable)
     {
-        if (!interactable.transform.TryGetComponent<S_Food>(out S_Food food) || !interactable.transform.TryGetComponent<S_DishStatus>(out S_DishStatus s)) return false;
+        if (!interactable.transform.TryGetComponent(out S_Food f) || !interactable.transform.TryGetComponent(out S_DishStatus s)) return false;
         else return true;
     }
 }

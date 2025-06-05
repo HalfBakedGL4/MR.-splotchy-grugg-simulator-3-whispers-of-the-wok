@@ -394,7 +394,7 @@ MonoBehaviour:
   m_FixedScale: {x: 1, y: 1, z: 1}
   m_TargetBoundsSize: {x: 1, y: 1, z: 1}
   targetTag: 
-  rejectTag: Finish
+  checkForDish: 1
   noTag: 1
 --- !u!65 &3250308256241567532
 BoxCollider:
