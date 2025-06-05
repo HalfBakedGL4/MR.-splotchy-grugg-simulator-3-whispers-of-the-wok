@@ -36,18 +36,16 @@ public class Station
 [Serializable]
 public class SpawnableStation
 {
-    public string name;
+    public PlaneClassifications toPlaceOn;
 
     public Station[] stations;
-
-    public PlaneClassifications toPlaceOn;
 
     public SpawnableStation(Station[] stations, PlaneClassifications toPlaceOn = PlaneClassifications.Table)
     {
         this.stations = stations;
         this.toPlaceOn = toPlaceOn;
 
-        name = this.stations[0].toSpawn.name;
+        //name = this.stations[0].toSpawn.name;
     }
 }
 public class S_SpawnObjectOnClassification : NetworkBehaviour
