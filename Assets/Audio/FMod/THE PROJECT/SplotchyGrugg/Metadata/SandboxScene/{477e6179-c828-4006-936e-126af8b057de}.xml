@@ -24,24 +24,24 @@
 	<object class="Timeline" id="{3fd83911-781e-4bb8-8a58-6c48d4588b7e}" />
 	<object class="SandboxListener" id="{9c056365-51b7-4380-9e08-125649d28df1}">
 		<property name="positionX">
-			<value>-3.88786793</value>
+			<value>-1.33786786</value>
 		</property>
 		<property name="positionZ">
-			<value>4.25281763</value>
+			<value>1.57781756</value>
 		</property>
 		<property name="rotationY">
-			<value>89.2072144</value>
+			<value>109.158363</value>
 		</property>
 	</object>
 	<object class="SandboxEmitter" id="{e0e869c2-c85d-4aa9-b732-dcf5635f1b35}">
 		<property name="positionX">
-			<value>-5.2750001</value>
+			<value>-21.0249996</value>
 		</property>
 		<property name="positionZ">
-			<value>4.30000019</value>
+			<value>-0.974999905</value>
 		</property>
 		<property name="rotationY">
-			<value>-45.6253586</value>
+			<value>-52.4904976</value>
 		</property>
 		<relationship name="sandboxParameters">
 			<destination>{d4cda70e-f744-4982-a368-4308ce17eea0}</destination>
