@@ -12,7 +12,6 @@ public class S_SocketTagInteractor : XRSocketInteractor // Derives from built in
 
     public override bool CanHover(IXRHoverInteractable interactable)
     {
-        if (checkForDish) return CheckForDish();
         if (interactable.transform.TryGetComponent(out NetworkObject netwObj))
         {
             if (!netwObj.HasStateAuthority)
@@ -28,7 +27,7 @@ public class S_SocketTagInteractor : XRSocketInteractor // Derives from built in
 
     public override bool CanSelect(IXRSelectInteractable interactable)
     {
-        if (checkForDish) return CheckForDish();
+        if (checkForDish) return CheckForDish(interactable);
         if (interactable.transform.TryGetComponent(out NetworkObject netwObj))
         {
             if (!netwObj.HasStateAuthority)
@@ -42,9 +41,9 @@ public class S_SocketTagInteractor : XRSocketInteractor // Derives from built in
         return base.CanSelect(interactable) && interactable.transform.CompareTag(targetTag);
     }
 
-    bool CheckForDish()
+    bool CheckForDish(IXRSelectInteractable interactable)
     {
-        if (!TryGetComponent<S_Food>(out S_Food food) || !TryGetComponent<S_DishStatus>(out S_DishStatus s)) return false;
+        if (!interactable.transform.TryGetComponent<S_Food>(out S_Food food) || !interactable.transform.TryGetComponent<S_DishStatus>(out S_DishStatus s)) return false;
         else return true;
     }
 }
