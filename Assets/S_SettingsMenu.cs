@@ -1,6 +1,7 @@
 using Fusion;
 using NaughtyAttributes;
 using System.Collections;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ public enum Planet
     Saturn = 1
 }
 
-public class S_SettingsMenu : NetworkBehaviour
+public class S_SettingsMenu : MonoBehaviour
 {
     public static S_SettingsMenu instance;
 
@@ -20,10 +21,12 @@ public class S_SettingsMenu : NetworkBehaviour
     [SerializeField] Planet currentPlanet;
     public SerializableDictionary<Planet, GameObject> planets;
 
+    [SerializeField] TMP_Text planetName;
+
     static Vector3 defaultPos { get; } = new Vector3(0, 0.6f, 1.5f);
-    static Vector3 defaultScale { get; } = new Vector3(0, 0, 0);
-    static Vector3 displayPos { get; } = new Vector3(0, 0.6f, 0.5f);
-    static Vector3 displayScale { get; } = new Vector3(2, 2, 2);
+    static Vector3 defaultScale { get; } = Vector3.zero;
+    static Vector3 displayPos { get; } = new Vector3(0, 0.6f, 0.75f);
+    static Vector3 displayScale { get; } = Vector3.one * 1.75f;
 
     private void Awake()
     {
@@ -37,45 +40,49 @@ public class S_SettingsMenu : NetworkBehaviour
     }
     private void Update()
     {
-        if(instance.planets[currentPlanet] != null)
-            instance.planets[currentPlanet].transform.Rotate(0, 10 * Time.deltaTime, 0);
+        if(planets[currentPlanet] != null)
+            planets[currentPlanet].transform.Rotate(0, 10 * Time.deltaTime, 0);
+
+        planetName.text = planets[currentPlanet].name;
     }
 
-    [Rpc(RpcSources.All, RpcTargets.All)]
     public IEnumerator UpdateSelectedPlanet(Planet planet)
     {
-        GameObject current = instance.planets[planet];
-        GameObject previous = instance.planets[currentPlanet];
-
-        Debug.Log(current + " + " + previous);
-
-        currentPlanet = planet;
-
-        if(current != null)
-            current.SetActive(true);
-
-        float t = 0;
-
-        while(t < 1)
+        if (planet != currentPlanet)
         {
-            yield return new WaitForEndOfFrame();
+            GameObject current = instance.planets[planet];
+            GameObject previous = instance.planets[currentPlanet];
 
-            t += Time.deltaTime;
+            Debug.Log(current + " + " + previous);
 
-            Debug.Log(t < 1);
+            currentPlanet = planet;
 
-            if(current != null)
+            if (current != null)
+                current.SetActive(true);
+
+            float t = 0;
+
+            while (t < 1)
             {
-                MoveForwards(current, t);
-            }
+                yield return new WaitForEndOfFrame();
 
-            if(previous != null)
-            {
-                MoveBack(previous, t);
+                t += Time.deltaTime;
+
+                Debug.Log(t < 1);
+
+                if (current != null)
+                {
+                    MoveForwards(current, t);
+                }
+
+                if (previous != null)
+                {
+                    MoveBack(previous, t);
+                }
             }
+            if (previous != null)
+                previous.SetActive(false);
         }
-        if (previous != null)
-            previous.SetActive(false);
     }
 
     void MoveForwards(GameObject current, float t)

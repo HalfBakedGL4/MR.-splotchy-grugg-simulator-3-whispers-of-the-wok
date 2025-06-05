@@ -1,13 +1,13 @@
+using Fusion;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class S_MenuLever : MonoBehaviour
+public class S_MenuLever : NetworkBehaviour
 {
     [SerializeField] GameObject lever;
-    bool moveLeft;
 
-    bool hasHappened;
+    [Networked] NetworkBool hasHappened { get; set; }
 
     const int amountToMove = 20;
 
@@ -21,6 +21,7 @@ public class S_MenuLever : MonoBehaviour
         Vector3 right = transform.forward;
 
         float dot = Vector3.Dot(toPlayer, right);
+        NetworkBool moveLeft;
 
         if (dot > 0)
         {
@@ -33,11 +34,18 @@ public class S_MenuLever : MonoBehaviour
             Debug.Log("[Lever] Entered from the LEFT");
         }
 
-        StartCoroutine(MoveLever());
+        RPC_TryMoveLever(moveLeft);
     }
 
-    IEnumerator MoveLever()
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    void RPC_TryMoveLever(NetworkBool moveLeft)
     {
+        StartCoroutine(MoveLever(moveLeft));
+    }
+
+    IEnumerator MoveLever(bool moveLeft)
+    {
+        Debug.Log("[Lever] moving");
         hasHappened = true;
 
         float rotatePosX = lever.transform.localEulerAngles.x +  360;
