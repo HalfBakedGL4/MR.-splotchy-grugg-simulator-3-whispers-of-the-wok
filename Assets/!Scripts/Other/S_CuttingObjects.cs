@@ -18,7 +18,6 @@ public class S_CuttingObjects : MonoBehaviour
     [Button("chop")]
     public void TryChop()
     {
-        OnChop?.Invoke();
         //if (canChop) ChopObject();
         ChopObject();
     }

@@ -12,16 +12,17 @@ public class Knife : MonoBehaviour
     {
         if (isDamaged) return; 
 
-        if (col.tag == "Vegetable") 
+        if (col.CompareTag("Vegetable")) 
         {
             StartCoroutine(Timer());
 
             objectWithDamageScript = col.transform.parent.gameObject;
             
-            if (objectWithDamageScript.TryGetComponent<Health>(out Health health))
+            if (objectWithDamageScript.TryGetComponent(out Health health))
                 health.ChopObject(col);
         }
-        if (col.tag == "Customer") 
+        
+        if (col.CompareTag("Customer")) 
         {
             objectWithDamageScript = col.gameObject;
             objectWithDamageScript.GetComponent<Health>().Damage(1);
@@ -31,7 +32,6 @@ public class Knife : MonoBehaviour
     
     IEnumerator Timer()
     {
-        Debug.Log("LOLO");
         isDamaged = true;
         yield return new WaitForSeconds(countDown);
         isDamaged = false;

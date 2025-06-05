@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="766b8065-bb22-46bb-b9f6-73b063636f70" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/P_TrashCan.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/P_TrashCan.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/TrashCan/S_MoveTrash.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/TrashCan/S_MoveTrash.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +27,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "TrashCan",
+    "git-widget-placeholder": "Trailer",
     "ignore.virus.scanning.warn.message": "true",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
@@ -54,6 +53,7 @@
       <workItem from="1743754483587" duration="68000" />
       <workItem from="1744383310035" duration="209000" />
       <workItem from="1746793367252" duration="285000" />
+      <workItem from="1749022841445" duration="140000" />
     </task>
     <servers />
   </component>

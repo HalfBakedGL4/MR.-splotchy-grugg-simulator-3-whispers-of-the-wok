@@ -1,23 +1,20 @@
 using NaughtyAttributes;
-using System;
+using Fusion;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using Random = UnityEngine.Random;
 
-public class S_FoodDispenser : MonoBehaviour, IButtonObject
+public class S_FoodDispenser : NetworkBehaviour, IButtonObject, IToggle
 {
     [Header("Food Dispenser")]
     [SerializeField] private S_Food foodToDispense;
     [SerializeField] private float launchSpeed;
     [SerializeField] private float rotationSpeed;
+    [SerializeField] private XRBaseInteractable interactable;
 
-    ParticleSystem effect;
+    [Networked] private bool isTurnedOn { get; set; }
 
-    private void Start()
-    {
-        effect = GetComponentInChildren<ParticleSystem>();
-    }
-
+    
     /*
     // These are all used as a visual to show what item would apear for debugging purposes
     // but then it stopped working so I left it in this state
@@ -49,13 +46,26 @@ public class S_FoodDispenser : MonoBehaviour, IButtonObject
     }
     */
 
+    public override void Spawned()
+    {
+        base.Spawned();
+
+        ConnectToApplicationManager();
+    }
+
     [Button("Dispense Food")]
+
     public void OnButtonPressed() // When button is pressed spawn and launch the selected food Item
     {
-        var foodItem = S_GameManager.TrySpawnFood(foodToDispense, transform.position, Quaternion.identity);
-        effect.Play();
+        if (!isTurnedOn) { Debug.LogError(name + " is Off");return;}
 
-        if (foodItem == null) return;
+        var foodItem = S_GameManager.TrySpawnFood(foodToDispense, transform.position, Quaternion.identity);
+
+        if (foodItem == null)
+        {
+            Debug.LogError("FoodItem is null Food");
+            return;
+        }
         
         if (foodItem.TryGetComponent(out Rigidbody rb))
         {
@@ -66,5 +76,27 @@ public class S_FoodDispenser : MonoBehaviour, IButtonObject
             rb.angularVelocity = Random.insideUnitSphere * rotationSpeed;
         }
     }
-   
+    
+    public void ConnectToApplicationManager()
+    {
+        if (S_ApplicationManager.Instance != null)
+        {
+            S_ApplicationManager.Instance.RegisterToggle(this);
+        }
+    }
+
+    public void SetApplicationActive(bool toggle)
+    {
+        isTurnedOn = toggle;
+        print(name + " is turned on: " + isTurnedOn);
+        RPC_ToggleMovement(toggle);
+
+    }
+
+    private XRGrabInteractable _grabInteractable;
+    [Rpc(sources: RpcSources.All, targets: RpcTargets.All)]
+    public void RPC_ToggleMovement(bool toggle)
+    {
+        interactable.enabled = toggle;
+    }
 }
