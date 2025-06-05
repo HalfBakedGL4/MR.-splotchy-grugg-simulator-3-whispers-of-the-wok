@@ -4,6 +4,7 @@ using System;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 public enum GameState
 {
@@ -40,10 +41,14 @@ public class S_GameManager : NetworkBehaviour
     public static float currentGameTime => instance.GameTime;
     [Networked] public float GameTime { get; private set; }
 
+    [Header("Food")]
     [Networked, Capacity(maxFood)] public NetworkLinkedList<S_Food> currentFood => default;
     public const int maxFood = 10;
 
     public static event Action OnFoodListFull;
+
+    [Header("Customer")]
+    [Networked, Capacity(5)] public NetworkDictionary<S_Ticket, S_CostumerOrder> ticketCustomers => default;
 
     bool isLocal => Object && Object.HasStateAuthority;
     public static bool isConnected = false;
@@ -193,6 +198,44 @@ public class S_GameManager : NetworkBehaviour
             TryDespawnFood(currentFood[i]);
         }
     }
+    #endregion
+    #region Customer
+
+    public static S_CostumerOrder TrySpawnCustomer(S_CostumerOrder customer, Vector3 pos, Quaternion rot)
+    {
+        return instance.SpawnCustomer(customer, pos, rot);
+    }
+
+    S_CostumerOrder SpawnCustomer(S_CostumerOrder customer, Vector3 pos, Quaternion rot)
+    {
+        S_CostumerOrder newCustomer = null;
+
+        if (currentFood.Count >= maxFood)
+        {
+            instance.RPC_FullFoodSpawn();
+            return null;
+        }
+
+        newCustomer = Runner.Spawn(customer, pos, rot);
+
+        if (newCustomer != null)
+            ticketCustomers.Add(newCustomer.OrderFood(), newCustomer);
+
+        Debug.Log("[GameManager] successfully spawned customer");
+
+        return newCustomer;
+    }
+
+    public static void TryDespawnCustomer(S_Ticket ticket)
+    {
+
+    }
+    void DespawnCustomer(S_Ticket ticket)
+    {
+        Runner.Despawn(ticketCustomers[ticket].Object);
+        ticketCustomers.Remove(ticket);
+    }
+
     #endregion
 
     #region Game States

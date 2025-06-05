@@ -57,6 +57,7 @@ MonoBehaviour:
   - {fileID: 465479620234018708}
   - {fileID: 5517262160264635024}
   - {fileID: 6265764638419284911}
+  - {fileID: 1602496550865357669}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &465479620234018708
 MonoBehaviour:
@@ -74,7 +75,6 @@ MonoBehaviour:
   costumerSpawner: {fileID: 6265764638419284911}
   findPointsOnWalls: {fileID: 3178879479147982308}
   holeSpawner: {fileID: 5517262160264635024}
-  debugText: {fileID: 0}
 --- !u!114 &3178879479147982308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,7 +88,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holeSize: 0.25
-  debugText: {fileID: 0}
 --- !u!114 &5517262160264635024
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,9 +1,10 @@
+using Fusion;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class S_CostumerOrder : MonoBehaviour
+public class S_CostumerOrder : NetworkBehaviour
 {
     S_OrderWindow orderWindow;
     
@@ -22,7 +23,7 @@ public class S_CostumerOrder : MonoBehaviour
     }
     
     // The costumer would order food when they approach the window
-    public void OrderFood()
+    public S_Ticket OrderFood()
     {
         if (orderWindow == null)
             orderWindow = FindAnyObjectByType<S_OrderWindow>();
@@ -32,6 +33,7 @@ public class S_CostumerOrder : MonoBehaviour
         // Ticket is returned to the costumer so the costumer know which ticket they own
         // And costumer is given to the ticket so the ticket can reference the costumer
         costumerTicket = orderWindow.MakeOrder(orderedDish, this);
+        return costumerTicket;
     }
 
     // The costumer receive their order and will calculate their enjoyment
@@ -108,6 +110,11 @@ public class S_CostumerOrder : MonoBehaviour
     public void ConnecTicket(S_Ticket ticket)
     {
         costumerTicket = ticket;
+    }
+
+    public void Despawn()
+    {
+        S_GameManager.TryDespawnCustomer(costumerTicket);
     }
     
 }

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8341709186695296961}
   - component: {fileID: 5469299336239547673}
   - component: {fileID: 7288960658079485150}
+  - component: {fileID: 6398566334004012588}
   m_Layer: 0
   m_Name: SpaceGramps_UVed
   m_TagString: Customer
@@ -59,6 +60,7 @@ MonoBehaviour:
   NetworkedBehaviours:
   - {fileID: 5409647990907958457}
   - {fileID: 7288960658079485150}
+  - {fileID: 6398566334004012588}
   - {fileID: 788021527426289782}
   - {fileID: 6822858282367681618}
   - {fileID: 1093233784836864257}
@@ -109,7 +111,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1569034952356095297}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06f1263d3939f6a4cb97d9e972048b12, type: 3}
   m_Name: 
@@ -177,7 +179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9369b8c84161c2b48bf6365b9438ceda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
   maxHealth: 1
   healthBar: {fileID: 0}
   OnDamage:
@@ -192,6 +193,19 @@ MonoBehaviour:
   OnChop:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6398566334004012588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569034952356095297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90138e6e7dd33574fb6b3f56702b9cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canOrder: 010000000200000004000000
 --- !u!1 &4432444045817315134
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,7 +316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7409796389292653100
 Transform:
   m_ObjectHideFlags: 0

@@ -47,9 +47,6 @@ public class S_CostumerManager : NetworkBehaviour, IToggle
         
 
         var costumerOrderInstanse = SpawnCostumer(wallTuple);
-        
-        costumerOrderInstanse.OrderFood();
-
     }
 
 

@@ -14,7 +14,7 @@ public class S_Ticket : NetworkBehaviour
     [SerializeField] private S_TicketDetailGiver ticketDetailGiver;
     [SerializeField] private TextMeshProUGUI ticketNumberText;
 
-    [Networked, OnChangedRender(nameof(InitializeTicketNumber))]
+    [Networked]
     public int TicketNumber { get; set; }
     
     private static int _ticketNumber;
@@ -40,11 +40,6 @@ public class S_Ticket : NetworkBehaviour
         _currentOrder = order;
         _costumerOrder = costumerOrder;
         ticketNumberText.text = $"#{TicketNumber}";
-    }
-
-    private void InitializeTicketNumber()
-    {
-        Debug.Log("I don't know if this even works.");
     }
 
     public void DestroyTicketDetails()
