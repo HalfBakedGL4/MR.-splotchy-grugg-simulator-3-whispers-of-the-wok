@@ -25,7 +25,7 @@ public class Health : NetworkBehaviour
     public UnityEvent OnChop;
 
     //int currentChild = 2;
-    GameObject child;
+    private GameObject _child;
 
     private void Awake() 
     {
@@ -111,17 +111,17 @@ public class Health : NetworkBehaviour
 
         for (int i = 0; i < transform.childCount; i++) 
         {
-            child = transform.GetChild(i).gameObject;
-            if (child == col.gameObject)
+            _child = transform.GetChild(i).gameObject;
+            if (_child == col.gameObject)
             {
                 break;
             }
         }
 
         //child = transform.GetChild(transform.childCount-1).gameObject;
-        child.AddComponent<Rigidbody>();
-        child.AddComponent<XRGrabInteractable>();
-        child.transform.parent = null;
+        _child.AddComponent<Rigidbody>();
+        _child.AddComponent<XRGrabInteractable>();
+        _child.transform.parent = null;
 
 
         /*if (currentChild == 0)
