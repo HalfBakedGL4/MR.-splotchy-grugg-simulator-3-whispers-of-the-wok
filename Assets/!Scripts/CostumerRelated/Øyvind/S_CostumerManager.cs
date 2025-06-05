@@ -41,7 +41,7 @@ public class S_CostumerManager : NetworkBehaviour, IToggle
     {
         if (!isTurnedOn) { return; }
         
-        if (GameState.Intermission == S_GameManager.CurrentGameState) return;
+        if (GameState.Ongoing != S_GameManager.CurrentGameState) return;
         // Find point on wall
         var wallTuple = FindAndStoreWallToBreak();
 
