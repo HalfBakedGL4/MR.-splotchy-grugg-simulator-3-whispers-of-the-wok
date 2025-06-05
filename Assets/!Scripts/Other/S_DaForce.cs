@@ -11,6 +11,7 @@ public class S_DaForce : NetworkBehaviour
     [Header("Settings")]
     [SerializeField] private float minPullDistanceCalculation = 1f;
     [SerializeField] private float maxPullDistanceCalculation = 10f;
+    [SerializeField] private float deSpawnDistance = 15f;
     [SerializeField] private float speedMultiplier = 8f;
     
     private float _returnSpeed = 8f;
@@ -177,15 +178,30 @@ public class S_DaForce : NetworkBehaviour
         if (!IsLocal) return;
         _tool = Runner.Spawn(toolPrefab, transform.position, Quaternion.identity, Runner.LocalPlayer);
         _rigidbody = _tool.GetComponent<Rigidbody>();
+        
+        StartCoroutine(LookForToolDistance());
         // await Shared.GainStateAuthority(_tool);
         // _tool.transform.SetParent(transform);
         // _tool.transform.localPosition = Vector3.zero;
         // _tool.transform.localRotation = Quaternion.identity;
     }
 
-    IEnumerator SetPull()
+    private IEnumerator LookForToolDistance()
     {
-        yield return new WaitForSeconds(3f);
-        _canForcePull = false;
+        if (!IsLocal) yield break;
+        while (_tool)
+        {
+            yield return new WaitForSeconds(1f);
+            var distance = Vector3.Distance(_tool.transform.position, transform.position);
+            if (distance < deSpawnDistance) continue;
+            Runner.Despawn(_tool);
+            _tool = null;
+        }
     }
+
+    // IEnumerator SetPull()
+    // {
+    //     yield return new WaitForSeconds(3f);
+    //     _canForcePull = false;
+    // }
 }
