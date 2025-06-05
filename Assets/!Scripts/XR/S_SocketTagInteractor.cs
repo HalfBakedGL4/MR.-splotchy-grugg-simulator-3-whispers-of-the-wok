@@ -6,11 +6,13 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 public class S_SocketTagInteractor : XRSocketInteractor // Derives from built in code, but adds option to specify tag
 {
     [SerializeField] private string targetTag;
+    [SerializeField] private string rejectTag;
     [SerializeField] private bool noTag;
 
 
     public override bool CanHover(IXRHoverInteractable interactable)
     {
+        if(interactable.transform.CompareTag(rejectTag)) return false;
         if(interactable.transform.TryGetComponent(out NetworkObject netwObj))
         {
             if (!netwObj.HasStateAuthority)
@@ -26,6 +28,7 @@ public class S_SocketTagInteractor : XRSocketInteractor // Derives from built in
 
     public override bool CanSelect(IXRSelectInteractable interactable)
     {
+        if (interactable.transform.CompareTag(rejectTag)) return false;
         if (interactable.transform.TryGetComponent(out NetworkObject netwObj))
         {
             if (!netwObj.HasStateAuthority)
