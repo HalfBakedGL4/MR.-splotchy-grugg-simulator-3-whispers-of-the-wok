@@ -10,7 +10,7 @@ public class S_CostumerSpawner : NetworkBehaviour
     [SerializeField] List<GameObject> costumerPrefabs; // Prefabs to instantiate on collision
     [SerializeField] private float lengthInFrontOfHole = .2f;
 
-    public void SpawnCostumer(Vector3 pos, ARPlane wall)
+    public S_CostumerOrder SpawnCostumer(Vector3 pos, ARPlane wall)
     {
         // Create costumer
         var costumerInstance = Runner.Spawn(costumerPrefabs[Random.Range(0, costumerPrefabs.Count)], pos);
@@ -26,5 +26,7 @@ public class S_CostumerSpawner : NetworkBehaviour
 
         // Place costumer in front of wall
         //costumerInstance.transform.position += costumerInstance.transform.forward * lengthInFrontOfHole;
+
+        return costumerInstance.GetComponent<S_CostumerOrder>();
     }
 }

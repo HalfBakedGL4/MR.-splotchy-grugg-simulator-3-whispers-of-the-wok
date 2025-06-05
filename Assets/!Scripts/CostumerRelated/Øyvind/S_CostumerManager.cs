@@ -8,7 +8,6 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 public class S_CostumerManager : NetworkBehaviour, IToggle
 {
     [Header("Scripts")]
-    [SerializeField] private S_CostumerOrder costumerOrder;
     [SerializeField] private S_CostumerSpawner costumerSpawner;
     [SerializeField] private S_FindPointsOnWalls findPointsOnWalls;
     [SerializeField] private S_HoleSpawner holeSpawner;
@@ -45,10 +44,12 @@ public class S_CostumerManager : NetworkBehaviour, IToggle
         // Find point on wall
         var wallTuple = FindAndStoreWallToBreak();
 
-        costumerOrder.OrderFood();
         
 
-        SpawnCostumer(wallTuple);
+        var costumerOrderInstanse = SpawnCostumer(wallTuple);
+        
+        costumerOrderInstanse.OrderFood();
+
     }
 
 
@@ -58,11 +59,11 @@ public class S_CostumerManager : NetworkBehaviour, IToggle
         return findPointsOnWalls.GetRandomWallAndPoint();
     }
     
-    private void SpawnCostumer( (ARPlane wall, Vector3 pointOnWall) wallTuple)
+    private S_CostumerOrder SpawnCostumer( (ARPlane wall, Vector3 pointOnWall) wallTuple)
     {
         var costumerPos = wallTuple.pointOnWall + wallTuple.wall.transform.position;
 
-        costumerSpawner.SpawnCostumer(costumerPos, wallTuple.wall);
+        return costumerSpawner.SpawnCostumer(costumerPos, wallTuple.wall);
 
     }
     
