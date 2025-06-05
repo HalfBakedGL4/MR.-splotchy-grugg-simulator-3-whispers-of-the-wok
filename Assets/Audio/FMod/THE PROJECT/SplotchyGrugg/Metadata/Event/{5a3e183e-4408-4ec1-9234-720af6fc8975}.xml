@@ -5,7 +5,7 @@
 			<value>Radio</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{d25b9091-8719-46a1-a0d1-57cdf000dc4f}</destination>
@@ -172,6 +172,9 @@
 		<property name="length">
 			<value>0.059999999999999998</value>
 		</property>
+		<property name="volume">
+			<value>4</value>
+		</property>
 		<property name="looping">
 			<value>true</value>
 		</property>
@@ -226,6 +229,9 @@
 		<property name="length">
 			<value>0.089999999999999997</value>
 		</property>
+		<property name="volume">
+			<value>5.5</value>
+		</property>
 		<property name="looping">
 			<value>true</value>
 		</property>
@@ -266,6 +272,12 @@
 		<property name="length">
 			<value>0.12</value>
 		</property>
+		<property name="volume">
+			<value>3.5</value>
+		</property>
+		<property name="looping">
+			<value>true</value>
+		</property>
 		<relationship name="fadeInCurve">
 			<destination>{e949bfcd-4543-435c-92bd-509620268a29}</destination>
 		</relationship>
@@ -277,11 +289,20 @@
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{1de8ff5a-7768-4ce4-9d43-5092f63096fd}">
+		<property name="isCutoff">
+			<value>true</value>
+		</property>
 		<property name="start">
 			<value>0.56000000000000005</value>
 		</property>
 		<property name="length">
 			<value>0.13</value>
+		</property>
+		<property name="volume">
+			<value>6</value>
+		</property>
+		<property name="looping">
+			<value>true</value>
 		</property>
 		<relationship name="fadeInCurve">
 			<destination>{f74e2f37-8b3f-44ce-ae60-c7e2b2d54748}</destination>
@@ -311,11 +332,20 @@
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{64b597f7-5710-48ce-b383-3e2371a8a49d}">
+		<property name="isCutoff">
+			<value>true</value>
+		</property>
 		<property name="start">
 			<value>0.76000000000000001</value>
 		</property>
 		<property name="length">
 			<value>0.14000000000000001</value>
+		</property>
+		<property name="volume">
+			<value>2.5</value>
+		</property>
+		<property name="looping">
+			<value>true</value>
 		</property>
 		<relationship name="fadeInCurve">
 			<destination>{2d1f783a-ca80-4b05-9d3b-0acb9e598063}</destination>
@@ -362,6 +392,7 @@
 		<relationship name="effects">
 			<destination>{3485684e-9ee3-407b-932d-7aaf954b5a59}</destination>
 			<destination>{0e14041a-b56f-413f-aee8-614846034a78}</destination>
+			<destination>{8072367b-3fb0-4ec7-a985-de0ab07e3087}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{fc7d0fff-59c0-45ee-b88a-812603d6ee35}" />
@@ -586,6 +617,7 @@
 			<destination>{0f41d0ab-3f5b-4ab5-ad53-6be2ea3a9b09}</destination>
 		</relationship>
 	</object>
+	<object class="SpatialiserEffect" id="{8072367b-3fb0-4ec7-a985-de0ab07e3087}" />
 	<object class="AutomationPoint" id="{5c0a34a5-09a5-450b-9d78-b6be52c5ef90}">
 		<property name="position">
 			<value>0.03999999999999998</value>
