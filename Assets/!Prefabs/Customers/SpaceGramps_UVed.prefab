@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5469299336239547673}
   - component: {fileID: 7288960658079485150}
   - component: {fileID: 6398566334004012588}
+  - component: {fileID: 5778034254643092929}
   m_Layer: 0
   m_Name: SpaceGramps_UVed
   m_TagString: Customer
@@ -61,6 +62,7 @@ MonoBehaviour:
   - {fileID: 5409647990907958457}
   - {fileID: 7288960658079485150}
   - {fileID: 6398566334004012588}
+  - {fileID: 5778034254643092929}
   - {fileID: 788021527426289782}
   - {fileID: 6822858282367681618}
   - {fileID: 1093233784836864257}
@@ -206,6 +208,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canOrder: 010000000200000004000000
+--- !u!114 &5778034254643092929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569034952356095297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a59a9dd2260214bb0c99a9257dbe26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 6484323083719718465}
+  speed: 1
 --- !u!1 &4432444045817315134
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,9 +313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 609d145871d60dd45a46fa14e30eb28f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 6484323083719718465}
+  movement: {fileID: 5778034254643092929}
   attackState: {fileID: 1093233784836864257}
-  speed: 1
   isInAttackRange: 0
 --- !u!1 &4833009073551206878
 GameObject:
