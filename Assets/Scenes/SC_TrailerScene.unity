@@ -1001,16 +1001,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 64954712190795161, guid: fff54c2ebb177374a80aacd97af28aaa, type: 3}
       propertyPath: NetworkedBehaviours.Array.size
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 64954712190795161, guid: fff54c2ebb177374a80aacd97af28aaa, type: 3}
-      propertyPath: 'NetworkedBehaviours.Array.data[3]'
+      propertyPath: 'NetworkedBehaviours.Array.data[2]'
       value: 
       objectReference: {fileID: 1186308904}
     - target: {fileID: 64954712190795161, guid: fff54c2ebb177374a80aacd97af28aaa, type: 3}
-      propertyPath: 'NetworkedBehaviours.Array.data[4]'
+      propertyPath: 'NetworkedBehaviours.Array.data[3]'
       value: 
       objectReference: {fileID: 697438626}
+    - target: {fileID: 64954712190795161, guid: fff54c2ebb177374a80aacd97af28aaa, type: 3}
+      propertyPath: 'NetworkedBehaviours.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1916491600}
     - target: {fileID: 64954712190795161, guid: fff54c2ebb177374a80aacd97af28aaa, type: 3}
       propertyPath: 'NetworkedBehaviours.Array.data[5]'
       value: 
@@ -2323,11 +2327,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4191140718081174584, guid: 1fd7dc4e2738aaf4fbee7afd7338fd45, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.090000115
+      value: 0.08999991
       objectReference: {fileID: 0}
     - target: {fileID: 4191140718081174584, guid: 1fd7dc4e2738aaf4fbee7afd7338fd45, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.00000019310876
+      value: 0.0000001433976
       objectReference: {fileID: 0}
     - target: {fileID: 5464214638882273747, guid: 1fd7dc4e2738aaf4fbee7afd7338fd45, type: 3}
       propertyPath: SortKey
