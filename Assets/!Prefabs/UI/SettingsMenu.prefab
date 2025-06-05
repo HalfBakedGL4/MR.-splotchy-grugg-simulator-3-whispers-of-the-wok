@@ -57,6 +57,7 @@ MonoBehaviour:
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 6402467744382679462}
+  - {fileID: 7632330196048797200}
   - {fileID: 1467066742965758808}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &6402467744382679462
@@ -121,7 +122,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  currentPlanet: 0
+  _currentPlanet: 0
   planets:
     m_keys: 00000000ffffffff01000000
     m_values:

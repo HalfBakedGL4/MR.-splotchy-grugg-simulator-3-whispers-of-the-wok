@@ -12,13 +12,13 @@ public enum Planet
     Saturn = 1
 }
 
-public class S_SettingsMenu : MonoBehaviour
+public class S_SettingsMenu : NetworkBehaviour
 {
     public static S_SettingsMenu instance;
 
     public AnimationCurve xAxis;
 
-    [SerializeField] Planet currentPlanet;
+    [SerializeField, Networked] Planet currentPlanet { get; set; }
     public SerializableDictionary<Planet, GameObject> planets;
 
     [SerializeField] TMP_Text planetName;
