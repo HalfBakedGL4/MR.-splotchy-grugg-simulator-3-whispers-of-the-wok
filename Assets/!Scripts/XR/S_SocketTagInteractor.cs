@@ -6,7 +6,6 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 public class S_SocketTagInteractor : XRSocketInteractor // Derives from built in code, but adds option to specify tag
 {
     [SerializeField] private string targetTag;
-    [SerializeField] private bool checkForDish;
     [SerializeField] private bool noTag;
 
 
@@ -27,7 +26,6 @@ public class S_SocketTagInteractor : XRSocketInteractor // Derives from built in
 
     public override bool CanSelect(IXRSelectInteractable interactable)
     {
-        if (checkForDish) return CheckForDish(interactable);
         if (interactable.transform.TryGetComponent(out NetworkObject netwObj))
         {
             if (!netwObj.HasStateAuthority)
@@ -41,9 +39,4 @@ public class S_SocketTagInteractor : XRSocketInteractor // Derives from built in
         return base.CanSelect(interactable) && interactable.transform.CompareTag(targetTag);
     }
 
-    bool CheckForDish(IXRSelectInteractable interactable)
-    {
-        if (!interactable.transform.TryGetComponent(out S_Food f) || !interactable.transform.TryGetComponent(out S_DishStatus s)) return false;
-        else return true;
-    }
 }
