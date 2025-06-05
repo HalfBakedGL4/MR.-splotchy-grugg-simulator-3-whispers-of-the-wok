@@ -4,6 +4,7 @@ using UnityEngine;
 public class AlignmentManager : MonoBehaviour
 {
     private Transform _cameraRigTransform;
+    public bool aligned = false;
 
     void Awake()
     {
@@ -37,6 +38,7 @@ public class AlignmentManager : MonoBehaviour
             _cameraRigTransform.eulerAngles = new Vector3(0, -anchorTransform.eulerAngles.y, 0);
 
             Debug.Log("Colocation: Aligned Camera Rig Position: " + _cameraRigTransform.position + " Rotation: " + _cameraRigTransform.rotation);
+            aligned = true;
 
             yield return new WaitForEndOfFrame();
         }

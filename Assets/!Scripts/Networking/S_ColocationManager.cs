@@ -5,17 +5,22 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Text;
 using System.Collections;
+using System.Linq;
+using static Unity.Collections.Unicode;
+using UnityEngine.UIElements;
 
 public class ColocationManager : NetworkBehaviour
 {
     [SerializeField] private AlignmentManager alignmentManager;
+    [SerializeField] private ColocationInputHandler colocationInputHandler;
 
     private Guid _sharedAnchorGroupId;
     private bool _isAdvertising = false;
-
+    private bool _isCreatingAnchor = false;
     public override void Spawned()
     {
         base.Spawned();
+        Runner.Spawn(colocationInputHandler, Vector3.zero, Quaternion.identity, Runner.LocalPlayer);
         PrepareColocation();
     }
 
@@ -96,6 +101,10 @@ public class ColocationManager : NetworkBehaviour
 
     private async void CreateAndShareAlignmentAnchor()
     {
+        if (_isCreatingAnchor) return;
+        _isCreatingAnchor = true;
+
+        await DestroyAnchors();
         try
         {
             Debug.Log("Colocation: Creating aligment anchor...");
@@ -136,6 +145,10 @@ public class ColocationManager : NetworkBehaviour
         {
             Debug.LogError("Colocation: Error during anchor creation and sharing: " + e.Message);
         }
+        finally
+        {
+            _isCreatingAnchor = false;
+        }
     }
 
     private async Task<OVRSpatialAnchor> CreateAnchor(Vector3 position, Quaternion rotation)
@@ -164,6 +177,34 @@ public class ColocationManager : NetworkBehaviour
         {
             Debug.LogError("Colocation: Error during anchor creation: " + e.Message);
             return null;
+        }
+    }
+
+    private async Task DestroyAnchors()
+    {
+        var anchors = FindObjectsByType<OVRSpatialAnchor>(FindObjectsSortMode.None);
+        await EraseAnchors(anchors);
+        foreach (var anchor in anchors)
+        {
+            if (anchor != null)
+            {
+                Debug.Log("Colocation: Destroying anchor: " + anchor.Uuid);
+                Destroy(anchor.gameObject);
+            }
+        }
+        Debug.Log("Colocation: All anchors destroyed and advertising stopped.");
+    }
+
+    private async Task EraseAnchors(IEnumerable<OVRSpatialAnchor> anchors)
+    {
+        var result = await OVRSpatialAnchor.EraseAnchorsAsync(anchors, null);
+        if (result.Success)
+        {
+            Debug.Log($"Colocation: Successfully erased anchors.");
+        }
+        else
+        {
+            Debug.LogError($"Colocation: Failed to erase anchors {anchors.Count()} with result {result.Status}");
         }
     }
 
@@ -208,7 +249,6 @@ public class ColocationManager : NetworkBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
     }
 
     // Update is called once per frame

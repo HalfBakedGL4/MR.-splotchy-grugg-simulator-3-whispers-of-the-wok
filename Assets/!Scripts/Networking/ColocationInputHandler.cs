@@ -23,9 +23,17 @@ public class ColocationInputHandler : NetworkBehaviour
 
     public void clickA()
     {
-        Debug.Log("Colocation: A button pressed by player " + Object.InputAuthority);
-        RPC_RequestResetColocation();
+        if (Object.HasInputAuthority)
+        {
+            Debug.Log("Colocation: A button pressed by player " + Object.InputAuthority);
+            RPC_RequestResetColocation();
+        }
+        else
+        {
+            Debug.LogWarning("Colocation: Tried to send RPC without input authority.");
+        }
     }
+
 
     [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
     private void RPC_RequestResetColocation(RpcInfo info = default)
