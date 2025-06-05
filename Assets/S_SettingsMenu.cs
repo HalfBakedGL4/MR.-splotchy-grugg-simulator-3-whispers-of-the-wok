@@ -12,7 +12,7 @@ public enum Planet
     Saturn = 1
 }
 
-public class S_SettingsMenu : NetworkBehaviour
+public class S_SettingsMenu : MonoBehaviour
 {
     public static S_SettingsMenu instance;
 
@@ -42,8 +42,7 @@ public class S_SettingsMenu : NetworkBehaviour
             instance.planets[currentPlanet].transform.Rotate(0, 10 * Time.deltaTime, 0);
     }
 
-    [Rpc(RpcSources.All, RpcTargets.All)]
-    public async Task UpdateSelectedPlanet(Planet planet)
+    public IEnumerator UpdateSelectedPlanet(Planet planet)
     {
         GameObject current = instance.planets[planet];
         GameObject previous = instance.planets[currentPlanet];
@@ -59,7 +58,7 @@ public class S_SettingsMenu : NetworkBehaviour
 
         while(t < 1)
         {
-            await Task.Delay(Mathf.RoundToInt(Time.deltaTime * 1000));
+            yield return new WaitForEndOfFrame();
 
             t += Time.deltaTime;
 
