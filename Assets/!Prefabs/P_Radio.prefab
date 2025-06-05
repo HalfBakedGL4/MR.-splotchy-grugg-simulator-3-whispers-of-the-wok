@@ -1026,6 +1026,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emitter: {fileID: 8422186303082810748}
+  _Volume: 0
+  _Channel: 0
 --- !u!1 &1778815629695467146
 GameObject:
   m_ObjectHideFlags: 0
