@@ -22,7 +22,7 @@ public class S_GameManager : NetworkBehaviour
     {
         get { return !isConnected ? GameState.Offline : instance.gameState; }
     }
-    [Networked] GameState gameState { get; set; }
+    [Networked, SerializeField] GameState gameState { get; set; }
 
     [Space]
 
@@ -198,16 +198,12 @@ public class S_GameManager : NetworkBehaviour
     #region Game States
     void Intermission()
     {
-        if(autoStart)
-        {
-            Ready = true;
-            StartGame();
-            return;
-        }
-
         if(!waitForPlayers || sessionInfo.PlayerCount >= playersRequired)
         {
             Ready = true;
+
+            if(autoStart)
+                StartGame();
         }
     }
 
@@ -246,15 +242,15 @@ public class S_GameManager : NetworkBehaviour
             return;
         }
 
-        if(t > 0)
-            await Task.Delay(Mathf.RoundToInt(t * 1000));
-
         GameState newGameState = (GameState)((int)CurrentGameState + 1);
+        if (CurrentGameState == newGameState) return;
+
+        if (t > 0)
+            await Task.Delay(Mathf.RoundToInt(t * 1000));
 
         if ((int)newGameState > (int)GameState.Ending)
             newGameState = GameState.Intermission;
 
-        Debug.Log("[GameManager] updating game state to: " + newGameState);
         instance.RPC_UpdateGameState(newGameState);
         return;
     }
@@ -272,7 +268,11 @@ public class S_GameManager : NetworkBehaviour
     {
         if (gameState == state) return;
 
-        switch (state)
+        Debug.Log("[GameManager] updating game state to: " + state);
+
+        gameState = state;
+
+        switch (gameState)
         {
             case GameState.Intermission:
                 {
@@ -302,7 +302,6 @@ public class S_GameManager : NetworkBehaviour
                 }
         }
 
-        gameState = state;
         Debug.Log("[GameManager] successfully updated game state to: " + state);
     }
 
