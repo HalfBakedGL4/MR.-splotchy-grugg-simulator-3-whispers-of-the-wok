@@ -17,19 +17,20 @@ public class S_Alien : NetworkBehaviour
         appliances = FindObjectsByType<S_Appliance>(FindObjectsSortMode.None).ToList();
         Debug.Log("[Navmesh] Appliances found: " + appliances.Count);
         FollowAppliance();
+        InvokeRepeating(nameof(FollowAppliance), 5, 10);
     }
 
     void FollowAppliance()
     {
         if (agent.isOnNavMesh)
         {
-            if (applianceIndex == -1)
-            {
-                applianceIndex = Random.Range(0, appliances.Count - 1);
-            }
+
+            applianceIndex = Random.Range(0, appliances.Count - 1);
+            
             Vector3 targetPosition;
 
             targetPosition = appliances[applianceIndex].transform.position;
+            //targetPosition = Camera.main.transform.position;
 
             agent.SetDestination(targetPosition);
             agent.speed = speed;
@@ -37,6 +38,15 @@ public class S_Alien : NetworkBehaviour
         else
         {
             Debug.LogError("[Navmesh] Navmesh Agent not attached to Navmesh Surface.");
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Finish"))
+        {
+            GetComponent<S_CostumerOrder>().Despawn();
+            //Runner.Despawn(GetComponent<NetworkObject>());
         }
     }
 }
