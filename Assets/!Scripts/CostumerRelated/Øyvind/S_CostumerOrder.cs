@@ -104,7 +104,9 @@ public class S_CostumerOrder : NetworkBehaviour
     private void RemoveTicket()
     {
         Debug.Log(orderWindow);
-        S_OrderWindow.RemoveTicket(costumerTicket);
+        Despawn();
+        //S_OrderWindow.RemoveTicket(costumerTicket);
+        
     }
 
     public void ConnecTicket(S_Ticket ticket)

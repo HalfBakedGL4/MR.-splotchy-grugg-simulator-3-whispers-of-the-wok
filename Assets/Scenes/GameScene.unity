@@ -342,6 +342,10 @@ PrefabInstance:
       propertyPath: 'NetworkedBehaviours.Array.data[0]'
       value: 
       objectReference: {fileID: 538838340}
+    - target: {fileID: 1565554028521536954, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 5c955d6347312d541a2540f4bd74e57e, type: 2}
     - target: {fileID: 3749145626746998881, guid: 0a7e2e2b7e8404e41ba3a7356d9db80a, type: 3}
       propertyPath: planeManager
       value: 

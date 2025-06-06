@@ -40,6 +40,11 @@ public class S_Hammer : NetworkBehaviour
     {
         //if(!Object.HasStateAuthority) return;
 
+        if (other.CompareTag("Customer"))
+        {
+            
+        }
+
         if(other.TryGetComponent(out S_HoleManager holemanager))
         {
             holemanager.RPCHammerHit(charge * wallMultiplier);
