@@ -24,7 +24,7 @@ public class S_FryerActivater : NetworkBehaviour
         if (args.interactableObject.transform.TryGetComponent(out S_Cooker fryer))
         {
                fryer.CantCook();
-               fryer.InteractWithCooker();
+               fryer.RPC_InteractWithCooker();
         }
     }
 }
