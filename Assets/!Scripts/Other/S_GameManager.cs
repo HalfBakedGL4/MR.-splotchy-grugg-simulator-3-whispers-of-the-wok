@@ -128,7 +128,7 @@ public class S_GameManager : NetworkBehaviour
 
         foreach (KeyValuePair<S_Ticket, S_CostumerOrder> item in ticketCustomers)
         {
-            DespawnCustomer(item.Key);
+            TryDespawnCustomer(item.Key);
         }
     }
 
@@ -346,9 +346,10 @@ public class S_GameManager : NetworkBehaviour
                 }
             case GameState.Ending:
                 {
+                    CleauUp();
                     ProgressGameState(startDelay);
 
-                    CleauUp();
+                    
 
                     OnEnding?.Invoke(this);
                     break;
