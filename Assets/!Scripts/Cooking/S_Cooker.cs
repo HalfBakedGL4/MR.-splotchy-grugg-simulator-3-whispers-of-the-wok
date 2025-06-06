@@ -21,17 +21,17 @@ public class S_Cooker : NetworkBehaviour, IToggle
     
 
     [SerializeField] private CookerType cookerType;
-    
+    [Networked, SerializeField] private CookerState state { get; set; } = CookerState.Available;
+
     [Header("Sockets")]
     [SerializeField] private S_SocketTagInteractor[] foodSockets;
     [SerializeField] private S_SocketTagInteractor dishSocket;
     
     [Header("Interactable to turn On/Off")]
     [SerializeField] private XRBaseInteractable[] interactable;
-    [Networked] private CookerState state { get; set; } = CookerState.Available;
 
-    [Networked, Capacity(4)] private NetworkLinkedList<FoodType> _foodCooking => default;
-    [Networked, Capacity(4)] private NetworkLinkedList<S_Food> _foodScripts => default;
+    [Networked, SerializeField, Capacity(4)] private NetworkLinkedList<FoodType> _foodCooking => default;
+    [Networked, SerializeField, Capacity(4)] private NetworkLinkedList<S_Food> _foodScripts => default;
 
     private S_DishStatus _currentDishStatus;
     private GameObject _spawnedDish;
@@ -51,9 +51,9 @@ public class S_Cooker : NetworkBehaviour, IToggle
     
     [Networked] private bool isAbleToStartCooking { get; set; } = true;
     bool isLocal => Object && Object.HasStateAuthority;
-    [Networked] private float timer { get; set; }
+    [Networked, SerializeField] private float timer { get; set; }
     
-    [Networked] private bool isTurnedOn { get; set; }
+    [Networked, SerializeField] private bool isTurnedOn { get; set; }
 
     public UnityEvent StartCooking;
     public UnityEvent StoppedCooking;
@@ -89,10 +89,13 @@ public class S_Cooker : NetworkBehaviour, IToggle
         
     }
 
-    void Update()
+    public override void FixedUpdateNetwork()
     {
+        base.FixedUpdateNetwork();
         if (!isTurnedOn) {return;}
-        
+
+        cookTimer.UpdateTimer(timer);
+
         switch (state)
         {
             case CookerState.Available:
@@ -100,7 +103,7 @@ public class S_Cooker : NetworkBehaviour, IToggle
             case CookerState.Cooking:
                 if (isLocal)
                 {
-                    timer += Time.deltaTime;
+                    timer += Time.fixedDeltaTime;
                     
                     if (cookerType == CookerType.Oven)
                     {
@@ -111,74 +114,89 @@ public class S_Cooker : NetworkBehaviour, IToggle
             case CookerState.Finished:
                 break;
         }
-        cookTimer.UpdateTimer(timer);
-
     }
     
     private void AddFood(SelectEnterEventArgs args)
     {
-        if (!isLocal) { return; }
         // Add food from food list
         if (args.interactableObject.transform.TryGetComponent(out S_Food food)) {
-            _foodCooking.Add(food.GetFoodType());
-            _foodScripts.Add(food);
-            // When the first ingredient is added start the cooker if possible
-            if (_foodCooking.Count == 1)
-            {
-                InteractWithCooker();
-            }
-            else if (_foodCooking.Count > 1)
-            {
-                AddTime();
-            }
+            RPC_AddFood(food);
+        }
+    }
+    private void RemoveFood(SelectExitEventArgs args)
+    {
+        // Remove food from food list
+        if (args.interactableObject.transform.TryGetComponent(out S_Food food))
+        {
+            RPC_RemoveFood(food);
         }
     }
 
-    private void RemoveFood(SelectExitEventArgs args)
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    void RPC_AddFood(S_Food food)
     {
-        if (!isLocal) { return; }
-        // Remove food from food list
-        if (args.interactableObject.transform.TryGetComponent(out S_Food food)){
-            _foodCooking.Remove(food.GetFoodType());
-            _foodScripts.Remove(food);
+        Debug.Log("[Cooker] add " + food + " to " + name);
+
+        _foodCooking.Add(food.GetFoodType());
+        _foodScripts.Add(food);
+        // When the first ingredient is added start the cooker if possible
+        if (_foodCooking.Count == 1)
+        {
+            RPC_InteractWithCooker();
+        }
+        else if (_foodCooking.Count > 1)
+        {
+            AddTime();
         }
     }
-    
+
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    void RPC_RemoveFood(S_Food food)
+    {
+        Debug.Log("[Cooker] remove " + food + " from " + name);
+
+        _foodCooking.Remove(food.GetFoodType());
+        _foodScripts.Remove(food);
+    }
+
     private void RemoveSocket(SelectExitEventArgs arg0)
     {
         dishSocket.socketActive = false;
     }
 
-    public void InteractWithCooker()
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    public void RPC_InteractWithCooker()
     {
         if (!isTurnedOn) {return;}
-        print("Interacting with Cooker " + name);
+        print("[Cooker] Interacting with " + name);
+
         // Activate Cooker and start timer
         if (state == CookerState.Available && isAbleToStartCooking)
         {
-            timer = 0.0f;
-            cookTimer.TimerToggle(true);
+            print("[Cooker] Activate " + name);
+
             // Turn off colliders so they can't be picked up while cooking
             foreach (var foodScript in _foodScripts)
             {
                 foodScript.ToggleColliders();
             }
 
-            RPC_SetCookerState(CookerState.Cooking);
+            SetCookerState(CookerState.Cooking);
         }
         // Stop Cooker and empty food items inside
         else if (state == CookerState.Cooking)
         {
             _currentDishStatus = SpawnDish();
-            cookTimer.TimerToggle(false);
 
-            RPC_SetCookerState(CookerState.Available);
+            SetCookerState(CookerState.Available);
         }
     }
 
     // Spawns the dish in the dish sockets and returns the dish if it needs to change
     private S_DishStatus SpawnDish()
     {
+        print("[Cooker] Spawn Dish");
+
         Dish dish = GetDish();
         Debug.Log(dish);
         if (!dish.resultPrefab.TryGetComponent(out NetworkObject dishToSpawn))
@@ -189,7 +207,7 @@ public class S_Cooker : NetworkBehaviour, IToggle
 
         DishStatus dishStatus = CheckDishStatus();
 
-        CleanCooker();
+        RPC_CleanCooker();
         
         dishSocket.socketActive = true;
 
@@ -235,9 +253,11 @@ public class S_Cooker : NetworkBehaviour, IToggle
         return dishInfo;
     }
 
-    
-    private void CleanCooker()  // Moves items in cooker under the stage. possible to use object pooling.
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    private void RPC_CleanCooker()  // Moves items in cooker under the stage. possible to use object pooling.
     {
+        Debug.Log("[Cooker] Clean");
+
         S_Food[] foodList = _foodScripts.ToArray();
         foreach (var foodScript in foodList)
         {
@@ -247,6 +267,35 @@ public class S_Cooker : NetworkBehaviour, IToggle
         }
 
         _foodScripts.Clear();
+    }
+
+    void SetCookerState(CookerState state)
+    {
+        Debug.Log("[Cooker] " + state);
+        this.state = state;
+
+        RPC_OnUpdateCookerState(state);
+    }
+
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    void RPC_OnUpdateCookerState(CookerState state)
+    {
+        switch (this.state)
+        {
+            case CookerState.Available:
+                {
+                    timer = 0.0f;
+                    cookTimer.TimerToggle(true);
+                    StoppedCooking?.Invoke();
+                    break;
+                }
+            case CookerState.Cooking:
+                {
+                    cookTimer.TimerToggle(false);
+                    StartCooking?.Invoke();
+                    break;
+                }
+        }
     }
 
     #region OvenSpecifics
@@ -310,7 +359,7 @@ public class S_Cooker : NetworkBehaviour, IToggle
             
             dishSocket.socketActive = false;
             
-            RPC_SetCookerState(CookerState.Available);
+            SetCookerState(CookerState.Available);
         }
     }
     #endregion
@@ -325,7 +374,7 @@ public class S_Cooker : NetworkBehaviour, IToggle
         
         if (_foodCooking.Count > 0)
         {
-            InteractWithCooker();
+            RPC_InteractWithCooker();
         }
     }
     public void CantCook()
@@ -361,27 +410,6 @@ public class S_Cooker : NetworkBehaviour, IToggle
     }
 
     #endregion
-    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
-    void RPC_SetCookerState(CookerState state)
-    {
-        Debug.Log("[Cooker] " + state);
-        this.state = state;
-
-        switch (this.state)
-        {
-            case CookerState.Cooking:
-                {
-                    StartCooking?.Invoke();
-                    break;
-                }
-            case CookerState.Available:
-                {
-                    StoppedCooking?.Invoke();
-                    break;
-                }
-        }
-
-    }
     
     public void SetApplicationActive(bool toggle)
     {

@@ -12,7 +12,7 @@ public enum DishStatus
     Burnt,
 }
 
-public class S_DishStatus : MonoBehaviour
+public class S_DishStatus : NetworkBehaviour
 {
     /// <summary>
     /// Status to see how cooked the dish is
